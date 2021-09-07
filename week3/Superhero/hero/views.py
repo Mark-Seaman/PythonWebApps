@@ -17,8 +17,22 @@ class HulkView(TemplateView):
 
 
 class IronManView(TemplateView):
-    template_name = "iron_man.html"
+    template_name = "hero.html"
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Iron Man',
+            'body': 'My name is Tony Stark, but I am Iron Man',
+            'image': '/static/images/iron_man.jpg'
+        }
 
 
 class BlackWidow(TemplateView):
-    template_name = 'black_widow.html'
+    template_name = 'hero.html'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Black Widow',
+            'body': 'My name is Natasha Romanova',
+            'image': '/static/images/black_widow.jpg'
+        }
