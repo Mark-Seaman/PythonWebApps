@@ -25,7 +25,7 @@ SECRET_KEY = '&70fvzne13tdb01i@(v@&hsly4l+^$dad1sz8+5-1y!y)9@+b7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['markseaman.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['markseaman.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -80,6 +80,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
 # Password validation
