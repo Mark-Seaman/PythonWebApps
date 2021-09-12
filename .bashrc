@@ -8,6 +8,8 @@ alias pull='git pull'
 
 alias dj='python manage.py'
 
+alias u='d ..'
+
 function d {
     cd $1 && l
 }
