@@ -16,4 +16,4 @@ export p=~/BACS350/week4/Superhero
 
 cd $p
 
-l
+ls -al
