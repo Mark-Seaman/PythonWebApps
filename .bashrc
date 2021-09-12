@@ -19,3 +19,6 @@ export p=~/BACS350/week4/Superhero
 cd $p
 
 ls -al
+
+echo "Activate environment .venv"
+workon .venv
