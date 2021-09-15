@@ -8,7 +8,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "/Users/seaman/Github/BACS350/week2/Hello/manage.py",
+            "program": "/Users/seaman/Github/BACS350/week4/Superhero/manage.py",
             "args": [
                 "runserver"
             ],
