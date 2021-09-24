@@ -11,7 +11,15 @@
         {{ book.title }} by {{ book.author }} -
         <a href="{{ book.pk }}">{{ book.title }}</a>
     </li>
+    <!-- <li>
+        <a href="{{ book.pk }}" /edit>{{ book.title }}</a>
+    </li> -->
     {% endfor %}
 </ul>
+
+<p>
+    <a href="/admin/">Modify Database with Admin Views</a>
+    <a href="/new">Add New Book</a>
+</p>
 
 {% endblock content %}
