@@ -14,11 +14,8 @@ function d {
     cd $1 && l
 }
 
-export p=~/BACS350/week4/Superhero
+export p=~/BACS350/week6/BookBuilder
 
 cd $p
 
 ls -al
-
-echo "Activate environment .venv"
-workon .venv
