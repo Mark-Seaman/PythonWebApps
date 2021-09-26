@@ -1,12 +1,16 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.views.generic import TemplateView
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
 from .models import Book
 
 
-class BookView(ListView):
+class BookView(RedirectView):
+    url = '/book/'
+
+
+class BookListView(ListView):
     template_name = 'book_list.html'
     model = Book
 
@@ -14,3 +18,21 @@ class BookView(ListView):
 class BookDetailView(DetailView):
     template_name = 'book_detail.html'
     model = Book
+
+
+class BookCreateView(LoginRequiredMixin, CreateView):
+    template_name = "book_add.html"
+    model = Book
+    fields = ['title', 'author']
+
+
+class BookUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "book_edit.html"
+    model = Book
+    fields = ['title', 'author']
+
+
+class BookDeleteView(DeleteView):
+    model = Book
+    template_name = 'book_delete.html'
+    success_url = reverse_lazy('book_list')
