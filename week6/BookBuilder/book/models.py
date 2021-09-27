@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import reverse
+from django.urls.base import reverse_lazy
 
 
 class Book(models.Model):
@@ -10,4 +10,4 @@ class Book(models.Model):
         return f'{self.title} by {self.author}'
 
     def get_absolute_url(self):
-        return reverse('book_detail', args=[str(self.id)])
+        return reverse_lazy('book_detail', args=[str(self.id)])
