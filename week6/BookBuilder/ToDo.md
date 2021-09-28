@@ -3,13 +3,7 @@
 ## To Do
 
 ### Test
-* Manual Test Script
-    * Home   /
-    * List   /book/
-    * Detail /book/1  /book/2
-    * Edit   /book/1/  /book/2/
-    * Add    /book/add
-    * Delete /book/2/delete
+
 * Setup Django test
 * Define CRUD test
     * Num objects
@@ -42,4 +36,11 @@
 * Launch pad for django test
 * Setup book_theme.html
 * Add stylesheet
-
+* Manual Test Script
+    * Home   /
+    * List   /book/
+    * Detail /book/1  /book/2
+    * Edit   /book/1/  /book/2/
+    * Add    /book/add
+    * Delete /book/2/delete
+    * Admin Views
