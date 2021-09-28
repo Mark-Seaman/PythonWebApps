@@ -11,9 +11,9 @@
         {{ book.title }} by {{ book.author }} -
         <a href="{{ book.pk }}">{{ book.title }}</a>
     </li>
-    <!-- <li>
-        <a href="{{ book.pk }}" /edit>{{ book.title }}</a>
-    </li> -->
+    <li>
+        <a href="{{ book.pk }}/">Edit</a>
+    </li>
     {% endfor %}
 </ul>
 
