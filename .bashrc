@@ -6,7 +6,7 @@ alias s='git status'
 
 alias pull='git pull'
 
-alias dj='python manage.py'
+alias pm='python manage.py'
 
 alias u='d ..'
 
