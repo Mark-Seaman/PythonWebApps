@@ -5,21 +5,37 @@
 ### Test
 
 * Setup Django test
-* Define CRUD test
+* Define Book CRUD test
     * Num objects
     * Add object
     * Lookup object
     * Modify object
 * Define Data Views test
+    * Home
+    * List
+    * Detail
+    * Create
+    * Delete
+* 10 tests  (test code = product code)
 
 
 ### Fix
+* 
 
-### New Features
+
+### Extend
+* Add new fields to Book data model
+
 
 ### Improvements
+* Setup and Teardown in Tests
+* Reusable Design Patterns
+    * CRUD operations
+    * Data Views
+    * CRUD Test
+    * Data Views Test
 
-
+---
 
 ## Done  (Week 6)
 

@@ -5,12 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Django",
+            "name": "Django Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true
+        },
+        {
+            "name": "Django Test",
             "type": "python",
             "request": "launch",
             "program": "/Users/seaman/Github/BACS350/week6/BookBuilder/manage.py",
             "args": [
-                "runserver"
+                "test"
             ],
             "django": true
         }
