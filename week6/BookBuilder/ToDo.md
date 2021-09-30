@@ -10,12 +10,14 @@
     * Add object
     * Lookup object
     * Modify object
+    * String representation
 * Define Data Views test
-    * Home
+    * Home redirect
     * List
     * Detail
     * Create
     * Delete
+    * URL for view
 * 10 tests  (test code = product code)
 
 
