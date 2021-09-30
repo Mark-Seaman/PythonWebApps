@@ -5,7 +5,7 @@ from django.urls import reverse
 from .models import Book
 
 
-class BookTest(TestCase):
+class BookCRUDTest(TestCase):
 
     def test_django(self):
         self.assertTrue
@@ -41,10 +41,10 @@ class BookTest(TestCase):
     def test_string_representation(self):
         book = Book.objects.create(title='Iliad', author='Homer')
         self.assertEqual(
-            str(book), 'Iliad by Homer')
+            str(book), '1 - Iliad by Homer')
 
 
-class BookViewsTests(TestCase):
+class BookViewsTest(TestCase):
 
     def test_home(self):
         response = self.client.get('/')
@@ -55,9 +55,13 @@ class BookViewsTests(TestCase):
         self.assertEqual(book.get_absolute_url(), '/book/1')
 
     def test_book_list_view(self):
-        book = Book.objects.create(title='Iliad', author='Homer')
         response = self.client.get(reverse('book_list'))
         self.assertEqual(response.status_code, 200)
+
+    def test_book_list_view(self):
+        response = self.client.get('/book/')
+        self.assertTemplateUsed(response, 'book_list.html')
+        self.assertTemplateUsed(response, 'book_theme.html')
 
 
 #from django.contrib.auth import get_user_model

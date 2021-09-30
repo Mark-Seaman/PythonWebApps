@@ -7,7 +7,7 @@ class Book(models.Model):
     author = models.CharField(max_length=200)
 
     def __str__(self):
-        return f'{self.title} by {self.author}'
+        return f'{self.pk} - {self.title} by {self.author}'
 
     def get_absolute_url(self):
         return reverse_lazy('book_detail', args=[str(self.id)])

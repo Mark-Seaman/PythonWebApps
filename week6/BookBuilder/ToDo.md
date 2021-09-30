@@ -3,31 +3,13 @@
 ## To Do
 
 ### Test
-
-* Setup Django test
-* Define Book CRUD test
-    * Num objects
-    * Add object
-    * Lookup object
-    * Modify object
-    * String representation
-* Define Data Views test
-    * Home redirect
-    * List
-    * Detail
-    * Create
-    * Delete
-    * URL for view
-* 10 tests  (test code = product code)
-
+*
 
 ### Fix
 * 
 
-
 ### Extend
 * Add new fields to Book data model
-
 
 ### Improvements
 * Setup and Teardown in Tests
@@ -62,3 +44,18 @@
     * Add    /book/add
     * Delete /book/2/delete
     * Admin Views
+* Setup Django test
+* Define Book CRUD test
+    * Num objects
+    * Add object
+    * Lookup object
+    * Modify object
+    * String representation
+* Define Data Views test
+    * Home redirect
+    * List
+    * Detail
+    * Create
+    * Delete
+    * URL for view
+* 10 tests  (test code = product code)
