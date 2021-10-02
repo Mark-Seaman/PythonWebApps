@@ -5,6 +5,7 @@ alias l='ls -al'
 alias s='git status'
 
 alias pull='git pull'
+alias push='git pull && git push'
 
 alias pm='python manage.py'
 alias serve='pm runserver'
