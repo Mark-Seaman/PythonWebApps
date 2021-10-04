@@ -23,16 +23,19 @@ class BookCRUDTest(TestCase):
         b = Book.objects.get(pk=1)
         self.assertEqual(b.title, 'Iliad')
         self.assertEqual(b.author, 'Homer')
+        self.assertEqual(b.description, 'None')
 
     def test_book_edit(self):
         Book.objects.create(title='Iliad', author='Homer')
         b = Book.objects.get(pk=1)
         b.author = 'Mark Seaman'
+        b.description = 'No description'
         b.save()
         self.assertEqual(b.title, 'Iliad')
         self.assertEqual(b.author, 'Mark Seaman')
+        self.assertEqual(b.description, 'No description')
 
-    def test_book_edit(self):
+    def test_book_delete(self):
         Book.objects.create(title='Iliad', author='Homer')
         b = Book.objects.get(pk=1)
         b.delete()
@@ -62,3 +65,6 @@ class BookViewsTest(TestCase):
         response = self.client.get('/book/')
         self.assertTemplateUsed(response, 'book_list.html')
         self.assertTemplateUsed(response, 'book_theme.html')
+
+    # TODO:
+    # Test edit, detail, delete views

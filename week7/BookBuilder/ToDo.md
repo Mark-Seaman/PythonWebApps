@@ -3,13 +3,15 @@
 ## To Do
 
 ### Test
-*
+* 
 
 ### Fix
 * 
 
 ### Extend
 * Add new fields to Book data model
+    * description
+* Extend views to show all fields
 
 ### Improvements
 * Setup and Teardown in Tests
@@ -59,3 +61,5 @@
     * Delete
     * URL for view
 * 10 tests  (test code = product code)
+* Improved CRUD Test
+* Improved Views Test
