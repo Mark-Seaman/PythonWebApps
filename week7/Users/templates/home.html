@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>User Authentication Demo</title>
+    <link href="/static/css/style.css" rel="stylesheet" s>
+</head>
+
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">Home Page</a></h1>
+
+        {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}!</p>
+        <p><a href="{% url 'logout' %}">Log out</a></p>
+        {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+</body>
+
+</html>
