@@ -49,22 +49,51 @@ class BookCRUDTest(TestCase):
 
 class BookViewsTest(TestCase):
 
+    def setUp(self):
+        self.book = Book.objects.create(title='Iliad', author='Homer')
+
     def test_home(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 302)
 
     def test_get_absolute_url(self):
-        book = Book.objects.create(title='Iliad', author='Homer')
-        self.assertEqual(book.get_absolute_url(), '/book/1')
+        self.assertEqual(self.book.get_absolute_url(), '/book/1')
 
     def test_book_list_view(self):
-        response = self.client.get(reverse('book_list'))
-        self.assertEqual(response.status_code, 200)
-
-    def test_book_list_view(self):
+        self.assertEqual(reverse('book_list'), '/book/')
         response = self.client.get('/book/')
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'book_list.html')
         self.assertTemplateUsed(response, 'book_theme.html')
+        self.assertContains(response, '<td>', count=4)
 
-    # TODO:
-    # Test edit, detail, delete views
+    def test_book_detail_view(self):
+        self.assertEqual(reverse('book_detail', args='2'), '/book/2')
+        response = self.client.get('/book/1')
+        self.assertEqual(response.status_code, 200)
+
+    def test_book_add_view(self):
+        self.assertEqual(reverse('book_add'), '/book/add')
+        response = self.client.get('/book/add')
+        self.assertEqual(response.status_code, 200)
+        content = dict(title='Life at Home', author='Darth Vadar')
+        response = self.client.post('/book/add', content)
+        response = self.client.get('/book/')
+        self.assertContains(response, '<td>', count=8)
+
+    def test_book_edit_view(self):
+        self.assertEqual(reverse('book_edit', args='2'), '/book/2/')
+        response = self.client.get('/book/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Homer')
+        contents = dict(title='Life at Home', author='Darth Vadar')
+        response = self.client.post('/book/1/', contents)
+        book = Book.objects.get(pk=1)
+        self.assertEqual(book.author, 'Darth Vadar')
+
+    def test_book_delete_view(self):
+        self.assertEqual(reverse('book_delete', args='2'), '/book/2/delete')
+        response = self.client.get('/book/1/delete')
+        self.assertEqual(response.status_code, 200)
+        response = self.client.post('/book/1/delete')
+        self.assertEqual(len(Book.objects.all()), 0)
