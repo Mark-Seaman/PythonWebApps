@@ -14,6 +14,7 @@
 * Extend views to show all fields
 
 ### Improvements
+* Move urls into book/urls.py
 * Setup and Teardown in Tests
 * Reusable Design Patterns
     * CRUD operations

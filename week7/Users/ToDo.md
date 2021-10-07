@@ -10,11 +10,27 @@
 ## Fix
 
 ## Extend
-* User page theme
-* Login
-* Logout
-* Signup
+* Build standard views for Accounts
+    * List
+    * Detail 
+    * Add
+    * Edit
+    * Delete
 
 
 ## Improve
 * Save for next session
+
+
+---
+
+# Task Done
+
+* Create auth views and logic
+    * Login
+    * Logout
+    * Signup
+    * User Status
+* Create tests for Auth Views
+
+

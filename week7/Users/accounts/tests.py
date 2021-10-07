@@ -4,9 +4,7 @@ from django.contrib.auth import get_user_model
 
 
 def create_test_user():
-    return get_user_model().objects.create_user(
-        username='TEST_DUDE', email='me@here.com', password='secret',
-        first_name='Testy', last_name='Sensei')
+    return get_user_model().objects.create_user(username='TEST_DUDE', email='me@here.com', password='secret', first_name='Testy', last_name='Sensei')
 
 
 class TestAccountsData(TestCase):

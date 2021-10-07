@@ -1,4 +1,4 @@
-{% extends 'theme.html' %}
+{% extends 'account_theme.html' %}
 
 {% block content%}
 
@@ -6,7 +6,7 @@
 
 <form action="" method="post">{% csrf_token %}
 
-    {{ form }}
+    {{ form.as_p }}
 
     <button class="btn btn-success mt-5" type="submit">Save Record</button>
 </form>
