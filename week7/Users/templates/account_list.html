@@ -2,15 +2,16 @@
 
 
 {% block content %}
+<div class="container bg-light text-dark m-3 p-3">
 
-<h1>List of User Accounts</h1>
+    <h1>List of User Accounts</h1>
 
-<div class="container bg-light text-dark p-3">
-    <table class="table table-hover">
-        <tr>
+    <table class="table table-hover  p-3 m-5">
+        <tr class="bg-success text-light">
             <th>Name</th>
             <th>Email</th>
             <th>Edit</th>
+            <th></th>
         </tr>
         {% for account in object_list %}
         <tr>
@@ -21,12 +22,15 @@
         </tr>
         {% endfor %}
     </table>
+
+
+    <p>
+        <a href="/admin/" class="btn btn-success m-5">Modify Database with Admin Views</a>
+        <a href="{% url 'account_add' %}" class="btn btn-success m-5">Add User Account</a>
+    </p>
+
 </div>
 
 
-<p>
-    <a href="/admin/" class="btn btn-success m-5">Modify Database with Admin Views</a>
-    <a href="{% url 'account_add' %}" class="btn btn-success m-5">Add User Account</a>
-</p>
 
 {% endblock content %}
