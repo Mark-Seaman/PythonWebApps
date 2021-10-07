@@ -1,0 +1,15 @@
+{% extends 'theme.html' %}
+
+{% block content%}
+
+<h1>Edit Account</h1>
+
+<form action="" method="post">{% csrf_token %}
+
+    {{ form }}
+
+    <button class="btn btn-success mt-5" type="submit">Save Record</button>
+</form>
+</div>
+
+{% endblock content%}
