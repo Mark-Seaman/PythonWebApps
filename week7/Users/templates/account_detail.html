@@ -1,0 +1,14 @@
+{% extends 'account_theme.html' %}
+
+{% block content %}
+
+<h1>Book Details</h1>
+<ul>
+    <li>Name: {{ object.first_name }} {{ object.last_name }}</li>
+    <li>User Name: {{ object.username }}</li>
+    <li>Email: {{ object.email }}</li>
+</ul>
+
+<a href="{% url 'account_list' %}" class="btn btn-success m-5">Account List</a>
+
+{% endblock content %}
