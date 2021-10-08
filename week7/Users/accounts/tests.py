@@ -27,8 +27,12 @@ class TestAccountsViews(TestCase):
 
     def test_home_view(self):
         response = self.client.get('/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, 'accounts/')
+
+        response = self.client.get('/accounts/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'theme.html')
+        self.assertTemplateUsed(response, 'account_theme.html')
 
     def test_login_view(self):
         response = self.client.get('/accounts/login')
@@ -37,7 +41,7 @@ class TestAccountsViews(TestCase):
 
         response = self.client.get('/accounts/login/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'theme.html')
+        self.assertTemplateUsed(response, 'account_theme.html')
 
     def test_logout_view(self):
         response = self.client.get('/accounts/logout/')
@@ -45,10 +49,10 @@ class TestAccountsViews(TestCase):
         self.assertEqual(response.url, '/')
 
     def test_signup_view(self):
-        response = self.client.get('/signup')
+        response = self.client.get('/accounts/signup')
         self.assertEqual(response.status_code, 301)
-        self.assertEqual(response.url, '/signup/')
+        self.assertEqual(response.url, '/accounts/signup/')
 
-        response = self.client.get('/signup/')
+        response = self.client.get('/accounts/signup/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'theme.html')
+        self.assertTemplateUsed(response, 'account_theme.html')
