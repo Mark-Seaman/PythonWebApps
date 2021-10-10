@@ -23,12 +23,12 @@ alias migrate='pm makemigrations && pm migrate'
 x=~/BACS350             && [ -d $x ] &&  p=$x
 x=~/Github/BACS350      && [ -d $x ] &&  p=$x
 x=~/Documents/BACS350   && [ -d $x ] &&  p=$x
-export p=$x
+export p=$p
 
 
 # Go to Project Directory
 echo "Home Directory = $p"
-cd $p/week7/Users
+cd $p/week8/Lessons
 
 git pull
 
