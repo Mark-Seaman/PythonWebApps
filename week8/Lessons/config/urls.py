@@ -8,5 +8,6 @@ class PageView(TemplateView):
 
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name="index.html")),
     path('<str:page>', PageView.as_view()),
 ]
