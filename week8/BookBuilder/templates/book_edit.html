@@ -1,15 +1,22 @@
-{% extends 'book_theme.html' %}
+{% extends 'theme.html' %}
+
+
+
+{% load crispy_forms_tags %}
+
+
 
 {% block content%}
 
-<h1>Edit Book</h1>
+<div class="container">
+    <h1>Edit Book</h1>
 
-<form action="" method="post">{% csrf_token %}
+    <form action="" method="post">{% csrf_token %}
 
-    {{ form }}
+        {{ form|crispy }}
 
-    <button class="btn btn-success mt-5" type="submit">Save Record</button>
-</form>
+        <button class="btn btn-success mt-5" type="submit">Save Record</button>
+    </form>
 </div>
 
 {% endblock content%}

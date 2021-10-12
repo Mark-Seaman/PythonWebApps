@@ -1,4 +1,6 @@
 
+from django.views.generic import RedirectView
+from django.urls.conf import include, include
 from django.contrib import admin
 from django.urls import path
 
@@ -8,6 +10,8 @@ urlpatterns = [
 
     # Admin
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls')),
 
     # Book Views
     path('', BookView.as_view()),
