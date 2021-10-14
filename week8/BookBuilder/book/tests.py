@@ -64,7 +64,7 @@ class BookViewsTest(TestCase):
         response = self.client.get('/book/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'book_list.html')
-        self.assertTemplateUsed(response, 'book_theme.html')
+        self.assertTemplateUsed(response, 'theme.html')
         self.assertContains(response, '<td>', count=4)
 
     def test_book_detail_view(self):
