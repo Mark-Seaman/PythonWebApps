@@ -30,17 +30,17 @@ class AccountCreateView(LoginRequiredMixin, CreateView):
     template_name = "account_add.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('account_list')
 
 
 class AccountUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "account_edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('account_list')
 
 
 class AccountDeleteView(LoginRequiredMixin, DeleteView):
     model = User
     template_name = 'account_delete.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('account_list')

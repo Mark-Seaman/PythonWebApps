@@ -10,6 +10,7 @@
 
 ### Fix
 * Security on edit operations
+* Use Crispy forms on Account pages
 
 ### Extend
 * Start project and copy code
@@ -24,4 +25,4 @@
 * Setup and Teardown in Tests
 * Design for Data (Book, Chapter)
 * Refactor and simplify
-* 
+* Simplify templates (with _edit.html)

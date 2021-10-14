@@ -2,13 +2,23 @@
 
 {% block content %}
 
-<h1>Book Details</h1>
-<ul>
-    <li>Name: {{ object.first_name }} {{ object.last_name }}</li>
-    <li>User Name: {{ object.username }}</li>
-    <li>Email: {{ object.email }}</li>
-</ul>
+<div class="container-fluid m-5 text-center">
 
-<a href="{% url 'account_list' %}" class="btn btn-success m-5">Account List</a>
+    <h1 class="text-primary">Account Details</h1>
+
+    <div class="card">
+        <div class="card-body text-left">
+            <p>Name:</p>
+            <p><b>{{ object.first_name }} {{ object.last_name }}</b></p>
+            <p>User Name:</p>
+            <p><b>{{ object.username }}</b></p>
+            <p>Email: </p>
+            <p><b>{{ object.email }}</b></p>
+        </div>
+    </div>
+
+    <a href="{% url 'account_list' %}" class="btn btn-success m-5">Account List</a>
+
+</div>
 
 {% endblock content %}

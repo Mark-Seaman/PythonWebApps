@@ -1,15 +1,15 @@
 {% extends 'theme.html' %}
 
+
+
 {% block content %}
 
-<h1>Add New Account</h1>
+<div class="container-fluid m-5 text-center">
 
-<form action="" method="post">{% csrf_token %}
+    <h1 class="text-primary">Add New Account</h1>
 
-    {{ form.as_p }}
+    {% include '_edit.html' %}
 
-    <button class="btn btn-success mt-5" type="submit">Add Record</button>
-</form>
 </div>
 
 {% endblock content %}
