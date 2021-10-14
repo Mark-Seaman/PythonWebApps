@@ -72,4 +72,5 @@
 ## Done  - Week 9
 
 * Start project week9/BookBuilder
-* 
+* Improve and simplify templates
+

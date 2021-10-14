@@ -4,6 +4,9 @@
 
 ### Test
 * Setup django tests
+* Simplify django tests
+* Improve tests to add checks
+* Copy Book to make Chapters tests
 * Book and Chapter data
 * Book and Chapter views
 * Book and Chapter urls
