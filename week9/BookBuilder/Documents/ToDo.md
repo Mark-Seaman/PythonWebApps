@@ -3,22 +3,25 @@
 ## To Do
 
 ### Test
-* 
+* Setup django tests
+* Book and Chapter data
+* Book and Chapter views
+* Book and Chapter urls
 
 ### Fix
-* 
+* Security on edit operations
 
 ### Extend
-* Add new fields to Book data model
-    * description
-* Extend views to show all fields
+* Start project and copy code
+* Add user info to navbar
+* Build Book data and views
+* Build Chapter data and views
 
 ### Improvements
+* Consolidate theme
+* Remove old theme code
 * Move urls into book/urls.py
 * Setup and Teardown in Tests
-* Reusable Design Patterns
-    * CRUD operations
-    * Data Views
-    * CRUD Test
-    * Data Views Test
-
+* Design for Data (Book, Chapter)
+* Refactor and simplify
+* 

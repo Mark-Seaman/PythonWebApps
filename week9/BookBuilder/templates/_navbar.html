@@ -17,3 +17,42 @@
     </div>
 
 </nav>
+
+
+{% block menu %}
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="{% url 'home' %}">User Auth Home</a>
+
+        <ul class="navbar-nav text-light ml-auto">
+
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
+                Hello {{ user.username }} <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+            </li>
+
+            {% else %}
+
+            <li class="nav-item">
+                You are not logged in.
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+            </li>
+
+            {% endif %}
+
+        </ul>
+    </div>
+
+</nav>
+
+{% endblock menu %}

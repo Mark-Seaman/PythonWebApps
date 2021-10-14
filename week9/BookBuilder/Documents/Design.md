@@ -89,3 +89,13 @@ from django.contrib.auth.models import User
 * Edit
 * Delete
 
+---
+
+## Design Patterns
+
+Document Reusable Design Patterns
+
+* CRUD operations
+* Data Views
+* CRUD Test
+* Data Views Test
