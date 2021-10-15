@@ -2,6 +2,13 @@ from django.db import models
 from django.urls.base import reverse_lazy
 
 
+# --------------------
+# Book
+#
+# title - title of the book
+# author - name of author
+# description - summary of the book
+
 class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
@@ -14,19 +21,21 @@ class Book(models.Model):
         return reverse_lazy('book_detail', args=[str(self.id)])
 
 
+# --------------------
 # Chapter
+#
 # book - points to book object
 # order - chapter order
 # title - title text of chapter
 # markdown - markdown text
 # document - path to markdown file
 
-
 class Chapter(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     order = models.IntegerField()
     title = models.CharField(max_length=200)
-    markdown = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()
     document = models.CharField(max_length=200)
 
     def __str__(self):

@@ -79,7 +79,7 @@ class BookViewsTest(TestCase):
     def test_book_add_view(self):
 
         # Add without Login
-        book = dict(title='Star Wars', author='Darth Vadar')
+        book = dict(title='Star Wars', author='Darth Vadar', description='None')
         response = self.client.post(reverse('book_add'), book)
         self.assertEqual(response.url, '/accounts/login/?next=/book/add')
 
@@ -103,7 +103,7 @@ class BookViewsTest(TestCase):
 
         # Login to edit
         self.login()
-        book = dict(title='Oddessy', author='Homer')
+        book = dict(title='Oddessy', author='Homer', description='None')
         response = self.client.post('/book/1/', book)
 
         # Check the redirect

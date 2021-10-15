@@ -17,7 +17,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
     # Book
-    path('',  BookView.as_view(),  name='home'),
-    path('book/', include('book.urls')),
+    path('', include('book.urls')),
 
 ]

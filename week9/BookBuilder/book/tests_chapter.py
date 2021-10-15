@@ -24,6 +24,18 @@ class ChapterDataTest(TestCase):
         chapter.save()
         self.assertEqual(len(Chapter.objects.all()), 2)
 
+    def test_edit_chapter(self):
+        self.assertTrue(True)
+
+    def test_delete_chapter(self):
+        self.assertTrue(True)
+
+    def test_detail_chapter(self):
+        self.assertTrue(True)
+
+    def test_list_chapter(self):
+        self.assertTrue(True)
+
 
 class ChapterViewsTest(TestCase):
 
