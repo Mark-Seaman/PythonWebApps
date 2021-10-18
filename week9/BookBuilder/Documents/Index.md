@@ -21,3 +21,7 @@ All the work needed by a project can be organized around the software lifecycle.
 * [Code](Code)
 * [Test](Test)
 
+
+## Learning Projects
+* [Projects](Projects)
+
