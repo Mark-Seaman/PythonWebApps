@@ -19,4 +19,7 @@ urlpatterns = [
     # Book
     path('', include('book.urls')),
 
+    # Document
+    path('', include('doc.urls')),
+
 ]

@@ -1,3 +1,6 @@
-h1  {
-    color: green;
+pre {
+    background-color: #eee;
+    padding: 2em;
+    border: 1px solid #888;
+    border-left: 4px solid blue;
 }

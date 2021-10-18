@@ -35,7 +35,6 @@ Run Server and Browse
 
 Start with these tests for any new object model
 
-```python
     from django.test import TestCase
     from .models import Object
 
@@ -62,38 +61,35 @@ Start with these tests for any new object model
 
         def test_list_object(self):
             self.assertTrue(True)
-```
 
 
 ## Common Tests for Views
 
-```python
-class ObjectViewsTest(TestCase):
+    class ObjectViewsTest(TestCase):
 
-    def login(self):
-        args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
-        user = get_user_model().objects.create_user(**args)
-        response = self.client.login(username='TEST_DUDE', password='secret')
-        self.assertEqual(response, True)
+        def login(self):
+            args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
+            user = get_user_model().objects.create_user(**args)
+            response = self.client.login(username='TEST_DUDE', password='secret')
+            self.assertEqual(response, True)
 
-    def setUp(self):
-        self.object = Object.objects.create(title='Object Title')
+        def setUp(self):
+            self.object = Object.objects.create(title='Object Title')
 
-    def test_object_list_view(self):
-        self.assertTrue(True)
+        def test_object_list_view(self):
+            self.assertTrue(True)
 
-    def test_object_detail_view(self):
-        self.assertTrue(True)
+        def test_object_detail_view(self):
+            self.assertTrue(True)
 
-    def test_object_add_view(self):
-        self.assertTrue(True)
+        def test_object_add_view(self):
+            self.assertTrue(True)
 
-    def test_object_edit_view(self):
-        self.assertTrue(True)
+        def test_object_edit_view(self):
+            self.assertTrue(True)
 
-    def test_object_delete_view(self):
-        self.assertTrue(True)
-```
+        def test_object_delete_view(self):
+            self.assertTrue(True)
 
 ---
 

@@ -5,12 +5,9 @@ from django.contrib import admin
 from django.urls import path
 
 from .views import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
-from .views import DocumentView
+
 
 urlpatterns = [
-
-    # Document
-    path('doc',                     DocumentView.as_view(),    name='document'),
 
     # Book
     path('',                        BookView.as_view(),        name='home'),

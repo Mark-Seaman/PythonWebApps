@@ -37,10 +37,3 @@ class BookDeleteView(LoginRequiredMixin, DeleteView):
     model = Book
     template_name = 'book_delete.html'
     success_url = reverse_lazy('book_list')
-
-
-class DocumentView(TemplateView):
-    template_name = 'document.html'
-
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)

@@ -11,13 +11,14 @@
             <li class="nav-item">
                 <a class="nav-link text-light" href="{% url 'book_add' %}">Add Book</a>
             </li>
-            <!-- </ul>
 
-        <ul class="navbar-nav text-light ml-auto"></ul> -->
             {% if user.is_authenticated %}
 
             <li class="nav-item">
-                Hello {{ user.username }} <a class="nav-link  text-light " href="{% url 'logout' %}">Log out</a>
+                <a class="nav-link  text-light " href="{% url 'logout' %}">Hello {{ user.username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  text-light " href="{% url 'logout' %}">Log out</a>
             </li>
 
             {% else %}

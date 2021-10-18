@@ -20,10 +20,11 @@ My approach to the coding phase is simply to have a To Do List that is the plan
 for what must be done next.  
 
 Activities must be balanced between different mindsets for the remaining work
-    * Test
-    * Fix
-    * Extend
-    * Improve
+
+* Test
+* Fix
+* Extend
+* Improve
 
 The [Shrinking World Software Planner](ToDo)
 encapsulates these ideas into a very simple plan.  This plan is updated
