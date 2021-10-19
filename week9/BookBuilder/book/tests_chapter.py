@@ -2,7 +2,7 @@ from book.models import Book
 from django.test import TestCase
 from django.urls import reverse
 
-from table.table import import_chapters
+from .book import export_chapters, import_chapters
 
 from .models import Chapter
 
@@ -43,6 +43,16 @@ class ChapterDataTest(TestCase):
         # self.assertEqual(len(Chapter.objects.all()), 1)
         book = Book.objects.get_or_create(title="The Leverage Principle", author='Mark Seaman')[0]
         import_chapters(book)
+        self.assertEqual(len(Chapter.objects.all()), 15)
+
+    def test_chapter_import_export(self):
+        book = Book.objects.get_or_create(title="The Leverage Principle",
+                                          author='Mark Seaman',
+                                          doc_path='Documents/Leverage')[0]
+        first = import_chapters(book)
+        export_chapters(book)
+        second = import_chapters(book)
+        self.assertEqual(second, first)
         self.assertEqual(len(Chapter.objects.all()), 15)
 
         # chapters = Chapter.objects.all()
