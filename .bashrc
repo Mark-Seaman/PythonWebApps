@@ -16,6 +16,7 @@ alias push='git pull && git push'
 alias pm='python manage.py'
 alias serve='pm runserver'
 alias dt='pm test'
+alias qt='pm quick_test'
 alias migrate='pm makemigrations && pm migrate'
 
 
