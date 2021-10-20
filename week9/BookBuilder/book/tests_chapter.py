@@ -40,7 +40,8 @@ class ChapterDataTest(TestCase):
 
     def test_chapter_import(self):
         import_chapters(self.book)
-        # self.assertEqual(len(Chapter.objects.all()), 1)
+        self.assertEqual(len(Chapter.objects.all()), 1)
+
         book = Book.objects.get_or_create(title="The Leverage Principle", author='Mark Seaman')[0]
         import_chapters(book)
         self.assertEqual(len(Chapter.objects.all()), 15)

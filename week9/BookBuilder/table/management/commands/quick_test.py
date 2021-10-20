@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, no_translations
 
 # from table.table import read_csv_file
 from book.models import Chapter
-from table.table import export_chapters, import_chapters
+from book.book import export_chapters, import_chapters
 from book.models import Book
 
 
@@ -24,8 +24,8 @@ class Command(BaseCommand):
         book.save()
 
         import_chapters(book)
-        chapters = Chapter.objects.all()
-        for c in chapters:
-            print(c.export_record())
+        # chapters = Chapter.objects.all()
+        # for c in chapters:
+        #     print(c.export_record())
 
         export_chapters(book)
