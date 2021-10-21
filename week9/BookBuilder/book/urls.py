@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.urls import path
 
 from .views_book import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
+from .views_chapter import ChapterDeleteView, ChapterDetailView, ChapterListView, ChapterCreateView, ChapterUpdateView
 
 
 urlpatterns = [

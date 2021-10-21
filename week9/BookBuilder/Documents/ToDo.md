@@ -6,7 +6,7 @@ Shrinking World Lightweigth Planner
 ## To Do
 
 ### Test
-* Chapter views
+* Test Chapter views
 
 
 ### Fix
@@ -15,8 +15,10 @@ Shrinking World Lightweigth Planner
 
 ### Extend
 * Build Chapter views (urls, templates, views, tests)
+* Select Chapters in book
 
 
 ### Improvements
 * Simplify
+* Update Plan to match progress
 
