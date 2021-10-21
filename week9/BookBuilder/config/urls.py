@@ -4,7 +4,7 @@ from django.urls.conf import include, include
 from django.contrib import admin
 from django.urls import path
 
-from book.views import BookView
+from book.views_book import BookView
 
 
 urlpatterns = [

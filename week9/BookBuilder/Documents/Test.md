@@ -14,6 +14,10 @@ Run Server and Browse
 * Add
 * Edit
 * Delete
+* Login
+* Logout
+* Signup
+* Status
 
 
 ## Book
@@ -24,6 +28,14 @@ Run Server and Browse
 * Edit
 * Delete
 
+
+## Chapter
+
+* List
+* Detail
+* Add
+* Edit
+* Delete
 
 
 ---

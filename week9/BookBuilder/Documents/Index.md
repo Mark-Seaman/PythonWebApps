@@ -13,6 +13,11 @@ Lower the cost of your software development by reusing designs from your library
 and leveraging the investments that others have made.
 
 
+## Shrinking World Lightweight Plan
+* [To Do List](ToDo)
+* [Tasks Accomplished](Done)
+
+
 ## Software Lifecycle
 All the work needed by a project can be organized around the software lifecycle.
 

@@ -4,7 +4,7 @@ from django.urls.conf import include, include
 from django.contrib import admin
 from django.urls import path
 
-from .views import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
+from .views_book import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
 
 
 urlpatterns = [

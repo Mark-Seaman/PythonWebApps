@@ -72,5 +72,22 @@
 ## Done  - Week 9
 
 * Start project week9/BookBuilder
-* Improve and simplify templates
-
+* Views
+    * Improve and simplify templates
+    * Security on edit operations
+    * Use Crispy forms on edit forms
+    * Consolidate theme
+    * Remove old theme code
+    * Move urls into book/urls.py
+    * Simplify templates (with _edit.html)
+* Data
+    * Build Chapter data model
+    * Design for Data (Book, Chapter)
+    * Import Chapters from chapters.csv
+* Tests
+    * Setup django tests for Book and Chapter data
+    * Setup django tests for Book views
+    * Setup and Teardown in Tests
+    * Refactor and simplify
+    * Test Chapter import
+    * 30 tests pass (74 asserts)
