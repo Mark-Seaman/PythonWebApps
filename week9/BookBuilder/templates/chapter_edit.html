@@ -4,11 +4,16 @@
 
 {% block content%}
 
-<div class="container-fluid m-5 text-center">
+<div class="container m-5">
 
-    <h1 class="text-primary">Edit Chapter</h1>
-
-    {% include '_edit.html' %}
+    <div class="card m-5">
+        <div class="card-header bg-primary text-light">
+            <h3>Edit Chapter</h3>
+        </div>
+        <div class="card-body p-5">
+            {% include '_edit.html' %}
+        </div>
+    </div>
 
 </div>
 
