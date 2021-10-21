@@ -11,21 +11,22 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print("Quick Test")
 
-        # path = 'Documents/objects.csv'
-        # print(read_csv_file(path))
+        create_chapter_code()
 
-        # Chapter.import_record(['Leverage Principle', '1', 'The Leverage Principle', '4866'])
-        # print(len(Chapter.objects.all()))
 
-        # Chapter.objects.all().delete()
-
-        book = Book.objects.get_or_create(title="The Leverage Principle", author='Mark Seaman')[0]
-        book.doc_path = 'Documents/Leverage'
-        book.save()
-
-        import_chapters(book)
-        # chapters = Chapter.objects.all()
-        # for c in chapters:
-        #     print(c.export_record())
-
-        export_chapters(book)
+def create_chapter_code():
+    print('Create chapter code')
+    file_list = '''book/views_book.py
+book/tests_book.py
+templates/book_add.html
+templates/book_delete.html
+templates/book_detail.html
+templates/book_edit.html
+templates/book_list.html'''
+    for f in file_list.split('\n'):
+        new_file = f.replace('book', 'chapter').replace('chapter/', 'book/')
+        text = open(f).read()
+        text = text.replace('book', 'chapter')
+        text = text.replace('Book', 'Chapter')
+        open(new_file, 'w').write(text)
+        print(f, new_file)

@@ -1,0 +1,35 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid m-5">
+
+    <h1 class="text-primary text-center">List of Chapters</h1>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Chapter</th>
+            <th>Author</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for chapter in object_list %}
+        <tr>
+            <td><a href="{{ chapter.pk }}">{{ chapter.title }}</a></td>
+            <td>{{ chapter.author }}</td>
+            <td><a href="{{ chapter.pk }}/">Edit</a></td>
+            <td><a href="{{ chapter.pk }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <p>
+        <a href="/chapter/add" class="btn btn-success m-5">Add New Chapter</a>
+    </p>
+
+</div>
+
+{% endblock content %}

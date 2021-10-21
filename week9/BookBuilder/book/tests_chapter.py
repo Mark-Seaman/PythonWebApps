@@ -1,73 +1,125 @@
-from book.models import Book
+from django.contrib.auth import get_user_model
+from chapter.models import Chapter
 from django.test import TestCase
 from django.urls import reverse
-
-from .book import export_chapters, import_chapters
 
 from .models import Chapter
 
 
 class ChapterDataTest(TestCase):
 
-    def create_chapter(self, title):
-        return Chapter.objects.create(book=self.book.title, title=title, order=1,
-                                      markdown="# Best of Times", document='tale.md')
-
-    def setUp(self):
-        self.book = Book.objects.create(title='Tale of 2 Cities', author='Chuck Dickens', doc_path='Documents/Tale')
-        self.create_chapter('Best of Times')
+    def test_django(self):
+        self.assertTrue
 
     def test_add_chapter(self):
-        self.assertEqual(len(Chapter.objects.all()), 1)
-        chapter = self.create_chapter('Worst of Times')
-        chapter.order = 2
-        chapter.markdown = "# Worst of Times"
-        chapter.document = 'tale2.md'
-        chapter.save()
+        self.assertEqual(len(Chapter.objects.all()), 0)
+        Chapter.objects.create(title='Tale of 2 Cities', author='Chuck Dickens')
+        Chapter.objects.create(title='Iliad', author='Homer')
         self.assertEqual(len(Chapter.objects.all()), 2)
 
-    def test_edit_chapter(self):
-        self.assertTrue(True)
+    def test_chapter_title(self):
+        Chapter.objects.create(title='Iliad', author='Homer')
+        b = Chapter.objects.get(pk=1)
+        self.assertEqual(b.title, 'Iliad')
+        self.assertEqual(b.author, 'Homer')
+        self.assertEqual(b.description, 'None')
 
-    def test_delete_chapter(self):
-        self.assertTrue(True)
+    def test_chapter_edit(self):
+        Chapter.objects.create(title='Iliad', author='Homer')
+        b = Chapter.objects.get(pk=1)
+        b.author = 'Mark Seaman'
+        b.description = 'No description'
+        b.save()
+        self.assertEqual(b.title, 'Iliad')
+        self.assertEqual(b.author, 'Mark Seaman')
+        self.assertEqual(b.description, 'No description')
 
-    def test_detail_chapter(self):
-        self.assertTrue(True)
+    def test_chapter_delete(self):
+        Chapter.objects.create(title='Iliad', author='Homer')
+        b = Chapter.objects.get(pk=1)
+        b.delete()
+        self.assertEqual(len(Chapter.objects.all()), 0)
 
-    def test_list_chapter(self):
-        self.assertTrue(True)
-
-    def test_chapter_import(self):
-        import_chapters(self.book)
-        self.assertEqual(len(Chapter.objects.all()), 1)
-
-        book = Book.objects.get_or_create(title="The Leverage Principle", author='Mark Seaman')[0]
-        import_chapters(book)
-        self.assertEqual(len(Chapter.objects.all()), 15)
-
-    def test_chapter_import_export(self):
-        book = Book.objects.get_or_create(title="The Leverage Principle",
-                                          author='Mark Seaman',
-                                          doc_path='Documents/Leverage')[0]
-        first = import_chapters(book)
-        export_chapters(book)
-        second = import_chapters(book)
-        self.assertEqual(second, first)
-        self.assertEqual(len(Chapter.objects.all()), 15)
-
-        # chapters = Chapter.objects.all()
-        # for c in chapters:
-        #     print(c.export_record())
+    def test_string_representation(self):
+        chapter = Chapter.objects.create(title='Iliad', author='Homer')
+        self.assertEqual(
+            str(chapter), '1 - Iliad by Homer')
 
 
 class ChapterViewsTest(TestCase):
 
-    # def login(self):
-    #     args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
-    #     user = get_user_model().objects.create_user(**args)
-    #     response = self.client.login(username='TEST_DUDE', password='secret')
-    #     self.assertEqual(response, True)
+    def login(self):
+        args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
+        user = get_user_model().objects.create_user(**args)
+        response = self.client.login(username='TEST_DUDE', password='secret')
+        self.assertEqual(response, True)
 
     def setUp(self):
-        self.book = Chapter.objects.create(title='Iliad', author='Homer')
+        self.chapter = Chapter.objects.create(title='Iliad', author='Homer')
+
+    def test_home(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, reverse('chapter_list'))
+
+    def test_chapter_list_view(self):
+        self.assertEqual(reverse('chapter_list'), '/chapter/')
+        response = self.client.get('/chapter/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'chapter_list.html')
+        self.assertTemplateUsed(response, 'theme.html')
+        self.assertContains(response, '<tr>', count=2)
+
+    def test_chapter_detail_view(self):
+        self.assertEqual(reverse('chapter_detail', args='1'), '/chapter/1')
+        self.assertEqual(reverse('chapter_detail', args='2'), '/chapter/2')
+        response = self.client.get(reverse('chapter_detail', args='1'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_chapter_add_view(self):
+
+        # Add without Login
+        chapter = dict(title='Star Wars', author='Darth Vadar', description='None')
+        response = self.client.post(reverse('chapter_add'), chapter)
+        self.assertEqual(response.url, '/accounts/login/?next=/chapter/add')
+
+        # Login to add
+        self.login()
+        response = self.client.post(reverse('chapter_add'), chapter)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/chapter/2')
+
+        # List the chapters
+        response = self.client.get('/chapter/')
+        self.assertContains(response, '<tr>', count=3)
+
+    def test_chapter_edit_view(self):
+
+        # Edit without Login
+        self.assertEqual(reverse('chapter_edit', args='1'), '/chapter/1/')
+        response = self.client.get('/chapter/1/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/accounts/login/?next=/chapter/1/')
+
+        # Login to edit
+        self.login()
+        chapter = dict(title='Oddessy', author='Homer', description='None')
+        response = self.client.post('/chapter/1/', chapter)
+
+        # Check the redirect
+        self.assertEqual(response.url, '/chapter/1')
+        response = self.client.get(response.url)
+        self.assertContains(response, 'Homer')
+
+        # Check the chapter object
+        chapter = Chapter.objects.get(pk=1)
+        self.assertEqual(chapter.author, 'Homer')
+        self.assertEqual(chapter.title, 'Oddessy')
+
+    def test_chapter_delete_view(self):
+        self.login()
+        self.assertEqual(reverse('chapter_delete', args='1'), '/chapter/1/delete')
+        response = self.client.get('/chapter/1/delete')
+        self.assertEqual(response.status_code, 200)
+        response = self.client.post('/chapter/1/delete')
+        self.assertEqual(len(Chapter.objects.all()), 0)
