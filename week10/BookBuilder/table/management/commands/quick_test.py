@@ -12,4 +12,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print("Quick Test")
 
-        generate_code()
+        print("Do nothing")
+        # generate_code()

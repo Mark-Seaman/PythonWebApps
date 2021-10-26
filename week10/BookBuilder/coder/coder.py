@@ -1,8 +1,3 @@
-from book.models import Chapter
-from book.book import export_chapters, import_chapters
-from book.models import Book
-
-
 def generate_code():
     class_name = "Author"
     object_name = "author"

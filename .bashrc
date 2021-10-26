@@ -7,6 +7,13 @@ alias u='d ..'
 function d {
     cd $1 && l
 }
+function c {
+    git pull &&
+    git add -A .  &&
+    git commit -m "$*" &&
+    git push
+    git status
+}
 
 # Git aliases
 alias s='git status'
