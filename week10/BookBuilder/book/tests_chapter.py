@@ -54,8 +54,10 @@ class ChapterViewsTest(TestCase):
 
     def setUp(self):
         self.book_title = 'Iliad'
-        self.chapter1 = dict(book=self.book_title, title='Achilles', order='1', html='', document='1.md')
-        self.chapter2 = dict(book=self.book_title, title='Agamememnon', order='2', html='', document='2.md')
+        self.chapter1 = dict(book=self.book_title, title='Achilles',
+                             order='1', html='x', markdown='x', document='1.md')
+        self.chapter2 = dict(book=self.book_title, title='Agamememnon',
+                             order='2', html='x', markdown='x', document='2.md')
 
     def test_home(self):
         response = self.client.get('/chapter')
@@ -87,12 +89,13 @@ class ChapterViewsTest(TestCase):
         # Login to add
         self.login()
         response = self.client.post(reverse('chapter_add'), self.chapter1)
+        response = self.client.post(reverse('chapter_add'), self.chapter2)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/chapter/')
 
         # List the chapters
         response = self.client.get('/chapter/')
-        self.assertContains(response, '<tr>', count=2)
+        self.assertContains(response, '<tr>', count=3)
 
     def test_chapter_edit_view(self):
 
@@ -112,7 +115,7 @@ class ChapterViewsTest(TestCase):
         # Check after edit
         response = self.client.post('/chapter/1/', self.chapter2)
         response = self.client.get('/chapter/1')
-        # self.assertContains(response, 'Agamememnon')
+        self.assertContains(response, 'Agamememnon')
         self.assertContains(response, '2.md')
 
     def test_chapter_delete_view(self):

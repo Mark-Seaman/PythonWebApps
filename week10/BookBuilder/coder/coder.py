@@ -1,3 +1,9 @@
+def quick_test():
+    print("QUICK TEST")
+    print("Do nothing")
+    # generate_code()
+
+
 def generate_code():
     class_name = "Author"
     object_name = "author"

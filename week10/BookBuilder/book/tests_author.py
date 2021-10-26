@@ -6,88 +6,86 @@ from django.urls import reverse
 from .models import Author
 
 
+def create_test_user():
+    args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
+    return get_user_model().objects.create_user(**args)
+
+
 class AuthorDataTest(TestCase):
 
-    def test_django(self):
-        self.assertTrue
+    def setUp(self):
+        self.user = create_test_user()
+        self.author1 = dict(user=self.user, name='Chuck Dickens')
+        self.author2 = dict(user=self.user, name='Homer')
 
-#     def test_add_author(self):
-#         self.assertEqual(len(Author.objects.all()), 0)
-#         Author.objects.create(title='Tale of 2 Cities', author='Chuck Dickens')
-#         Author.objects.create(title='Iliad', author='Homer')
-#         self.assertEqual(len(Author.objects.all()), 2)
+    def test_add_author(self):
+        self.assertEqual(len(Author.objects.all()), 0)
+        Author.objects.create(**self.author1)
+        Author.objects.create(**self.author2)
+        self.assertEqual(len(Author.objects.all()), 2)
 
-#     def test_author_title(self):
-#         Author.objects.create(title='Iliad', author='Homer')
-#         b = Author.objects.get(pk=1)
-#         self.assertEqual(b.title, 'Iliad')
-#         self.assertEqual(b.author, 'Homer')
-#         self.assertEqual(b.description, 'None')
+        b = Author.objects.get(pk=2)
+        self.assertEqual(b.name, 'Homer')
+        self.assertEqual(b.user.username, 'TEST_DUDE')
 
-#     def test_author_edit(self):
-#         Author.objects.create(title='Iliad', author='Homer')
-#         b = Author.objects.get(pk=1)
-#         b.author = 'Mark Seaman'
-#         b.description = 'No description'
-#         b.save()
-#         self.assertEqual(b.title, 'Iliad')
-#         self.assertEqual(b.author, 'Mark Seaman')
-#         self.assertEqual(b.description, 'No description')
+    def test_author_edit(self):
+        Author.objects.create(**self.author1)
+        Author.objects.create(**self.author2)
+        b = Author.objects.get(pk=1)
+        b.name = 'Mark Seaman'
+        b.save()
+        b = Author.objects.get(pk=1)
+        self.assertEqual(b.name, 'Mark Seaman')
 
-#     def test_author_delete(self):
-#         Author.objects.create(title='Iliad', author='Homer')
-#         b = Author.objects.get(pk=1)
-#         b.delete()
-#         self.assertEqual(len(Author.objects.all()), 0)
-
-#     def test_string_representation(self):
-#         author = Author.objects.create(title='Iliad', author='Homer')
-#         self.assertEqual(
-#             str(author), '1 - Iliad by Homer')
+    def test_author_delete(self):
+        Author.objects.create(**self.author1)
+        Author.objects.create(**self.author2)
+        b = Author.objects.get(pk=1)
+        b.delete()
+        self.assertEqual(len(Author.objects.all()), 1)
 
 
-# class AuthorViewsTest(TestCase):
+class AuthorViewsTest(TestCase):
 
-#     def login(self):
-#         args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
-#         user = get_user_model().objects.create_user(**args)
-#         response = self.client.login(username='TEST_DUDE', password='secret')
-#         self.assertEqual(response, True)
+    def login(self):
+        response = self.client.login(username='TEST_DUDE', password='secret')
+        self.assertEqual(response, True)
 
-#     def setUp(self):
-#         self.author = Author.objects.create(title='Iliad', author='Homer')
+    def setUp(self):
+        self.user = create_test_user()
+        self.author1 = dict(user=self.user, name='Chuck Dickens')
+        self.author2 = dict(user=self.user, name='Homer')
 
-#     def test_home(self):
-#         response = self.client.get('/')
-#         self.assertEqual(response.status_code, 302)
-#         self.assertEqual(response.url, reverse('author_list'))
+    def test_author_list_view(self):
+        Author.objects.create(**self.author1)
+        Author.objects.create(**self.author2)
+        self.assertEqual(reverse('author_list'), '/author/')
+        response = self.client.get('/author/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'author_list.html')
+        self.assertTemplateUsed(response, 'theme.html')
+        self.assertContains(response, '<tr>', count=3)
 
-#     def test_author_list_view(self):
-#         self.assertEqual(reverse('author_list'), '/author/')
-#         response = self.client.get('/author/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'author_list.html')
-#         self.assertTemplateUsed(response, 'theme.html')
-#         self.assertContains(response, '<tr>', count=2)
+    def test_author_detail_view(self):
+        Author.objects.create(**self.author1)
+        self.assertEqual(reverse('author_detail', args='1'), '/author/1')
+        response = self.client.get(reverse('author_detail', args='1'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'author_detail.html')
+        self.assertTemplateUsed(response, 'theme.html')
+        self.assertContains(response, 'Dickens')
 
-#     def test_author_detail_view(self):
-#         self.assertEqual(reverse('author_detail', args='1'), '/author/1')
-#         self.assertEqual(reverse('author_detail', args='2'), '/author/2')
-#         response = self.client.get(reverse('author_detail', args='1'))
-#         self.assertEqual(response.status_code, 200)
+    def test_author_add_view(self):
 
-#     def test_author_add_view(self):
+        # Add without Login
+        response = self.client.post(reverse('author_add'), self.author1)
+        self.assertEqual(response.url, '/accounts/login/?next=/author/add')
 
-#         # Add without Login
-#         author = dict(title='Star Wars', author='Darth Vadar', description='None')
-#         response = self.client.post(reverse('author_add'), author)
-#         self.assertEqual(response.url, '/accounts/login/?next=/author/add')
-
-#         # Login to add
-#         self.login()
-#         response = self.client.post(reverse('author_add'), author)
-#         self.assertEqual(response.status_code, 302)
-#         self.assertEqual(response.url, '/author/2')
+        # Login to add
+        self.login()
+        response = self.client.post(reverse('author_add'), self.author1)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/author/2')
 
 #         # List the authors
 #         response = self.client.get('/author/')

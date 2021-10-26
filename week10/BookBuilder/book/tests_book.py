@@ -55,7 +55,8 @@ class BookViewsTest(TestCase):
         self.assertEqual(response, True)
 
     def setUp(self):
-        self.book = Book.objects.create(title='Iliad', author='Homer')
+        self.book1 = dict(title='Iliad', author='Homer', description='description')
+        self.book2 = dict(title='Star Wars', author='Darth Vadar', description='None')
 
     def test_home(self):
         response = self.client.get('/')
@@ -64,6 +65,7 @@ class BookViewsTest(TestCase):
 
     def test_book_list_view(self):
         self.assertEqual(reverse('book_list'), '/book/')
+        Book.objects.create(**self.book1)
         response = self.client.get('/book/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'book_list.html')
@@ -71,21 +73,22 @@ class BookViewsTest(TestCase):
         self.assertContains(response, '<tr>', count=2)
 
     def test_book_detail_view(self):
+        Book.objects.create(**self.book1)
         self.assertEqual(reverse('book_detail', args='1'), '/book/1')
         self.assertEqual(reverse('book_detail', args='2'), '/book/2')
         response = self.client.get(reverse('book_detail', args='1'))
         self.assertEqual(response.status_code, 200)
 
     def test_book_add_view(self):
+        Book.objects.create(**self.book1)
 
         # Add without Login
-        book = dict(title='Star Wars', author='Darth Vadar', description='None')
-        response = self.client.post(reverse('book_add'), book)
+        response = self.client.post(reverse('book_add'), self.book1)
         self.assertEqual(response.url, '/accounts/login/?next=/book/add')
 
         # Login to add
         self.login()
-        response = self.client.post(reverse('book_add'), book)
+        response = self.client.post(reverse('book_add'), self.book2)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/book/2')
 
@@ -94,6 +97,7 @@ class BookViewsTest(TestCase):
         self.assertContains(response, '<tr>', count=3)
 
     def test_book_edit_view(self):
+        Book.objects.create(**self.book1)
 
         # Edit without Login
         self.assertEqual(reverse('book_edit', args='1'), '/book/1/')
@@ -103,20 +107,21 @@ class BookViewsTest(TestCase):
 
         # Login to edit
         self.login()
-        book = dict(title='Oddessy', author='Homer', description='None')
-        response = self.client.post('/book/1/', book)
+        response = self.client.post('/book/1/', self.book2)
 
         # Check the redirect
         self.assertEqual(response.url, '/book/1')
         response = self.client.get(response.url)
-        self.assertContains(response, 'Homer')
+        self.assertContains(response, 'Darth Vadar')
 
         # Check the book object
         book = Book.objects.get(pk=1)
-        self.assertEqual(book.author, 'Homer')
-        self.assertEqual(book.title, 'Oddessy')
+        self.assertEqual(book.author, 'Darth Vadar')
+        self.assertEqual(book.title, 'Star Wars')
 
     def test_book_delete_view(self):
+        Book.objects.create(**self.book1)
+
         self.login()
         self.assertEqual(reverse('book_delete', args='1'), '/book/1/delete')
         response = self.client.get('/book/1/delete')

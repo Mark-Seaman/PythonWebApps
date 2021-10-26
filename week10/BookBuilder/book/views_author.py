@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 from django.views.generic.base import TemplateView
 
-from .models import Author, Chapter
+from .models import Author, Book, Chapter
 
 
 class AuthorView(RedirectView):
@@ -22,19 +22,21 @@ class AuthorDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         author = Author.objects.get(pk=self.kwargs['pk'])
-        return dict(object=author, chapters=Chapter.objects.filter(author=author.title))
+        return dict(object=author, books=Book.objects.filter(author=author.name))
 
 
 class AuthorCreateView(LoginRequiredMixin, CreateView):
     template_name = "author_add.html"
     model = Author
-    fields = ['title', 'author', 'description']
+    fields = ['name', 'user']
+    success_url = reverse_lazy('author_list')
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "author_edit.html"
     model = Author
-    fields = ['title', 'author', 'description']
+    fields = ['name', 'user']
+    success_url = reverse_lazy('author_list')
 
 
 class AuthorDeleteView(LoginRequiredMixin, DeleteView):

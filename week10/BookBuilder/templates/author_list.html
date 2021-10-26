@@ -10,15 +10,13 @@
 
     <table class="table table-hover">
         <tr>
-            <th>Author</th>
-            <th>Author</th>
+            <th>Name</th>
             <th>Edit</th>
         </tr>
 
         {% for author in object_list %}
         <tr>
-            <td><a href="{{ author.pk }}">{{ author.title }}</a></td>
-            <td>{{ author.author }}</td>
+            <td><a href="{{ author.pk }}">{{ author.name }}</a></td>
             <td><a href="{{ author.pk }}/">Edit</a></td>
             <td><a href="{{ author.pk }}/delete">Delete</a></td>
         </tr>

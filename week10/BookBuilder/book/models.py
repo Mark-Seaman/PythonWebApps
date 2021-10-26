@@ -44,6 +44,7 @@ class Book(models.Model):
 # order - chapter order
 # title - title text of chapter
 # markdown - markdown text
+# html - HTML text from markdown
 # document - path to markdown file
 
 class Chapter(models.Model):
@@ -66,3 +67,6 @@ class Chapter(models.Model):
 
     def __str__(self):
         return f'{self.book.title} - {self.order} - {self.title}'
+
+    def get_absolute_url(self):
+        return reverse_lazy('chapter_detail', args=[str(self.id)])
