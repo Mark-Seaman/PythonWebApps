@@ -85,39 +85,34 @@ class AuthorViewsTest(TestCase):
         self.login()
         response = self.client.post(reverse('author_add'), self.author1)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/author/2')
+        self.assertEqual(response.url, '/author/')
 
-#         # List the authors
-#         response = self.client.get('/author/')
-#         self.assertContains(response, '<tr>', count=3)
+        # List the authors
+        response = self.client.get('/author/')
+        self.assertContains(response, '<tr>', count=2)
 
-#     def test_author_edit_view(self):
+    def test_author_edit_view(self):
 
-#         # Edit without Login
-#         self.assertEqual(reverse('author_edit', args='1'), '/author/1/')
-#         response = self.client.get('/author/1/')
-#         self.assertEqual(response.status_code, 302)
-#         self.assertEqual(response.url, '/accounts/login/?next=/author/1/')
+        # Edit without Login
+        self.assertEqual(reverse('author_edit', args='1'), '/author/1/')
+        response = self.client.get('/author/1/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/accounts/login/?next=/author/1/')
 
-#         # Login to edit
-#         self.login()
-#         author = dict(title='Oddessy', author='Homer', description='None')
-#         response = self.client.post('/author/1/', author)
+        # Login to edit
+        self.login()
+        response = self.client.post(reverse('author_add'), self.author1)
+        response = self.client.post('/author/1/', self.author2)
+        self.assertEqual(response.status_code, 302)
+        response = self.client.get(response.url)
+        self.assertContains(response, 'Homer')
 
-#         # Check the redirect
-#         self.assertEqual(response.url, '/author/1')
-#         response = self.client.get(response.url)
-#         self.assertContains(response, 'Homer')
-
-#         # Check the author object
-#         author = Author.objects.get(pk=1)
-#         self.assertEqual(author.author, 'Homer')
-#         self.assertEqual(author.title, 'Oddessy')
-
-#     def test_author_delete_view(self):
-#         self.login()
-#         self.assertEqual(reverse('author_delete', args='1'), '/author/1/delete')
-#         response = self.client.get('/author/1/delete')
-#         self.assertEqual(response.status_code, 200)
-#         response = self.client.post('/author/1/delete')
-#         self.assertEqual(len(Author.objects.all()), 0)
+    def test_author_delete_view(self):
+        Author.objects.create(**self.author1)
+        Author.objects.create(**self.author2)
+        self.login()
+        self.assertEqual(reverse('author_delete', args='1'), '/author/1/delete')
+        response = self.client.get('/author/1/delete')
+        self.assertEqual(response.status_code, 200)
+        response = self.client.post('/author/1/delete')
+        self.assertEqual(len(Author.objects.all()), 1)

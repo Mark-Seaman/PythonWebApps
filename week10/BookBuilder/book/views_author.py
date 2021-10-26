@@ -28,14 +28,18 @@ class AuthorDetailView(DetailView):
 class AuthorCreateView(LoginRequiredMixin, CreateView):
     template_name = "author_add.html"
     model = Author
-    fields = ['name', 'user']
+    fields = ['name']
     success_url = reverse_lazy('author_list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "author_edit.html"
     model = Author
-    fields = ['name', 'user']
+    fields = ['name']
     success_url = reverse_lazy('author_list')
 
 
