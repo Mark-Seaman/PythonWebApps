@@ -4,11 +4,19 @@ from django.urls.conf import include, include
 from django.contrib import admin
 from django.urls import path
 
+from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorCreateView, AuthorUpdateView
 from .views_book import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
 from .views_chapter import ChapterDeleteView, ChapterDetailView, ChapterListView, ChapterCreateView, ChapterUpdateView
 
 
 urlpatterns = [
+
+    # Author
+    path('author/',                   AuthorListView.as_view(),    name='author_list'),
+    path('author/<int:pk>',           AuthorDetailView.as_view(),  name='author_detail'),
+    path('author/add',                AuthorCreateView.as_view(),  name='author_add'),
+    path('author/<int:pk>/',          AuthorUpdateView.as_view(),  name='author_edit'),
+    path('author/<int:pk>/delete',    AuthorDeleteView.as_view(),  name='author_delete'),
 
     # Book
     path('',                        BookView.as_view(),        name='home'),

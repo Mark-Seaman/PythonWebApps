@@ -9,7 +9,8 @@ def generate_code():
 def clone_code(class_name, object_name, old_class, old_object):
 
     def file_list():
-        return f'''{old_object}/views_{old_object}.py
+        return f'''{old_object}/urls_{old_object}.py
+{old_object}/views_{old_object}.py
 {old_object}/tests_{old_object}.py
 templates/{old_object}_add.html
 templates/{old_object}_delete.html

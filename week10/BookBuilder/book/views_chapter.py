@@ -36,14 +36,14 @@ class ChapterDetailView(DetailView):
 class ChapterCreateView(LoginRequiredMixin, CreateView):
     template_name = "chapter_add.html"
     model = Chapter
-    fields = ['title', 'order', 'document', 'markdown']
+    fields = ['book', 'title', 'order', 'html', 'document', 'markdown']
     success_url = reverse_lazy('chapter_list')
 
 
 class ChapterUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "chapter_edit.html"
     model = Chapter
-    fields = ['title',  'order', 'document', 'markdown']
+    fields = ['book', 'title',  'order', 'html', 'document', 'markdown']
     success_url = reverse_lazy('chapter_list')
 
 
