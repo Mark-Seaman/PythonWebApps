@@ -29,4 +29,5 @@ All the work needed by a project can be organized around the software lifecycle.
 
 ## Learning Projects
 * [Projects](Projects)
+* [Automation Commands](Automation)
 

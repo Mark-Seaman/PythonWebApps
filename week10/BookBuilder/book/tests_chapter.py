@@ -63,6 +63,7 @@ class ChapterViewsTest(TestCase):
         self.assertEqual(response.url, reverse('chapter_list'))
 
     def test_chapter_list_view(self):
+        Chapter.objects.create(**self.chapter1)
         self.assertEqual(reverse('chapter_list'), '/chapter/')
         response = self.client.get('/chapter/')
         self.assertEqual(response.status_code, 200)
