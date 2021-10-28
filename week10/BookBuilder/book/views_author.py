@@ -22,7 +22,7 @@ class AuthorDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         author = Author.objects.get(pk=self.kwargs['pk'])
-        return dict(object=author, books=Book.objects.filter(author=author.name))
+        return dict(object=author, books=Book.objects.filter(author=author))
 
 
 class AuthorCreateView(LoginRequiredMixin, CreateView):
