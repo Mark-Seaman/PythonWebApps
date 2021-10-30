@@ -68,7 +68,6 @@
 * Create engineering documents to organize the project
 
 
-
 ## Done  - Week 9
 
 * Start project week9/BookBuilder
@@ -91,3 +90,27 @@
     * Refactor and simplify
     * Test Chapter import
     * 30 tests pass (74 asserts)
+
+
+## Done  - Week 10
+
+* Views
+    * Implement views for Author, Book, Chapter
+    * Build stand-alone views (CRUD)
+* Data
+    * Build Chapter data model
+    * Design for Data (Book, Chapter)
+    * Import Chapters from "chapters.csv"
+* Tests
+    * Tests for Book and Chapter data
+    * Tests for Book and Chapter views
+    * Refactor and simplify
+    * 44 tests pass (90 asserts)
+* Automation
+    * Create "coder" for code generation
+    * Build prototype code for new data types
+* Engineering
+    * Create 11 Engineering notes for process
+
+
+

@@ -1,12 +1,14 @@
 # Development Plan for Book Builder
 
-Shrinking World Lightweigth Planner
+Shrinking World Lightweight Planner
 
 
 ## To Do
 
 ### Test
-* Test Chapter views
+* Build tests for Foreign Key Author
+* Build tests for Foreign Key Book
+* Prep Manual Test script
 
 
 ### Fix
@@ -19,6 +21,7 @@ Shrinking World Lightweigth Planner
 
 
 ### Improvements
-* Simplify
+* Remove unneeded views
+* Simplify and refactor
 * Update Plan to match progress
 
