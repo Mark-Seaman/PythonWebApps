@@ -26,7 +26,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, default=1)
     description = models.TextField(default='None')
     doc_path = models.CharField(max_length=200, default='Documents/Leverage')
 

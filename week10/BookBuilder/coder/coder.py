@@ -1,6 +1,11 @@
+from book.book import import_leverage_book
+
+
 def quick_test():
     print("QUICK TEST")
-    print("Do nothing")
+
+    import_leverage_book()
+    # print("Do nothing")
     # generate_code()
 
 

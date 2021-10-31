@@ -6,6 +6,7 @@ Shrinking World Lightweight Planner
 ## To Do
 
 ### Test
+* Test Registration view for new Authors
 * Build tests for Foreign Key Author
 * Build tests for Foreign Key Book
 * Prep Manual Test script
@@ -16,6 +17,7 @@ Shrinking World Lightweight Planner
 
 
 ### Extend
+* Integrate Registration view for new Authors
 * Build Chapter views (urls, templates, views, tests)
 * Select Chapters in book
 
