@@ -28,7 +28,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, default=1)
     description = models.TextField(default='None')
-    doc_path = models.CharField(max_length=200, default='Documents/Leverage')
+    doc_path = models.CharField(max_length=200, default='Documents')
 
     def __str__(self):
         return f'{self.pk} - {self.title} by {self.author}'
@@ -57,12 +57,13 @@ class Chapter(models.Model):
     document = models.CharField(max_length=200)
 
     def export_record(self):
-        return [self.book, self.order, self.title]
+        return [self.order, self.title, self.document]
 
     @staticmethod
-    def import_record(values):
-        c = Chapter.objects.get_or_create(book=values[0], order=values[1])[0]
-        c.title = values[2]
+    def import_record(book, values):
+        c = Chapter.objects.get_or_create(book=book.title, order=values[0])[0]
+        c.title = values[1]
+        c.document = values[2]
         c.save()
 
     def __str__(self):

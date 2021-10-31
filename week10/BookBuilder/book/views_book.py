@@ -28,13 +28,13 @@ class BookDetailView(DetailView):
 class BookCreateView(LoginRequiredMixin, CreateView):
     template_name = "book_add.html"
     model = Book
-    fields = ['title', 'author', 'description']
+    fields = ['title', 'author', 'description', 'doc_path']
 
 
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "book_edit.html"
     model = Book
-    fields = ['title', 'author', 'description']
+    fields = ['title', 'author', 'description', 'doc_path']
 
 
 class BookDeleteView(LoginRequiredMixin, DeleteView):

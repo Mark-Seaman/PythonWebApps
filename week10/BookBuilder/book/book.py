@@ -36,7 +36,7 @@ def import_chapters(book):
     if exists(chapters):
         for row in read_csv_file(chapters):
             # print(row)
-            model.import_record(row)
+            model.import_record(book, row)
 
 
 def import_leverage_book():
@@ -45,5 +45,15 @@ def import_leverage_book():
                 author=author,
                 description="Software Engineering Skills",
                 doc_path='Documents/Leverage')
+    b = create_book(**book)
+    import_chapters(b)
+
+
+def import_poems_book():
+    author = create_author('Mark Seaman')
+    book = dict(title="A Seaman's Poems",
+                author=author,
+                description="From the Edge of Reality",
+                doc_path='Documents/Poems')
     b = create_book(**book)
     import_chapters(b)
