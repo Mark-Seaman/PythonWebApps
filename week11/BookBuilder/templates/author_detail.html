@@ -1,0 +1,38 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+<div class="container m-5">
+
+    <h1 class="text-primary">Author Details</h1>
+
+    <p>Title:</p>
+    <p><b>{{ object.name }}</b></p>
+    <p>User:</p>
+    <p><b> {{ object.user.first_name }} {{ object.user.last_name }}</b></p>
+
+    <h2>Books</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>Author</th>
+            <th>Book</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td><a href="/book/{{ book.pk }}">{{ book.title }}</a></td>
+            <td><a href="/book/{{ book.pk }}/">Edit</a></td>
+            <td><a href="/book/{{ book.pk }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <a href="/author/" class="btn btn-success m-5">Author List</a>
+    <a href="/author/{{ object.pk }}/" class="btn btn-success m-5">Edit Author</a>
+    <a href="/author/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Author</a>
+</div>
+
+{% endblock content %}
