@@ -28,6 +28,18 @@ def export_chapters(book):
     write_csv_file(chapters, records)
 
 
+def xget_book(title):
+    return Book.objects.get(title=title)
+
+
+def xget_author(name):
+    return Author.objects.get(name=name)
+
+
+def xget_chapter(book, order):
+    return Chapter.objects.get(book=book, order=order)
+
+
 def import_chapters(book):
     model = Chapter
     chapters = f'{book.doc_path}/chapters.csv'

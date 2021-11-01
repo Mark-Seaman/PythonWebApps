@@ -26,7 +26,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, default=1)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.TextField(default='None')
     doc_path = models.CharField(max_length=200, default='Documents')
 
@@ -48,8 +48,8 @@ class Book(models.Model):
 # document - path to markdown file
 
 class Chapter(models.Model):
-    book = models.CharField(max_length=200, default="Leverage Principle")
-    # book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    # book = models.CharField(max_length=200, default="Leverage Principle")
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     order = models.IntegerField()
     title = models.CharField(max_length=200)
     markdown = models.TextField()
@@ -61,7 +61,7 @@ class Chapter(models.Model):
 
     @staticmethod
     def import_record(book, values):
-        c = Chapter.objects.get_or_create(book=book.title, order=values[0])[0]
+        c = Chapter.objects.get_or_create(book=book, order=values[0])[0]
         c.title = values[1]
         c.document = values[2]
         c.save()

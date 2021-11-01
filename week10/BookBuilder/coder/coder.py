@@ -1,4 +1,4 @@
-from book.book import export_chapters, import_chapters, import_leverage_book, import_poems_book
+from book.book import export_chapters, get_book, import_chapters, import_leverage_book, import_poems_book
 from book.models import Book, Chapter
 
 
@@ -7,25 +7,21 @@ def quick_test():
 
     print('IMPORT BOOKS')
 
-    b = Book.objects.get(title='The Leverage Principle')
-    # for c in Chapter.objects.filter(book=b.title):
-    #     c.document = f'{c.order:02}.md'
-    #     c.save()
-    # export_chapters(b)
-    import_chapters(b)
+    # b = get_book('The Leverage Principle')
+    # # for c in Chapter.objects.filter(book=b.title):
+    # #     c.document = f'{c.order:02}.md'
+    # #     c.save()
+    # # export_chapters(b)
+    # import_chapters(b)
 
-    b = Book.objects.get(title="A Seaman's Poems")
-    import_chapters(b)
+    # b = get_book("A Seaman's Poems")
+    # import_chapters(b)
 
-    # # import_leverage_book()
+    import_leverage_book()
     # import_poems_book()
 
     # print("Do nothing")
     # generate_code()
-
-
-def get_book(title):
-    b = Book.objects.get(title=title)
 
 
 def generate_code():
