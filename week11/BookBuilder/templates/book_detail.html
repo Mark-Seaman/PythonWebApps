@@ -6,29 +6,52 @@
 
     <h1 class="text-primary">Book Details</h1>
 
-    <p>Title:</p>
-    <p><b>{{ object.title }}</b></p>
-    <p>Author:</p>
-    <p><b>{{ object.author }}</b></p>
+    <div class="container">
+        <div class="row">
 
-    <h2>Chapters</h2>
-    <table class="table table-hover">
-        <tr>
-            <th>Book</th>
-            <th>Chapter</th>
-            <th>Edit</th>
-        </tr>
+            <div class="col-lg">
+                <h2>Book</h2>
+                <table class="table">
+                    <tr>
+                        <td>Title</td>
+                        <td><b><a href="/book/{{ object.pk }}/">{{ object.title }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td><b><a href="/author/{{ object.author.pk }}">{{ object.author.name }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><b>{{ object.description }}</b></td>
+                    </tr>
+                </table>
+            </div>
 
-        {% for chapter in chapters %}
-        <tr>
-            <td>{{ chapter.book }}</td>
-            <td><a href="/chapter/{{ chapter.pk }}">Chapter {{ chapter.order }} - {{ chapter.title }}</a></td>
-            <td><a href="/chapter/{{ chapter.pk }}/">Edit</a></td>
-            <td><a href="/chapter/{{ chapter.pk }}/delete">Delete</a></td>
-        </tr>
-        {% endfor %}
+            <div class="col-lg">
+                <h2>Chapters</h2>
+                <table class="table table-hover">
+                    <tr>
+                        <th>Chapter</th>
+                        <th>Edit</th>
+                    </tr>
 
-    </table>
+                    {% for chapter in chapters %}
+                    <tr>
+                        <td><a href="/chapter/{{ chapter.pk }}">Chapter {{ chapter.order }} - {{ chapter.title }}</a>
+                        </td>
+                        <td><a href="/chapter/{{ chapter.pk }}/">Edit</a></td>
+                        <td><a href="/chapter/{{ chapter.pk }}/delete">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
 
     <a href="/book/" class="btn btn-success m-5">Book List</a>
     <a href="/book/{{ object.pk }}/" class="btn btn-success m-5">Edit Book</a>

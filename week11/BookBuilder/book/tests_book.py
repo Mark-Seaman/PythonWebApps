@@ -4,7 +4,7 @@ from django.urls import reverse
 
 from book.models import Author, Book, Chapter
 from book.book import import_poems_book, import_leverage_book
-from .tests_author import create_test_user
+from coder.coder import create_test_user
 
 
 class BookDataTest(TestCase):

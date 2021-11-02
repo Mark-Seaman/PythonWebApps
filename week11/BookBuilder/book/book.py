@@ -1,6 +1,6 @@
-from os.path import exists
-
 from django.contrib.auth import get_user_model
+from os.path import exists
+from markdown import markdown
 
 from book.models import Author, Book, Chapter
 from table.table import read_csv_file, write_csv_file
@@ -21,6 +21,11 @@ def create_author(name):
     return Author.objects.get_or_create(name=name, user=user)[0]
 
 
+def export_all_books():
+    for b in Book.objects.all():
+        export_chapters(b)
+
+
 def export_chapters(book):
     model = Chapter
     chapters = f'{book.doc_path}/chapters.csv'
@@ -37,7 +42,16 @@ def get_author(name):
 
 
 def get_chapter(book, order):
-    return Chapter.objects.get(book=book, order=order)
+    c = Chapter.objects.get(book=book, order=order)
+    c.markdown = open(f'{book.doc_path}/{c.document}').read()
+    c.html = markdown(c.markdown)
+    c.save()
+    return c
+
+
+def import_all_books():
+    import_leverage_book()
+    import_poems_book()
 
 
 def import_chapters(book):
@@ -69,8 +83,3 @@ def import_poems_book():
                 doc_path='Documents/Poems')
     b = create_book(**book)
     import_chapters(b)
-
-
-def import_all_books():
-    import_leverage_book()
-    import_poems_book()

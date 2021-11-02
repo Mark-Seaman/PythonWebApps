@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from .models import Author, Book, Chapter
-from .tests_author import create_test_user
+from coder.coder import create_test_user
 
 
 class ChapterDataTest(TestCase):
@@ -62,14 +62,13 @@ class ChapterViewsTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-
         self.author = Author.objects.create(user=self.user, name='Charles Dickens')
         self.book = Book.objects.create(title='Tale of Two Cities', author=self.author,
-                                        description='description', doc_path='Documents')
+                                        description='description', doc_path='Documents/Poems')
         self.chapter1 = dict(book=self.book, title='Best of Times',
-                             order='1', html='x', markdown='x', document='1.md')
+                             order='1', html='x', markdown='x', document='DoBe.md')
         self.chapter2 = dict(book=self.book, title='Worst of Times',
-                             order='2', html='x', markdown='x', document='2.md')
+                             order='2', html='x', markdown='x', document='Now.md')
 
     def test_chapter_list_view(self):
         Chapter.objects.create(**self.chapter1)
@@ -99,6 +98,7 @@ class ChapterViewsTest(TestCase):
         response = self.client.post(reverse('chapter_add'), self.chapter2)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/chapter/')
+        self.assertEqual(len(Chapter.objects.all()), 2)
 
         # List the chapters
         response = self.client.get('/chapter/')
@@ -107,6 +107,7 @@ class ChapterViewsTest(TestCase):
     def test_chapter_edit_view(self):
 
         # Edit without Login
+        Chapter.objects.create(**self.chapter1)
         self.assertEqual(reverse('chapter_edit', args='1'), '/chapter/1/')
         response = self.client.get('/chapter/1/')
         self.assertEqual(response.status_code, 302)
@@ -114,39 +115,21 @@ class ChapterViewsTest(TestCase):
 
         # Login to edit
         self.login()
-        # chapter = dict(title='Worst of Times', order='2', html='x', markdown='x', document='2.md')
-        # Chapter.objects.create(**chapter)
-        response = self.client.get('/chapter/1')
-        self.assertEqual(response.status_code, 200)
-        # self.assertContains(response, 'Best of Times')
-
-        # # Check after edit
-        # response = self.client.post('/chapter/1/', self.chapter2)
-        # response = self.client.get('/chapter/1')
-        # self.assertContains(response, 'Agamememnon')
-        # self.assertContains(response, '2.md')
-
-        response = self.client.get('/chapter/1/')
-        self.assertEqual(response.status_code, 302)
-
         response = self.client.post('/chapter/1/', self.chapter2)
         self.assertEqual(response.status_code, 302)
-
         self.assertEqual(response.url, '/chapter/')
-        # response = self.client.get(response.url)
-        # self.assertContains(response, self.book2['title'])
-        # self.assertContains(response, self.author1.name)
 
-        # # Check the book object
-        # book = Book.objects.get(pk=1)
-        # self.assertEqual(book.author, self.author1)
-        # self.assertEqual(book.title, 'Odyssey')
+        # Check the book object
+        c = Chapter.objects.get(pk=1)
+        self.assertEqual(c.title, self.chapter2['title'])
+        self.assertNotEqual(c.title, self.chapter1['title'])
+        self.assertEqual(c.document, self.chapter2['document'])
 
-#     def test_chapter_delete_view(self):
-#         self.login()
-#         Chapter.objects.create(**self.chapter1)
-#         self.assertEqual(reverse('chapter_delete', args='1'), '/chapter/1/delete')
-#         response = self.client.get('/chapter/1/delete')
-#         self.assertEqual(response.status_code, 200)
-#         response = self.client.post('/chapter/1/delete')
-#         self.assertEqual(len(Chapter.objects.all()), 0)
+    def test_chapter_delete_view(self):
+        self.login()
+        Chapter.objects.create(**self.chapter1)
+        self.assertEqual(reverse('chapter_delete', args='1'), '/chapter/1/delete')
+        response = self.client.get('/chapter/1/delete')
+        self.assertEqual(response.status_code, 200)
+        response = self.client.post('/chapter/1/delete')
+        self.assertEqual(len(Chapter.objects.all()), 0)

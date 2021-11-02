@@ -4,12 +4,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from .models import Author
-
-
-def create_test_user():
-    args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
-    user = get_user_model().objects.create_user(**args)
-    return user, args
+from coder.coder import create_test_user
 
 
 class AuthorDataTest(TestCase):

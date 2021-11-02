@@ -17,10 +17,11 @@
 
         {% for chapter in object_list %}
         <tr>
-            <td>{{ chapter.book }}</td>
-            <td><a href="{{ chapter.pk }}">Chapter {{ chapter.order }} - {{ chapter.title }}</a></td>
-            <td><a href="{{ chapter.pk }}/">Edit</a></td>
-            <td><a href="{{ chapter.pk }}/delete">Delete</a></td>
+            <td><a href="/book/{{ chapter.book.pk }}">{{ chapter.book.title }}</a></td>
+            <td><a href="/chapter/{{ chapter.pk }}">Chapter {{ chapter.order }} - {{ chapter.title }}</a>
+            </td>
+            <td><a href="/chapter/{{ chapter.pk }}/">Edit</a></td>
+            <td><a href="/chapter/{{ chapter.pk }}/delete">Delete</a></td>
         </tr>
         {% endfor %}
 

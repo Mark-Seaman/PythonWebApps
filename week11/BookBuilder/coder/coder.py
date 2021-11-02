@@ -1,27 +1,30 @@
-from book.book import export_chapters, get_book, import_chapters, import_leverage_book, import_poems_book
-from book.models import Book, Chapter
+from django.contrib.auth import get_user_model
+
+from book.book import import_all_books
+
+
+def create_test_user():
+    args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
+    user = get_user_model().objects.filter(username='TEST_DUDE')
+    if user:
+        user = user[0]
+    else:
+        user = get_user_model().objects.create_user(**args)
+    return user, args
 
 
 def quick_test():
     print("QUICK TEST")
 
-    print('IMPORT BOOKS')
-
-    # b = get_book('The Leverage Principle')
-    # # for c in Chapter.objects.filter(book=b.title):
-    # #     c.document = f'{c.order:02}.md'
-    # #     c.save()
-    # # export_chapters(b)
-    # import_chapters(b)
-
-    # b = get_book("A Seaman's Poems")
-    # import_chapters(b)
-
-    import_leverage_book()
-    # import_poems_book()
+    initialize_database()
 
     # print("Do nothing")
     # generate_code()
+
+
+def initialize_database():
+    create_test_user()
+    import_all_books()
 
 
 def generate_code():
