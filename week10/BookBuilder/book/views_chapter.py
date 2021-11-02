@@ -2,10 +2,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
-from django.views.generic.base import TemplateView
 from markdown import markdown
 
 from .models import Chapter
+from .book import get_chapter
 
 
 class ChapterView(RedirectView):
@@ -27,24 +27,24 @@ class ChapterDetailView(DetailView):
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
         chapter = kwargs['object']
-        chapter.markdown = open('Documents/Leverage/01.md').read()
-        chapter.html = markdown(chapter.markdown)
-        chapter.save()
-        return kwargs
+        chapter = get_chapter(chapter.book, chapter.order)
+        return {'object': chapter}
 
 
 class ChapterCreateView(LoginRequiredMixin, CreateView):
     template_name = "chapter_add.html"
     model = Chapter
-    fields = ['book', 'title', 'order', 'html', 'document', 'markdown']
-    success_url = reverse_lazy('chapter_list')
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.book_id = 1
+        return super().form_valid(form)
 
 
 class ChapterUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "chapter_edit.html"
     model = Chapter
-    fields = ['book', 'title',  'order', 'html', 'document', 'markdown']
-    success_url = reverse_lazy('chapter_list')
+    fields = '__all__'
 
 
 class ChapterDeleteView(LoginRequiredMixin, DeleteView):

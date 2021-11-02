@@ -26,7 +26,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
     description = models.TextField(default='None')
     doc_path = models.CharField(max_length=200, default='Documents')
 
@@ -48,8 +48,7 @@ class Book(models.Model):
 # document - path to markdown file
 
 class Chapter(models.Model):
-    # book = models.CharField(max_length=200, default="Leverage Principle")
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, editable=False)
     order = models.IntegerField()
     title = models.CharField(max_length=200)
     markdown = models.TextField()
@@ -70,4 +69,4 @@ class Chapter(models.Model):
         return f'{self.book.title} - {self.order} - {self.title}'
 
     def get_absolute_url(self):
-        return reverse_lazy('chapter_detail', args=[str(self.id)])
+        return reverse_lazy('chapter_list')
