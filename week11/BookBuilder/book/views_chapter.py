@@ -36,18 +36,22 @@ class ChapterDetailView(DetailView):
 class ChapterCreateView(LoginRequiredMixin, CreateView):
     template_name = "chapter_add.html"
     model = Chapter
-    fields = ['book', 'title', 'order', 'html', 'document', 'markdown']
-    success_url = reverse_lazy('chapter_list')
+    fields = '__all__'
+    # success_url = reverse_lazy('chapter_list')
+
+    def form_valid(self, form):
+        form.instance.book_id = 1
+        return super().form_valid(form)
 
 
 class ChapterUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "chapter_edit.html"
     model = Chapter
-    fields = ['book', 'title',  'order', 'html', 'document', 'markdown']
-    success_url = reverse_lazy('chapter_list')
+    fields = '__all__'
+    # success_url = reverse_lazy('chapter_list')
 
 
 class ChapterDeleteView(LoginRequiredMixin, DeleteView):
     model = Chapter
     template_name = 'chapter_delete.html'
-    success_url = reverse_lazy('chapter_list')
+    # success_url = reverse_lazy('chapter_list')

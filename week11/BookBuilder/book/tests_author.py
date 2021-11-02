@@ -8,13 +8,14 @@ from .models import Author
 
 def create_test_user():
     args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
-    return get_user_model().objects.create_user(**args)
+    user = get_user_model().objects.create_user(**args)
+    return user, args
 
 
 class AuthorDataTest(TestCase):
 
     def setUp(self):
-        self.user = create_test_user()
+        self.user, self.user_args = create_test_user()
         self.author1 = dict(user=self.user, name='Chuck Dickens')
         self.author2 = dict(user=self.user, name='Homer')
 
@@ -48,11 +49,11 @@ class AuthorDataTest(TestCase):
 class AuthorViewsTest(TestCase):
 
     def login(self):
-        response = self.client.login(username='TEST_DUDE', password='secret')
+        response = self.client.login(username=self.user.username,  password=self.user_args['password'])
         self.assertEqual(response, True)
 
     def setUp(self):
-        self.user = create_test_user()
+        self.user, self.user_args = create_test_user()
         self.author1 = dict(user=self.user, name='Chuck Dickens')
         self.author2 = dict(user=self.user, name='Homer')
 

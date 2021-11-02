@@ -28,17 +28,17 @@ class BookDetailView(DetailView):
 class BookCreateView(LoginRequiredMixin, CreateView):
     template_name = "book_add.html"
     model = Book
-    fields = ['title', 'author', 'description', 'doc_path']
+    fields = '__all__'
 
-    # def form_valid(self, form):
-    #     # form.instance.author = xget_author('Mark Seaman')
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.author_id = 1
+        return super().form_valid(form)
 
 
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "book_edit.html"
     model = Book
-    fields = ['title', 'author', 'description', 'doc_path']
+    fields = '__all__'
 
 
 class BookDeleteView(LoginRequiredMixin, DeleteView):

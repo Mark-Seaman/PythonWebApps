@@ -69,3 +69,8 @@ def import_poems_book():
                 doc_path='Documents/Poems')
     b = create_book(**book)
     import_chapters(b)
+
+
+def import_all_books():
+    import_leverage_book()
+    import_poems_book()
