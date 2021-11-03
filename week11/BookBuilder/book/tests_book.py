@@ -1,4 +1,3 @@
-from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
@@ -57,14 +56,10 @@ class BookViewsTest(TestCase):
 
     def login(self):
         response = self.client.login(username=self.user.username,  password=self.user_args['password'])
-        # response = self.client.login(username='TEST_DUDE', password='secret')
-
         self.assertEqual(response, True)
 
     def setUp(self):
-        # self.user = create_test_user()
         self.user, self.user_args = create_test_user()
-
         self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.author2 = Author.objects.create(user=self.user, name='Homer')
         self.book1 = dict(title='Iliad',   author=self.author1, description='description', doc_path='Documents')

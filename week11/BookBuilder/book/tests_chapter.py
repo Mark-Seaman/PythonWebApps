@@ -1,4 +1,3 @@
-from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
@@ -10,8 +9,6 @@ class ChapterDataTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-
-        # self.user = create_test_user()
         self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.author2 = Author.objects.create(user=self.user, name='Homer')
         self.book1 = Book.objects.create(title='Tale of 2 Cities', author=self.author1,
