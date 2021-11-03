@@ -7,6 +7,7 @@ from django.urls import path
 from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorCreateView, AuthorUpdateView
 from .views_book import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
 from .views_chapter import ChapterDeleteView, ChapterDetailView, ChapterListView, ChapterCreateView, ChapterUpdateView
+from .views_note import NoteView, NoteDeleteView, NoteDetailView, NoteListView, NoteCreateView, NoteUpdateView
 
 
 urlpatterns = [
@@ -33,5 +34,12 @@ urlpatterns = [
     path('chapter/add',                 ChapterCreateView.as_view(),  name='chapter_add'),
     path('chapter/<int:pk>/',           ChapterUpdateView.as_view(),  name='chapter_edit'),
     path('chapter/<int:pk>/delete',     ChapterDeleteView.as_view(),  name='chapter_delete'),
+
+    # Note
+    path('note/',                       NoteListView.as_view(),    name='note_list'),
+    path('note/<int:pk>',               NoteDetailView.as_view(),  name='note_detail'),
+    path('note/add',                    NoteCreateView.as_view(),  name='note_add'),
+    path('note/<int:pk>/',              NoteUpdateView.as_view(),  name='note_edit'),
+    path('note/<int:pk>/delete',        NoteDeleteView.as_view(),  name='note_delete'),
 
 ]

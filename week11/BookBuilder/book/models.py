@@ -70,3 +70,24 @@ class Chapter(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('chapter_list')
+
+
+# --------------------
+# Note
+#
+# chapter - points to chapter object
+# author - creator of note
+# title - title text of chapter
+# text - markdown text
+
+class Note(models.Model):
+    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, editable=False)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+
+    def __str__(self):
+        return f'{self.title} - {self.chapter.order} {self.chapter.book.title}'
+
+    def get_absolute_url(self):
+        return reverse_lazy('note_list')

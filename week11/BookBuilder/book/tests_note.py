@@ -1,8 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from note.models import Author, Note, Chapter
-from note.note import import_all_notes
+from .models import Author, Book, Note, Chapter
 from coder.coder import create_test_user
 
 
@@ -10,46 +9,37 @@ class NoteDataTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-        self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
-        self.author2 = Author.objects.create(user=self.user, name='Homer')
-        self.note1 = dict(title='Tale of 2 Cities', author=self.author1, description='None', doc_path='Documents')
-        self.note2 = dict(title='Iliad', author=self.author2, description='None', doc_path='Documents')
+        self.author = Author.objects.create(user=self.user, name='Chuck Dickens')
+        self.book = Book.objects.create(title='Tale of 2 Cities', author=self.author,
+                                        description='None', doc_path='Documents')
+        self.chapter = Chapter.objects.create(book=self.book, title='Achilles', order='1', document='1.md')
+        self.note1 = dict(title='Best note ever', chapter=self.chapter, author=self.author, text='None',)
+        self.note2 = dict(title='Worst note ever', chapter=self.chapter, author=self.author, text='None')
 
     def test_add_note(self):
         self.assertEqual(len(Note.objects.all()), 0)
         Note.objects.create(**self.note1)
         Note.objects.create(**self.note2)
         x = Note.objects.get(pk=2)
-        self.assertEqual(str(x), '2 - Iliad by 2 - Homer')
-        self.assertEqual(x.author.name, 'Homer')
-        self.assertEqual(x.title, 'Iliad')
+        self.assertEqual(str(x), 'Worst note ever - 1 Tale of 2 Cities')
+        self.assertEqual(x.author.name, 'Chuck Dickens')
+        self.assertEqual(x.title, 'Worst note ever')
         self.assertEqual(len(Note.objects.all()), 2)
 
     def test_note_edit(self):
         Note.objects.create(**self.note1)
         b = Note.objects.get(pk=1)
-        b.author = self.author2
-        b.title = 'Iliad'
-        b.description = 'No description'
+        b.title = 'Worst note ever'
         b.save()
-        self.assertEqual(b.title, 'Iliad')
-        self.assertEqual(b.author.name, 'Homer')
-        self.assertEqual(b.description, 'No description')
+        self.assertEqual(b.title, 'Worst note ever')
 
     def test_note_delete(self):
         Note.objects.create(**self.note1)
+        Note.objects.create(**self.note2)
+        self.assertEqual(len(Note.objects.all()), 2)
         b = Note.objects.get(pk=1)
         b.delete()
-        self.assertEqual(len(Note.objects.all()), 0)
-
-    def test_import_notes(self):
-        import_all_notes()
-        # print(Author.objects.all())
-        # print(Note.objects.all())
-        # print(Chapter.objects.all())
-        self.assertEqual(len(Author.objects.all()), 3)
-        self.assertEqual(len(Note.objects.all()), 2)
-        self.assertEqual(len(Chapter.objects.all()), 70)
+        self.assertEqual(len(Note.objects.all()), 1)
 
 
 class NoteViewsTest(TestCase):
@@ -60,15 +50,12 @@ class NoteViewsTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-        self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
-        self.author2 = Author.objects.create(user=self.user, name='Homer')
-        self.note1 = dict(title='Iliad',   author=self.author1, description='description', doc_path='Documents')
-        self.note2 = dict(title='Odyssey', author=self.author1, description='None', doc_path='Documents')
-
-    def test_home(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, reverse('note_list'))
+        self.author = Author.objects.create(user=self.user, name='Chuck Dickens')
+        self.book = Book.objects.create(title='Tale of 2 Cities', author=self.author,
+                                        description='None', doc_path='Documents')
+        self.chapter = Chapter.objects.create(book=self.book, title='Achilles', order='1', document='1.md')
+        self.note1 = dict(title='Best note ever', chapter=self.chapter, author=self.author, text='None',)
+        self.note2 = dict(title='Worst note ever', chapter=self.chapter, author=self.author, text='None')
 
     def test_note_list_view(self):
         self.assertEqual(reverse('note_list'), '/note/')
@@ -99,7 +86,7 @@ class NoteViewsTest(TestCase):
         response = self.client.post(reverse('note_add'), self.note1)
         response = self.client.post(reverse('note_add'), self.note2)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/note/2')
+        self.assertEqual(response.url, '/note/')
         response = self.client.get('/note/')
         self.assertEqual(len(Note.objects.all()), 2)
 
@@ -115,15 +102,15 @@ class NoteViewsTest(TestCase):
         # Login to edit
         self.login()
         response = self.client.post('/note/1/', self.note2)
-        self.assertEqual(response.url, '/note/1')
+        self.assertEqual(response.url, '/note/')
         response = self.client.get(response.url)
         self.assertContains(response, self.note2['title'])
-        self.assertContains(response, self.author1.name)
+        self.assertContains(response, self.author.name)
 
         # Check the note object
         note = Note.objects.get(pk=1)
-        self.assertEqual(note.author, self.author1)
-        self.assertEqual(note.title, 'Odyssey')
+        self.assertEqual(note.author, self.author)
+        self.assertEqual(note.title, self.note2['title'])
 
     def test_note_delete_view(self):
         self.login()

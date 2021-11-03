@@ -39,9 +39,8 @@ def clone_code(class_name, object_name, old_class, old_object):
 
 
 def convert_file(f1, f2, object1, object2, class1, class2):
-    print(f'{f1}  -->  {f2}')
     text = open(f1).read()
     text = text.replace(object1, object2)
     text = text.replace(class1, class2)
     open(f2, 'w').write(text)
-    print(f'Create {f2} from {f1}')
+    print(f'{f1}  -->  {f2}')
