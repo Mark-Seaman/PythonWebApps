@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from book.models import Author, Book, Chapter
-from book.book import import_poems_book, import_leverage_book
+from book.book import import_all_books
 from coder.coder import create_test_user
 
 
@@ -43,23 +43,14 @@ class BookDataTest(TestCase):
         b.delete()
         self.assertEqual(len(Book.objects.all()), 0)
 
-    def test_import_leverage(self):
-        import_leverage_book()
+    def test_import_books(self):
+        import_all_books()
         # print(Author.objects.all())
         # print(Book.objects.all())
         # print(Chapter.objects.all())
         self.assertEqual(len(Author.objects.all()), 3)
-        self.assertEqual(len(Book.objects.all()), 1)
-        self.assertEqual(len(Chapter.objects.all()), 14)
-
-    def test_import_poems(self):
-        import_poems_book()
-        # print(Author.objects.all())
-        # print(Book.objects.all())
-        # print(Chapter.objects.all())
-        self.assertEqual(len(Author.objects.all()), 3)
-        self.assertEqual(len(Book.objects.all()), 1)
-        self.assertEqual(len(Chapter.objects.all()), 56)
+        self.assertEqual(len(Book.objects.all()), 2)
+        self.assertEqual(len(Chapter.objects.all()), 70)
 
 
 class BookViewsTest(TestCase):

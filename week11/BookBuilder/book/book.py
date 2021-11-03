@@ -33,12 +33,12 @@ def export_chapters(book):
     write_csv_file(chapters, records)
 
 
-def get_book(title):
-    return Book.objects.get(title=title)
-
-
 def get_author(name):
     return Author.objects.get(name=name)
+
+
+def get_book(title):
+    return Book.objects.get(title=title)
 
 
 def get_chapter(book, order):
@@ -50,8 +50,15 @@ def get_chapter(book, order):
 
 
 def import_all_books():
-    import_leverage_book()
-    import_poems_book()
+    author = create_author('Mark Seaman')
+    import_book("The Leverage Principle", author, 'Documents/Leverage', "Software Engineering Skills")
+    import_book("A Seaman's Poems", author, 'Documents/Poems', "From the Edge of Reality")
+
+
+def import_book(title, author, doc_path, description):
+    args = dict(title=title, author=author, description=description, doc_path=doc_path)
+    book = create_book(**args)
+    import_chapters(book)
 
 
 def import_chapters(book):
@@ -63,23 +70,3 @@ def import_chapters(book):
         for row in read_csv_file(chapters):
             # print(row)
             model.import_record(book, row)
-
-
-def import_leverage_book():
-    author = create_author('Mark Seaman')
-    book = dict(title="The Leverage Principle",
-                author=author,
-                description="Software Engineering Skills",
-                doc_path='Documents/Leverage')
-    b = create_book(**book)
-    import_chapters(b)
-
-
-def import_poems_book():
-    author = create_author('Mark Seaman')
-    book = dict(title="A Seaman's Poems",
-                author=author,
-                description="From the Edge of Reality",
-                doc_path='Documents/Poems')
-    b = create_book(**book)
-    import_chapters(b)
