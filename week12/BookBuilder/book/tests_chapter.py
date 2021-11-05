@@ -63,7 +63,7 @@ class ChapterViewsTest(TestCase):
         self.book = Book.objects.create(title='Tale of Two Cities', author=self.author,
                                         description='description', doc_path='Documents/Poems')
         self.chapter1 = dict(book=self.book, title='Best of Times',
-                             order='1', html='x', markdown='x', document='DoBe.md')
+                             order='1', html='x', markdown='x', document='Coma.md')
         self.chapter2 = dict(book=self.book, title='Worst of Times',
                              order='2', html='x', markdown='x', document='Now.md')
 
@@ -80,7 +80,7 @@ class ChapterViewsTest(TestCase):
         self.assertEqual(reverse('chapter_detail', args='1'), '/chapter/1')
         self.assertEqual(reverse('chapter_detail', args='2'), '/chapter/2')
         Chapter.objects.create(**self.chapter1)
-        response = self.client.get(reverse('chapter_detail', args='1'))
+        response = self.client.get('/chapter/1')
         self.assertEqual(response.status_code, 200)
 
     def test_chapter_add_view(self):

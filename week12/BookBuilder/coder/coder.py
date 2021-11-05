@@ -4,8 +4,8 @@ from book.book import import_all_books
 
 
 def create_test_user():
-    args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
-    user = get_user_model().objects.filter(username='TEST_DUDE')
+    args = dict(username='seaman', email='me@here.com', password='secret')
+    user = get_user_model().objects.filter(username='seaman')
     if user:
         user = user[0]
     else:
@@ -19,5 +19,5 @@ def quick_test():
 
 
 def initialize_database():
-    # create_test_user()
+    create_test_user()
     import_all_books()

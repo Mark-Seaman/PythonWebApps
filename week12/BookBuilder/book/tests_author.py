@@ -21,7 +21,7 @@ class AuthorDataTest(TestCase):
 
         b = Author.objects.get(pk=2)
         self.assertEqual(b.name, 'Homer')
-        self.assertEqual(b.user.username, 'TEST_DUDE')
+        self.assertEqual(b.user.username, 'seaman')
 
     def test_author_edit(self):
         Author.objects.create(**self.author1)

@@ -18,3 +18,7 @@ class DocTest(TestCase):
         response = self.client.get('/doc')
         self.assertEqual(response.status_code, 301)
         self.assertEqual(response.url, '/doc/')
+
+    def test_markdown_file(self):
+        path = "Documents/Poems/Coma.md"
+        open(path).read()
