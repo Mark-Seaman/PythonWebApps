@@ -10,7 +10,7 @@ Only weaklings pull off the highway before they reach the destination.
 
 But not me … pedal to the metal … full speed ahead.
 
-I have a “can do” attitude and always give 110%.
+I have a "can do" attitude and always give 110%.
 
 When I’m injured I just walk it off. 
 
@@ -26,7 +26,7 @@ And lots of them, certainly more than anyone else.  I wonder why others do so l
 
 I am already so busy with all of the business, and busy buzzing.
 
-I never let up and feel like I’m moving 100 miles per hour.
+I never let up and feel like I'm moving 100 miles per hour.
 
 Then I hit the wall … fade to black.
 

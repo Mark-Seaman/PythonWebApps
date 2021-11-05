@@ -42,10 +42,10 @@ Only then can I DO the things that I am destined to DO.
 
 ---
 
-“To be is to do - Socrates
+"To be is to do - Socrates
 
 To do is to be - Sartre
 
-Do, Be, Do, Be, Do - Sinatra”
+Do, Be, Do, Be, Do - Sinatra"
 
     ― Kurt Vonnegut (seen on tee-shirt in Athens, Greece)

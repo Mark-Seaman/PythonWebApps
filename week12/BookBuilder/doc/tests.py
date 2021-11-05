@@ -1,5 +1,8 @@
 from django.test import TestCase
 from markdown import markdown
+from os import listdir
+
+from .views import scan_document_files
 
 
 class DocTest(TestCase):
@@ -20,5 +23,9 @@ class DocTest(TestCase):
         self.assertEqual(response.url, '/doc/')
 
     def test_markdown_file(self):
-        path = "Documents/Poems/Coma.md"
+        path = "Documents/Poems/DoBe.md"
         open(path).read()
+
+    def test_document_files(self):
+        'scan_document_files() - Disabled'
+        # scan_document_files()

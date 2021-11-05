@@ -28,7 +28,7 @@ Perhaps the sisters are the deadliest of the wolves.  While the brothers rush i
 with fangs bared the sisters are far more patient.  They play the long-game, and
 ensure that the pack will never go hungry.
 
-Shame and Sadness lie in wait … silently … patiently. No one knows they are
+Shame and Sadness lie in wait ... silently ... patiently. No one knows they are
 there. They drain their victims of love and hope which is the lifeblood needed
 to survive.
 
