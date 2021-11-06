@@ -39,7 +39,7 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "author_edit.html"
     model = Author
-    fields = ['name']
+    fields = ['name', 'photo']
     success_url = reverse_lazy('author_list')
 
 

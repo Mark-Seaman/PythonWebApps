@@ -11,6 +11,7 @@
     <table class="table table-hover">
         <tr>
             <th>Image</th>
+            <th>URL</th>
             <th>Title</th>
         </tr>
 
@@ -18,6 +19,7 @@
         <tr>
             <td><img src="{{ image.image.url }}" alt="{{ image.title }}" width='200'></td>
             <td>{{ image.image.url }}</td>
+            <td>{{ image.title }}</td>
             <td><a href="/image/{{ image.pk }}/delete">Delete</a></td>
         </tr>
         {% endfor %}

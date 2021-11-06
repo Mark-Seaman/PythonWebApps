@@ -10,6 +10,18 @@
     <p><b>{{ object.name }}</b></p>
     <p>User:</p>
     <p><b> {{ object.user.first_name }} {{ object.user.last_name }}</b></p>
+    <p>Photo:</p>
+    {% if object.photo %}
+    <p>
+        <img class="rounded-circle border" src="{{ object.photo.image.url }}" alt="">
+    </p>
+    <p>
+        {{ object.photo.title }}
+    </p>
+    {% else %}
+    <p>No Photo</p>
+    {% endif %}
+
 
     <h2>Books</h2>
     <table class="table table-hover">

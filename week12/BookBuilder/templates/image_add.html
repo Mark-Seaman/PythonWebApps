@@ -8,14 +8,14 @@
 
     <h1 class="text-primary">Add New Image</h1>
 
-    <!-- {% load crispy_forms_tags %} -->
+    {% load crispy_forms_tags %}
 
     <form action="" method="post" enctype="multipart/form-data">
 
         {% csrf_token %}
 
         {{ form.media }}
-        {{ form.as_p }}
+        {{ form|crispy }}
 
         <button class="btn btn-success mt-5" type="submit">Save Record</button>
 

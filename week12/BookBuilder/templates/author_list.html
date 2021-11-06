@@ -17,6 +17,7 @@
         {% for author in object_list %}
         <tr>
             <td><a href="{{ author.pk }}">{{ author.name }}</a></td>
+            <td>{{ author.photo.image }} <img src="/media/{{ author.photo.image }}" alt=""></td>
             <td><a href="{{ author.pk }}/">Edit</a></td>
             <td><a href="{{ author.pk }}/delete">Delete</a></td>
         </tr>

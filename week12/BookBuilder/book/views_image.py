@@ -19,7 +19,7 @@ class ImageListView(ListView):
 class ImageCreateView(LoginRequiredMixin, CreateView):
     template_name = "image_add.html"
     model = Image
-    fields = ['image', 'title']
+    fields = '__all__'
 
     # def form_valid(self, form):
     #     form.instance.chapter_id = 1
