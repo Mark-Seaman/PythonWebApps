@@ -91,3 +91,22 @@ class Note(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('note_list')
+
+
+# --------------------
+# Image
+#
+# chapter - points to chapter object
+# image - URL of saved image
+# title - title text of chapter
+
+class Image(models.Model):
+    # chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, editable=False)
+    image = models.ImageField(null=True, blank=True, upload_to="images/")
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f'{self.title}'
+
+    def get_absolute_url(self):
+        return reverse_lazy('image_list')

@@ -1,0 +1,33 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid m-5">
+
+    <h1 class="text-primary text-center">List of Images</h1>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+        </tr>
+
+        {% for image in object_list %}
+        <tr>
+            <td><img src="{{ image.image.url }}" alt="{{ image.title }}" width='200'></td>
+            <td>{{ image.image.url }}</td>
+            <td><a href="/image/{{ image.pk }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <p>
+        <a href="/image/add" class="btn btn-success m-5">Add New Image</a>
+    </p>
+
+</div>
+
+{% endblock content %}

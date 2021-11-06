@@ -8,7 +8,8 @@ class Command(BaseCommand):
         print('CODE CLONER')
         print(file_list('book'))
 
-        generate_code()
+        generate_image_code()
+        # generate_note_code()
 
 
 def file_list(old_object):
@@ -22,9 +23,17 @@ templates/{old_object}_edit.html
 templates/{old_object}_list.html'''
 
 
-def generate_code():
+def generate_note_code():
     class_name = "Note"
     object_name = "note"
+    old_class = 'Book'
+    old_object = 'book'
+    clone_code(class_name, object_name, old_class, old_object)
+
+
+def generate_image_code():
+    class_name = "Image"
+    object_name = "image"
     old_class = 'Book'
     old_object = 'book'
     clone_code(class_name, object_name, old_class, old_object)
