@@ -51,6 +51,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
     description = models.TextField(default='None')
     doc_path = models.CharField(max_length=200, default='Documents')

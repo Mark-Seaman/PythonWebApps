@@ -6,17 +6,10 @@
 
         <ul class="navbar-nav text-light ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'book_list' %}">List Books</a>
+                <a class="nav-link text-light" href="{% url 'author_list' %}">Authors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'book_add' %}">Add Book</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'chapter_list' %}">List Chapters</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'chapter_add' %}">Add Chapter</a>
+                <a class="nav-link text-light" href="{% url 'book_list' %}">Books</a>
             </li>
 
             {% if user.is_authenticated %}
