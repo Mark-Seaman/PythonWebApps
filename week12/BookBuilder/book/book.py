@@ -52,11 +52,12 @@ def get_chapter(book, order):
 def import_all_books():
     author = create_author('Mark Seaman')
     import_book("The Leverage Principle", author, 'Documents/Leverage', "Software Engineering Skills")
-    import_book("A Seaman's Poems", author, 'Documents/Poems', "From the Edge of Reality")
+    description = 'Mark shares his insights and irony about the absurdity of life.'
+    import_book("From the Edge of Reality", author, 'Documents/Poems', "A Seaman's Poems", description)
 
 
-def import_book(title, author, doc_path, description):
-    args = dict(title=title, author=author, description=description, doc_path=doc_path)
+def import_book(title, author, doc_path, subtitle='None', description='None'):
+    args = dict(title=title, author=author, subtitle=subtitle, description=description, doc_path=doc_path)
     book = create_book(**args)
     import_chapters(book)
 
