@@ -1,12 +1,8 @@
-{% extends 'workshop.html' %}
+{% extends 'theme.html' %}
 
-{% block main %}
 
-    <main class="bg-dark text-light">
+{% block content %}
 
-        <h2>{{ title }}</h2>
-         {% include '_card.html' %}
-         
-    </main>
-    
-{% endblock main %}
+{% include '_cards.html' %}
+
+{% endblock content %}

@@ -1,3 +1,5 @@
+from .menu import load_menu, load_side_menu
+from .workshop import accordion_data, card_data, cards_data, document_data, markdown_file_data, super_data, table_data, tabs_data
 from django.views.generic import RedirectView, TemplateView
 from os import listdir
 from markdown import markdown
@@ -13,44 +15,86 @@ class DocumentView(TemplateView):
 
     def get_context_data(self, **kwargs):
         document = self.kwargs.get('doc', 'Index')
-        markdown_text = open(f'Documents/{document}.md').read()
-        return dict(doc=markdown(markdown_text), file=document)
+        return document_data(document)
+
+# class DocumentView(TemplateView):
+#     template_name = 'super.html'
+
+#     def get_context_data(self, **kwargs):
+#         menu = load_menu('README.md')
+# #        sidemenu = load_side_menu('README.md')
+#         doc = kwargs.get('doc', "README.md")
+#         return dict(card=markdown_file_data(doc), menu=menu)
+# #    , sidemenu=sidemenu)
+
+
+# class CardView(TemplateView):
+#     template_name = 'card.html'
+
+#     def get_context_data(self, **kwargs):
+#         data = dict(title="Card are Great", body=text)
+#         return dict(card=data, title='Card View Layout')
+
+
+# class CardsView(TemplateView):
+#     template_name = 'cards.html'
+
+#     def get_context_data(self, **kwargs):
+#         return dict(cards=cards_data())
+
+
+# class HomeView(TemplateView):
+#     template_name = 'workshop.html'
 
 
 class CardView(TemplateView):
     template_name = 'card.html'
 
     def get_context_data(self, **kwargs):
-        data = dict(title="Card are Great", body=text)
-        return dict(card=data, title='Card View Layout')
+        return dict(cards=cards_data(), menu=load_menu('README.md'))
 
 
-class CardsView(TemplateView):
-    template_name = 'cards.html'
+# class CardsView(TemplateView):
+#     template_name = 'cards.html'
 
-    def get_context_data(self, **kwargs):
-        return dict(cards=cards_data())
-
-
-def lorem(num_chars):
-    text = '''Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium quibusdam sit hic, 
-        ipsum labore commodi eligendi quos culpa maxime voluptate. Ad, voluptatem, esse! Quam accusantium 
-        minus sequi cumque minima quod odio accusamus assumenda dolorem consequuntur esse alias nisi, 
-        explicabo error! Dolores blanditiis adipisci laboriosam quo sequi nostrum consectetur recusandae 
-        illo sed molestias laborum, ullam modi doloremque. Facilis nulla iure odit accusamus. Doloremque 
-        voluptatibus repudiandae, beatae temporibus odit suscipit eius facere dolores quibusdam perspiciatis
-        exercitationem velit porro cupiditate repellendus et tempora dolorem, sapiente, debitis cum nihil 
-        sunt. Illo perspiciatis cumque qui quia quam quibusdam doloribus fugiat porro, soluta esse 
-        nesciunt itaque? Blanditiis, voluptate, voluptates iure iste aut maxime perferendis aliquid, 
-        odit doloribus sapiente temporibus ad mollitia consequuntur, alias totam tenetur ut. Accusantium
-        voluptas temporibus, ea a impedit.'''
-    return text[:num_chars]
+#     def get_context_data(self, **kwargs):
+#         return dict(cards=cards_data(), menu=load_menu('README.md'))
 
 
-def cards_data():
-    return [
-        dict(title="Card One", body=lorem(200), color="bg-success"),
-        dict(title="Card Two", body=lorem(150), color="bg-primary"),
-        dict(title="Card Three", body=lorem(50), color="bg-warning"),
-        dict(title="Card Four", body=lorem(500), color="bg-danger"),
-    ]
+# class TableView(TemplateView):
+#     template_name = 'super.html'
+
+#     def get_context_data(self, **kwargs):
+#         return dict(title='Lessons Schedule',
+#                     table=table_data('Documents/lessons.csv'),
+#                     menu=load_menu('README.md'))
+
+
+# class TabsView(TemplateView):
+#     template_name = 'super.html'
+
+#     def get_context_data(self, **kwargs):
+#         tabs = tabs_data()
+#         return dict(title='Tab View', tabs=tabs, menu=load_menu('README.md'))
+
+
+# class CarouselView(TemplateView):
+#     template_name = 'carousel.html'
+
+#     def get_context_data(self, **kwargs):
+#         carousel = carousel_data()
+#         return dict(title='Carousel View', carousel=carousel, menu=load_menu('README.md'))
+
+
+# class SuperView(TemplateView):
+#     template_name = 'super.html'
+
+#     def get_context_data(self, **kwargs):
+#         return super_data()
+
+
+# class AccordionView(TemplateView):
+#     template_name = 'accordion.html'
+
+#     def get_context_data(self, **kwargs):
+#         return dict(accordion=accordion_data())
