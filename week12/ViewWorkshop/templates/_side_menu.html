@@ -1,0 +1,20 @@
+{% load static %}
+
+{% if sidemenu %}
+
+    <nav class="col-12 col-sm-3 col-md-2">
+
+        <div class="container">
+            <ul class="nav bd-sidenav flex-column bg-light-gray">
+
+                {% for i in sidemenu.menu_items %}
+                    <li class="bd-toc-item {{ i.active }} m-2">
+                        <a href="{{ i.url }}" class="bd-toc-link">{{ i.label }}</a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </nav>
+
+{% endif %}

@@ -1,0 +1,47 @@
+{% if tabs %}
+
+    <div class="m-3">
+        <div class="container">
+
+            <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                {% for t in tabs %}
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link {{ t.active }}" 
+                           id="{{ t.name }}-tab" 
+                           data-toggle="tab" 
+                           href="#{{ t.name }}" 
+                           role="tab" 
+                           aria-controls="{{ t.name }}" 
+                           aria-selected="{{ t.selected }}" 
+                           href="#{{ t.name }}">
+                            {{ t.header }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <div class="tab-content" id="myTab2Content">
+
+                {% for t in tabs %}
+
+                    <div class="tab-pane bg-light text-dark p-5 {{ t.active }} {{ t.show }} fade" 
+                        id="{{ t.name }}" 
+                        role="tabpanel" 
+                        aria-labelledby="{{ t.name }}-tab">
+
+                        <h2>{{ t.header }}</h2>
+
+                        {% autoescape off %}
+                            {{ t.body }}
+                        {% endautoescape %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+{% endif %}

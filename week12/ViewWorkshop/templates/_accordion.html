@@ -1,0 +1,39 @@
+
+{% if accordion %}
+
+    <main class="bg-dark text-light">
+        <div class="container">
+
+            <div class="accordion bg-light text-dark" id="accordionExample">
+
+                {% for card in accordion %}
+
+                <div class="card">
+
+                    <div class="card-header" id="heading-{{ card.id }}">
+                        <h3 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{{ card.id }}" aria-expanded="{{ card.active }}" aria-controls="collapse-{{ card.id }}">
+                                {{ card.title }}
+                            </button>
+                        </h3>
+                    </div>
+
+                    <div id="collapse-{{ card.id }}" class="collapse {{ card.show }}" aria-labelledby="heading-{{ card.id }}" data-parent="#accordionExample">
+                        <div class="card-body">
+                            {% autoescape off %}
+                                {{ card.body }}
+                            {% endautoescape %}
+                        </div>
+                    </div>
+
+                </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </main>
+    
+{% endif %}
+
