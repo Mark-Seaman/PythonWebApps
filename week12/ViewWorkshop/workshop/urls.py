@@ -1,7 +1,7 @@
-# from .views import AccordionView, CarouselView, DocumentView, HomeView, SuperView, TableView, TabsView
+# from .views import CarouselView, DocumentView, HomeView, SuperView
 from django.urls import path
 
-from .views import CardView, DocumentView, HtmlView
+from .views import AccordionView, CardView, DocumentView, HtmlView, TableView, TabsView
 
 
 urlpatterns = [
@@ -14,17 +14,17 @@ urlpatterns = [
     path('doc/', DocumentView.as_view(), name='document'),
     path('doc/<str:doc>', DocumentView.as_view()),
 
-
-    #     path('',  HomeView.as_view(), name='workshop'),
-
+    # Cards
     path('card',  CardView.as_view(), name='card'),
 
-    #     path('doc/<str:doc>',  DocumentView.as_view(), name='doc'),
+    # Table
+    path('table',  TableView.as_view(), name='table'),
 
-    #     path('table',  TableView.as_view(), name='table'),
+    # Tabs and Accordion
+    path('tabs',  TabsView.as_view(), name='tabs'),
+    path('accordion',  AccordionView.as_view(), name='accordion'),
 
-    #     path('tabs',  TabsView.as_view(), name='tabs'),
-    #     path('accordion',  AccordionView.as_view(), name='accordion'),
+
     #     path('carousel',  CarouselView.as_view(), name='carousel'),
 
 

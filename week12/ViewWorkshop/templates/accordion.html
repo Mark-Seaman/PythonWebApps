@@ -1,13 +1,11 @@
-{% extends 'workshop.html' %}
+{% extends 'theme.html' %}
 
-{% block main %}
+{% block content %}
 
-  <div class="container">
-      
-   <h2>Accordion View</h2>
-    {% include '_accordion.html' %}
-  </div>
-    
-{% endblock main %}
+<div class="container mt-5">
 
+  {% include '_accordion.html' %}
 
+</div>
+
+{% endblock content %}

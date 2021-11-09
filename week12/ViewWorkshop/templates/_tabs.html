@@ -1,47 +1,40 @@
 {% if tabs %}
 
-    <div class="m-3">
-        <div class="container">
+<div class="m-3">
+    <div class="container">
 
-            <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                {% for t in tabs %}
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link {{ t.active }}" 
-                           id="{{ t.name }}-tab" 
-                           data-toggle="tab" 
-                           href="#{{ t.name }}" 
-                           role="tab" 
-                           aria-controls="{{ t.name }}" 
-                           aria-selected="{{ t.selected }}" 
-                           href="#{{ t.name }}">
-                            {{ t.header }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+        <ul class="nav nav-tabs" role="tablist">
 
-            <div class="tab-content" id="myTab2Content">
+            {% for t in tabs %}
+            <li class="nav-item">
+                <a class="nav-link {{ t.active }}" id="{{ t.name }}-tab" data-bs-toggle="tab" href="#{{ t.name }}">
+                    {{ t.header }}
+                </a>
+            </li>
+            {% endfor %}
 
-                {% for t in tabs %}
+        </ul>
 
-                    <div class="tab-pane bg-light text-dark p-5 {{ t.active }} {{ t.show }} fade" 
-                        id="{{ t.name }}" 
-                        role="tabpanel" 
-                        aria-labelledby="{{ t.name }}-tab">
+        <div class="tab-content">
 
-                        <h2>{{ t.header }}</h2>
+            {% for t in tabs %}
 
-                        {% autoescape off %}
-                            {{ t.body }}
-                        {% endautoescape %}
+            <div class="tab-pane bg-light text-dark p-5 {{ t.active }} {{ t.show }} fade" id="{{ t.name }}">
 
-                    </div>
+                <h2>{{ t.header }}</h2>
 
-                {% endfor %}
+                {% autoescape off %}
+                {{ t.body }}
+                {% endautoescape %}
 
             </div>
 
+            {% endfor %}
+
         </div>
+
     </div>
+</div>
+
 
 {% endif %}

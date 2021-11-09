@@ -1,39 +1,42 @@
-
 {% if accordion %}
 
-    <main class="bg-dark text-light">
-        <div class="container">
+<div class="container">
 
-            <div class="accordion bg-light text-dark" id="accordionExample">
+    <div class="accordion bg-light text-dark" id="accordionExample">
 
-                {% for card in accordion %}
+        {% for card in accordion %}
 
-                <div class="card">
+        <div class="accordion-item">
 
-                    <div class="card-header" id="heading-{{ card.id }}">
-                        <h3 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{{ card.id }}" aria-expanded="{{ card.active }}" aria-controls="collapse-{{ card.id }}">
-                                {{ card.title }}
-                            </button>
-                        </h3>
-                    </div>
+            <h2 class="accordion-header" id="heading-{{ card.id }}">
 
-                    <div id="collapse-{{ card.id }}" class="collapse {{ card.show }}" aria-labelledby="heading-{{ card.id }}" data-parent="#accordionExample">
-                        <div class="card-body">
-                            {% autoescape off %}
-                                {{ card.body }}
-                            {% endautoescape %}
-                        </div>
-                    </div>
+                <button class="accordion-button {{ card.collapsed }}" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse-{{ card.id }}" aria-expanded="{{ card.aria }}"
+                    aria-controls="collapse-{{ card.id }}">
 
+                    {{ card.title }}
+
+                </button>
+
+            </h2>
+
+            <div id="collapse-{{ card.id }}" class="accordion-collapse collapse {{ card.show }}"
+                aria-labelledby="heading-{{ card.id }}" data-bs-parent="#accordionExample">
+
+                <div class="accordion-body bg-light">
+                    {% autoescape off %}
+                    {{ card.body }}
+                    {% endautoescape %}
                 </div>
 
-                {% endfor %}
             </div>
 
         </div>
 
-    </main>
-    
-{% endif %}
+        {% endfor %}
+    </div>
 
+</div>
+
+
+{% endif %}

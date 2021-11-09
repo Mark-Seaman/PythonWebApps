@@ -1,12 +1,11 @@
-{% extends 'workshop.html' %}
+{% extends 'theme.html' %}
 
-{% block main %}
+{% block content %}
 
-    <div class="container my-5">
+<div class="container my-5">
 
-        <h2>Table View</h2>
+    {% include '_table.html' %}
 
-        {% include '_table.html' %}
-    </div>
+</div>
 
-{% endblock main %}
+{% endblock content %}
