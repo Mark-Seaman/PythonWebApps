@@ -60,16 +60,6 @@ def lorem(num_words):
     return f'#### Lorem {num_words}\n\n' + text
 
 
-def markdown_file_data(doc):
-    doc = 'Documents/' + doc
-    if not exists(doc):
-        text = '# 404 is for Losers!'
-    else:
-        text = markdown(open(doc).read())
-    title = f'Document - {doc}'
-    return card_data(title, text, 'bg-success', 'col-lg-12')
-
-
 def table_data(path):
     return [row[: 5] for row in reader(open(path))]
 

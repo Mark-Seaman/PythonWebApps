@@ -27,7 +27,6 @@ urlpatterns = [
 
     path('carousel',  CarouselView.as_view(), name='carousel'),
 
-
     #     path('super',  SuperView.as_view(), name='super'),
 
 ]

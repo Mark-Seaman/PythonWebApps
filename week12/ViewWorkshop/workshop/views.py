@@ -1,7 +1,6 @@
 from django.views.generic import TemplateView
-from os import listdir
 from markdown import markdown
-from django.views.generic import TemplateView
+from os import listdir
 
 from .workshop import accordion_data, cards_data, carousel_data, document_data, table_data, tabs_data
 
