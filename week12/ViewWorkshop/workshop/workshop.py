@@ -22,11 +22,11 @@ def accordion_data():
 def document_card(document):
     markdown_text = open(f'Documents/{document}.md').read()
     link = dict(href='Index', text='Doc Index')
-    return dict(body=markdown(markdown_text), file=document, color='bg-success text-light', width='col-lg-6', link=link)
+    return dict(body=markdown(markdown_text), file=document, color='bg-primary text-light p-5', width='', link=link)
 
 
 def document_data(document):
-    return dict(documents=[document_card(document), document_card('Markdown')])
+    return dict(documents=[document_card(document)])
 
 
 def card_data(title="Random Card", body=None, color='bg-primary text-light', width='col-lg-12', link=None):
@@ -39,8 +39,8 @@ def card_data(title="Random Card", body=None, color='bg-primary text-light', wid
 def cards_data():
     return [
         card_data(),
-        card_data("Card Two",   lorem(50),  "bg-warning text-dark", 'col-lg-4'),
-        card_data("Card Three", lorem(150), "bg-success text-light", 'col-lg-8'),
+        card_data("Card Two",   lorem(50),  "bg-warning text-dark", 'col-lg-6'),
+        card_data("Card Three", lorem(150), "bg-success text-light", 'col-lg-6'),
         card_data("Card Four",  lorem(20),  "bg-danger text-light",  'col-lg-6'),
     ]
 

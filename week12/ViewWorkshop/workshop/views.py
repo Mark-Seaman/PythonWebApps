@@ -39,6 +39,13 @@ class HtmlView(TemplateView):
     template_name = 'home.html'
 
 
+class PageView(TemplateView):
+
+    def get_template_names(self):
+        page = self.kwargs.get('page', 'index')
+        return f'{page}.html'
+
+
 class TableView(TemplateView):
     template_name = 'table.html'
 

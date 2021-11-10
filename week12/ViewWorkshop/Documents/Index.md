@@ -12,5 +12,5 @@ These documents demonstrate how to display markdown files.
 [Learn about Markdown](/doc/Markdown)
 
 
-![](/static/happy.jpg)
+![](/static/images/sad.jpg)
 
