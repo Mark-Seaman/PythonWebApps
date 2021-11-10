@@ -46,16 +46,17 @@ def cards_data():
 
 
 def carousel_data():
-    return [["https://source.unsplash.com/random/1200x800?bear", "active"],
-            ["https://source.unsplash.com/random/1200x800?forest", ''],
-            ["https://source.unsplash.com/random/1200x800?ocean"],
-            ["https://source.unsplash.com/random/1200x800?flower"],
-            ["https://images.unsplash.com/photo-1604932292784-ce6b48294afc"]]
+    return [
+        dict(image_url="https://source.unsplash.com/random/1200x800?bear", label="Bear", active="active"),
+        dict(image_url="https://source.unsplash.com/random/1200x800?forest", label="Forest"),
+        dict(image_url="https://source.unsplash.com/random/1200x800?ocean", label="Ocean"),
+        dict(image_url="https://source.unsplash.com/random/1200x800?flower", label="Flower"),
+    ]
 
 
 def lorem(num_words):
     text = open('Documents/lorem.txt').read()
-    text = ' '.join(text.split(' ')[:num_words])
+    text = ' '.join(text.split(' ')[: num_words])
     return f'#### Lorem {num_words}\n\n' + text
 
 
@@ -70,7 +71,7 @@ def markdown_file_data(doc):
 
 
 def table_data(path):
-    return [row[:5] for row in reader(open(path))]
+    return [row[: 5] for row in reader(open(path))]
 
 
 def tabs_data():

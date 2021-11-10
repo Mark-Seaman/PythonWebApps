@@ -3,7 +3,7 @@ from os import listdir
 from markdown import markdown
 from django.views.generic import TemplateView
 
-from .workshop import accordion_data, card_data, cards_data, document_data, markdown_file_data, super_data, table_data, tabs_data
+from .workshop import accordion_data, cards_data, carousel_data, document_data, table_data, tabs_data
 
 
 class AccordionView(TemplateView):
@@ -28,6 +28,14 @@ class CardView(TemplateView):
         return dict(cards=cards_data())
 
 
+class CarouselView(TemplateView):
+    template_name = 'carousel.html'
+
+    def get_context_data(self, **kwargs):
+        carousel = carousel_data()
+        return dict(title='Carousel View', carousel=carousel)
+
+
 class HtmlView(TemplateView):
     template_name = 'home.html'
 
@@ -46,14 +54,6 @@ class TabsView(TemplateView):
     def get_context_data(self, **kwargs):
         tabs = tabs_data()
         return dict(title='Tab View', tabs=tabs)
-
-
-# class CarouselView(TemplateView):
-#     template_name = 'carousel.html'
-
-#     def get_context_data(self, **kwargs):
-#         carousel = carousel_data()
-#         return dict(title='Carousel View', carousel=carousel, menu=load_menu('README.md'))
 
 
 # class SuperView(TemplateView):
