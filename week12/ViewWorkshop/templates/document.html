@@ -8,30 +8,7 @@
 
     <div class="row">
 
-        {% for card in documents %}
-
-        <div class="{{ card.width }} my-3">
-            <div class="card">
-                <div class="card-header {{ card.color}}">
-                    <div class="row">
-                        <div class="col">
-                            DOCUMENT: {{ card.file }}
-                        </div>
-                        <div class="col text-end">
-                            <a href="{{ card.link.href }}" class="text-light">{{ card.link.text }}</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body text-dark p-5">
-                    {% autoescape off %}
-                    <p>{{ card.body }}</p>
-                    {% endautoescape %}
-
-                </div>
-            </div>
-        </div>
-
-        {% endfor %}
+        {% include '_documents.html' %}
 
     </div>
 

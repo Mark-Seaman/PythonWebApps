@@ -33,7 +33,7 @@ def card_data(title="Random Card", body=None, color='bg-primary text-light', wid
     if not body:
         body = lorem(400)
     html = markdown(body)
-    return dict(title=title, body=html, color=color, width=width)
+    return dict(title=title, header=title, body=html, color=color, width=width)
 
 
 def cards_data():
@@ -67,21 +67,43 @@ def table_data(path):
 def tabs_data():
 
     def options(i, tab, selected):
+        data = tab
         if selected:
-            return dict(name=f'tab{i}', header=tab['title'], body=tab['body'],
-                        active='active', show='show', selected='true')
+            data.update(dict(name=f'tab{i}', active='active', show='show', selected='true'))
         else:
-            return dict(name=f'tab{i}', header=tab['title'], body=tab['body'],
-                        active='', show='', selected='false')
+            data.update(dict(name=f'tab{i}', active='', show='', selected='false'))
+        return data
 
     def set_options(tabs):
         return [options(i, tab, i == 0) for i, tab in enumerate(tabs)]
 
-    return set_options(cards_data())
+    def create_pane_1():
+        data = card_data(title="Cards", body='This is a display of **cards**')
+        data['cards'] = cards_data()
+        return data
+
+    def create_pane_2():
+        data = card_data(title="Doc Files", body='This is a display of **files**')
+        data['cards'] = [document_card('Index')]
+        return data
+
+    def create_pane_3():
+        data = card_data(title="Table", body='This is a display of **table**')
+        data['tables'] = [table_data('Documents/lessons.csv')]
+        return data
+
+    def create_tabs():
+        return [
+            create_pane_1(),
+            create_pane_2(),
+            create_pane_3(),
+        ]
+
+    return set_options(create_tabs())
 
 
 def super_data():
-    return dict(card=markdown_file_data("README.md"),
+    return dict(document=document_data('README'),
                 table=table_data('Documents/lessons.csv'),
                 carousel=carousel_data(),
                 tabs=tabs_data())

@@ -1,8 +1,6 @@
 from django.views.generic import TemplateView
-from markdown import markdown
-from os import listdir
 
-from .workshop import accordion_data, cards_data, carousel_data, document_data, table_data, tabs_data
+from .workshop import accordion_data, cards_data, carousel_data, document_data, super_data, table_data, tabs_data
 
 
 class AccordionView(TemplateView):
@@ -46,6 +44,13 @@ class PageView(TemplateView):
         return f'{page}.html'
 
 
+class SuperView(TemplateView):
+    template_name = 'super.html'
+
+    def get_context_data(self, **kwargs):
+        return super_data()
+
+
 class TableView(TemplateView):
     template_name = 'table.html'
 
@@ -60,10 +65,3 @@ class TabsView(TemplateView):
     def get_context_data(self, **kwargs):
         tabs = tabs_data()
         return dict(title='Tab View', tabs=tabs)
-
-
-# class SuperView(TemplateView):
-#     template_name = 'super.html'
-
-#     def get_context_data(self, **kwargs):
-#         return super_data()

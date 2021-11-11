@@ -27,6 +27,19 @@
                 {{ t.body }}
                 {% endautoescape %}
 
+                {% for table in t.tables %}
+                {% include '_table.html' %}
+                {% endfor %}
+
+                <div class="container">
+                    <div class="row">
+
+                        {% for card in t.cards %}
+                        {% include '_card.html' %}
+                        {% endfor %}
+
+                    </div>
+                </div>
             </div>
 
             {% endfor %}

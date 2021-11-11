@@ -3,19 +3,7 @@
 
         {% for card in cards %}
 
-        <div class="{{ card.width }} my-3">
-            <div class="card">
-                <div class="card-header {{ card.color }}">
-                    <h2>{{ card.title }}</h2>
-                </div>
-                <div class="card-body text-dark p-5">
-                    {% autoescape off %}
-                    <p>{{ card.body }}</p>
-                    {% endautoescape %}
-
-                </div>
-            </div>
-        </div>
+        {% include '_card.html' %}
 
         {% endfor %}
 
