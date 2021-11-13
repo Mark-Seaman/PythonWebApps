@@ -1,0 +1,21 @@
+body {
+  background-color: #ddd; }
+  body header {
+    color: #ddd;
+    background-color: steelblue;
+    padding: 3rem;
+    border: 5px solid black; }
+  body p {
+    color: steelblue; }
+
+nav ul {
+  margin: 0;
+  padding: 3rem;
+  list-style: none; }
+
+nav li {
+  display: inline-block; }
+
+nav a {
+  display: block;
+  text-decoration: none; }

@@ -16,7 +16,7 @@ def accordion_data():
             card.update(dict(id=i, collapsed='collapsed', show='', aria='false'))
         return card
 
-    return [card_content(i, 3) for i in range(12)]
+    return [card_content(i, 11) for i in range(12)]
 
 
 def document_card(document):
@@ -104,6 +104,6 @@ def tabs_data():
 
 def super_data():
     return dict(document=document_data('README'),
-                table=table_data('Documents/lessons.csv'),
+                # table=table_data('Documents/lessons.csv'),
                 carousel=carousel_data(),
                 tabs=tabs_data())
