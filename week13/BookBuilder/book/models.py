@@ -86,10 +86,15 @@ class Chapter(models.Model):
 
     @staticmethod
     def import_record(book, values):
-        c = Chapter.objects.get_or_create(book=book, order=values[0])[0]
-        c.title = values[1]
-        c.document = values[2]
+        Chapter.create(book, values[0], values[1], values[2])
+
+    @staticmethod
+    def create(book, order, title, document):
+        c = Chapter.objects.get_or_create(book=book, order=order)[0]
+        c.title = title
+        c.document = document
         c.save()
+        return c
 
     def __str__(self):
         return f'{self.book.title} - {self.order} - {self.title}'

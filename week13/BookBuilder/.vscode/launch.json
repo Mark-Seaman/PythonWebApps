@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Browse",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "url": "http://localhost:8000/author/1",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "name": "Django Server",
             "type": "python",
             "request": "launch",
