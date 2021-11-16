@@ -52,6 +52,15 @@ class BookDataTest(TestCase):
         self.assertEqual(len(Chapter.objects.all()), 70)
 
 
+class BookFixtureTest(TestCase):
+    fixtures = ['Documents/Test/data.json']
+
+    def test_with_data(self):
+        self.assertEqual(len(Author.objects.all()), 1)
+        self.assertEqual(len(Book.objects.all()), 2)
+        self.assertEqual(len(Chapter.objects.all()), 70)
+
+
 class BookViewsTest(TestCase):
 
     def login(self):

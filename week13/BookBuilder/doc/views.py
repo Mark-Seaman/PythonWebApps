@@ -8,7 +8,7 @@ class DocumentView(TemplateView):
 
     def get_context_data(self, **kwargs):
         document = self.kwargs.get('doc', 'Index')
-        markdown_text = open(f'Documents/{document}.md').read()
+        markdown_text = open(f'Documents/Notes/{document}.md').read()
         return dict(doc=markdown(markdown_text), file=document)
 
 
