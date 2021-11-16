@@ -113,4 +113,56 @@
     * Create 11 Engineering notes for process
 
 
+## Done  - Week 11
+
+* Views
+    * Build views for notes
+    * Display markdown content in views
+    * Add notes views
+* Data
+    * Export Book from data records
+    * Import Book from CSV file
+* Tests
+    * Create robust tests for Views and Data
+* Automation
+    * Build code generator to clone datatypes
+* Engineering
+    * Document design patterns
+    * Implement engineering notes for software process
+
+
+## Done  - Week 12
+
+* Views
+    * Add cover art for books
+    * Add image for author profile
+    * Templates for Simple Views and Complex Views
+* Data
+    * Image upload logic
+    * Media storage on server
+* Tests
+    * Create robust tests for Views and Data
+    * Import Book test
+* Automation
+    * Import Book Django command script
+* Engineering
+    * Use TDD to build content
+    * Document View Design Patterns
+
+
+# Done  - Week 13
+
+* Views
+    * 
+* Data
+    * Reconstruct database from scripts
+    * Script to save and load database objects
+* Tests
+    * 
+* Automation
+    * 
+* Engineering
+    * 
+
+
 
