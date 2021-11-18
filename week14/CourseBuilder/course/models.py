@@ -49,7 +49,7 @@ class Author(models.Model):
 # author - name of author
 # description - summary of the book
 
-class Book(models.Model):
+class Course(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200, null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
@@ -74,7 +74,7 @@ class Book(models.Model):
 # document - path to markdown file
 
 class Chapter(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, editable=False)
+    book = models.ForeignKey(Course, on_delete=models.CASCADE, editable=False)
     order = models.IntegerField()
     title = models.CharField(max_length=200)
     markdown = models.TextField()

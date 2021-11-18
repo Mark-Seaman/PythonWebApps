@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Author, Book, Chapter
+from .models import Author, Course, Chapter
 from coder.coder import create_test_user
 
 
@@ -11,10 +11,10 @@ class ChapterDataTest(TestCase):
         self.user, self.user_args = create_test_user()
         self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.author2 = Author.objects.create(user=self.user, name='Homer')
-        self.book1 = Book.objects.create(title='Tale of 2 Cities', author=self.author1,
-                                         description='None', doc_path='Documents')
-        self.book2 = Book.objects.create(title='Iliad', author=self.author2,
-                                         description='None', doc_path='Documents')
+        self.book1 = Course.objects.create(title='Tale of 2 Cities', author=self.author1,
+                                           description='None', doc_path='Documents')
+        self.book2 = Course.objects.create(title='Iliad', author=self.author2,
+                                           description='None', doc_path='Documents')
 
         self.chapter1 = dict(book=self.book2, title='Achilles', order='1', document='1.md')
         self.chapter2 = dict(book=self.book2, title='Agamememnon', order='2', document='2.md')
@@ -60,8 +60,8 @@ class ChapterViewsTest(TestCase):
     def setUp(self):
         self.user, self.user_args = create_test_user()
         self.author = Author.objects.create(user=self.user, name='Charles Dickens')
-        self.book = Book.objects.create(title='Tale of Two Cities', author=self.author,
-                                        description='description', doc_path='Documents/Poems')
+        self.book = Course.objects.create(title='Tale of Two Cities', author=self.author,
+                                          description='description', doc_path='Documents/Poems')
         self.chapter1 = dict(book=self.book, title='Best of Times',
                              order='1', html='x', markdown='x', document='Coma.md')
         self.chapter2 = dict(book=self.book, title='Worst of Times',

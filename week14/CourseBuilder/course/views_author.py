@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 from django.views.generic.base import TemplateView
 
-from .models import Author, Book, Chapter
+from .models import Author, Course, Chapter
 
 
 class AuthorView(RedirectView):
@@ -22,7 +22,7 @@ class AuthorDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         author = Author.objects.get(pk=self.kwargs['pk'])
-        return dict(object=author, books=Book.objects.filter(author=author))
+        return dict(object=author, books=Course.objects.filter(author=author))
 
 
 class AuthorCreateView(LoginRequiredMixin, CreateView):

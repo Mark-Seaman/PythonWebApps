@@ -2,14 +2,14 @@ from django.contrib.auth import get_user_model
 from os.path import exists
 from markdown import markdown
 
-from .models import Author, Book, Chapter
+from .models import Author, Course, Chapter
 from table.table import read_csv_file, write_csv_file
 
 
 def create_book(**kwargs):
     title = kwargs.get('title')
     author = kwargs.get('author')
-    book = Book.objects.get_or_create(title=title, author=author)[0]
+    book = Course.objects.get_or_create(title=title, author=author)[0]
     book.doc_path = kwargs.get('doc_path')
     book.description = kwargs.get('description')
     book.save()
@@ -22,7 +22,7 @@ def create_author(name):
 
 
 def export_all_books():
-    for b in Book.objects.all():
+    for b in Course.objects.all():
         export_chapters(b)
 
 
@@ -38,7 +38,7 @@ def get_author(name):
 
 
 def get_book(title):
-    return Book.objects.get(title=title)
+    return Course.objects.get(title=title)
 
 
 def get_chapter(book, order):

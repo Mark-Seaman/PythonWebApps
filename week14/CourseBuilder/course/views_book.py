@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Book, Chapter
+from .models import Course, Chapter
 from .book import get_author
 
 
@@ -13,21 +13,21 @@ class BookView(RedirectView):
 
 class BookListView(ListView):
     template_name = 'book_list.html'
-    model = Book
+    model = Course
 
 
 class BookDetailView(DetailView):
     template_name = 'book_detail.html'
-    model = Book
+    model = Course
 
     def get_context_data(self, **kwargs):
-        book = Book.objects.get(pk=self.kwargs['pk'])
+        book = Course.objects.get(pk=self.kwargs['pk'])
         return dict(object=book, chapters=Chapter.objects.filter(book=book))
 
 
 class BookCreateView(LoginRequiredMixin, CreateView):
     template_name = "book_add.html"
-    model = Book
+    model = Course
     fields = '__all__'
 
     def form_valid(self, form):
@@ -37,11 +37,11 @@ class BookCreateView(LoginRequiredMixin, CreateView):
 
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "book_edit.html"
-    model = Book
+    model = Course
     fields = '__all__'
 
 
 class BookDeleteView(LoginRequiredMixin, DeleteView):
-    model = Book
+    model = Course
     template_name = 'book_delete.html'
     success_url = reverse_lazy('book_list')
