@@ -2,14 +2,14 @@
 
     <div class="container">
 
-        <a class="navbar-brand text-light" href="/">Book Builder</a>
+        <a class="navbar-brand text-light" href="/">Course Builder</a>
 
         <ul class="navbar-nav text-light ml-auto">
             <li class="nav-item">
                 <a class="nav-link text-light" href="{% url 'author_list' %}">Authors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'book_list' %}">Books</a>
+                <a class="nav-link text-light" href="{% url 'book_list' %}">Courses</a>
             </li>
 
             {% if user.is_authenticated %}

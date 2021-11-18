@@ -6,11 +6,12 @@
 
 <div class="container-fluid m-5">
 
-    <h1 class="text-primary text-center">List of Books</h1>
+    <h1 class="text-primary text-center">List of Courses</h1>
 
     <table class="table table-hover">
         <tr>
-            <th>Book</th>
+            <th>Course</th>
+            <th>Description</th>
             <th>Author</th>
             <th>Edit</th>
         </tr>
@@ -18,6 +19,7 @@
         {% for book in object_list %}
         <tr>
             <td><a href="/book/{{ book.pk }}">{{ book.title }}</a></td>
+            <td><a href="/book/{{ book.pk }}">{{ book.description }}</a></td>
             <td><a href="/author/{{ book.author.pk }}">{{ book.author.name }}</a></td>
             <td><a href="/book/{{ book.pk }}/">Edit</a></td>
             <td><a href="/book/{{ book.pk }}/delete">Delete</a></td>
@@ -27,7 +29,7 @@
     </table>
 
     <p>
-        <a href="/book/add" class="btn btn-success m-5">Add New Book</a>
+        <a href="/book/add" class="btn btn-success m-5">Add New Course</a>
     </p>
 
 </div>

@@ -64,7 +64,7 @@ class Course(models.Model):
 
 
 # --------------------
-# Chapter
+# Lesson
 #
 # book - points to book object
 # order - chapter order
