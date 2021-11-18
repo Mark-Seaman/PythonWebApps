@@ -1,0 +1,13 @@
+1,Check .gitignore file,github,blob/main/.gitignore,__pycache__,".gitignore file must contain info for ""*.pyc""","Failed to ignore the ""*.pyc"" files."
+1,Check for Hello app,github,blob/main/week1/Hello/config/settings.py,INSTALLED_APPS,There should be a settings.py file for the Hello app,Failed to find the settings.py file
+2,Check for Python Anywhere Server,server,.,Superhero,Expected to find text "Superhero" on web server,Failed to find text "Superhero" at Python Anywhere.
+2,Check for Github Repo,github,blob/main/week2/Superhero/config/settings.py,INSTALLED_APPS,Expected to find settings file in Github repo,Failed to find settings file in Github repo.
+3,Superhero Gallery Page,server,.,Superhero,Expected to find Superhero somewhere on the main webpage,Failed to find Superhero text string
+3,Check for Github Repo,github,blob/main/week3/Superhero/config/settings.py,INSTALLED_APPS,Expected to find settings file in Github repo,Failed to find settings file in Github repo.
+4,Check for Hero list,server,hero/,</a>,Expected links to Hero pages,Failed to find hero page links
+4,Check for Hero details,server,hero/1,<html,Expected Hero details pages,Failed to find hero details page
+4,Check for Github Repo,github,blob/main/week4/Superhero/config/settings.py,INSTALLED_APPS,Expected to find settings file in Github repo,Failed to find settings file in Github repo.
+5,Check for Github Repo,github,blob/main/week5/Superhero/config/settings.py,INSTALLED_APPS,Expected to find settings file in Github repo,Failed to find settings file in Github repo.
+5,Check for Hero list,server,hero/,</a>,Expected links to Hero pages,Failed to find hero page links
+5,Check for Hero details,server,hero/1,<html,Expected Hero details pages,Failed to find hero details page
+6,Check for Hero List,server,hero/,Superhero,Expected list of Superheroes,Failed to find word 'Superhero'

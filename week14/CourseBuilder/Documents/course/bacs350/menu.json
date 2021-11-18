@@ -1,0 +1,16 @@
+{
+    "url": "/course/bacs350",
+    "label": "BACS 350 Course",
+    "menu_items": [
+        {
+            "url": "/student/bacs350",
+            "label": "Profile",
+            "page": "course/bacs350"
+        },
+        {
+            "url": "/student/test",
+            "label": "Project Tests",
+            "page": "course/bacs350"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "title": "UNC Course Slides",
+  "event": "BACS 350 Slides",
+  "course": "bacs350",
+  "author": "Mark Seaman",
+  "organization": "University of Northern Colorado",
+  "cover": "/static/images/course/bacs350/autumn-leaves.jpg",
+  "logo": "/static/images/course/bacs350/Bear.png",
+  "theme": "beige.css",
+  "stylesheet": "/static/css/slides.css",
+  "images": "/static/images/course/bacs350/lesson",
+  "divider": "/static/images/course/bacs350/treetops.800.jpg",
+  "background": "/static/images/course/bacs350/paper.jpg",
+  "intro": false
+}

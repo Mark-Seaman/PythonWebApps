@@ -1,0 +1,20 @@
+{
+    "site_title": "UNC BACS 350",
+    "site_subtitle": "Web Apps with Python/Django",
+    "site_url": "/course/bacs350",
+    "course": "bacs350",
+    "course_title": "BACS 350 - Fall 2021",
+    "instructor": "Mark Seaman",
+    "organization": "University of Northern Colorado",
+    "page_title": "Web Apps with Python/Django",
+    "logo": "/static/images/course/bacs350/Bear.png",
+    "cover": "/static/images/course/bacs350/treetops.800.jpg",
+    "icon": "https://shrinking-world.com/static/favicon.ico",
+    "images": "/static/images/course/bacs350/lesson",
+    "image_path": "/static/images/course/bacs350/treetops.800.jpg",
+    "css": "/static/css/unc.css",
+    "github": "https://github.com/Mark-Seaman/UNC-BACS-350",
+    "week": 13,
+    "week_label": "Week ",
+    "num_weeks": 13
+}
