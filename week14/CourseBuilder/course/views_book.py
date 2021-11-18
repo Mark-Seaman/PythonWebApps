@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Course, Chapter
+from .models import Course, Lesson
 from .book import get_author
 
 
@@ -22,7 +22,7 @@ class BookDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         book = Course.objects.get(pk=self.kwargs['pk'])
-        return dict(object=book, chapters=Chapter.objects.filter(book=book))
+        return dict(object=book, chapters=Lesson.objects.filter(book=book))
 
 
 class BookCreateView(LoginRequiredMixin, CreateView):

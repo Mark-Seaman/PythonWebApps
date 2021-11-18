@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 from markdown import markdown
 
-from .models import Chapter
+from .models import Lesson
 from .book import get_chapter
 
 
@@ -14,7 +14,7 @@ class ChapterView(RedirectView):
 
 class ChapterListView(ListView):
     template_name = 'chapter_list.html'
-    model = Chapter
+    model = Lesson
 
     def get_queryset(self):
         return super().get_queryset()
@@ -22,7 +22,7 @@ class ChapterListView(ListView):
 
 class ChapterDetailView(DetailView):
     template_name = 'chapter_detail.html'
-    model = Chapter
+    model = Lesson
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
@@ -33,7 +33,7 @@ class ChapterDetailView(DetailView):
 
 class ChapterCreateView(LoginRequiredMixin, CreateView):
     template_name = "chapter_add.html"
-    model = Chapter
+    model = Lesson
     fields = '__all__'
 
     def form_valid(self, form):
@@ -43,11 +43,11 @@ class ChapterCreateView(LoginRequiredMixin, CreateView):
 
 class ChapterUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "chapter_edit.html"
-    model = Chapter
+    model = Lesson
     fields = '__all__'
 
 
 class ChapterDeleteView(LoginRequiredMixin, DeleteView):
-    model = Chapter
+    model = Lesson
     template_name = 'chapter_delete.html'
     success_url = reverse_lazy('chapter_list')

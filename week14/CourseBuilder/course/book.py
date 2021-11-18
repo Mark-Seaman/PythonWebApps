@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from os.path import exists
 from markdown import markdown
 
-from .models import Author, Course, Chapter
+from .models import Author, Course, Lesson
 from table.table import read_csv_file, write_csv_file
 
 
@@ -27,7 +27,7 @@ def export_all_books():
 
 
 def export_chapters(book):
-    model = Chapter
+    model = Lesson
     chapters = f'{book.doc_path}/chapters.csv'
     records = [o.export_record() for o in model.objects.filter(book=book.title)]
     write_csv_file(chapters, records)
@@ -42,7 +42,7 @@ def get_book(title):
 
 
 def get_chapter(book, order):
-    c = Chapter.objects.get(book=book, order=order)
+    c = Lesson.objects.get(book=book, order=order)
     c.markdown = open(f'{book.doc_path}/{c.document}').read()
     c.html = markdown(c.markdown)
     c.save()
@@ -63,7 +63,7 @@ def import_book(title, author, doc_path, subtitle='None', description='None'):
 
 
 def import_chapters(book):
-    model = Chapter
+    model = Lesson
     chapters = f'{book.doc_path}/chapters.csv'
     # print(chapters)
     assert(exists(chapters))

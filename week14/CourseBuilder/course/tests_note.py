@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Author, Course, Note, Chapter
+from .models import Author, Course, Note, Lesson
 from coder.coder import create_test_user
 
 
@@ -12,7 +12,7 @@ class NoteDataTest(TestCase):
         self.author = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.book = Course.objects.create(title='Tale of 2 Cities', author=self.author,
                                           description='None', doc_path='Documents')
-        self.chapter = Chapter.objects.create(book=self.book, title='Achilles', order='1', document='1.md')
+        self.chapter = Lesson.objects.create(book=self.book, title='Achilles', order='1', document='1.md')
         self.note1 = dict(title='Best note ever', chapter=self.chapter, author=self.author, text='None',)
         self.note2 = dict(title='Worst note ever', chapter=self.chapter, author=self.author, text='None')
 
@@ -53,7 +53,7 @@ class NoteViewsTest(TestCase):
         self.author = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.book = Course.objects.create(title='Tale of 2 Cities', author=self.author,
                                           description='None', doc_path='Documents')
-        self.chapter = Chapter.objects.create(book=self.book, title='Achilles', order='1', document='1.md')
+        self.chapter = Lesson.objects.create(book=self.book, title='Achilles', order='1', document='1.md')
         self.note1 = dict(title='Best note ever', chapter=self.chapter, author=self.author, text='None',)
         self.note2 = dict(title='Worst note ever', chapter=self.chapter, author=self.author, text='None')
 

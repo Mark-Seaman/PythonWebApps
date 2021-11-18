@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Author, Image, Chapter
+from .models import Author, Image, Lesson
 from coder.coder import create_test_user
 
 

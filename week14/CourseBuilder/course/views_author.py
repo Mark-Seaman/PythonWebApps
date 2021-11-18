@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 from django.views.generic.base import TemplateView
 
-from .models import Author, Course, Chapter
+from .models import Author, Course, Lesson
 
 
 class AuthorView(RedirectView):

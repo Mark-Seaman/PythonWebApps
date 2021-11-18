@@ -43,7 +43,7 @@ class Author(models.Model):
 
 
 # --------------------
-# Book
+# Course
 #
 # title - title of the book
 # author - name of author
@@ -73,7 +73,7 @@ class Course(models.Model):
 # html - HTML text from markdown
 # document - path to markdown file
 
-class Chapter(models.Model):
+class Lesson(models.Model):
     book = models.ForeignKey(Course, on_delete=models.CASCADE, editable=False)
     order = models.IntegerField()
     title = models.CharField(max_length=200)
@@ -86,11 +86,11 @@ class Chapter(models.Model):
 
     @staticmethod
     def import_record(book, values):
-        Chapter.create(book, values[0], values[1], values[2])
+        Lesson.create(book, values[0], values[1], values[2])
 
     @staticmethod
     def create(book, order, title, document):
-        c = Chapter.objects.get_or_create(book=book, order=order)[0]
+        c = Lesson.objects.get_or_create(book=book, order=order)[0]
         c.title = title
         c.document = document
         c.save()
@@ -112,7 +112,7 @@ class Chapter(models.Model):
 # text - markdown text
 
 class Note(models.Model):
-    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, editable=False)
+    chapter = models.ForeignKey(Lesson, on_delete=models.CASCADE, editable=False)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
     title = models.CharField(max_length=200)
     text = models.TextField()
