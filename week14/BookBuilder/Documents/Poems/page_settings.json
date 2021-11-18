@@ -1,0 +1,13 @@
+{
+    "site_title": "A Seaman's Poems",
+    "site_subtitle": "From the Edge of Reality",
+    "site_url": "/seamanslog/poem/Index",
+    "background-image": "/static/images/SWS_Logo_200.jpg",
+    "logo": "/static/images/MarkSeaman/Mark-Seaman-200.jpg",
+    "icon": "/static/favicon.ico",
+    "document": "Index.md",
+    "home": ["Show All Poems", "/poem/Index"],
+    "css": "/static/css/water.css",
+    "settings": "page_settings.json",
+    "fullwidth": false
+}
