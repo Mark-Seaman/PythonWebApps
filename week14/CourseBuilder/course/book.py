@@ -6,14 +6,15 @@ from .models import Author, Course, Lesson
 from table.table import read_csv_file, write_csv_file
 
 
-def create_book(**kwargs):
-    title = kwargs.get('title')
-    author = kwargs.get('author')
-    book = Course.objects.get_or_create(title=title, author=author)[0]
-    book.doc_path = kwargs.get('doc_path')
-    book.description = kwargs.get('description')
-    book.save()
-    return book
+# def create_book(**kwargs):
+#     name = kwargs.get('name')
+#     author = kwargs.get('author')
+#     book = Course.objects.get_or_create(name=name, author=author)[0]
+#     book.doc_path = kwargs.get('doc_path')
+#     book.title = kwargs.get('title')
+#     book.description = kwargs.get('description')
+#     book.save()
+#     return book
 
 
 def create_author(name):

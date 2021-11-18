@@ -50,18 +50,43 @@ class Author(models.Model):
 # description - summary of the book
 
 class Course(models.Model):
+    name = models.CharField(max_length=20, default='XXX')
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200, null=True, blank=True)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
-    description = models.TextField(default='None')
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False, default=1)
+    description = models.TextField(default='No Description is Set')
     doc_path = models.CharField(max_length=200, default='Documents')
+    num_projects = models.IntegerField(default=14)
+    num_lessons = models.IntegerField(default=42)
 
     def __str__(self):
-        return f'{self.pk} - {self.title} by {self.author}'
+        return f'{self.pk} - {self.name} by {self.author}'
 
     def get_absolute_url(self):
         return reverse_lazy('book_detail', args=[str(self.id)])
 
+    @staticmethod
+    def create(**kwargs):
+        c = Course.objects.get_or_create(name=kwargs.get('name'))[0]
+        c.title = kwargs.get('title')
+        c.subtitle = kwargs.get('subtitle')
+        c.author = kwargs.get('author', 1)
+        c.doc_path = kwargs.get('doc_path')
+        c.description = kwargs.get('description')
+        c.num_projects = kwargs.get('num_projects', 14)
+        c.num_lessons = kwargs.get('num_lessons', 42)
+        c.save()
+        return c
+
+# def create_book(**kwargs):
+    #     name = kwargs.get('name')
+    #     author = kwargs.get('author')
+    #     book = Course.objects.get_or_create(name=name, author=author)[0]
+    #     book.doc_path = kwargs.get('doc_path')
+    #     book.title = kwargs.get('title')
+    #     book.description = kwargs.get('description')
+    #     book.save()
+    #     return book
 
 # --------------------
 # Lesson
@@ -72,6 +97,7 @@ class Course(models.Model):
 # markdown - markdown text
 # html - HTML text from markdown
 # document - path to markdown file
+
 
 class Lesson(models.Model):
     book = models.ForeignKey(Course, on_delete=models.CASCADE, editable=False)
