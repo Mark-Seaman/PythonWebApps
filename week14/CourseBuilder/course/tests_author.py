@@ -1,4 +1,3 @@
-from book.models import Author
 from django.test import TestCase
 from django.urls import reverse
 

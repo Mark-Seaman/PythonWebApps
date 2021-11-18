@@ -4,8 +4,6 @@ from django.urls.conf import include, include
 from django.contrib import admin
 from django.urls import path
 
-from book.views_book import BookView
-
 
 urlpatterns = [
 
@@ -17,7 +15,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
     # Book
-    path('', include('book.urls')),
+    path('', include('course.urls')),
 
     # Document
     path('', include('doc.urls')),

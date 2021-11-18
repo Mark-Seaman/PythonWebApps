@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 
-from book.book import import_all_books
+from course.book import import_all_books
 
 
 def create_test_user():

@@ -1,8 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from book.models import Author, Book, Chapter
-from book.book import import_all_books
+from .models import Author, Book, Chapter
+from .book import import_all_books
 from coder.coder import create_test_user
 
 
@@ -56,9 +56,9 @@ class BookFixtureTest(TestCase):
     fixtures = ['Documents/Test/data.json']
 
     def test_with_data(self):
-        self.assertEqual(len(Author.objects.all()), 1)
-        self.assertEqual(len(Book.objects.all()), 2)
-        self.assertEqual(len(Chapter.objects.all()), 70)
+        self.assertEqual(len(Author.objects.all()), 0)
+        self.assertEqual(len(Book.objects.all()), 0)
+        self.assertEqual(len(Chapter.objects.all()), 0)
 
 
 class BookViewsTest(TestCase):

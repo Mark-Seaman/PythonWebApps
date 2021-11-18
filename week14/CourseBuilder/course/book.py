@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from os.path import exists
 from markdown import markdown
 
-from book.models import Author, Book, Chapter
+from .models import Author, Book, Chapter
 from table.table import read_csv_file, write_csv_file
 
 
