@@ -4,29 +4,29 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
 from .models import Course, Lesson
-from .book import get_author
+from .course import get_author
 
 
 class BookView(RedirectView):
-    url = reverse_lazy('book_list')
+    url = reverse_lazy('course_list')
 
 
 class BookListView(ListView):
-    template_name = 'book_list.html'
+    template_name = 'course_list.html'
     model = Course
 
 
 class BookDetailView(DetailView):
-    template_name = 'book_detail.html'
+    template_name = 'course_detail.html'
     model = Course
 
     def get_context_data(self, **kwargs):
-        book = Course.objects.get(pk=self.kwargs['pk'])
-        return dict(object=book, chapters=Lesson.objects.filter(book=book))
+        course = Course.objects.get(pk=self.kwargs['pk'])
+        return dict(object=course, chapters=Lesson.objects.filter(course=course))
 
 
 class BookCreateView(LoginRequiredMixin, CreateView):
-    template_name = "book_add.html"
+    template_name = "course_add.html"
     model = Course
     fields = '__all__'
 
@@ -36,12 +36,12 @@ class BookCreateView(LoginRequiredMixin, CreateView):
 
 
 class BookUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "book_edit.html"
+    template_name = "course_edit.html"
     model = Course
     fields = '__all__'
 
 
 class BookDeleteView(LoginRequiredMixin, DeleteView):
     model = Course
-    template_name = 'book_delete.html'
-    success_url = reverse_lazy('book_list')
+    template_name = 'course_delete.html'
+    success_url = reverse_lazy('course_list')

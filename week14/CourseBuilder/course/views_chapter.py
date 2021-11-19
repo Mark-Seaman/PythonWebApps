@@ -5,7 +5,7 @@ from django.views.generic import CreateView, DeleteView, DetailView, ListView, R
 from markdown import markdown
 
 from .models import Lesson
-from .book import get_chapter
+from .course import get_chapter
 
 
 class ChapterView(RedirectView):
@@ -27,7 +27,7 @@ class ChapterDetailView(DetailView):
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
         chapter = kwargs['object']
-        chapter = get_chapter(chapter.book, chapter.order)
+        chapter = get_chapter(chapter.course, chapter.order)
         return {'object': chapter}
 
 
@@ -37,7 +37,7 @@ class ChapterCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        form.instance.book_id = 1
+        form.instance.course_id = 1
         return super().form_valid(form)
 
 

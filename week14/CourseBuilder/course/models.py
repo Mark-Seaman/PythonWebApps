@@ -16,7 +16,7 @@ def get_upload(instance, filename):
 
 
 class Image(models.Model):
-    folder = models.CharField(max_length=100, default='book')
+    folder = models.CharField(max_length=100, default='course')
     image = models.ImageField(null=True, blank=True, upload_to=get_upload)
     title = models.CharField(max_length=200)
 
@@ -45,9 +45,7 @@ class Author(models.Model):
 # --------------------
 # Course
 #
-# title - title of the book
-# author - name of author
-# description - summary of the book
+# name - identity of course
 
 class Course(models.Model):
     name = models.CharField(max_length=20, default='XXX')
@@ -63,7 +61,7 @@ class Course(models.Model):
         return f'{self.pk} - {self.name} by {self.author}'
 
     def get_absolute_url(self):
-        return reverse_lazy('book_detail', args=[str(self.id)])
+        return reverse_lazy('course_detail', args=[str(self.id)])
 
     @staticmethod
     def create(**kwargs):
@@ -78,20 +76,11 @@ class Course(models.Model):
         c.save()
         return c
 
-# def create_book(**kwargs):
-    #     name = kwargs.get('name')
-    #     author = kwargs.get('author')
-    #     book = Course.objects.get_or_create(name=name, author=author)[0]
-    #     book.doc_path = kwargs.get('doc_path')
-    #     book.title = kwargs.get('title')
-    #     book.description = kwargs.get('description')
-    #     book.save()
-    #     return book
 
 # --------------------
 # Lesson
 #
-# book - points to book object
+# course - points to course object
 # order - chapter order
 # title - title text of chapter
 # markdown - markdown text
@@ -100,7 +89,7 @@ class Course(models.Model):
 
 
 class Lesson(models.Model):
-    book = models.ForeignKey(Course, on_delete=models.CASCADE, editable=False)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, editable=False)
     order = models.IntegerField()
     title = models.CharField(max_length=200)
     markdown = models.TextField()
@@ -111,19 +100,19 @@ class Lesson(models.Model):
         return [self.order, self.title, self.document]
 
     @staticmethod
-    def import_record(book, values):
-        Lesson.create(book, values[0], values[1], values[2])
+    def import_record(course, values):
+        Lesson.create(course, values[0], values[1], values[2])
 
     @staticmethod
-    def create(book, order, title, document):
-        c = Lesson.objects.get_or_create(book=book, order=order)[0]
+    def create(course, order, title, document):
+        c = Lesson.objects.get_or_create(course=course, order=order)[0]
         c.title = title
         c.document = document
         c.save()
         return c
 
     def __str__(self):
-        return f'{self.book.title} - {self.order} - {self.title}'
+        return f'{self.course.title} - {self.order} - {self.title}'
 
     def get_absolute_url(self):
         return reverse_lazy('chapter_list')
@@ -144,7 +133,7 @@ class Note(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return f'{self.title} - {self.chapter.order} {self.chapter.book.title}'
+        return f'{self.title} - {self.chapter.order} {self.chapter.course.title}'
 
     def get_absolute_url(self):
         return reverse_lazy('note_list')
