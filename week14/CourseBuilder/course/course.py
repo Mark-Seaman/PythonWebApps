@@ -6,17 +6,6 @@ from .models import Author, Course, Lesson
 from table.table import read_csv_file, write_csv_file
 
 
-# def create_course(**kwargs):
-#     name = kwargs.get('name')
-#     author = kwargs.get('author')
-#     course = Course.objects.get_or_create(name=name, author=author)[0]
-#     course.doc_path = kwargs.get('doc_path')
-#     course.title = kwargs.get('title')
-#     course.description = kwargs.get('description')
-#     course.save()
-#     return course
-
-
 def create_author(name):
     user = get_user_model().objects.get(pk=1)
     return Author.objects.get_or_create(name=name, user=user)[0]
@@ -50,25 +39,48 @@ def get_chapter(course, order):
     return c
 
 
+def create_bacs200():
+    author = create_author('Mark Seaman')
+    c = Course.create(name='bacs200',
+                      title='UNC BACS 200 - Intro to Web Development',
+                      subtitle='Intro to Web Development for Small Business',
+                      author=author,
+                      doc_path='Documents/Course/bacs200',
+                      description='None',
+                      num_projects=14,
+                      num_lessons=42)
+    return c
+
+
+def create_bacs350():
+    author = create_author('Mark Seaman')
+    c = Course.create(name='bacs350',
+                      title='UNC BACS 350 - Web Apps with Python',
+                      subtitle='Intermediate Web Development',
+                      author=author,
+                      doc_path='Documents/Course/bacs350',
+                      description='None',
+                      num_projects=14,
+                      num_lessons=42)
+    return c
+
+
 def import_all_courses():
     author = create_author('Mark Seaman')
-    import_course("The Leverage Principle", author, 'Documents/Leverage', "Software Engineering Skills")
-    description = 'Mark shares his insights and irony about the absurdity of life.'
-    import_course("From the Edge of Reality", author, 'Documents/Poems', "A Seaman's Poems", description)
+    import_course(create_bacs200())
+    import_course(create_bacs350())
 
 
-def import_course(title, author, doc_path, subtitle='None', description='None'):
-    args = dict(title=title, author=author, subtitle=subtitle, description=description, doc_path=doc_path)
-    course = Course.create(**args)
-    import_chapters(course)
+def import_course(course):
+    print(f'Importing course "{course.title}"')
 
 
-def import_chapters(course):
-    model = Lesson
-    chapters = f'{course.doc_path}/chapters.csv'
-    # print(chapters)
-    assert(exists(chapters))
-    if exists(chapters):
-        for row in read_csv_file(chapters):
-            # print(row)
-            model.import_record(course, row)
+# def import_chapters(course):
+#     model = Lesson
+#     chapters = f'{course.doc_path}/chapters.csv'
+#     # print(chapters)
+#     assert(exists(chapters))
+#     if exists(chapters):
+#         for row in read_csv_file(chapters):
+#             # print(row)
+#             model.import_record(course, row)

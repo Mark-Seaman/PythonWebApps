@@ -61,11 +61,11 @@ class ChapterViewsTest(TestCase):
         self.user, self.user_args = create_test_user()
         self.author = Author.objects.create(user=self.user, name='Charles Dickens')
         self.course = Course.objects.create(title='Tale of Two Cities', author=self.author,
-                                            description='description', doc_path='Documents/Poems')
+                                            description='description', doc_path='Documents')
         self.chapter1 = dict(course=self.course, title='Best of Times',
-                             order='1', html='x', markdown='x', document='Coma.md')
+                             order='1', html='x', markdown='x', document='Index.md')
         self.chapter2 = dict(course=self.course, title='Worst of Times',
-                             order='2', html='x', markdown='x', document='Now.md')
+                             order='2', html='x', markdown='x', document='Test/README.md')
 
     def test_chapter_list_view(self):
         Lesson.objects.create(**self.chapter1)

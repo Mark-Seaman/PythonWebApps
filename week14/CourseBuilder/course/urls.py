@@ -10,7 +10,6 @@ from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, Au
 from .views_course import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
 from .views_chapter import ChapterDeleteView, ChapterDetailView, ChapterListView, ChapterCreateView, ChapterUpdateView
 from .views_image import ImageDeleteView, ImageListView, ImageCreateView
-from .views_note import NoteDeleteView, NoteDetailView, NoteListView, NoteCreateView, NoteUpdateView
 
 
 urlpatterns = [
@@ -42,12 +41,5 @@ urlpatterns = [
     path('image/',                      ImageListView.as_view(),    name='image_list'),
     path('image/add',                   ImageCreateView.as_view(),  name='image_add'),
     path('image/<int:pk>/delete',       ImageDeleteView.as_view(),  name='image_delete'),
-
-    # Note
-    path('note/',                       NoteListView.as_view(),    name='note_list'),
-    path('note/<int:pk>',               NoteDetailView.as_view(),  name='note_detail'),
-    path('note/add',                    NoteCreateView.as_view(),  name='note_add'),
-    path('note/<int:pk>/',              NoteUpdateView.as_view(),  name='note_edit'),
-    path('note/<int:pk>/delete',        NoteDeleteView.as_view(),  name='note_delete'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

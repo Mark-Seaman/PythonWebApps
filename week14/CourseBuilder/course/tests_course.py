@@ -1,6 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 
+from course.course import create_bacs200, create_bacs350
+
 from .models import Author, Course, Lesson
 from coder.coder import create_test_user
 
@@ -143,19 +145,23 @@ class CourseViewsTest(TestCase):
         self.assertEqual(len(Course.objects.all()), 0)
 
 
-# class CourseFixtureTest(TestCase):
-#     fixtures = ['Documents/Test/data.json']
+class CourseFixtureTest(TestCase):
+    #     fixtures = ['Documents/Test/data.json']
 
-#     def test_with_data(self):
-#         self.assertEqual(len(Author.objects.all()), 0)
-#         self.assertEqual(len(Course.objects.all()), 0)
-#         self.assertEqual(len(Lesson.objects.all()), 0)
+    #     def test_with_data(self):
+    #         self.assertEqual(len(Author.objects.all()), 0)
+    #         self.assertEqual(len(Course.objects.all()), 0)
+    #         self.assertEqual(len(Lesson.objects.all()), 0)
 
-    # def test_import_courses(self):
-    #     import_all_courses()
+    def test_import_courses(self):
+        self.user, self.user_args = create_test_user()
+        create_bacs200()
+        create_bacs350()
+        course = Course.objects.get(pk=1)
+        self.assertEqual((course.name, course.author.name), ('bacs200', 'Mark Seaman'))
+        self.assertEqual(len(Course.objects.all()), 2)
     #     # print(Author.objects.all())
     #     # print(course.objects.all())
     #     # print(Chapter.objects.all())
     #     self.assertEqual(len(Author.objects.all()), 3)
-    #     self.assertEqual(len(Course.objects.all()), 2)
     #     self.assertEqual(len(Lesson.objects.all()), 70)

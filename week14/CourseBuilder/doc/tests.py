@@ -15,7 +15,7 @@ class DocTest(TestCase):
     def test_doc_index_view(self):
         response = self.client.get('/doc/')
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Web Dev')
+        self.assertContains(response, 'Course Builder')
 
     def test_doc_default_view(self):
         response = self.client.get('/doc')
@@ -23,8 +23,8 @@ class DocTest(TestCase):
         self.assertEqual(response.url, '/doc/')
 
     def test_markdown_file(self):
-        path = "Documents/Poems/DoBe.md"
-        open(path).read()
+        path = "Documents/Test/README.md"
+        self.assertEqual(len(open(path).read()), 137)
 
     def test_document_files(self):
         'scan_document_files() - Disabled'
