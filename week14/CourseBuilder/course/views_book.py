@@ -8,7 +8,7 @@ from .book import get_author
 
 
 class BookView(RedirectView):
-    url = '/book/'
+    url = reverse_lazy('book_list')
 
 
 class BookListView(ListView):

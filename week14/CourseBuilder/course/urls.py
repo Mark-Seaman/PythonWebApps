@@ -24,12 +24,12 @@ urlpatterns = [
     path('author/<int:pk>/',            AuthorUpdateView.as_view(),  name='author_edit'),
     path('author/<int:pk>/delete',      AuthorDeleteView.as_view(),  name='author_delete'),
 
-    # Book
-    path('book/',                       BookListView.as_view(),    name='book_list'),
-    path('book/<int:pk>',               BookDetailView.as_view(),  name='book_detail'),
-    path('book/add',                    BookCreateView.as_view(),  name='book_add'),
-    path('book/<int:pk>/',              BookUpdateView.as_view(),  name='book_edit'),
-    path('book/<int:pk>/delete',        BookDeleteView.as_view(),  name='book_delete'),
+    # Course
+    path('course/',                       BookListView.as_view(),    name='book_list'),
+    path('course/<int:pk>',               BookDetailView.as_view(),  name='book_detail'),
+    path('course/add',                    BookCreateView.as_view(),  name='book_add'),
+    path('course/<int:pk>/',              BookUpdateView.as_view(),  name='book_edit'),
+    path('course/<int:pk>/delete',        BookDeleteView.as_view(),  name='book_delete'),
 
     # Chapter
     path('chapter/',                    ChapterListView.as_view(),    name='chapter_list'),

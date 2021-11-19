@@ -25,7 +25,7 @@ class TestAccountsViews(TestCase):
     def test_home_view(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/book/')
+        self.assertEqual(response.url, '/course/')
 
         response = self.client.get('/accounts/')
         self.assertEqual(response.status_code, 200)
