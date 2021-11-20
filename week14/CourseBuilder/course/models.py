@@ -87,27 +87,46 @@ class Course(models.Model):
 # html - HTML text from markdown
 # document - path to markdown file
 
+    # course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    # date = models.DateField(null=True)
+    # lesson = models.IntegerField()
+    # topic = models.CharField(max_length=100)
+    # project = models.IntegerField(null=True)
+    # reading = models.CharField(null=True, max_length=200)
+    # zybooks = models.CharField(null=True, max_length=200)
+    # lecture = models.CharField(null=True, max_length=200)
+    # demo = models.URLField(null=True)
+
 
 class Lesson(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, editable=False)
     order = models.IntegerField()
     title = models.CharField(max_length=200)
-    markdown = models.TextField()
-    html = models.TextField()
-    document = models.CharField(max_length=200)
+    date = models.DateField(null=True)
+    week = models.IntegerField(null=True)
+
+    @property
+    def document(self):
+        return f'Documents/course/{self.course.name}/lesson/{int(self.order):02}.md'
+
+    @property
+    def url(self):
+        return f'/course/{self.course.name}/lesson/{int(self.order):02}'
 
     def export_record(self):
-        return [self.order, self.title, self.document]
+        return [str(self.order), str(self.date), str(self.week), self.title, self.document]
 
     @staticmethod
-    def import_record(course, values):
-        Lesson.create(course, values[0], values[1], values[2])
+    def lessons(course):
+        return Lesson.objects.filter(course__name=course).order_by('lesson')
 
     @staticmethod
-    def create(course, order, title, document):
+    def create(course, **kwargs):
+        order = kwargs.get('order')
         c = Lesson.objects.get_or_create(course=course, order=order)[0]
-        c.title = title
-        c.document = document
+        c.title = kwargs.get('title')
+        c.date = kwargs.get('date', 'None')
+        c.week = kwargs.get('week', 'None')
         c.save()
         return c
 

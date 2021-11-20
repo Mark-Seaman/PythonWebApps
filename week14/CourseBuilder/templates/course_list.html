@@ -16,20 +16,20 @@
             <th>Edit</th>
         </tr>
 
-        {% for book in object_list %}
+        {% for course in object_list %}
         <tr>
-            <td><a href="/book/{{ book.pk }}">{{ book.title }}</a></td>
-            <td><a href="/book/{{ book.pk }}">{{ book.description }}</a></td>
-            <td><a href="/author/{{ book.author.pk }}">{{ book.author.name }}</a></td>
-            <td><a href="/book/{{ book.pk }}/">Edit</a></td>
-            <td><a href="/book/{{ book.pk }}/delete">Delete</a></td>
+            <td><a href="/course/{{ course.pk }}">{{ course.title }}</a></td>
+            <td><a href="/course/{{ course.pk }}">{{ course.description }}</a></td>
+            <td><a href="/author/{{ course.author.pk }}">{{ course.author.name }}</a></td>
+            <td><a href="/course/{{ course.pk }}/">Edit</a></td>
+            <td><a href="/course/{{ course.pk }}/delete">Delete</a></td>
         </tr>
         {% endfor %}
 
     </table>
 
     <p>
-        <a href="/book/add" class="btn btn-success m-5">Add New Course</a>
+        <a href="/course/add" class="btn btn-success m-5">Add New Course</a>
     </p>
 
 </div>

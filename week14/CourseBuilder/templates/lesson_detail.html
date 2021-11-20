@@ -2,16 +2,7 @@
 
 {% block content %}
 
-<div class="container-fluid m-5">
-
-    <h1 class="text-primary">Chapter Details</h1>
-
-    <p>Title:</p>
-    <p><b>{{ object.title }}</b></p>
-    <p>Order:</p>
-    <p><b>{{ object.order }}</b></p>
-    <p>Document:</p>
-    <p><b>{{ object.document }}</b></p>
+<div class="container m-5">
 
     <div class="card m-5">
         <div class="card-header bg-primary text-light">
@@ -24,9 +15,7 @@
         </div>
     </div>
 
-    <a href="/chapter/" class="btn btn-success m-5">Chapter List</a>
-    <a href="/chapter/{{ object.pk }}/" class="btn btn-success m-5">Edit Chapter</a>
-    <a href="/chapter/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Chapter</a>
+    <a href="/lesson/{{ object.pk }}/" class="btn btn-success m-5">Edit Chapter</a>
 </div>
 
 {% endblock content %}

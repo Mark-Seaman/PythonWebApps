@@ -2,6 +2,8 @@ from django.test import TestCase
 from markdown import markdown
 from os import listdir
 
+from doc.document import document_body, document_html, read_file
+
 from .views import scan_document_files
 
 
@@ -9,7 +11,7 @@ class DocTest(TestCase):
 
     def test_markdown(self):
         markdown_text = '# Headline'
-        html_text = markdown(markdown_text)
+        html_text = document_html(markdown_text)
         self.assertEqual(html_text, '<h1>Headline</h1>')
 
     def test_doc_index_view(self):
@@ -24,7 +26,7 @@ class DocTest(TestCase):
 
     def test_markdown_file(self):
         path = "Documents/Test/README.md"
-        self.assertEqual(len(open(path).read()), 137)
+        self.assertEqual(len(document_body(read_file(path))), 137)
 
     def test_document_files(self):
         'scan_document_files() - Disabled'
