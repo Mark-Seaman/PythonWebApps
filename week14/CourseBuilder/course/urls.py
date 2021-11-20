@@ -8,7 +8,7 @@ from django.urls import path
 
 from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorCreateView, AuthorUpdateView
 from .views_course import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
-from .views_chapter import ChapterDeleteView, ChapterDetailView, ChapterListView, ChapterCreateView, ChapterUpdateView
+from .views_lesson import LessonDeleteView, LessonDetailView, LessonListView, LessonCreateView, LessonUpdateView
 from .views_image import ImageDeleteView, ImageListView, ImageCreateView
 
 
@@ -30,12 +30,12 @@ urlpatterns = [
     path('course/<int:pk>/',              BookUpdateView.as_view(),  name='course_edit'),
     path('course/<int:pk>/delete',        BookDeleteView.as_view(),  name='course_delete'),
 
-    # Chapter
-    path('chapter/',                    ChapterListView.as_view(),    name='chapter_list'),
-    path('chapter/<int:pk>',            ChapterDetailView.as_view(),  name='chapter_detail'),
-    path('chapter/add',                 ChapterCreateView.as_view(),  name='chapter_add'),
-    path('chapter/<int:pk>/',           ChapterUpdateView.as_view(),  name='chapter_edit'),
-    path('chapter/<int:pk>/delete',     ChapterDeleteView.as_view(),  name='chapter_delete'),
+    # Lesson
+    path('lesson/',                    LessonListView.as_view(),    name='lesson_list'),
+    path('lesson/<int:pk>',            LessonDetailView.as_view(),  name='lesson_detail'),
+    path('lesson/add',                 LessonCreateView.as_view(),  name='lesson_add'),
+    path('lesson/<int:pk>/',           LessonUpdateView.as_view(),  name='lesson_edit'),
+    path('lesson/<int:pk>/delete',     LessonDeleteView.as_view(),  name='lesson_delete'),
 
     # Image
     path('image/',                      ImageListView.as_view(),    name='image_list'),

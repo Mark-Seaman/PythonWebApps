@@ -13,14 +13,14 @@ def create_author(name):
 
 def export_all_courses():
     for b in Course.objects.all():
-        export_chapters(b)
+        export_lessons(b)
 
 
-def export_chapters(course):
+def export_lessons(course):
     model = Lesson
-    chapters = f'{course.doc_path}/chapters.csv'
+    lessons = f'{course.doc_path}/lessons.csv'
     records = [o.export_record() for o in model.objects.filter(course=course.title)]
-    write_csv_file(chapters, records)
+    write_csv_file(lessons, records)
 
 
 def get_author(name):
@@ -31,7 +31,7 @@ def get_course(title):
     return Course.objects.get(title=title)
 
 
-def get_chapter(course, order):
+def get_lesson(course, order):
     c = Lesson.objects.get(course=course, order=order)
     c.markdown = open(f'{course.doc_path}/{c.document}').read()
     c.html = markdown(c.markdown)
@@ -75,12 +75,12 @@ def import_course(course):
     print(f'Importing course "{course.title}"')
 
 
-# def import_chapters(course):
+# def import_lessons(course):
 #     model = Lesson
-#     chapters = f'{course.doc_path}/chapters.csv'
-#     # print(chapters)
-#     assert(exists(chapters))
-#     if exists(chapters):
-#         for row in read_csv_file(chapters):
+#     lessons = f'{course.doc_path}/lessons.csv'
+#     # print(lessons)
+#     assert(exists(lessons))
+#     if exists(lessons):
+#         for row in read_csv_file(lessons):
 #             # print(row)
 #             model.import_record(course, row)

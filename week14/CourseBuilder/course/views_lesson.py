@@ -5,34 +5,34 @@ from django.views.generic import CreateView, DeleteView, DetailView, ListView, R
 from markdown import markdown
 
 from .models import Lesson
-from .course import get_chapter
+from .course import get_lesson
 
 
-class ChapterView(RedirectView):
-    url = '/chapter/'
+class LessonView(RedirectView):
+    url = '/lesson/'
 
 
-class ChapterListView(ListView):
-    template_name = 'chapter_list.html'
+class LessonListView(ListView):
+    template_name = 'lesson_list.html'
     model = Lesson
 
     def get_queryset(self):
         return super().get_queryset()
 
 
-class ChapterDetailView(DetailView):
-    template_name = 'chapter_detail.html'
+class LessonDetailView(DetailView):
+    template_name = 'lesson_detail.html'
     model = Lesson
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
-        chapter = kwargs['object']
-        chapter = get_chapter(chapter.course, chapter.order)
-        return {'object': chapter}
+        lesson = kwargs['object']
+        lesson = get_lesson(lesson.course, lesson.order)
+        return {'object': lesson}
 
 
-class ChapterCreateView(LoginRequiredMixin, CreateView):
-    template_name = "chapter_add.html"
+class LessonCreateView(LoginRequiredMixin, CreateView):
+    template_name = "lesson_add.html"
     model = Lesson
     fields = '__all__'
 
@@ -41,13 +41,13 @@ class ChapterCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ChapterUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "chapter_edit.html"
+class LessonUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "lesson_edit.html"
     model = Lesson
     fields = '__all__'
 
 
-class ChapterDeleteView(LoginRequiredMixin, DeleteView):
+class LessonDeleteView(LoginRequiredMixin, DeleteView):
     model = Lesson
-    template_name = 'chapter_delete.html'
-    success_url = reverse_lazy('chapter_list')
+    template_name = 'lesson_delete.html'
+    success_url = reverse_lazy('lesson_list')

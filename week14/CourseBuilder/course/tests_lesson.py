@@ -5,53 +5,49 @@ from .models import Author, Course, Lesson
 from coder.coder import create_test_user
 
 
-class ChapterDataTest(TestCase):
+class LessonDataTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-        self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
-        self.author2 = Author.objects.create(user=self.user, name='Homer')
-        self.course1 = Course.objects.create(title='Tale of 2 Cities', author=self.author1,
-                                             description='None', doc_path='Documents')
-        self.course2 = Course.objects.create(title='Iliad', author=self.author2,
-                                             description='None', doc_path='Documents')
+        self.author = Author.objects.create(user=self.user, name='Mark Seaman')
+        self.course = Course.objects.create(name='bacs200', title='BACS 200', author=self.author,
+                                            doc_path='Documents/Course/bacs200')
+        self.lesson1 = dict(course=self.course, title='Github', order='1', document='01.md')
+        self.lesson2 = dict(course=self.course, title='Servers', order='2', document='02.md')
 
-        self.chapter1 = dict(course=self.course2, title='Achilles', order='1', document='1.md')
-        self.chapter2 = dict(course=self.course2, title='Agamememnon', order='2', document='2.md')
-
-    def test_add_chapter(self):
+    def test_add_lesson(self):
         self.assertEqual(len(Lesson.objects.all()), 0)
-        Lesson.objects.create(**self.chapter1)
-        Lesson.objects.create(**self.chapter2)
+        Lesson.objects.create(**self.lesson1)
+        Lesson.objects.create(**self.lesson2)
         self.assertEqual(len(Lesson.objects.all()), 2)
 
-    def test_chapter_list(self):
-        Lesson.objects.create(**self.chapter1)
-        Lesson.objects.create(**self.chapter2)
-        b = Lesson.objects.filter(course=self.course2).order_by('order')
-        self.assertEqual(b[0].title, 'Achilles')
-        self.assertEqual(b[1].title, 'Agamememnon')
-        self.assertEqual(b[1].document, '2.md')
+    def test_lesson_list(self):
+        Lesson.objects.create(**self.lesson1)
+        Lesson.objects.create(**self.lesson2)
+        b = Lesson.objects.filter(course=self.course).order_by('order')
+        self.assertEqual(b[0].title, 'Github')
+        self.assertEqual(b[1].title, 'Servers')
+        self.assertEqual(b[1].document, '02.md')
 
-    def test_chapter_edit(self):
-        Lesson.objects.create(**self.chapter1)
+    def test_lesson_edit(self):
+        Lesson.objects.create(**self.lesson1)
         b = Lesson.objects.get(pk=1)
-        b.title = 'Agamememnon'
+        b.title = 'Servers'
         b.order = 2
-        b.document = '2.md'
+        b.document = '02.md'
         b.save()
-        self.assertEqual(b.title, 'Agamememnon')
+        self.assertEqual(b.title, 'Servers')
         self.assertEqual(b.order, 2)
-        self.assertEqual(b.document, '2.md')
+        self.assertEqual(b.document, '02.md')
 
-    def test_chapter_delete(self):
-        Lesson.objects.create(**self.chapter1)
+    def test_lesson_delete(self):
+        Lesson.objects.create(**self.lesson1)
         b = Lesson.objects.get(pk=1)
         b.delete()
         self.assertEqual(len(Lesson.objects.all()), 0)
 
 
-class ChapterViewsTest(TestCase):
+class LessonViewsTest(TestCase):
 
     def login(self):
         response = self.client.login(username=self.user.username,  password=self.user_args['password'])
@@ -62,71 +58,71 @@ class ChapterViewsTest(TestCase):
         self.author = Author.objects.create(user=self.user, name='Charles Dickens')
         self.course = Course.objects.create(title='Tale of Two Cities', author=self.author,
                                             description='description', doc_path='Documents')
-        self.chapter1 = dict(course=self.course, title='Best of Times',
-                             order='1', html='x', markdown='x', document='Index.md')
-        self.chapter2 = dict(course=self.course, title='Worst of Times',
-                             order='2', html='x', markdown='x', document='Test/README.md')
+        self.lesson1 = dict(course=self.course, title='Best of Times',
+                            order='1', html='x', markdown='x', document='Index.md')
+        self.lesson2 = dict(course=self.course, title='Worst of Times',
+                            order='2', html='x', markdown='x', document='Test/README.md')
 
-    def test_chapter_list_view(self):
-        Lesson.objects.create(**self.chapter1)
-        self.assertEqual(reverse('chapter_list'), '/chapter/')
-        response = self.client.get('/chapter/')
+    def test_lesson_list_view(self):
+        Lesson.objects.create(**self.lesson1)
+        self.assertEqual(reverse('lesson_list'), '/lesson/')
+        response = self.client.get('/lesson/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'chapter_list.html')
+        self.assertTemplateUsed(response, 'lesson_list.html')
         self.assertTemplateUsed(response, 'theme.html')
         self.assertContains(response, '<tr>', count=2)
 
-    def test_chapter_detail_view(self):
-        self.assertEqual(reverse('chapter_detail', args='1'), '/chapter/1')
-        self.assertEqual(reverse('chapter_detail', args='2'), '/chapter/2')
-        Lesson.objects.create(**self.chapter1)
-        response = self.client.get('/chapter/1')
+    def test_lesson_detail_view(self):
+        self.assertEqual(reverse('lesson_detail', args='1'), '/lesson/1')
+        self.assertEqual(reverse('lesson_detail', args='2'), '/lesson/2')
+        Lesson.objects.create(**self.lesson1)
+        response = self.client.get('/lesson/1')
         self.assertEqual(response.status_code, 200)
 
-    def test_chapter_add_view(self):
+    def test_lesson_add_view(self):
 
         # Add without Login
-        response = self.client.post(reverse('chapter_add'), self.chapter1)
-        self.assertEqual(response.url, '/accounts/login/?next=/chapter/add')
+        response = self.client.post(reverse('lesson_add'), self.lesson1)
+        self.assertEqual(response.url, '/accounts/login/?next=/lesson/add')
 
         # Login to add
         self.login()
-        response = self.client.post(reverse('chapter_add'), self.chapter1)
-        response = self.client.post(reverse('chapter_add'), self.chapter2)
+        response = self.client.post(reverse('lesson_add'), self.lesson1)
+        response = self.client.post(reverse('lesson_add'), self.lesson2)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/chapter/')
+        self.assertEqual(response.url, '/lesson/')
         self.assertEqual(len(Lesson.objects.all()), 2)
 
-        # List the chapters
-        response = self.client.get('/chapter/')
+        # List the lessons
+        response = self.client.get('/lesson/')
         self.assertContains(response, '<tr>', count=3)
 
-    def test_chapter_edit_view(self):
+    def test_lesson_edit_view(self):
 
         # Edit without Login
-        Lesson.objects.create(**self.chapter1)
-        self.assertEqual(reverse('chapter_edit', args='1'), '/chapter/1/')
-        response = self.client.get('/chapter/1/')
+        Lesson.objects.create(**self.lesson1)
+        self.assertEqual(reverse('lesson_edit', args='1'), '/lesson/1/')
+        response = self.client.get('/lesson/1/')
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/accounts/login/?next=/chapter/1/')
+        self.assertEqual(response.url, '/accounts/login/?next=/lesson/1/')
 
         # Login to edit
         self.login()
-        response = self.client.post('/chapter/1/', self.chapter2)
+        response = self.client.post('/lesson/1/', self.lesson2)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/chapter/')
+        self.assertEqual(response.url, '/lesson/')
 
         # Check the course object
         c = Lesson.objects.get(pk=1)
-        self.assertEqual(c.title, self.chapter2['title'])
-        self.assertNotEqual(c.title, self.chapter1['title'])
-        self.assertEqual(c.document, self.chapter2['document'])
+        self.assertEqual(c.title, self.lesson2['title'])
+        self.assertNotEqual(c.title, self.lesson1['title'])
+        self.assertEqual(c.document, self.lesson2['document'])
 
-    def test_chapter_delete_view(self):
+    def test_lesson_delete_view(self):
         self.login()
-        Lesson.objects.create(**self.chapter1)
-        self.assertEqual(reverse('chapter_delete', args='1'), '/chapter/1/delete')
-        response = self.client.get('/chapter/1/delete')
+        Lesson.objects.create(**self.lesson1)
+        self.assertEqual(reverse('lesson_delete', args='1'), '/lesson/1/delete')
+        response = self.client.get('/lesson/1/delete')
         self.assertEqual(response.status_code, 200)
-        response = self.client.post('/chapter/1/delete')
+        response = self.client.post('/lesson/1/delete')
         self.assertEqual(len(Lesson.objects.all()), 0)
