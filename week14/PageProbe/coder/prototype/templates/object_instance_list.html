@@ -1,0 +1,37 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid m-5">
+
+    <h1 class="text-primary text-center">List of ClassObjects</h1>
+
+    <table class="table table-hover">
+        <tr>
+            <th>ClassObject</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for object_instance in object_list %}
+        <tr>
+            <td><a href="/object_instance/{{ object_instance.pk }}">{{ object_instance.title }}</a></td>
+            <td><a href="/object_instance/{{ object_instance.pk }}">{{ object_instance.description }}</a></td>
+            <td><a href="/author/{{ object_instance.author.pk }}">{{ object_instance.author.name }}</a></td>
+            <td><a href="/object_instance/{{ object_instance.pk }}/">Edit</a></td>
+            <td><a href="/object_instance/{{ object_instance.pk }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <p>
+        <a href="/object_instance/add" class="btn btn-success m-5">Add New ClassObject</a>
+    </p>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+    <div class="container">
+
+        <a class="navbar-brand text-light" href="/">Course Builder</a>
+
+        <ul class="navbar-nav text-light ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'author_list' %}">Authors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'course_list' %}">Courses</a>
+            </li>
+
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
+                <a class="nav-link  text-light " href="{% url 'logout' %}">Hello {{ user.username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  text-light " href="{% url 'logout' %}">Log out</a>
+            </li>
+
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link  text-light " href="{% url 'login' %}">Log In</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link  text-light " href="{% url 'signup' %}">Sign Up</a>
+            </li>
+
+            {% endif %}
+
+        </ul>
+
+    </div>
+
+</nav>
