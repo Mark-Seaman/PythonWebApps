@@ -3,20 +3,19 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Probe, Lesson
-from .probe import get_author
+from .models import Probe
 
 
-class ClassNameView(RedirectView):
+class ProbeView(RedirectView):
     url = reverse_lazy('probe_list')
 
 
-class ClassNameListView(ListView):
+class ProbeListView(ListView):
     template_name = 'probe_list.html'
     model = Probe
 
 
-class ClassNameDetailView(DetailView):
+class ProbeDetailView(DetailView):
     template_name = 'probe_detail.html'
     model = Probe
 
@@ -25,7 +24,7 @@ class ClassNameDetailView(DetailView):
         return dict(object=probe, lessons=Lesson.objects.filter(probe=probe))
 
 
-class ClassNameCreateView(LoginRequiredMixin, CreateView):
+class ProbeCreateView(LoginRequiredMixin, CreateView):
     template_name = "probe_add.html"
     model = Probe
     fields = '__all__'
@@ -35,13 +34,13 @@ class ClassNameCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ClassNameUpdateView(LoginRequiredMixin, UpdateView):
+class ProbeUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "probe_edit.html"
     model = Probe
     fields = '__all__'
 
 
-class ClassNameDeleteView(LoginRequiredMixin, DeleteView):
+class ProbeDeleteView(LoginRequiredMixin, DeleteView):
     model = Probe
     template_name = 'probe_delete.html'
     success_url = reverse_lazy('probe_list')

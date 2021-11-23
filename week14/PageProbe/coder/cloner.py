@@ -38,7 +38,7 @@ def generate_clone_code():
     object_name = "probe"
     module_name = 'probe'
 
-    old_class = 'ClassObject'
+    old_class = 'ClassName'
     old_object = 'object_instance'
     old_module = 'coder/prototype'
 

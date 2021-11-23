@@ -3,11 +3,11 @@ from django.urls import reverse
 
 from probe.probe import create_bacs200, create_bacs350
 
-from .models import Author, Probe, Lesson
+from .models import Author, ClassObject, Lesson
 from coder.coder import create_test_user
 
 
-class ProbeDataTest(TestCase):
+class ClassObjectDataTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
@@ -19,18 +19,18 @@ class ProbeDataTest(TestCase):
                                      description='None', doc_path='Documents')
 
     def test_add_probe(self):
-        self.assertEqual(len(Probe.objects.all()), 0)
-        Probe.create(**self.probe1)
-        Probe.create(**self.probe2)
-        x = Probe.objects.get(pk=2)
+        self.assertEqual(len(ClassObject.objects.all()), 0)
+        ClassObject.create(**self.probe1)
+        ClassObject.create(**self.probe2)
+        x = ClassObject.objects.get(pk=2)
         self.assertEqual(str(x), '2 - Homer by 2 - Homer')
         self.assertEqual(x.author.name, 'Homer')
         self.assertEqual(x.title, 'Iliad')
-        self.assertEqual(len(Probe.objects.all()), 2)
+        self.assertEqual(len(ClassObject.objects.all()), 2)
 
     def test_probe_edit(self):
-        Probe.create(**self.probe1)
-        b = Probe.objects.get(pk=1)
+        ClassObject.create(**self.probe1)
+        b = ClassObject.objects.get(pk=1)
         b.author = self.author2
         b.title = 'Iliad'
         b.description = 'No description'
@@ -40,13 +40,13 @@ class ProbeDataTest(TestCase):
         self.assertEqual(b.description, 'No description')
 
     def test_probe_delete(self):
-        Probe.objects.create(**self.probe1)
-        b = Probe.objects.get(pk=1)
+        ClassObject.objects.create(**self.probe1)
+        b = ClassObject.objects.get(pk=1)
         b.delete()
-        self.assertEqual(len(Probe.objects.all()), 0)
+        self.assertEqual(len(ClassObject.objects.all()), 0)
 
 
-class ProbeViewsTest(TestCase):
+class ClassObjectViewsTest(TestCase):
 
     def login(self):
         response = self.client.login(username=self.user.username,  password=self.user_args['password'])
@@ -80,8 +80,8 @@ class ProbeViewsTest(TestCase):
 
     def test_probe_list_view(self):
         self.assertEqual(reverse('probe_list'), '/probe/')
-        Probe.objects.create(**self.probe1)
-        Probe.objects.create(**self.probe2)
+        ClassObject.objects.create(**self.probe1)
+        ClassObject.objects.create(**self.probe2)
         response = self.client.get('/probe/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'probe_list.html')
@@ -89,7 +89,7 @@ class ProbeViewsTest(TestCase):
         self.assertContains(response, '<tr>', count=3)
 
     def test_probe_detail_view(self):
-        Probe.objects.create(**self.probe1)
+        ClassObject.objects.create(**self.probe1)
         self.assertEqual(reverse('probe_detail', args='1'), '/probe/1')
         self.assertEqual(reverse('probe_detail', args='2'), '/probe/2')
         response = self.client.get(reverse('probe_detail', args='1'))
@@ -100,7 +100,7 @@ class ProbeViewsTest(TestCase):
         # Add without Login
         response = self.client.post(reverse('probe_add'), self.probe1)
         self.assertEqual(response.url, '/accounts/login/?next=/probe/add')
-        self.assertEqual(len(Probe.objects.all()), 0)
+        self.assertEqual(len(ClassObject.objects.all()), 0)
 
         # Login to add
         self.login()
@@ -109,14 +109,14 @@ class ProbeViewsTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/probe/2')
         response = self.client.get('/probe/')
-        self.assertEqual(len(Probe.objects.all()), 2)
+        self.assertEqual(len(ClassObject.objects.all()), 2)
         response = self.client.get(reverse('probe_detail', args='2'))
         self.assertContains(response, 'BACS 350')
 
     def test_probe_edit_view(self):
 
         # Edit without Login
-        Probe.objects.create(**self.probe1)
+        ClassObject.objects.create(**self.probe1)
         self.assertEqual(reverse('probe_edit', args='1'), '/probe/1/')
         response = self.client.get('/probe/1/')
         self.assertEqual(response.status_code, 302)
@@ -131,15 +131,15 @@ class ProbeViewsTest(TestCase):
         self.assertContains(response, self.author1.name)
 
         # Check the probe object
-        probe = Probe.objects.get(pk=1)
+        probe = ClassObject.objects.get(pk=1)
         self.assertEqual(probe.author, self.author1)
         self.assertEqual(probe.title, 'UNC BACS 350')
 
     def test_probe_delete_view(self):
         self.login()
-        Probe.objects.create(**self.probe1)
+        ClassObject.objects.create(**self.probe1)
         self.assertEqual(reverse('probe_delete', args='1'), '/probe/1/delete')
         response = self.client.get('/probe/1/delete')
         self.assertEqual(response.status_code, 200)
         response = self.client.post('/probe/1/delete')
-        self.assertEqual(len(Probe.objects.all()), 0)
+        self.assertEqual(len(ClassObject.objects.all()), 0)
