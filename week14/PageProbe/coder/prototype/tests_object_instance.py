@@ -14,9 +14,9 @@ class ClassObjectDataTest(TestCase):
         self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.author2 = Author.objects.create(user=self.user, name='Homer')
         self.object_instance1 = dict(name='Dickens', title='Tale of 2 Cities', author=self.author1,
-                            description='None', doc_path='Documents')
+                                     description='None', doc_path='Documents')
         self.object_instance2 = dict(name='Homer', title='Iliad', author=self.author2,
-                            description='None', doc_path='Documents')
+                                     description='None', doc_path='Documents')
 
     def test_add_object_instance(self):
         self.assertEqual(len(ClassObject.objects.all()), 0)
@@ -57,21 +57,21 @@ class ClassObjectViewsTest(TestCase):
         self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.author2 = Author.objects.create(user=self.user, name='Homer')
         self.object_instance1 = dict(name='BACS 200',
-                            title='UNC BACS 200',
-                            subtitle='Subtitle UNC BACS 200',
-                            author=self.author1,
-                            description='description',
-                            doc_path='Documents/object_instance/bacs200',
-                            num_projects=14,
-                            num_lessons=42)
+                                     title='UNC BACS 200',
+                                     subtitle='Subtitle UNC BACS 200',
+                                     author=self.author1,
+                                     description='description',
+                                     doc_path='Documents/object_instance/bacs200',
+                                     num_projects=14,
+                                     num_lessons=42)
         self.object_instance2 = dict(name='BACS 350',
-                            title='UNC BACS 350',
-                            subtitle='Subtitle UNC BACS 350',
-                            author=self.author1,
-                            description='None',
-                            doc_path='Documents/object_instance/bacs350',
-                            num_projects=14,
-                            num_lessons=42)
+                                     title='UNC BACS 350',
+                                     subtitle='Subtitle UNC BACS 350',
+                                     author=self.author1,
+                                     description='None',
+                                     doc_path='Documents/object_instance/bacs350',
+                                     num_projects=14,
+                                     num_lessons=42)
 
     def test_home(self):
         response = self.client.get('/')
@@ -143,25 +143,3 @@ class ClassObjectViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         response = self.client.post('/object_instance/1/delete')
         self.assertEqual(len(ClassObject.objects.all()), 0)
-
-
-class ClassObjectFixtureTest(TestCase):
-    #     fixtures = ['Documents/Test/data.json']
-
-    #     def test_with_data(self):
-    #         self.assertEqual(len(Author.objects.all()), 0)
-    #         self.assertEqual(len(ClassObject.objects.all()), 0)
-    #         self.assertEqual(len(Lesson.objects.all()), 0)
-
-    def test_import_object_instances(self):
-        self.user, self.user_args = create_test_user()
-        create_bacs200()
-        create_bacs350()
-        object_instance = ClassObject.objects.get(pk=1)
-        self.assertEqual((object_instance.name, object_instance.author.name), ('bacs200', 'Mark Seaman'))
-        self.assertEqual(len(ClassObject.objects.all()), 2)
-    #     # print(Author.objects.all())
-    #     # print(object_instance.objects.all())
-    #     # print(Chapter.objects.all())
-    #     self.assertEqual(len(Author.objects.all()), 3)
-    #     self.assertEqual(len(Lesson.objects.all()), 70)

@@ -3,31 +3,31 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import ClassObject, Lesson
-from .object_instance import get_author
+from .models import Probe, Lesson
+from .probe import get_author
 
 
 class ClassNameView(RedirectView):
-    url = reverse_lazy('object_instance_list')
+    url = reverse_lazy('probe_list')
 
 
 class ClassNameListView(ListView):
-    template_name = 'object_instance_list.html'
-    model = ClassObject
+    template_name = 'probe_list.html'
+    model = Probe
 
 
 class ClassNameDetailView(DetailView):
-    template_name = 'object_instance_detail.html'
-    model = ClassObject
+    template_name = 'probe_detail.html'
+    model = Probe
 
     def get_context_data(self, **kwargs):
-        object_instance = ClassObject.objects.get(pk=self.kwargs['pk'])
-        return dict(object=object_instance, lessons=Lesson.objects.filter(object_instance=object_instance))
+        probe = Probe.objects.get(pk=self.kwargs['pk'])
+        return dict(object=probe, lessons=Lesson.objects.filter(probe=probe))
 
 
 class ClassNameCreateView(LoginRequiredMixin, CreateView):
-    template_name = "object_instance_add.html"
-    model = ClassObject
+    template_name = "probe_add.html"
+    model = Probe
     fields = '__all__'
 
     def form_valid(self, form):
@@ -36,12 +36,12 @@ class ClassNameCreateView(LoginRequiredMixin, CreateView):
 
 
 class ClassNameUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "object_instance_edit.html"
-    model = ClassObject
+    template_name = "probe_edit.html"
+    model = Probe
     fields = '__all__'
 
 
 class ClassNameDeleteView(LoginRequiredMixin, DeleteView):
-    model = ClassObject
-    template_name = 'object_instance_delete.html'
-    success_url = reverse_lazy('object_instance_list')
+    model = Probe
+    template_name = 'probe_delete.html'
+    success_url = reverse_lazy('probe_list')
