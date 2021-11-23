@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls.conf import include, include
+from django.urls.conf import include
 from django.urls import path
 
 from .views_probe import ProbeDeleteView, ProbeDetailView, ProbeListView, ProbeCreateView, ProbeUpdateView

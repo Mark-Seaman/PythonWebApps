@@ -2,12 +2,19 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
+from requests import get
 
-from .models import Probe
+from .models import Probe, Result
 
 
 class ProbeView(RedirectView):
     url = reverse_lazy('probe_list')
+
+
+# class TestProbeView(RedirectView):
+
+#     def get_redirect_url(self, **kwargs):
+#         return super().get_redirect_url(**kwargs)
 
 
 class ProbeListView(ListView):
@@ -20,11 +27,16 @@ class ProbeDetailView(DetailView):
     model = Probe
 
     def get_context_data(self, **kwargs):
-        probe = Probe.objects.get(pk=self.kwargs['pk'])
-        return dict(object=probe, lessons=Lesson.objects.filter(probe=probe))
+        kwargs = super().get_context_data(**kwargs)
+        probe = kwargs['object']
+        response = get(probe.page)
+        passed = response.status_code == 200
+        Result.create(probe=probe, output=response.text, passed=passed)
+        kwargs['results'] = Result.objects.filter(probe=probe)
+        return kwargs
 
 
-class ProbeCreateView(LoginRequiredMixin, CreateView):
+class ProbeCreateView(CreateView):
     template_name = "probe_add.html"
     model = Probe
     fields = '__all__'
@@ -34,13 +46,13 @@ class ProbeCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ProbeUpdateView(LoginRequiredMixin, UpdateView):
+class ProbeUpdateView(UpdateView):
     template_name = "probe_edit.html"
     model = Probe
     fields = '__all__'
 
 
-class ProbeDeleteView(LoginRequiredMixin, DeleteView):
+class ProbeDeleteView(DeleteView):
     model = Probe
     template_name = 'probe_delete.html'
     success_url = reverse_lazy('probe_list')

@@ -4,60 +4,52 @@
 
 <div class="container m-5">
 
-    <h1 class="text-primary">ClassObject Details</h1>
+    <h1 class="text-primary">Probe Details</h1>
 
-    <div class="container">
-        <div class="row">
+    <div class="row">
 
-            <div class="col-lg">
-                <h2>Book</h2>
-                <table class="table">
-                    <tr>
-                        <td>Title</td>
-                        <td><b><a href="/probe/{{ object.pk }}/">{{ object.title }}</a></b></td>
-                    </tr>
-                    <tr>
-                        <td>Author</td>
-                        <td><b><a href="/author/{{ object.author.pk }}">{{ object.author.name }}</a></b></td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td><b>{{ object.description }}</b></td>
-                    </tr>
-                </table>
+        <div class="col-lg">
 
-                {% include '_book_cover.html' %}
-            </div>
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td><b><a href="/probe/{{ object.pk }}/">{{ object.name }}</a></b></td>
+                </tr>
+                <tr>
+                    <td>Page URL</td>
+                    <td><b><a href="{{ object.page }}" target="page">{{ object.page }}</a></b></td>
+                </tr>
+                <tr>
+                    <td>Text to Match</td>
+                    <td><b>{{ object.text }}</b></td>
+                </tr>
+            </table>
 
-            <div class="col-lg">
-                <h2>Lesson</h2>
-                <table class="table table-hover">
-                    <tr>
-                        <th>Lesson</th>
-                        <th>Edit</th>
-                    </tr>
+            <h2>Test Results</h2>
+            <table class="table">
 
-                    {% for lesson in lessons %}
-                    <tr>
-                        <td><a href="/lesson/{{ lesson.pk }}">Lesson {{ lesson.order }} - {{ lesson.title }}</a>
-                        </td>
-                        <td><a href="/lesson/{{ lesson.pk }}/">Edit</a></td>
-                        <td><a href="/lesson/{{ lesson.pk }}/delete">Delete</a></td>
-                    </tr>
-                    {% endfor %}
-
-                </table>
-            </div>
+                <tr>
+                    <th>Date</th>
+                    <th>Pass/Fail</th>
+                    <th>Text Output</th>
+                </tr>
+                {% for r in results %}
+                <tr>
+                    <td>{{ r.date }}</td>
+                    <td>{% if r.passed %}PASS{% else %}FAIL{% endif %}</td>
+                    <td>{{ r.output }}</td>
+                </tr>
+                {% endfor %}
+            </table>
 
         </div>
+
     </div>
 
 
-
-
-    <a href="/probe/" class="btn btn-success m-5">Book List</a>
-    <a href="/probe/{{ object.pk }}/" class="btn btn-success m-5">Edit Book</a>
-    <a href="/probe/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Book</a>
+    <a href="/probe/" class="btn btn-success m-5">Probe List</a>
+    <a href="/probe/{{ object.pk }}/" class="btn btn-success m-5">Edit Probe</a>
+    <a href="/probe/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Probe</a>
 </div>
 
 {% endblock content %}

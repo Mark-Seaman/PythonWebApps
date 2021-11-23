@@ -3,11 +3,11 @@ from django.urls import reverse
 
 from object_instance.object_instance import create_bacs200, create_bacs350
 
-from .models import Author, ClassObject, Lesson
+from .models import Author, ClassName, Lesson
 from coder.coder import create_test_user
 
 
-class ClassObjectDataTest(TestCase):
+class ClassNameDataTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
@@ -19,18 +19,18 @@ class ClassObjectDataTest(TestCase):
                                      description='None', doc_path='Documents')
 
     def test_add_object_instance(self):
-        self.assertEqual(len(ClassObject.objects.all()), 0)
-        ClassObject.create(**self.object_instance1)
-        ClassObject.create(**self.object_instance2)
-        x = ClassObject.objects.get(pk=2)
+        self.assertEqual(len(ClassName.objects.all()), 0)
+        ClassName.create(**self.object_instance1)
+        ClassName.create(**self.object_instance2)
+        x = ClassName.objects.get(pk=2)
         self.assertEqual(str(x), '2 - Homer by 2 - Homer')
         self.assertEqual(x.author.name, 'Homer')
         self.assertEqual(x.title, 'Iliad')
-        self.assertEqual(len(ClassObject.objects.all()), 2)
+        self.assertEqual(len(ClassName.objects.all()), 2)
 
     def test_object_instance_edit(self):
-        ClassObject.create(**self.object_instance1)
-        b = ClassObject.objects.get(pk=1)
+        ClassName.create(**self.object_instance1)
+        b = ClassName.objects.get(pk=1)
         b.author = self.author2
         b.title = 'Iliad'
         b.description = 'No description'
@@ -40,13 +40,13 @@ class ClassObjectDataTest(TestCase):
         self.assertEqual(b.description, 'No description')
 
     def test_object_instance_delete(self):
-        ClassObject.objects.create(**self.object_instance1)
-        b = ClassObject.objects.get(pk=1)
+        ClassName.objects.create(**self.object_instance1)
+        b = ClassName.objects.get(pk=1)
         b.delete()
-        self.assertEqual(len(ClassObject.objects.all()), 0)
+        self.assertEqual(len(ClassName.objects.all()), 0)
 
 
-class ClassObjectViewsTest(TestCase):
+class ClassNameViewsTest(TestCase):
 
     def login(self):
         response = self.client.login(username=self.user.username,  password=self.user_args['password'])
@@ -80,8 +80,8 @@ class ClassObjectViewsTest(TestCase):
 
     def test_object_instance_list_view(self):
         self.assertEqual(reverse('object_instance_list'), '/object_instance/')
-        ClassObject.objects.create(**self.object_instance1)
-        ClassObject.objects.create(**self.object_instance2)
+        ClassName.objects.create(**self.object_instance1)
+        ClassName.objects.create(**self.object_instance2)
         response = self.client.get('/object_instance/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'object_instance_list.html')
@@ -89,7 +89,7 @@ class ClassObjectViewsTest(TestCase):
         self.assertContains(response, '<tr>', count=3)
 
     def test_object_instance_detail_view(self):
-        ClassObject.objects.create(**self.object_instance1)
+        ClassName.objects.create(**self.object_instance1)
         self.assertEqual(reverse('object_instance_detail', args='1'), '/object_instance/1')
         self.assertEqual(reverse('object_instance_detail', args='2'), '/object_instance/2')
         response = self.client.get(reverse('object_instance_detail', args='1'))
@@ -100,7 +100,7 @@ class ClassObjectViewsTest(TestCase):
         # Add without Login
         response = self.client.post(reverse('object_instance_add'), self.object_instance1)
         self.assertEqual(response.url, '/accounts/login/?next=/object_instance/add')
-        self.assertEqual(len(ClassObject.objects.all()), 0)
+        self.assertEqual(len(ClassName.objects.all()), 0)
 
         # Login to add
         self.login()
@@ -109,14 +109,14 @@ class ClassObjectViewsTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/object_instance/2')
         response = self.client.get('/object_instance/')
-        self.assertEqual(len(ClassObject.objects.all()), 2)
+        self.assertEqual(len(ClassName.objects.all()), 2)
         response = self.client.get(reverse('object_instance_detail', args='2'))
         self.assertContains(response, 'BACS 350')
 
     def test_object_instance_edit_view(self):
 
         # Edit without Login
-        ClassObject.objects.create(**self.object_instance1)
+        ClassName.objects.create(**self.object_instance1)
         self.assertEqual(reverse('object_instance_edit', args='1'), '/object_instance/1/')
         response = self.client.get('/object_instance/1/')
         self.assertEqual(response.status_code, 302)
@@ -131,15 +131,15 @@ class ClassObjectViewsTest(TestCase):
         self.assertContains(response, self.author1.name)
 
         # Check the object_instance object
-        object_instance = ClassObject.objects.get(pk=1)
+        object_instance = ClassName.objects.get(pk=1)
         self.assertEqual(object_instance.author, self.author1)
         self.assertEqual(object_instance.title, 'UNC BACS 350')
 
     def test_object_instance_delete_view(self):
         self.login()
-        ClassObject.objects.create(**self.object_instance1)
+        ClassName.objects.create(**self.object_instance1)
         self.assertEqual(reverse('object_instance_delete', args='1'), '/object_instance/1/delete')
         response = self.client.get('/object_instance/1/delete')
         self.assertEqual(response.status_code, 200)
         response = self.client.post('/object_instance/1/delete')
-        self.assertEqual(len(ClassObject.objects.all()), 0)
+        self.assertEqual(len(ClassName.objects.all()), 0)

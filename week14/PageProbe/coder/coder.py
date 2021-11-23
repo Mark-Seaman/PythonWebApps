@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 
-from course.course import import_all_courses
+# from probe.probe import import_all_courses
 
 
 def create_test_user():
@@ -20,4 +20,4 @@ def quick_test():
 
 def initialize_database():
     create_test_user()
-    import_all_courses()
+    # import_all_courses()

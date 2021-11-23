@@ -12,6 +12,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
 
     path('', ProbeView.as_view()),
-    # path('probe/', include('probe.urls_probe')),
+    path('probe/', include('probe.urls_probe')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

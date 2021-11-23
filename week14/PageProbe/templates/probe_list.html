@@ -6,21 +6,19 @@
 
 <div class="container-fluid m-5">
 
-    <h1 class="text-primary text-center">List of ClassObjects</h1>
+    <h1 class="text-primary text-center">List of Probes</h1>
 
     <table class="table table-hover">
         <tr>
-            <th>ClassObject</th>
-            <th>Description</th>
-            <th>Author</th>
+            <th>Probe</th>
+            <th>Page</th>
             <th>Edit</th>
         </tr>
 
         {% for probe in object_list %}
         <tr>
-            <td><a href="/probe/{{ probe.pk }}">{{ probe.title }}</a></td>
-            <td><a href="/probe/{{ probe.pk }}">{{ probe.description }}</a></td>
-            <td><a href="/author/{{ probe.author.pk }}">{{ probe.author.name }}</a></td>
+            <td><a href="/probe/{{ probe.pk }}">{{ probe.name }}</a></td>
+            <td><a href="/probe/{{ probe.pk }}">{{ probe.page }}</a></td>
             <td><a href="/probe/{{ probe.pk }}/">Edit</a></td>
             <td><a href="/probe/{{ probe.pk }}/delete">Delete</a></td>
         </tr>
@@ -29,7 +27,7 @@
     </table>
 
     <p>
-        <a href="/probe/add" class="btn btn-success m-5">Add New ClassObject</a>
+        <a href="/probe/add" class="btn btn-success m-5">Add New Probe</a>
     </p>
 
 </div>
