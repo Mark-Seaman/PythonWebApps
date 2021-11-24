@@ -1,20 +1,15 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  RedirectView, UpdateView)
 from requests import get
 
-from .models import Probe, Result
+from .models import Probe
+from .probe import clear_probe_history, execute_probe, launch_all_probes, result_list
 
 
 class ProbeView(RedirectView):
     url = reverse_lazy('probe_list')
-
-
-# class TestProbeView(RedirectView):
-
-#     def get_redirect_url(self, **kwargs):
-#         return super().get_redirect_url(**kwargs)
 
 
 class ProbeListView(ListView):
@@ -29,11 +24,24 @@ class ProbeDetailView(DetailView):
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
         probe = kwargs['object']
-        response = get(probe.page)
-        passed = response.status_code == 200
-        Result.create(probe=probe, output=response.text, passed=passed)
-        kwargs['results'] = Result.objects.filter(probe=probe)
+        execute_probe(probe)
+        kwargs['results'] = result_list(probe)
         return kwargs
+
+
+class ProbeLaunchView(RedirectView):
+
+    def get_redirect_url(self, *args, **kwargs):
+        launch_all_probes()
+        return reverse('probe_list')
+
+
+class ProbeClearView(RedirectView):
+
+    def get_redirect_url(self, *args, **kwargs):
+        probe_pk = self.kwargs.get('pk')
+        clear_probe_history(probe_pk)
+        return reverse('probe_detail', args=[probe_pk])
 
 
 class ProbeCreateView(CreateView):

@@ -1,12 +1,8 @@
-
-from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls.conf import include
 from django.urls import path
 
-from .views_probe import ProbeDeleteView, ProbeDetailView, ProbeListView, ProbeCreateView, ProbeUpdateView
-
+from .views_probe import (ProbeClearView, ProbeCreateView, ProbeDeleteView,
+                          ProbeDetailView, ProbeLaunchView, ProbeListView,
+                          ProbeUpdateView)
 
 urlpatterns = [
 
@@ -16,5 +12,7 @@ urlpatterns = [
     path('add',                    ProbeCreateView.as_view(),  name='probe_add'),
     path('<int:pk>/',              ProbeUpdateView.as_view(),  name='probe_edit'),
     path('<int:pk>/delete',        ProbeDeleteView.as_view(),  name='probe_delete'),
+    path('<int:pk>/clear',         ProbeClearView.as_view(),   name='probe_clear'),
+    path('test',                   ProbeLaunchView.as_view(),  name='probe_launch'),
 
 ]

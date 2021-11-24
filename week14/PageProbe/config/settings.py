@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1(sjak8docz+=v3dzsbww(+56x6cc7u8m@1-cj0zh+p&hu==oa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['markseaman.pythonanywhere.com', '127.0.0.1', 'localhost', 'marks-imac.local']
 
 
 # Application definition
@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Denver'
 
 USE_I18N = True
 

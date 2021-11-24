@@ -9,7 +9,6 @@ from coder.coder import create_test_user
 class ProbeDataTest(TestCase):
 
     def setUp(self):
-        self.user, self.user_args = create_test_user()
         self.probe1 = dict(name='Shrinking World', page='https://Shrinking-World.com', text='Shrinking World')
         self.probe2 = dict(name='BACS 350', page='https://Shrinking-World.com/course/bacs350', text='Shrinking World')
 
@@ -40,14 +39,9 @@ class ProbeDataTest(TestCase):
 
 class ProbeViewsTest(TestCase):
 
-    def login(self):
-        response = self.client.login(username=self.user.username,  password=self.user_args['password'])
-        self.assertEqual(response, True)
-
     def setUp(self):
         self.probe1 = dict(name='Shrinking World', page='https://Shrinking-World.com', text='Shrinking World')
         self.probe2 = dict(name='BACS 350', page='https://Shrinking-World.com/course/bacs350', text='Shrinking World')
-        self.user, self.user_args = create_test_user()
 
     def test_home(self):
         response = self.client.get('/')
@@ -64,58 +58,31 @@ class ProbeViewsTest(TestCase):
         self.assertTemplateUsed(response, 'theme.html')
         self.assertContains(response, '<tr>', count=3)
 
-#     def test_probe_detail_view(self):
-#         Probe.objects.create(**self.probe1)
-#         self.assertEqual(reverse('probe_detail', args='1'), '/probe/1')
-#         self.assertEqual(reverse('probe_detail', args='2'), '/probe/2')
-#         response = self.client.get(reverse('probe_detail', args='1'))
-#         self.assertContains(response, 'BACS 200')
+    def test_probe_detail_view(self):
+        Probe.objects.create(**self.probe1)
+        self.assertEqual(reverse('probe_detail', args='1'), '/probe/1')
+        self.assertEqual(reverse('probe_detail', args='2'), '/probe/2')
+        response = self.client.get(reverse('probe_detail', args='1'))
+        self.assertContains(response, 'https://Shrinking-World.com')
 
-#     def test_probe_add_view(self):
+    def test_probe_add_view(self):
+        response = self.client.post(reverse('probe_add'), self.probe1)
+        response = self.client.post(reverse('probe_add'), self.probe2)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/probe/')
+        response = self.client.get('/probe/')
+        self.assertEqual(len(Probe.objects.all()), 2)
+        response = self.client.get(reverse('probe_list'))
+        self.assertContains(response, 'BACS 350')
 
-#         # Add without Login
-#         response = self.client.post(reverse('probe_add'), self.probe1)
-#         self.assertEqual(response.url, '/accounts/login/?next=/probe/add')
-#         self.assertEqual(len(Probe.objects.all()), 0)
+    def test_probe_edit_view(self):
+        Probe.objects.create(**self.probe1)
+        self.client.post('/probe/1/', self.probe2)
+        probe = Probe.objects.get(pk=1)
+        self.assertEqual(probe.page, self.probe2['page'])
 
-#         # Login to add
-#         self.login()
-#         response = self.client.post(reverse('probe_add'), self.probe1)
-#         response = self.client.post(reverse('probe_add'), self.probe2)
-#         self.assertEqual(response.status_code, 302)
-#         self.assertEqual(response.url, '/probe/2')
-#         response = self.client.get('/probe/')
-#         self.assertEqual(len(Probe.objects.all()), 2)
-#         response = self.client.get(reverse('probe_detail', args='2'))
-#         self.assertContains(response, 'BACS 350')
-
-#     def test_probe_edit_view(self):
-
-#         # Edit without Login
-#         Probe.objects.create(**self.probe1)
-#         self.assertEqual(reverse('probe_edit', args='1'), '/probe/1/')
-#         response = self.client.get('/probe/1/')
-#         self.assertEqual(response.status_code, 302)
-#         self.assertEqual(response.url, '/accounts/login/?next=/probe/1/')
-
-#         # Login to edit
-#         self.login()
-#         response = self.client.post('/probe/1/', self.probe2)
-#         self.assertEqual(response.url, '/probe/1')
-#         response = self.client.get(response.url)
-#         self.assertContains(response, self.probe2['title'])
-#         self.assertContains(response, self.author1.name)
-
-#         # Check the probe object
-#         probe = Probe.objects.get(pk=1)
-#         self.assertEqual(probe.author, self.author1)
-#         self.assertEqual(probe.title, 'UNC BACS 350')
-
-#     def test_probe_delete_view(self):
-#         self.login()
-#         Probe.objects.create(**self.probe1)
-#         self.assertEqual(reverse('probe_delete', args='1'), '/probe/1/delete')
-#         response = self.client.get('/probe/1/delete')
-#         self.assertEqual(response.status_code, 200)
-#         response = self.client.post('/probe/1/delete')
-#         self.assertEqual(len(Probe.objects.all()), 0)
+    def test_probe_delete_view(self):
+        Probe.objects.create(**self.probe1)
+        self.assertEqual(reverse('probe_delete', args='1'), '/probe/1/delete')
+        response = self.client.post('/probe/1/delete')
+        self.assertEqual(len(Probe.objects.all()), 0)
