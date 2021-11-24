@@ -43,11 +43,3 @@ def generate_clone_code():
     old_module = 'coder/prototype'
 
     clone_code(old_object, object_name, old_class, class_name, old_module, module_name)
-
-
-def generate_image_code():
-    class_name = "Image"
-    object_name = "image"
-    old_class = 'Book'
-    old_object = 'book'
-    clone_code(class_name, object_name, old_class, old_object)
