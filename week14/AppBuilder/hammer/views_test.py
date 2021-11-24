@@ -20,7 +20,7 @@ class TestDetailView(DetailView):
     model = Test
 
     def get_context_data(self, **kwargs):
-        kwargs = self.super().get_context_data(**kwargs)
+        kwargs = super().get_context_data(**kwargs)
         # kwargs.update(dict(dependent=Dependent.obects.filter(test=kwargs.get('object'))))
         return kwargs
 
