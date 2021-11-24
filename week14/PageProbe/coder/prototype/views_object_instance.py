@@ -20,8 +20,9 @@ class ClassNameDetailView(DetailView):
     model = ClassName
 
     def get_context_data(self, **kwargs):
-        object_instance = ClassName.objects.get(pk=self.kwargs['pk'])
-        return dict(object=object_instance, lessons=Lesson.objects.filter(object_instance=object_instance))
+        kwargs = self.super().get_context_data(**kwargs)
+        # kwargs.update(dict(dependent=Dependent.obects.filter(object_instance=kwargs.get('object'))))
+        return kwargs
 
 
 class ClassNameCreateView(LoginRequiredMixin, CreateView):

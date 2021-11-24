@@ -1,8 +1,4 @@
 
-from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls.conf import include, include
 from django.urls import path
 
 from .views_object_instance import ClassNameDeleteView, ClassNameDetailView, ClassNameListView, ClassNameCreateView, ClassNameUpdateView
@@ -10,7 +6,7 @@ from .views_object_instance import ClassNameDeleteView, ClassNameDetailView, Cla
 
 urlpatterns = [
 
-    # ClassObject
+    # ClassName
     path('',                       ClassNameListView.as_view(),    name='object_instance_list'),
     path('<int:pk>',               ClassNameDetailView.as_view(),  name='object_instance_detail'),
     path('add',                    ClassNameCreateView.as_view(),  name='object_instance_add'),
