@@ -1,13 +1,21 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
+from .cloner import generate_clone_code
 from .models import DataFactory
 
 
 class DataFactoryView(RedirectView):
     url = reverse_lazy('factory_list')
+
+
+class DataFactoryBuildView(RedirectView):
+
+    def get_redirect_url(self, *args, **kwargs):
+        generate_clone_code(kwargs.get('pk'))
+        return reverse('factory_list')
 
 
 class DataFactoryListView(ListView):
@@ -20,7 +28,7 @@ class DataFactoryDetailView(DetailView):
     model = DataFactory
 
     def get_context_data(self, **kwargs):
-        kwargs = self.super().get_context_data(**kwargs)
+        kwargs = super().get_context_data(**kwargs)
         # kwargs.update(dict(dependent=Dependent.obects.filter(factory=kwargs.get('object'))))
         return kwargs
 

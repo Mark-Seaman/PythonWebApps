@@ -1,8 +1,9 @@
 
 from django.urls import path
 
-from .views_factory import DataFactoryDeleteView, DataFactoryDetailView, DataFactoryListView, DataFactoryCreateView, DataFactoryUpdateView
-
+from .views_factory import (DataFactoryBuildView, DataFactoryCreateView,
+                            DataFactoryDeleteView, DataFactoryDetailView,
+                            DataFactoryListView, DataFactoryUpdateView)
 
 urlpatterns = [
 
@@ -12,5 +13,6 @@ urlpatterns = [
     path('add',                    DataFactoryCreateView.as_view(),  name='factory_add'),
     path('<int:pk>/',              DataFactoryUpdateView.as_view(),  name='factory_edit'),
     path('<int:pk>/delete',        DataFactoryDeleteView.as_view(),  name='factory_delete'),
+    path('<int:pk>/build',         DataFactoryBuildView.as_view(),  name='factory_delete'),
 
 ]

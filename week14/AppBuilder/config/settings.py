@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'coder',
     'crispy_forms',
 
@@ -54,9 +55,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'factory_list'
 
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'factory_list'
 
 TEMPLATES = [
     {

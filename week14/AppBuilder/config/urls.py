@@ -13,6 +13,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
     # Book
-    path('', include('coder.urls_factory')),
+    path('factory/', include('coder.urls_factory')),
 
 ]

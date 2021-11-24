@@ -1,4 +1,5 @@
 from shutil import copyfile
+from .models import DataFactory
 
 
 def clone_code(object1, object2, class1, class2, module1, module2):
@@ -32,11 +33,13 @@ coder/prototype/templates/{old_object}_edit.html
 coder/prototype/templates/{old_object}_list.html'''
 
 
-def generate_clone_code():
+def generate_clone_code(factory_id):
 
-    class_name = "DataFactory"
-    object_name = "factory"
-    module_name = 'coder'
+    factory = DataFactory.objects.get(pk=factory_id)
+
+    class_name = factory.class_name
+    object_name = factory.object_name
+    module_name = factory.module_name
 
     old_class = 'ClassName'
     old_object = 'object_instance'
