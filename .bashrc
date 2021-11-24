@@ -39,6 +39,7 @@ export p=$p
 echo "Home Directory = $p"
 cd $p/week14/CourseBuilder
 cd $p/week14/PageProbe
+cd $p/week14/AppBuilder
 
 git pull
 
