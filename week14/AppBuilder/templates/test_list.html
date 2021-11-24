@@ -1,0 +1,37 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid m-5">
+
+    <h1 class="text-primary text-center">List of Tests</h1>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Test</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for test in object_list %}
+        <tr>
+            <td><a href="/test/{{ test.pk }}">{{ test.title }}</a></td>
+            <td><a href="/test/{{ test.pk }}">{{ test.description }}</a></td>
+            <td><a href="/author/{{ test.author.pk }}">{{ test.author.name }}</a></td>
+            <td><a href="/test/{{ test.pk }}/">Edit</a></td>
+            <td><a href="/test/{{ test.pk }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <p>
+        <a href="/test/add" class="btn btn-success m-5">Add New Test</a>
+    </p>
+
+</div>
+
+{% endblock content %}

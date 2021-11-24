@@ -12,7 +12,10 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
 
-    # Book
+    # Data Factory
     path('factory/', include('coder.urls_factory')),
+
+    # Hammer Test
+    path('test/', include('hammer.urls_test')),
 
 ]
