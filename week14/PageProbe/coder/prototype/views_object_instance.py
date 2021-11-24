@@ -3,8 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import ClassName, Lesson
-from .object_instance import get_author
+from .models import ClassName
 
 
 class ClassNameView(RedirectView):

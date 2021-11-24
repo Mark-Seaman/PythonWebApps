@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from object_instance.object_instance import create_bacs200, create_bacs350
 
-from .models import Author, ClassName, Lesson
+from .models import Author, ClassName
 from coder.coder import create_test_user
 
 
