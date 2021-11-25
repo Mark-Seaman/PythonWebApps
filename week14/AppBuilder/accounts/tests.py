@@ -23,10 +23,6 @@ class TestAccountsData(TestCase):
 class TestAccountsViews(TestCase):
 
     def test_home_view(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/course/')
-
         response = self.client.get('/accounts/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'theme.html')
@@ -43,7 +39,7 @@ class TestAccountsViews(TestCase):
     def test_logout_view(self):
         response = self.client.get('/accounts/logout/')
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, reverse('home'))
+        self.assertEqual(response.url, reverse('factory_list'))
 
     def test_signup_view(self):
         response = self.client.get('/accounts/signup')

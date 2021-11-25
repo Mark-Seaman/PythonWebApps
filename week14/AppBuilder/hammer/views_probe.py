@@ -1,13 +1,23 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
 from .models import Test
+from .probe import execute_probe, result_list
 
 
 class TestView(RedirectView):
     url = reverse_lazy('test_list')
+
+
+class TestRunView(RedirectView):
+
+    def get_redirect_url(self, **kwargs):
+        pk = self.kwargs.get('pk')
+        probe = Test.objects.filter(pk=pk)
+        execute_probe(probe)
+        return reverse('test_detail', args=[pk])
 
 
 class TestListView(ListView):
@@ -21,7 +31,9 @@ class TestDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
-        # kwargs.update(dict(dependent=Dependent.obects.filter(test=kwargs.get('object'))))
+        probe = kwargs['object']
+        execute_probe(probe)
+        kwargs['results'] = result_list(probe)
         return kwargs
 
 

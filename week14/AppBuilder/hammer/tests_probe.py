@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Author, Test
+from .models import Test
 from coder.coder import create_test_user
 
 
@@ -9,22 +9,14 @@ class TestDataTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-        self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
-        self.author2 = Author.objects.create(user=self.user, name='Homer')
-        self.test1 = dict(name='Dickens', title='Tale of 2 Cities', author=self.author1,
-                                     description='None', doc_path='Documents')
-        self.test2 = dict(name='Homer', title='Iliad', author=self.author2,
-                                     description='None', doc_path='Documents')
+        self.test1 = dict(name='Files list', expected='Initial output', source='test.test_system.test_system_source')
 
     def test_add_test(self):
         self.assertEqual(len(Test.objects.all()), 0)
         Test.create(**self.test1)
-        Test.create(**self.test2)
-        x = Test.objects.get(pk=2)
-        self.assertEqual(str(x), '2 - Homer by 2 - Homer')
-        self.assertEqual(x.author.name, 'Homer')
-        self.assertEqual(x.title, 'Iliad')
-        self.assertEqual(len(Test.objects.all()), 2)
+        x = Test.objects.get(pk=1)
+        self.assertEqual(x.source, self.test1['source'])
+        self.assertEqual(len(Test.objects.all()), 1)
 
 #     def test_test_edit(self):
 #         Test.create(**self.test1)

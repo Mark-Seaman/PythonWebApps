@@ -1,7 +1,5 @@
 from django.contrib.auth import get_user_model
 
-# from probe.probe import import_all_courses
-
 
 def create_test_user():
     args = dict(username='seaman', email='me@here.com', password='secret')
@@ -15,9 +13,7 @@ def create_test_user():
 
 def quick_test():
     print("QUICK TEST")
-    initialize_database()
 
 
-def initialize_database():
-    create_test_user()
-    # import_all_courses()
+def run_hammer_tests():
+    pass

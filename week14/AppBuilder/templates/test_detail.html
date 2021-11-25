@@ -4,11 +4,7 @@
 
 <div class="container m-5">
 
-    <h1 class="text-primary">Test Details</h1>
-
-    <h2>{{ object.name }}</h2>
-    <a href="/test/{{ object.pk }}/">Edit {{ object.name }}</a>
-    <br><br>
+    <h1 class="text-primary">Test Details - {{ object.name }}</h1>
 
     <h2>Expected Output</h2>
     <pre>{{ object.expected }}</pre>
@@ -19,6 +15,25 @@
     <a href="/test/" class="btn btn-success m-5">Test List</a>
     <a href="/test/{{ object.pk }}/" class="btn btn-success m-5">Edit Test</a>
     <a href="/test/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Test</a>
+    <a href="/test/{{ object.pk }}/run" class="btn btn-success m-5">Run Test</a>
+
+    <h2>Test History</h2>
+    <table class="table">
+
+        <tr>
+            <th>Date</th>
+            <th>Pass/Fail</th>
+            <th>Text Output</th>
+        </tr>
+        {% for r in results %}
+        <tr>
+            <td>{{ r.date }}</td>
+            <td>{% if r.passed %}PASS{% else %}FAIL{% endif %}</td>
+            <td>{{ r.output }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </div>
 
 {% endblock content %}
