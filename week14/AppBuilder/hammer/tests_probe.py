@@ -10,6 +10,7 @@ class TestDataTest(TestCase):
     def setUp(self):
         self.user, self.user_args = create_test_user()
         self.test1 = dict(name='Files list', expected='Initial output', source='test.test_system.test_system_source')
+        self.test1 = dict(name='Python code', expected='Initial output', source='test.test_system.test_python_source')
 
     def test_add_test(self):
         self.assertEqual(len(Test.objects.all()), 0)

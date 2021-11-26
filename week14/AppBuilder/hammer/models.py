@@ -5,8 +5,8 @@ from django.urls.base import reverse_lazy
 class Test(models.Model):
 
     name = models.CharField(max_length=20)
-    expected = models.TextField()
-    source = models.TextField()
+    expected = models.TextField(default='Initial Output', null=True)
+    source = models.TextField('none')
 
     def __str__(self):
         return f'{self.name}'
@@ -17,7 +17,9 @@ class Test(models.Model):
     @staticmethod
     def create(**kwargs):
         x = Test.objects.get_or_create(name=kwargs.get('name'))[0]
-        x.expected = kwargs.get('expected')
+        expected = kwargs.get('expected')
+        if expected:
+            x.expected = expected
         x.source = kwargs.get('source')
         x.save()
 
