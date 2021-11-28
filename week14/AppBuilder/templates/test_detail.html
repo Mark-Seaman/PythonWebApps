@@ -16,6 +16,7 @@
     <a href="/test/{{ object.pk }}/" class="btn btn-success m-5">Edit Test</a>
     <a href="/test/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Test</a>
     <a href="/test/{{ object.pk }}/run" class="btn btn-success m-5">Run Test</a>
+    <a href="/test/{{ object.pk }}/reset" class="btn btn-success m-5">Clear History</a>
 
     <h2>Test History</h2>
     <table class="table">
@@ -30,6 +31,7 @@
             <td>{{ r.date }}</td>
             <td>{% if r.passed %}PASS{% else %}FAIL{% endif %}</td>
             <td>{{ r.output }}</td>
+            <td><a href="/test/{{ r.pk }}/approve" class="btn btn-success">Approve</a></td>
         </tr>
         {% endfor %}
     </table>

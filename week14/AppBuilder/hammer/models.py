@@ -4,9 +4,9 @@ from django.urls.base import reverse_lazy
 
 class Test(models.Model):
 
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=100)
     expected = models.TextField(default='Initial Output', null=True)
-    source = models.TextField('none')
+    source = models.TextField(default='none')
 
     def __str__(self):
         return f'{self.name}'
