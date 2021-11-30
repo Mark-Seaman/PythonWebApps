@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'coder',
     'crispy_forms',
     'hammer',
 ]
@@ -56,9 +55,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-LOGIN_REDIRECT_URL = 'factory_list'
+LOGIN_REDIRECT_URL = 'test_list'
 
-LOGOUT_REDIRECT_URL = 'factory_list'
+LOGOUT_REDIRECT_URL = 'test_list'
 
 TEMPLATES = [
     {

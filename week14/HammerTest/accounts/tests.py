@@ -5,19 +5,25 @@ from django.urls import reverse
 
 
 def create_test_user():
-    return get_user_model().objects.create_user(username='TEST_DUDE', email='me@here.com', password='secret', first_name='Testy', last_name='Sensei')
+    args = dict(username='TEST_DUDE', email='me@here.com', password='secret')
+    user = get_user_model().objects.filter(username='TEST_DUDE')
+    if user:
+        user = user[0]
+    else:
+        user = get_user_model().objects.create_user(**args)
+    return user, args
 
 
 class TestAccountsData(TestCase):
 
     def test_accounts(self):
-        user = create_test_user()
-        self.assertEqual(user.email, 'me@here.com')
+        self.user, self.user_args = create_test_user()
+        self.assertEqual(self.user.email, 'me@here.com')
         self.assertEqual(len(User.objects.all()), 1)
 
     def test_string(self):
-        user = create_test_user()
-        self.assertEqual(str(user), 'TEST_DUDE')
+        self.user, self.user_args = create_test_user()
+        self.assertEqual(str(self.user), 'TEST_DUDE')
 
 
 class TestAccountsViews(TestCase):
@@ -39,7 +45,7 @@ class TestAccountsViews(TestCase):
     def test_logout_view(self):
         response = self.client.get('/accounts/logout/')
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, reverse('factory_list'))
+        self.assertEqual(response.url, reverse('test_list'))
 
     def test_signup_view(self):
         response = self.client.get('/accounts/signup')

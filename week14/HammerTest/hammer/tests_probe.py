@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from .probe import accept_results, reset_tests, run_tests
 from .models import Result, Test
-from coder.coder import create_test_user
+from accounts.tests import create_test_user
 
 
 class TestDataTest(TestCase):
