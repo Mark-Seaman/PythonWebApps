@@ -1,0 +1,39 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+<div class="container m-5">
+
+    <h1 class="text-primary">Data Factory Details</h1>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg">
+                <table class="table">
+                    <tr>
+                        <td>Class</td>
+                        <td><b><a href="/factory/{{ object.pk }}/">{{ object.class_name }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td><b><a href="/author/{{ object.author.pk }}">{{ object.object_name }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Module</td>
+                        <td><b>{{ object.module_name }}</b></td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+    <a href="/factory/" class="btn btn-success m-5">Data Factory List</a>
+    <a href="/factory/{{ object.pk }}/" class="btn btn-success m-5">Edit Data Factory</a>
+    <a href="/factory/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Data Factory</a>
+    <a href="/factory/{{ object.pk }}/build" class="btn btn-success m-5">Build Data Views</a>
+</div>
+
+{% endblock content %}

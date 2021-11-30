@@ -14,13 +14,14 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEST_DIR = BASE_DIR / 'test'
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yv@mzvcme03t7$q%fq*a0@ry$n)2v#*nqp6ol6argb21f57a00'
+SECRET_KEY = 'django-insecure--93rd-g1+)cg=a*ugvmhyr6ho41kn#a0d9^t5w8#^06gpcl$$l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'coder',
+    'crispy_forms',
+    'hammer',
 ]
 
 MIDDLEWARE = [
@@ -51,10 +56,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+LOGIN_REDIRECT_URL = 'factory_list'
+
+LOGOUT_REDIRECT_URL = 'factory_list'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

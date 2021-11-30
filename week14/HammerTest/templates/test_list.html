@@ -1,0 +1,42 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid m-5">
+
+    <h1 class="text-primary text-center">List of Tests</h1>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Test</th>
+            <th>Expected Output</th>
+            <th>Python Source Code</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for test in object_list %}
+        <tr>
+            <td><a href="/test/{{ test.pk }}">{{ test.name }}</a></td>
+            <td>
+                <pre>{{ test.expected }}</pre>
+            </td>
+            <td>
+                <pre>{{ test.source }}</pre>
+            </td>
+            <td><a href="/test/{{ test.pk }}/">Edit</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <p>
+        <a href="/test/add" class="btn btn-success m-5">Add New Test</a>
+        <a href="/test/0/run" class="btn btn-success m-5">Run All Tests</a>
+        <a href="/test/0/reset" class="btn btn-success m-5">Reset All Tests</a>
+    </p>
+
+</div>
+
+{% endblock content %}
