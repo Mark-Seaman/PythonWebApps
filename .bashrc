@@ -37,10 +37,11 @@ export p=$p
 
 # Go to Project Directory
 echo "Home Directory = $p"
+
 # cd $p/week14/CourseBuilder
 # cd $p/week14/PageProbe
-# cd $p/week14/AppBuilder
-cd $p/week14/HammerTest
+cd $p/week14/AppBuilder
+# cd $p/week14/HammerTest
 
 git pull
 

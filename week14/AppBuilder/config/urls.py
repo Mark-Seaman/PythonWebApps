@@ -18,7 +18,4 @@ urlpatterns = [
     path('', DataFactoryView.as_view()),
     path('factory/', include('coder.urls_factory')),
 
-    # Hammer Test
-    path('test/', include('hammer.urls_probe')),
-
 ]

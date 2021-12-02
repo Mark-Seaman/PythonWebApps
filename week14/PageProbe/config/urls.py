@@ -1,4 +1,3 @@
-# from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
@@ -8,8 +7,6 @@ from probe.views_probe import ProbeView
 
 
 urlpatterns = [
-
-    # path('admin/', admin.site.urls),
 
     path('', ProbeView.as_view()),
     path('probe/', include('probe.urls_probe')),

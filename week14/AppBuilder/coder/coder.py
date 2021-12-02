@@ -1,7 +1,5 @@
 from django.contrib.auth import get_user_model
 
-from hammer.probe import accept_results, reset_tests, run_tests, test_results
-
 
 def create_test_user():
     args = dict(username='seaman', email='me@here.com', password='secret')
@@ -15,9 +13,3 @@ def create_test_user():
 
 def quick_test():
     print("QUICK TEST")
-
-    reset_tests()
-    run_tests()
-    accept_results()
-    run_tests()
-    test_results()
