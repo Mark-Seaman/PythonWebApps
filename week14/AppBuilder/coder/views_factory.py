@@ -27,11 +27,6 @@ class DataFactoryDetailView(DetailView):
     template_name = 'factory_detail.html'
     model = DataFactory
 
-    def get_context_data(self, **kwargs):
-        kwargs = super().get_context_data(**kwargs)
-        # kwargs.update(dict(dependent=Dependent.obects.filter(factory=kwargs.get('object'))))
-        return kwargs
-
 
 class DataFactoryCreateView(LoginRequiredMixin, CreateView):
     template_name = "factory_add.html"

@@ -18,4 +18,7 @@ urlpatterns = [
     path('', DataFactoryView.as_view()),
     path('factory/', include('coder.urls_factory')),
 
+    # Document
+    path('doc/', include('doc.urls_document')),
+
 ]
