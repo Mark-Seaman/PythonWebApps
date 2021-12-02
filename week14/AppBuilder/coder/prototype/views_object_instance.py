@@ -19,10 +19,10 @@ class ClassNameDetailView(DetailView):
     template_name = 'object_instance_detail.html'
     model = ClassName
 
-    def get_context_data(self, **kwargs):
-        kwargs = super().get_context_data(**kwargs)
-        # kwargs.update(dict(dependent=Dependent.obects.filter(object_instance=kwargs.get('object'))))
-        return kwargs
+    # def get_context_data(self, **kwargs):
+    #     kwargs = super().get_context_data(**kwargs)
+    #     kwargs.update(dict(dependent=Dependent.obects.filter(object_instance=kwargs.get('object'))))
+    #     return kwargs
 
 
 class ClassNameCreateView(LoginRequiredMixin, CreateView):

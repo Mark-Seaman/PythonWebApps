@@ -19,6 +19,11 @@ class DocumentDetailView(DetailView):
     template_name = 'document_detail.html'
     model = Document
 
+    # def get_context_data(self, **kwargs):
+    #     kwargs = super().get_context_data(**kwargs)
+    #     kwargs.update(dict(dependent=Dependent.obects.filter(document=kwargs.get('object'))))
+    #     return kwargs
+
 
 class DocumentCreateView(LoginRequiredMixin, CreateView):
     template_name = "document_add.html"
