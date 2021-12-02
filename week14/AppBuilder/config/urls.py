@@ -19,6 +19,6 @@ urlpatterns = [
     path('factory/', include('coder.urls_factory')),
 
     # Document
-    path('doc/', include('doc.urls_document')),
+    path('document/', include('doc.urls_document')),
 
 ]
