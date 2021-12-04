@@ -1,32 +1,34 @@
-# BACS 200 - Tutorial Documents
+# BACS200 Lesson Index
 
-It takes specific skills to develop web pages using HTML and CSS.
-
-Here are the skills that you need for success.
-
-
-## UNC BACS 200
-
-* [Welcome to BACS 200](Overview.html)
-* [Register at Zybooks](ZybooksReading.html)
-* [Sensei Server](SenseiServer.html)
-* [Zoom Lectures](ZoomLectures.html)
-
-
-## Github
-
-* [Register a Github account](GithubAccount.html)
-* [Create a Github repository](GithubRepo.html)
-* [Publish Github Pages](GithubPages.html)
-* [Home Page](HomePage.html)
-
-
-## Resources
-
-* [Course Website](CourseWebsite.html)
-* [Learning Resources](LearningResources.html)
-* [Tips and Tricks](TipsTricks.html)
-* [Other Courses](https://shrinking-world.com)
-
-![](img/peaking.800.jpg)
-
+* [Lesson 50-Skills](50-Skills.html)
+* [Lesson Bootstrap](Bootstrap.html)
+* [Lesson BootstrapDemo](BootstrapDemo.html)
+* [Lesson ClassFormat](ClassFormat.html)
+* [Lesson Components](Components.html)
+* [Lesson CourseWebsite](CourseWebsite.html)
+* [Lesson GitCommandLine](GitCommandLine.html)
+* [Lesson GithubAccount](GithubAccount.html)
+* [Lesson GithubDesktop](GithubDesktop.html)
+* [Lesson GithubPages](GithubPages.html)
+* [Lesson GithubRepo](GithubRepo.html)
+* [Lesson GithubTest](GithubTest.html)
+* [Lesson Grid](Grid.html)
+* [Lesson Guest](Guest.html)
+* [Lesson HomePage](HomePage.html)
+* [Lesson Index](Index.html)
+* [Lesson InstallBrackets](InstallBrackets.html)
+* [Lesson LearningResources](LearningResources.html)
+* [Lesson Lessons](Lessons.html)
+* [Lesson Netiquette](Netiquette.html)
+* [Lesson Overview](Overview.html)
+* [Lesson PageTemplates](PageTemplates.html)
+* [Lesson SenseiServer](SenseiServer.html)
+* [Lesson TestPage](TestPage.html)
+* [Lesson TipsTricks](TipsTricks.html)
+* [Lesson Typography](Typography.html)
+* [Lesson Unpublished](Unpublished.html)
+* [Lesson Welcome](Welcome.html)
+* [Lesson Widgets](Widgets.html)
+* [Lesson Workflow](Workflow.html)
+* [Lesson ZoomLectures](ZoomLectures.html)
+* [Lesson ZybooksReading](ZybooksReading.html)

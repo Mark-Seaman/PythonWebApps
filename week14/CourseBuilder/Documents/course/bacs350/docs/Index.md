@@ -1,56 +1,47 @@
-# BACS350 Documents
+# BACS350 Lesson Index
 
-
-![](img/treetops.800.jpg)
-
-<!-- 50 Skills for Web Page Development
-
-It takes about 50 specific skills to develop web pages using HTML and CSS.
-
-Here are the skills that you need for success. -->
-
-
-## BACS 350 Course
-
-* [Welcome to BACS350](Welcome.html)
-* [Projects](Projects)
-* [Course](Course)
-* [What's Django](WhatIsDjango)
-* [Command Line](CommandLine)
-
-<!-- * [BACS350 Overview](Overview.html) -->
-<!-- * [Zoom Lectures](ZoomLectures.html) -->
-<!-- * [Course](Course.html) -->
-
-
-<!-- ## Django
-
-* [What Is Django?](WhatIsDango.html)
-* [Setup Python](SetupPython.html)
-* [New Project](NewProject.html)
-* [Fix Git Repo](FixGitRepo.html)
-
-
-## Github
-
-* [Register a Github account](GithubAccount.html)
-* [Create a Github repository](GithubRepo.html)
-* [Publish Github Pages](GithubPages.html)
-* [Home Page](HomePage.html)
-
-
-## Web App Hosting
-* [Python Anywhere](PythonAnywhere.html)
-* [Python Anywhere Demo Video](PythonAnywhereDemo.html)
-* [App Deployment](AppDeployment.html)
-* [Command Line](CommandLine.html)
-
-
-## Resources
-
-* [Course Website](CourseWebsite.html)
-* [Learning Resources](LearningResources.html)
-* [Tips and Tricks](TipsTricks.html)
-* [Other Courses](https://shrinking-world.com)
-
- -->
+* [Lesson 50-Skills](50-Skills.html)
+* [Lesson Accordion](Accordion.html)
+* [Lesson AppDeployment](AppDeployment.html)
+* [Lesson CardView](CardView.html)
+* [Lesson Carousel](Carousel.html)
+* [Lesson CommandLine](CommandLine.html)
+* [Lesson Course](Course.html)
+* [Lesson CourseContent.ol](CourseContent.ol.html)
+* [Lesson CourseWebsite](CourseWebsite.html)
+* [Lesson CreateNewView](CreateNewView.html)
+* [Lesson CustomView](CustomView.html)
+* [Lesson DataViews](DataViews.html)
+* [Lesson DesignPatternTemplate](DesignPatternTemplate.html)
+* [Lesson DesignPatterns](DesignPatterns.html)
+* [Lesson DocumentView](DocumentView.html)
+* [Lesson FixGitRepo](FixGitRepo.html)
+* [Lesson GitCommandLine](GitCommandLine.html)
+* [Lesson GithubAccount](GithubAccount.html)
+* [Lesson GithubDesktop](GithubDesktop.html)
+* [Lesson GithubPages](GithubPages.html)
+* [Lesson GithubRepo](GithubRepo.html)
+* [Lesson GithubTest](GithubTest.html)
+* [Lesson GradingProjects](GradingProjects.html)
+* [Lesson Guest](Guest.html)
+* [Lesson HtmlView](HtmlView.html)
+* [Lesson ImageUpload](ImageUpload.html)
+* [Lesson ImportExport](ImportExport.html)
+* [Lesson Index](Index.html)
+* [Lesson LearningResources](LearningResources.html)
+* [Lesson Overview](Overview.html)
+* [Lesson PythonAnywhere](PythonAnywhere.html)
+* [Lesson PythonAnywhereDemo](PythonAnywhereDemo.html)
+* [Lesson ReusableViews](ReusableViews.html)
+* [Lesson Selenium](Selenium.html)
+* [Lesson SetupPython](SetupPython.html)
+* [Lesson SuperView](SuperView.html)
+* [Lesson Superhero](Superhero.html)
+* [Lesson TabsView](TabsView.html)
+* [Lesson TemplateView](TemplateView.html)
+* [Lesson TipsTricks](TipsTricks.html)
+* [Lesson Unpublished](Unpublished.html)
+* [Lesson ViewInheritance](ViewInheritance.html)
+* [Lesson Welcome](Welcome.html)
+* [Lesson WhatIsDjango](WhatIsDjango.html)
+* [Lesson ZoomLectures](ZoomLectures.html)

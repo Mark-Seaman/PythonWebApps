@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document SetupPython</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Install Python 3 &amp; Django</h1>
+<p>Before you can have any fun then you must create a Python Environment that allows you
+to write code.</p>
+<p>Essential Setup Steps:</p>
+<ul>
+<li>Install update of Python 3</li>
+<li>Create a Virtual Environment</li>
+<li>Install Django code libraries</li>
+</ul>
+<p>There are perhaps hundreds of ways to do this setup and what works for you will rely
+heavily on your existing computer setup.  This cookbook is the way that I find works 
+for most people.  Try this first and if you can't make it work then read the materials
+at the end of this document.</p>
+<p>If all else fails then come to the interactive work sessions during our regular class 
+period.</p>
+<h3>Python Version</h3>
+<p>Check to make sure that you have the latest version of python installed.</p>
+<p>Terminal window</p>
+<pre><code>python --version
+
+python3 --version
+Python 3.7.6
+</code></pre>
+<p>Run Python 3</p>
+<pre><code>python3
+
+Python 3.7.6
+&gt;&gt;&gt; print('I win')
+I win
+</code></pre>
+<h3>Install new version</h3>
+<p>Visit <a href="https://python.org">https://python.org</a></p>
+<p>Download the Installer file <a href="https://www.python.org/downloads/release/python-384/">Python 3.8.4</a></p>
+<h3>Virtual Env</h3>
+<p>Create a virtual environment</p>
+<pre><code>cd UNC-BACS-350
+python3 -m venv .venv
+</code></pre>
+<p>Activate the virtual environment</p>
+<pre><code>source .venv/bin/activate
+
+python3 --version
+Python 3.8.6
+
+# Any other version before 3.8 is bad
+</code></pre>
+<p>Install python packages</p>
+<pre><code>pip list
+
+Package    Version
+---------- -------
+pip        20.1.1
+setuptools 47.1.0
+
+pip freeze
+
+pip install django pillow markdown django-crispy-forms requests
+
+Collecting django
+  Using cached Django-3.0.8-py3-none-any.whl (7.5 MB)
+Collecting pillow
+  Downloading Pillow-7.2.0-cp38-cp38-macosx_10_10_x86_64.whl (2.2 MB)
+     |████████████████████████████████| 2.2 MB 2.1 MB/s 
+Collecting markdown
+  Using cached Markdown-3.2.2-py3-none-any.whl (88 kB)
+Collecting pytz
+  Using cached pytz-2020.1-py2.py3-none-any.whl (510 kB)
+Collecting sqlparse&gt;=0.2.2
+  Using cached sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+Collecting asgiref~=3.2
+  Using cached asgiref-3.2.10-py3-none-any.whl (19 kB)
+Installing collected packages: pytz, sqlparse, asgiref, django, pillow, markdown
+Successfully installed asgiref-3.2.10 django-3.0.8 markdown-3.2.2 pillow-7.2.0 pytz-2020.1 sqlparse-0.3.1
+</code></pre>
+<p>Check the installation</p>
+<pre><code>pip freeze
+
+asgiref==3.2.10
+Django==3.1.2
+Markdown==3.3.1
+Pillow==8.0.0
+pytz==2020.1
+sqlparse==0.4.1
+
+which python
+
+/Users/seaman/Sensei-2020/.venv/bin/python
+</code></pre>
+<p>Exit the virtual environment</p>
+<pre><code>deactivate
+</code></pre>
+<h3>Debugging Your Install</h3>
+<p>Try the easy recipe above but if you get stuck don't give up.  Dive in deeper to solve the
+problems that are associated with the different variations of computer setups.
+Consult these simple tutorials if you get stuck.  The last one is a website that teaches you 
+many alternatives.</p>
+<ul>
+<li><a href="https://wsvincent.com/install-python3-mac/">Install Python3 on Mac</a></li>
+<li><a href="https://wsvincent.com/install-python3-windows/">Install Python3 on Windows</a></li>
+<li><a href="https://wsvincent.com/install-python3-chromebook/">Install Python3 on Chromebook</a></li>
+<li><a href="https://installpython3.com">Install Python3</a></li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

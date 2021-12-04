@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 10</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Project 10 - Cards &amp; Tables &amp; Docs</h1>
+<h2>Goals</h2>
+<ul>
+<li>Extend Data Views with Fancy Views</li>
+<li>Build an applications that has for generic Django views for the CRUD operations</li>
+<li>Django View Design Patterns<ul>
+<li>CardView</li>
+<li>TableView</li>
+<li>DocumentView</li>
+</ul>
+</li>
+<li>Use View Tricks<ul>
+<li>View Inheritance</li>
+<li>Partial Templates<ul>
+<li>include "_navbar.html"</li>
+<li>include "_user.html"</li>
+<li>include "_header.html"</li>
+<li>include "_footer.html"</li>
+<li>include "_card.html"</li>
+<li>include "_cards.html"</li>
+<li>include "_doc.html"</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>User Management<ul>
+<li>Users can Register </li>
+<li>Users login/logout</li>
+<li>Edit operations require login</li>
+</ul>
+</li>
+</ul>
+<h2>Steps</h2>
+<h3>Build out the Superhero Django Project</h3>
+<h3>Create Superhero Theme</h3>
+<ul>
+<li>Create a base page template</li>
+<li>Style all pages without duplicating any code</li>
+<li>Create a HTML template "superhero_theme.html"</li>
+<li>Add a bootstrap CSS and custom CSS to this template</li>
+<li>Add a "{% block content %}" section to the template</li>
+<li>Make index.html and hero.html use "{% extends 'superhero_theme.html' %}"</li>
+<li>Debug the view inheritance</li>
+<li>Give you pages some cool style</li>
+</ul>
+<h3>Create Superhero Pages</h3>
+<ul>
+<li>Build one set of templates</li>
+<li>Build view that take arguments and displays the contents</li>
+<li>Build a URL route that call your view</li>
+</ul>
+<h3>Create Images</h3>
+<ul>
+<li>Create images that match your five selected heroes</li>
+<li>Add an image to your view to display the superhero image</li>
+<li>Debug your application code until photos display</li>
+<li>Commit to your Github repo</li>
+<li>Deploy at Python Anywhere</li>
+</ul>
+<h3>Superhero data records</h3>
+<ul>
+<li>Superhero Record<ul>
+<li>name</li>
+<li>identity</li>
+<li>description</li>
+<li>strength</li>
+<li>weakness</li>
+<li>image</li>
+</ul>
+</li>
+<li>Add five Superhero data records</li>
+</ul>
+<h3>Use View Tricks</h3>
+<ul>
+<li>View Inheritance</li>
+<li>Inherit from "superhero_theme.html"</li>
+<li>Blocks<ul>
+<li>content</li>
+<li>header</li>
+<li>footer</li>
+<li>main</li>
+<li>navbar</li>
+<li>user</li>
+</ul>
+</li>
+<li>Partial Templates<ul>
+<li>_navbar.html</li>
+<li>_user.html</li>
+<li>_header.html</li>
+<li>_footer.html</li>
+<li>_card.html</li>
+<li>_cards.html</li>
+<li>_doc.html</li>
+</ul>
+</li>
+</ul>
+<h3>Test the pages</h3>
+<ul>
+<li>Browse to http://YOUR_USER.pythonanywhere.com for Your Site</li>
+<li>Make sure this address is set in Sensei</li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li>Your page must be available at http://YOUR_USER.pythonanywhere.com</li>
+<li>It must contain info about superheroes</li>
+<li>All heroes must come from database records</li>
+<li>ListView, DetailView</li>
+<li>CreateView, UpdateView,DeleteView requires login</li>
+<li>Partial templates and includes</li>
+<li>Register</li>
+<li>View Inheritance - "superhero_theme.html" base template for all pages</li>
+<li>Nice page style and layout</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

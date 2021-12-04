@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 01b</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Project 1 - First Django App</h1>
+<p>This project will be completed in three distinct parts.  Each part will be graded
+so that any problems can be fixed before they compound into larger problems.</p>
+<ul>
+<li><a href="01">Project 1 - First Django App</a><ul>
+<li><a href="01a">1a - Create a Github repository</a> - Due Mon, Aug 23</li>
+<li><a href="01b">1b - Install Development Tools</a> - Due Wed, Aug 25</li>
+<li><a href="01c">1c - Build First Application</a> - Due Fri, Aug 27</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Project 1b - Install Development Tools - Due Wed, Aug 25</h2>
+<p><strong>Goal</strong> - Setup development environment on your local computer. Create a
+simple app with a single page.  Get the source code from the teacher Github
+repo to test your work.</p>
+<h3>Step 1 - Install Python 3</h3>
+<ul>
+<li>Read "Django for Beginners" - Chapter 1 - Initial Set Up</li>
+<li>Follow these instructions to set up Python 3</li>
+<li>Go to <a href="https://InstallPython3.com">InstallPython3.com</a> if you have problems</li>
+</ul>
+<h3>Step 2 - Install pipenv</h3>
+<p>Install pipenv </p>
+<pre><code>$ pip3 install pipenv
+</code></pre>
+<h3>Step 3 - Install django</h3>
+<p>Install the django libraries into the Virtual Environment</p>
+<pre><code>$ pipenv install django
+</code></pre>
+<p>Activate the Virtual Environment</p>
+<pre><code>$ pipenv shell
+</code></pre>
+<h3>Step 4 - Test Django Install</h3>
+<p>Create a new Django project</p>
+<pre><code>$ django-admin startproject config .
+</code></pre>
+<p>Run the web server</p>
+<pre><code>$ python manage.py runserver
+</code></pre>
+<p>Browse to web page</p>
+<pre><code>http://localhost:8000
+</code></pre>
+<h3>Step 5 - Install Python Visual Code</h3>
+<p>Go to <a href="https://code.visualstudio.com/">Visual Studio Code</a></p>
+<p>Download and install on your machine</p>
+<p>Run Visual Studio</p>
+<h3>Step 6 - Commit and Push Code</h3>
+<p>Commit your code</p>
+<p>Add source to Git</p>
+<pre><code>$ git add .
+</code></pre>
+<p>Commit to repo</p>
+<pre><code>$ git commit -m 'Initial application'
+</code></pre>
+<p>Push the repo to Github</p>
+<pre><code>$ git push
+</code></pre>
+<h3>Step 7 - Test Your Tool Setup</h3>
+<ul>
+<li>Go to the <a href="https://shrinking-world.com/student/bacs350/test">Student Test Page</a></li>
+<li>Keep working until the page loads without errors</li>
+<li>No need to turn in the homework assignment.   Grades will be determined from
+the content of your Github repo.</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

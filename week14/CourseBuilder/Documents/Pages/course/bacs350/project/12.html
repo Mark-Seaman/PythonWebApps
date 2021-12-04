@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 12</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Project 12 - Superhero News</h1>
+<h2>Goals</h2>
+<ul>
+<li>Application Features<ul>
+<li>Superhero Database - display Superheroes</li>
+<li>News Feed - blog application to capture news</li>
+</ul>
+</li>
+<li>Design Patterns <ul>
+<li>Views</li>
+<li>Data</li>
+<li>Tests</li>
+</ul>
+</li>
+<li>Build automatic tests<ul>
+<li>Data model test</li>
+<li>View test</li>
+<li>Data view tests</li>
+</ul>
+</li>
+</ul>
+<h2>Steps</h2>
+<h3>Application Features</h3>
+<ul>
+<li>Automatic Tests</li>
+<li>Superhero Database</li>
+<li>News Feed</li>
+<li>User management</li>
+<li>Design Patterns </li>
+</ul>
+<h3>Home Page</h3>
+<ul>
+<li>The landing page for the app will have a main menu and tabs</li>
+<li>Menu Items<ul>
+<li>Superhero Home, About, BACS350, User Info</li>
+</ul>
+</li>
+<li>Tabs<ul>
+<li>Superhero Gallery</li>
+<li>Superhero News</li>
+</ul>
+</li>
+</ul>
+<h3>News Feed</h3>
+<ul>
+<li>Leverage <a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week10/Demo29">blog app</a></li>
+<li>Build a blog for news articles</li>
+<li>Link articles to heroes</li>
+</ul>
+<h3>News Feed Data</h3>
+<ul>
+<li>Author - ForeignKey(User)</li>
+<li>Date - DateField</li>
+<li>Title - CharField(200)</li>
+<li>Text - TextField</li>
+<li>Hero - ForeignKey(Superhero)</li>
+</ul>
+<h3>News Feed Views</h3>
+<ul>
+<li>News Add (Create)<ul>
+<li>Set Author, Date, Title, Text, Hero</li>
+<li>Handle input errors</li>
+<li>Go to News list after add</li>
+</ul>
+</li>
+<li>News List (Read)<ul>
+<li>Show an accordion for all news articles</li>
+<li>Details for each hero</li>
+<li>Show Author, Date, Title, Text, Hero</li>
+<li>Show Edit button</li>
+</ul>
+</li>
+<li>News Edit (Update)<ul>
+<li>Set Title, Text, Hero</li>
+<li>Don't edit the Author or Date</li>
+<li>Handle input errors</li>
+<li>Only author can edit</li>
+<li>Go to News list after edit</li>
+<li>Show Delete button</li>
+</ul>
+</li>
+<li>News Delete (Delete)<ul>
+<li>Confirm or Cancel</li>
+<li>Only author can delete</li>
+<li>Go to News list after delete</li>
+</ul>
+</li>
+</ul>
+<h3>User management</h3>
+<ul>
+<li>Registration</li>
+<li>Login and Access</li>
+<li>User info</li>
+</ul>
+<h3>Design Patterns</h3>
+<ul>
+<li>Users - User registration, Login, Display</li>
+<li>Views - View inheritance, Data Views</li>
+<li>Data - CRUD operation</li>
+<li>Tests - Each Data Type x CRUD Views</li>
+</ul>
+<h3>Component Views</h3>
+<ul>
+<li>Use <a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week12/Demo35">workshop views</a><ul>
+<li>Card</li>
+<li>Document</li>
+<li>Table</li>
+<li>Accordion</li>
+<li>Tabs</li>
+<li>Navbar</li>
+<li>Super View</li>
+</ul>
+</li>
+</ul>
+<h3>Build automatic tests</h3>
+<ul>
+<li>Each <a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week10/Demo29/blog/tests.py">view has a test</a><ul>
+<li>Page exists</li>
+<li>Check template</li>
+<li>Check page title</li>
+</ul>
+</li>
+<li>Data View tests<ul>
+<li>Fake User</li>
+<li>Superhero Add (Create)</li>
+<li>Superhero List (Read)</li>
+<li>Superhero Detail (Read)</li>
+<li>Superhero Edit (Update)</li>
+<li>Superhero Delete (Delete)</li>
+<li>News Add (Create)</li>
+<li>News List (Read)</li>
+<li>News Detail (Read)</li>
+<li>News Edit (Update)</li>
+<li>News Delete (Delete)</li>
+</ul>
+</li>
+</ul>
+<h3>Test the pages</h3>
+<ul>
+<li>Browse to http://YOUR_USER.pythonanywhere.com for Your Site</li>
+<li>Make sure this address is set in Sensei</li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li>Pages published on server</li>
+<li>Superhero Gallery</li>
+<li>Superhero News</li>
+<li>Menu, Tabs, Style, Header, Footer</li>
+<li>CRUD operations all work</li>
+<li>All pages have valid HTML, CSS, Links</li>
+<li>Tests for all views and data</li>
+<li>Design Patterns</li>
+<li>Clean and organized Github repo</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
