@@ -1,0 +1,38 @@
+{% extends 'course_theme.html' %}
+
+
+{% block css %}
+<link rel="stylesheet" href="../unc.css">
+{% endblock %}
+
+
+
+{% block header %}
+
+<header class="p-lg-5">
+    <div class="row media">
+        <div class="media-body">
+            <h1 class="display-4 ml-5">
+                <a href="../index.html">{{ site_title }}</a>
+            </h1>
+            <h2 class="display-6 ml-5">{{ site_subtitle }}</h2>
+        </div>
+        <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+    </div>
+</header>
+
+{% endblock header %}
+
+
+
+{% block main %}
+
+<main>
+    <div class="container">
+        {% autoescape off %}
+        {{ text }}
+        {% endautoescape %}
+    </div>
+</main>
+
+{% endblock main %}
