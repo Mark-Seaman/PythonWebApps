@@ -42,5 +42,4 @@
 * [Lesson 40](40.html)
 * [Lesson 41](41.html)
 * [Lesson 42](42.html)
-* [Lesson 99](99.html)
 * [Lesson index](index.html)

@@ -21,10 +21,10 @@ def course_json(course, filename="page_settings.json"):
 def create_index_page(md_path, html_path, doc_type, course):
     def link(page):
         lesson = page.replace(".md", "")
-        return f'* [Lesson {lesson}]({lesson}.html)\n'
+        return f'* [{doc_type} {lesson}]({lesson}.html)\n'
 
     settings = course_json(course)
-    title = f'{course.upper()} Lesson Index'
+    title = f'{course.upper()} {doc_type} Index'
     index_text = f'# {title}\n\n'
     for p in sorted(listdir(md_path)):
         index_text += link(p)
@@ -75,9 +75,10 @@ def create_static_site(course):
     if not exists(website_path):
         mkdir(website_path)
 
-    create_pages(markdown_path, website_path, 'lesson', 'Lesson', course)
-    create_pages(markdown_path, website_path, 'project', 'Project', course)
-    create_pages(markdown_path, website_path, 'docs', 'Document', course)
+    # Create specific doc pages
+    create_pages(markdown_path, website_path, 'lesson',  'Lesson',   course)
+    create_pages(markdown_path, website_path, 'project', 'Project',  course)
+    create_pages(markdown_path, website_path, 'docs',    'Document', course)
 
     # create_doc_pages(markdown_path, website_path, course)
     # create_project_pages(markdown_path, website_path, course)
