@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 03</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 3 - Create a Project</h1>
+<h2>LEARN</h2>
+<h3>Reading - Django for Beginners</h3>
+<ul>
+<li>Chapter 2 - Hello World App</li>
+</ul>
+<h3>Today's Agenda</h3>
+<ul>
+<li>Explain how Django apps are structured</li>
+<li>Demonstrate project workflow</li>
+<li>Introduce Views, Routes, Templates</li>
+</ul>
+<h3>Django Projects</h3>
+<ul>
+<li>Outer application layer</li>
+<li>Django App - reusable modules with data and view</li>
+</ul>
+<h3>Building an App</h3>
+<ul>
+<li>URL Routes - which pages are handled</li>
+<li>Views - format the response for the request</li>
+<li>Templates - HTML content in the page</li>
+<li>Data Models (if using a database)</li>
+</ul>
+<h3>HTML Templates</h3>
+<ul>
+<li>Templates can be defined to hold all the HTML content</li>
+<li>The Template Loader must be defined in settings.py</li>
+</ul>
+<h3>Programming Environment</h3>
+<ul>
+<li>Virtual Environment or System Environment</li>
+<li>Install Django</li>
+<li>Application Path</li>
+</ul>
+<h3>Workflow</h3>
+<ul>
+<li>Run Visual Studio</li>
+<li>Pull code to work on</li>
+<li>Build code</li>
+<li>Test code</li>
+<li>Commit &amp; push changes</li>
+</ul>
+<h2>BUILD</h2>
+<h3>Start a project</h3>
+<p>Create a new Django project</p>
+<pre><code>$ cd BACS350
+
+$ mkdir week1/Hello
+
+$ cd week1/Hello
+
+$ django-admin startproject config .
+
+$ python manage.py migrate
+</code></pre>
+<p>Run the web server</p>
+<pre><code>$ python manage.py runserver
+</code></pre>
+<p>Browse to web page</p>
+<pre><code>http://localhost:8000
+</code></pre>
+<h3>Start an app</h3>
+<p>Create an app called "pages"</p>
+<pre><code>$ python manage.py startapp pages
+</code></pre>
+<p>Add "pages" to INSTALLED_APPS in "config/settings.py"</p>
+<h3>Create a view</h3>
+<p>pages/views.py</p>
+<pre><code>from django.http import HttpResponse
+
+def homePageView(request):
+    return HttpResponse('Hello World')
+</code></pre>
+<h3>Create a URL route</h3>
+<p>config/urls.py</p>
+<pre><code>from django.urls import path
+from pages.views import homePageView
+
+urlpatterns = [
+    path('', homePageView)
+]
+</code></pre>
+<h3>Run server</h3>
+<p>Run the web server</p>
+<pre><code>$ python manage.py runserver
+</code></pre>
+<p>Browse to web page</p>
+<pre><code>http://localhost:8000
+</code></pre>
+<h3>Improve the view</h3>
+<p>pages/views.py</p>
+<pre><code>from django.http import HttpResponse
+
+def homePageView(request):
+    return HttpResponse('&lt;h1&gt;Hello There&lt;/h1&gt;&lt;p&gt;This is cool.&lt;/p&gt;')
+</code></pre>
+<h3>Create a new route</h3>
+<p>config/urls.py</p>
+<pre><code>from django.urls import path
+from pages.views import homePageView, testPageView
+
+urlpatterns = [
+    path('', homePageView)
+    path('test', testPageView)
+]
+</code></pre>
+<h3>Improve the view</h3>
+<p>pages/views.py</p>
+<pre><code>from django.http import HttpResponse
+
+def testPageView(request):
+    return HttpResponse("&lt;h1&gt;This is a test&lt;/h1&gt;" + \
+    "&lt;p&gt;I'm trying to think but nothing happens&lt;/p&gt;")
+</code></pre>
+<h3>Commit your code</h3>
+<p>Add source to Git</p>
+<pre><code>$ git add .
+</code></pre>
+<p>Commit to repo</p>
+<pre><code>$ git commit -m 'Configure Hello app'
+</code></pre>
+<p>Push the repo to Github</p>
+<pre><code>$ git push
+</code></pre>
+<h3>Project 1 - Part C</h3>
+<ul>
+<li>Complete <a href="/course/bacs350/project/01c">Project 1 C Instructions</a></li>
+</ul>
+<h3>Commit all of your code and push</h3>
+<ul>
+<li><a href="/student/bacs350/test">Project Tester</a></li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

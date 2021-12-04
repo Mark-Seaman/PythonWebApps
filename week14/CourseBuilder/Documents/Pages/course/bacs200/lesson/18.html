@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 18</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 200</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Pages with HTML/CSS</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 18 - Text &amp; Color</h1>
+<h2>LEARN</h2>
+<h3>Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>Connect in person of via zoom</li>
+<li>Check the Canvas page for details</li>
+<li>Wednesday Lab Session 2:30-3:20 in Kepner 0090</li>
+</ul>
+<h3>Reading for Today</h3>
+<ul>
+<li>Read <a target="_blank" 
+href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2021/chapter/3/section/2">
+3.2 Basic selectors
+</a></li>
+<li>Follow <a target="_blank" href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>CSS Text Properties</li>
+<li>CSS Color Properties</li>
+</ul>
+<h3>CSS Rule Set</h3>
+<ul>
+<li>Example Rule Set</li>
+</ul>
+<p><code>css
+h1 {
+    font-family: serif;
+    font-size: 120%;
+}</code></p>
+<h3>CSS Rule Set</h3>
+<ul>
+<li>CSS syntax</li>
+</ul>
+<p>```css
+selector {
+    property: value;   /<em> one rule </em>/
+    property: value;
+}</p>
+<p>```</p>
+<h3>Hooking up CSS</h3>
+<ul>
+<li>Link the Stylesheet to each HTML page</li>
+</ul>
+<p><code>html
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></p>
+<h3>CSS Property Groups</h3>
+<ul>
+<li>Text</li>
+<li>Color</li>
+<li>Spacing</li>
+<li>Borders</li>
+</ul>
+<h3>Text Properties</h3>
+<ul>
+<li>font-family</li>
+<li>font-size</li>
+<li>font-weight</li>
+<li>text-align</li>
+<li>text-shadow</li>
+</ul>
+<h3>font-family</h3>
+<ul>
+<li>Inherited by all descendants</li>
+</ul>
+<p>```css
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}</p>
+<p>p {
+    font-family: "Times New Roman", Times, serif;
+}
+```</p>
+<h3>Size Units</h3>
+<ul>
+<li>Units of size for values</li>
+</ul>
+<p><code>20px - 20 pixels
+10pt - 10 points
+2em - twice the line height (M)
+50% - half the size</code></p>
+<h3>font-size</h3>
+<ul>
+<li>Multiple units</li>
+</ul>
+<p><code>css
+p {
+    font-size: 20px;  /* in pixels */
+    font-size: 12pt;  /* in points */
+    font-size: 150%;  /* parent element */
+    font-size: 1.5em;  /* M is line height */
+}</code></p>
+<h3>font-weight</h3>
+<ul>
+<li>Special font treatment</li>
+</ul>
+<p>```css
+p {
+    font-weight: 400;  /<em> normal </em>/
+    font-weight: normal;  /<em> 400 </em>/</p>
+<pre><code>font-weight: 700;  /* bold */
+font-weight: bold;  /* 700 */
+
+font-weight: lighter;  /* parent element */
+</code></pre>
+<p>}
+```</p>
+<h3>text-align</h3>
+<ul>
+<li>Where does the space go?</li>
+</ul>
+<p><code>css
+p {
+    text-align: left;
+    text-align: center;
+    text-align: right;
+}</code></p>
+<h3>text-shadow</h3>
+<ul>
+<li>Give a 3D look</li>
+</ul>
+<p>```css
+h1 {
+    text-shadow: 2px 2px;
+}</p>
+<p>h2 {
+    text-shadow: -2px -2px 4px yellow;
+}
+```</p>
+<h3>font</h3>
+<ul>
+<li>Shorthand font property</li>
+</ul>
+<p><code>css
+p {
+    font: italic bold 16px Arial, sans-serif;
+    font: 120% Times;
+}</code></p>
+<h3>Color Properties</h3>
+<ul>
+<li>color</li>
+<li>background-color</li>
+</ul>
+<h3>Color Values</h3>
+<ul>
+<li>By Name</li>
+<li>By RGB</li>
+<li>By Hexidecimal</li>
+</ul>
+<p>```css
+h1 {
+    color: rgb(20%, 20%, 20%);  /<em> Red Green Blue </em>/</p>
+<pre><code>color: silver;              /* Named color */
+
+color: #0a0a0a;             /* Hex - Red Green Blue */
+</code></pre>
+<p>}
+```</p>
+<h3>Hexidecimal Values</h3>
+<p>```</p>
+<h1>01ffa5   -- Hex value</h1>
+<p>R -- 01 (1)
+G -- ff (255)
+B -- a5 (165)
+```</p>
+<h3>Hexidecimal Colors</h3>
+<p>```</p>
+<h1>ffffff  -- white</h1>
+<h1>000000  -- black</h1>
+<h1>080808  -- gray</h1>
+<h1>ff0000  -- red</h1>
+<h1>00ff00  -- green</h1>
+<h1>0000ff  -- blue</h1>
+<p>```</p>
+<h2>BUILD</h2>
+<h3>CSS Demo</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/Mark-Seaman.github.io/tree/master/demo/week7/index.html">Demo Code</a></li>
+<li>Study code so that you can reproduce these results</li>
+<li><a href="https://Mark-Seaman.github.io/demo/week7/index.html">See Demo on Server</a></li>
+</ul>
+<h3>Validator</h3>
+<ul>
+<li><a href="https://validator.w3.org/">Validate the HTML</a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/">Validate the CSS</a></li>
+</ul>
+<h3>W3Schools</h3>
+<ul>
+<li><a href="https://www.w3schools.com/css/default.asp">W3Schools - CSS</a></li>
+</ul>
+<h3>Project 7 - Wanted Poster</h3>
+<ul>
+<li><a href="../project/07">Project Instructions</a></li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 23</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 23 - View Widgets</h1>
+<h2>LEARN</h2>
+<h3>Django for Beginners - Chapter 10 - Bootstrap</h3>
+<ul>
+<li>JavaScript</li>
+<li>CSS</li>
+<li>Crispy Forms</li>
+<li>Bootstrap Basics</li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Reusable Views</li>
+<li>Refactoring</li>
+<li>Building a theme</li>
+</ul>
+<h3>W3Schools</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap5/index.php">Getting Started</a></li>
+<li><a href="https://www.w3schools.com/bootstrap5/bootstrap_containers.php">Containers</a></li>
+<li><a href="https://www.w3schools.com/bootstrap5/bootstrap_typography.php">Typography</a></li>
+<li><a href="https://www.w3schools.com/bootstrap5/bootstrap_colors.php">Colors</a></li>
+<li><a href="https://www.w3schools.com/bootstrap5/bootstrap_buttons.php">Buttons</a></li>
+<li><a href="https://www.w3schools.com/bootstrap5/bootstrap_grid_basic.php">Grid</a></li>
+</ul>
+<h3>Reusable Views</h3>
+<ul>
+<li>Create reusable code for common tasks</li>
+<li>Don't repeat yourself</li>
+<li>Learn to smell the duplication</li>
+</ul>
+<h3>Refactoring</h3>
+<ul>
+<li>Incremental redesign after the code is written</li>
+<li>Code naturally decays with technical debt</li>
+<li>Make code live forever</li>
+</ul>
+<h3>Building a Theme Template</h3>
+<ul>
+<li>Start with a simple page template</li>
+<li>Recognize the changing content</li>
+<li>Build replacable content</li>
+</ul>
+<h3>Navbar, Header, Main, Footer</h3>
+<ul>
+<li>Create a template with defined blocks<ul>
+<li>Title * Navbar * Header * Main * Footer</li>
+</ul>
+</li>
+<li>Use Includes where needed</li>
+<li>Make the code easy to read</li>
+</ul>
+<h3>Lessons App</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/BACS350/tree/main/week8/Lessons">Lessons App Demo</a></li>
+<li>Templates<ul>
+<li>theme.html, _header.html, _footer.html</li>
+<li>_navbar.html</li>
+</ul>
+</li>
+<li>Blocks<ul>
+<li>title</li>
+<li>navbar</li>
+<li>header</li>
+<li>content</li>
+<li>footer</li>
+</ul>
+</li>
+</ul>
+<h3>Apply Reusable Theme</h3>
+<ul>
+<li>Move base templates<ul>
+<li>theme.html, _header.html, _footer.html, _navbar.html</li>
+<li>Customize to app</li>
+</ul>
+</li>
+<li>Extend theme.html</li>
+</ul>
+<h3>Encapsulation</h3>
+<ul>
+<li>Wrap functionality and give it a name</li>
+<li>Control the custom features</li>
+<li>Hide the details</li>
+<li>Think about the forrest not the trees</li>
+</ul>
+<h3>Merge in Accounts Code</h3>
+<ul>
+<li>Copy files from Users App</li>
+<li>Update URLs, Views</li>
+<li>Test and fix</li>
+</ul>
+<h3>Using Crispy Forms</h3>
+<p>Install Crispy Forms</p>
+<pre><code>$ pip install django-crispy-forms
+</code></pre>
+<p>config/settings.py</p>
+<pre><code>INSTALLED_APPS = [ ... 'crispy_forms', ]
+</code></pre>
+<p>templates/signup.html</p>
+<pre><code>{% extends 'theme.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+&lt;form method="post"&gt;
+    {% csrf_token %}
+    {{ form|crispy }}
+    &lt;button type="submit"&gt;Sign Up&lt;/button&gt;
+&lt;/form&gt;
+{% endblock content %}
+</code></pre>
+<h2>BUILD</h2>
+<h3>Project 7 - Superhero Data Views</h3>
+<ul>
+<li>Build a reusable theme<ul>
+<li>Build view inheritance</li>
+<li>Use Bootstrap and Crispy Forms</li>
+</ul>
+</li>
+<li>Define Superhero Views<ul>
+<li>List, Detail, Add, Edit, Delete</li>
+<li>All views have same look</li>
+</ul>
+</li>
+<li>Define User Accounts<ul>
+<li>Users can register</li>
+<li>Users can login</li>
+<li>User info is displayed</li>
+<li>Only registered users can edit</li>
+</ul>
+</li>
+<li>Test<ul>
+<li>CRUD test for Hero and User Account</li>
+<li>Views test for Hero and User Account</li>
+<li>Lines of product code = Lines of test code</li>
+<li>16 Tests</li>
+</ul>
+</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

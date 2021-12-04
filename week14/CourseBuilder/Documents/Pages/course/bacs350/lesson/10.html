@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 10</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 10 - Admin Views</h1>
+<h2>LEARN</h2>
+<h3>Week 4 - Data</h3>
+<ul>
+<li>Lesson 9 - Database</li>
+<li>Lesson 10 - Admin Views</li>
+<li>Lesson 11 - ListView</li>
+<li>Project 4 - Basic Views</li>
+<li>Django for Beginners - Chapter 4</li>
+</ul>
+<h3>Data Models</h3>
+<ul>
+<li>ORM - Object Relational Mapping</li>
+<li>Data Models define the table structure</li>
+<li>Database tables are created by code</li>
+</ul>
+<h3>Admin views</h3>
+<ul>
+<li>Show Data Records</li>
+<li>Allow direct editing of records</li>
+<li>Quick way to build prototypes</li>
+</ul>
+<h3>Hero Data Model</h3>
+<p>hero/models.py</p>
+<pre><code>from django.db import models
+
+class Hero (models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.CharField(max_length=200)
+</code></pre>
+<p>hero/admin.py</p>
+<pre><code>from django.contrib import admin
+from .models import Hero
+
+admin.site.register(Hero)
+</code></pre>
+<h3>Migration</h3>
+<p>Examine code for changes to Data Models</p>
+<pre><code>$ python manage.py makemigrations
+</code></pre>
+<p>Apply changes to Data Tables</p>
+<pre><code>$ python manage.py migrate
+</code></pre>
+<h3>Development Database</h3>
+<ul>
+<li>Simple database is provided for <strong>Development</strong></li>
+<li>Data is stored in <strong>db.sqlite3</strong></li>
+<li>Never include a database in Git repo</li>
+<li>MySQL database will replace this</li>
+</ul>
+<h3>Templates</h3>
+<p>templates/index.html</p>
+<pre><code>&lt;h1&gt;Superhero Gallery&lt;/h1&gt;
+
+&lt;a href="/admin/"&gt;Django Admin Views&lt;/a&gt;
+</code></pre>
+<h3>Views</h3>
+<p>hero/views.py</p>
+<pre><code>from django.views.generic import TemplateView
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+</code></pre>
+<h3>URLs</h3>
+<p>config/urls.py</p>
+<pre><code>from django.urls import path
+from hero.views import IndexView
+from django.contrib import admin
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', IndexView.as_view()),
+]
+</code></pre>
+<h3>Test and fix</h3>
+<pre><code>$ python manage.py runserver
+$ browse to 127.0.0.1:8000
+</code></pre>
+<h2>BUILD - Development Workflow</h2>
+<h3>Short-cuts</h3>
+<ul>
+<li>Sensei</li>
+<li>Github repo</li>
+<li>Web app</li>
+<li>Python Anywhere config</li>
+<li>Python Anywhere console</li>
+</ul>
+<h3>Development Workflow</h3>
+<ul>
+<li>Pull code</li>
+<li>Make changes</li>
+<li>Test changes</li>
+<li>Push changes</li>
+<li>Deploy</li>
+</ul>
+<h3>Data Model</h3>
+<ul>
+<li>Create hero/models.py</li>
+<li>Migrate</li>
+</ul>
+<h3>Admin Views</h3>
+<ul>
+<li>Superuser required</li>
+<li>Edit hero/admin.py to add Hero</li>
+<li>Edit config/urls.py to add "admin/"</li>
+<li>Test</li>
+</ul>
+<h3>Static Files</h3>
+<ul>
+<li>Static files must be set up for Admin Views</li>
+<li>Django 'collectstatic' is used to gather files needed</li>
+<li>Admin files will be deployed to Python Anywhere</li>
+</ul>
+<h3>Collecting the Static Files</h3>
+<p>config/settings</p>
+<pre><code># Place to collect static files
+STATIC_ROOT = BASE_DIR / "static_assets"
+</code></pre>
+<p>Move the files into static directory</p>
+<pre><code>$ mv static_assets/admin static/admin
+
+$ rm -rf static_assets
+
+$ git commit -am 'Add Admin static files'
+</code></pre>
+<h3>Test and fix</h3>
+<pre><code>$ python manage.py runserver
+$ browse to 127.0.0.1:8000/admin/
+$ git add . &amp;&amp; git commit -m "Hero List View"
+</code></pre>
+<h3>Fix display of Hero</h3>
+<ul>
+<li>Show each of the fields in the view</li>
+<li>Create a valid HTML page</li>
+<li>Pass in the hero object</li>
+</ul>
+<h3>Django Tests</h3>
+<p>hero/tests.py</p>
+<pre><code>from django.test import SimpleTestCase
+
+class SimpleTests(SimpleTestCase):
+    def test_home_page_status_code(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+</code></pre>
+<p>Run all tests</p>
+<pre><code>$ python manage.py test
+</code></pre>
+<h3>Tests</h3>
+<ul>
+<li>Rerun the django tests</li>
+<li>Add test for "/hero/" page</li>
+<li>Fails because it needs a database</li>
+<li>Switch from SimpleTestCase to TestCase</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

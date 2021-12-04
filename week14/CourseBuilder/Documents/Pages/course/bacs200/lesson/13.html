@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 13</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 200</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Pages with HTML/CSS</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 13 - Creating Images</h1>
+<h2>LEARN</h2>
+<h3>Reading for Today</h3>
+<ul>
+<li>Read <a target="_blank" 
+href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2021/chapter/2/section/6">
+2.6 Images
+</a></li>
+<li>Follow <a target="_blank" href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Creating Images</li>
+<li>Optional Practice Exercises</li>
+</ul>
+<h3>Types of Images</h3>
+<ul>
+<li>Raster Images - Abobe Photoshop</li>
+<li>Vector Images - Adobe Illustrator</li>
+</ul>
+<h3>Raster Images</h3>
+<ul>
+<li>Raster images contain a grid of pixels</li>
+<li>Each pixel is an RGB value</li>
+<li>Raster images get the "Blockies" when scaled</li>
+<li>Cameras capture raster images</li>
+</ul>
+<h3>Image Editor Software</h3>
+<ul>
+<li>Adobe Photoshop </li>
+<li>GIMP (since 1998)</li>
+</ul>
+<h3>Photoshop History</h3>
+<ul>
+<li>Introduced 1990  (13 versions)</li>
+<li>2003 Creative Suite (6 versions)</li>
+<li>2013 Creative Cloud (5 versions)</li>
+</ul>
+<h3>Cost</h3>
+<ul>
+<li>$1000 in 1990</li>
+<li>Software as a Service  - SaaS</li>
+<li>$120/year ($60/year for students)</li>
+</ul>
+<h3>Image Size</h3>
+<ul>
+<li>Large images are slow to load</li>
+<li>Displayed images should be limited to 1000 x 1000 pixels for featured photos</li>
+<li>Limit accent photos to 500 x 500 pixels</li>
+<li>Use Photoshop to scale your images</li>
+</ul>
+<h3>Display size</h3>
+<ul>
+<li>Use HTML width attribute<ul>
+<li>width="200"</li>
+<li>width="50%"</li>
+</ul>
+</li>
+<li>Use both CSS properties<ul>
+<li>max-width: 500px;</li>
+<li>width: 800px;</li>
+<li>width: 80%;</li>
+</ul>
+</li>
+</ul>
+<h3>Examples</h3>
+<p><img alt="" src="img/Albert_Einstein.png" /></p>
+<h3>Multiplicity</h3>
+<p><img alt="" src="img/multiplicity.jpg" /></p>
+<h3>Vector Images</h3>
+<ul>
+<li>Vector Images are a set of shapes</li>
+<li>They scale to any size</li>
+<li>Artwork is designed by hand on the computer</li>
+<li>Use Adobe Illustrator to create vector images</li>
+</ul>
+<h3>Adobe Illustrator</h3>
+<ul>
+<li>Vector Graphics Tools</li>
+<li>Scalable to any desire size</li>
+<li>Often rendered as raster images</li>
+</ul>
+<h2>BUILD</h2>
+<h3>Project 5 - Page Testing</h3>
+<ul>
+<li><a href="../project/05">Project Instructions</a></li>
+</ul>
+<h2>OPTIONAL EXERCISE - Photoshop</h2>
+<ul>
+<li>Past classes have used computers in Kepner</li>
+<li>This year most students do not have easy access to Photoshop or Illustrator</li>
+<li>Do this exercise on your own if you want to</li>
+</ul>
+<h3>Learning Adobe Photoshop</h3>
+<p>This exercise is an interactive practice session that will make you familiar
+with the features of Adobe Photoshop.  Go through each of these objectives to
+understand how to do basic operations on images.</p>
+<h3>Take a selfie</h3>
+<ul>
+<li>Use your camera phone to capture a photo</li>
+<li>Transfer the photo to your computer</li>
+</ul>
+<h3>Edit the Image with Photoshop</h3>
+<ul>
+<li>Run Adobe Photoshop</li>
+<li>Open the file that contains your image</li>
+</ul>
+<h3>Scale the image down</h3>
+<ul>
+<li>Look at the image size (note the number of pixels)</li>
+<li>Scale the image to 50% of its original size</li>
+<li>Use File, Save As to create a new image file</li>
+<li>Go to Windows Explorer and look at the file size for both files</li>
+<li>How much larger is the original?</li>
+</ul>
+<h3>Use the rectangular selection tool</h3>
+<ul>
+<li>Select a close-up of your photo</li>
+<li>Use Image, Crop to create a new image</li>
+<li>File, Save As "me.psd"</li>
+</ul>
+<h3>Scale to a fixed size</h3>
+<ul>
+<li>Find the tool in Photoshop that lets you scale the image</li>
+<li>Save the original to be 1000 pixels wide</li>
+<li>Export to "me-original.png"</li>
+</ul>
+<h3>Add Text</h3>
+<ul>
+<li>Use the text tool to add text to the image</li>
+<li>Select a large font with a different color and center the text on the selection</li>
+</ul>
+<h3>Explore Photoshop Filters</h3>
+<ul>
+<li>Go through all of the filters</li>
+<li>Pick three filters to apply to your image</li>
+<li>Apply them and save</li>
+<li>Export to "me.png"</li>
+</ul>
+<h2>OPTIONAL EXERCISE - Illustrator</h2>
+<ul>
+<li>Past classes have used computers in Kepner</li>
+<li>This year most students do not have easy access to Photoshop or Illustrator</li>
+<li>Do this exercise on your own if you want to</li>
+</ul>
+<h3>Using Illustrator</h3>
+<ul>
+<li>Create artwork in Adobe Illustrator</li>
+<li>New document with a web profile</li>
+<li>Size 640x480 pixels</li>
+<li>Set the Color mode to RGB</li>
+<li>Set Raster effects to Screen (72 dpi)</li>
+</ul>
+<h3>Play with these tools</h3>
+<ul>
+<li>shape tool (defaults to "Rectangle Tool")</li>
+<li>fill and stroke color</li>
+<li>paintbrush tool</li>
+<li>line segment tool</li>
+<li>pen tool</li>
+</ul>
+<h3>Other Edits</h3>
+<ul>
+<li>Change the fill and stroke color the shapes</li>
+<li>Experiment with different colors and gradients</li>
+</ul>
+<h3>Paintbrush tool</h3>
+<ul>
+<li>Try different colors</li>
+<li>Weights</li>
+<li>Arrowheads</li>
+<li>Profiles</li>
+</ul>
+<h3>Line segment tool</h3>
+<ul>
+<li>Try different line types</li>
+<li>Try  grids</li>
+</ul>
+<h3>Pen tool</h3>
+<ul>
+<li>Draw straight lines (click)</li>
+<li>Draw curved lines (click and drag)</li>
+<li>Add and remove anchor points</li>
+</ul>
+<h3>Save your Masterpiece</h3>
+<ul>
+<li>Save work using "File", "Export", "Save for the web (legacy)"</li>
+<li>PNG file as Logo.png</li>
+</ul>
+<h3>Favicon</h3>
+<ul>
+<li>Create a new document with a web profile</li>
+<li>Size of 64x64 pixels</li>
+<li>Set the color mode to RGB and the Raster effects to Screen (72 dpi)</li>
+<li>Using vector shapes, create a Favicon for your website.</li>
+<li>"Save for the web" as a 16x16 pixel PNG file</li>
+</ul>
+<h3>Display the Art</h3>
+<ul>
+<li>Create page "logo.html"</li>
+<li>Set the Favicon on your page</li>
+<li>Add the logo to your header</li>
+</ul>
+<h3>Add Icon to Page</h3>
+<ul>
+<li>Add the icon to your HTML head section.</li>
+</ul>
+<p><code>html
+&lt;link rel="icon" href="myfavicon.ico"&gt;</code></p>
+<h3>Display Logo in Header</h3>
+<ul>
+<li>Hook the image to your index.html page.</li>
+</ul>
+<p><code>&lt;img src="Logo.png" alt="Logo.png" width="50%"&gt;</code></p>
+<p>Experiment with sizing your image.</p>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

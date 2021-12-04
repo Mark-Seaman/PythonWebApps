@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 33</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 33 - Image Upload</h1>
+<h2>LEARN</h2>
+<h3>Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>MWF  1:30-2:30 by Zoom</li>
+<li>Zoom:  https://unco.zoom.us/j/99180652183</li>
+<li>Email: mark.seaman@unco.edu      </li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Uploading Images</li>
+<li>Create Image Objects</li>
+<li>Using Images<ul>
+<li>Author profile photo</li>
+<li>Book cover</li>
+<li>Images in Chapters</li>
+</ul>
+</li>
+<li>Superhero images</li>
+</ul>
+<h3>How To Video</h3>
+<p>by John Elder</p>
+<p>This is the fastest way to build an image upload utility.</p>
+<iframe width="996" height="560" src="https://www.youtube.com/embed/ygzGr51dbsY" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen>
+</iframe>
+
+<h3>Code For Image Upload</h3>
+<p>Django model ImageField is used to upload images</p>
+<p>book/models.py</p>
+<p><code>python
+class Image(models.Model):
+    image = models.ImageField(null=True, blank=True, upload_to="images/")
+    title = models.CharField(max_length=200)</code></p>
+<h3>Settings for Storage</h3>
+<p>Set upload directory and URL</p>
+<p><code>python
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"</code></p>
+<h3>Generate Code for Image</h3>
+<ul>
+<li>Run the code cloner to produce image files.</li>
+<li>Delete views and templates for Detail and Edit</li>
+</ul>
+<h3>Form For Image Upload</h3>
+<p>Django model ImageField is used to upload images</p>
+<p>templates/image_add.html</p>
+<p>```html</p>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <button type="submit">Save Record</button>
+</form>
+<p>```</p>
+<h3>Views For Image Upload</h3>
+<p>Add and list but no edit view</p>
+<p>book/views_image.py</p>
+<p>```python
+class ImageListView(ListView):
+    template_name = 'image_list.html'
+    model = Image</p>
+<p>class ImageCreateView(LoginRequiredMixin, CreateView):
+    template_name = "image_add.html"
+    model = Image
+    fields = ['image', 'title']</p>
+<p>class ImageDeleteView(LoginRequiredMixin, DeleteView):
+    model = Image
+    template_name = 'image_delete.html'
+    success_url = reverse_lazy('image_list')
+```</p>
+<h3>URLs For Image Upload</h3>
+<p>Django model ImageField is used to upload images</p>
+<p>book/urls.py</p>
+<p><code>python
+    path('image/',                ImageListView.as_view(),    name='image_list'),
+    path('image/add',             ImageCreateView.as_view(),  name='image_add'),
+    path('image/&lt;int:pk&gt;/delete', ImageDeleteView.as_view(),  name='image_delete'),</code></p>
+<h3>Views For Image Display</h3>
+<p>Django model ImageField is used to upload images</p>
+<p>templates/image_list.html</p>
+<p>```html</p>
+<table>
+{% for image in object_list %}
+    <tr>
+        <td><img src="{{ image.image.url }}" alt="{{ image.title }}" width='200'></td>
+        <td>{{ image.image.url }}</td>
+        <td><a href="/image/{{ image.pk }}/delete">Delete</a></td>
+    </tr>
+{% endfor %}
+</table>
+<p>```</p>
+<h2>BUILD</h2>
+<h3>Demo Code</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/BACS350/tree/main/week12/BookBuilder/book">Demo Code</a></li>
+<li>Follow along with my source code</li>
+<li>Clone my repo and edit the code</li>
+</ul>
+<h3>Final Project</h3>
+<ul>
+<li>Due on December 3</li>
+<li>Requirements for Projects 10, 11, 12, 13, 14</li>
+<li>Partial Credit will be given</li>
+</ul>
+<h3>New Features</h3>
+<ul>
+<li>Upload images to use for Superhero profile photos</li>
+<li>Display the photos</li>
+<li>Add images to Investigator profile</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

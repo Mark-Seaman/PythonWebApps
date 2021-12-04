@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 26</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 26 - Table Views</h1>
+<h2>LEARN &amp; BUILD</h2>
+<h3>Demo Code</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/BACS350/tree/main/week9/BookBuilder">Demo Code</a></li>
+<li>Follow along with my source code</li>
+<li>Clone my repo and edit the code</li>
+</ul>
+<h3>Software Process</h3>
+<ul>
+<li>Shrinking World Lightweight Plan</li>
+<li>Decide on priorities</li>
+<li>Tasks for next week (1 hour size)</li>
+<li>Test, Fix, Enhance, Improve</li>
+</ul>
+<h3>Shrinking World Planner</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/BACS350/blob/main/week9/BookBuilder/Documents/ToDo.md">To Do List</a></li>
+<li><a href="https://github.com/Mark-Seaman/BACS350/blob/main/week9/BookBuilder/Documents/Done.md">Tasks Accomplished</a></li>
+</ul>
+<h3>Test</h3>
+<ul>
+<li>Use test-driven development</li>
+<li>Run tests</li>
+<li>Fix until everything works</li>
+</ul>
+<h3>Edit Files</h3>
+<ul>
+<li>book/models.py</li>
+<li>book/tests.py</li>
+<li>book/views.py</li>
+<li>book/urls.py</li>
+</ul>
+<h3>Add Chapters</h3>
+<ul>
+<li>Test</li>
+<li>Data</li>
+<li>Views</li>
+<li>Templates</li>
+</ul>
+<h3>Chapter Data Model</h3>
+<p>Create a representation for Chapters in the Book</p>
+<p><code>python
+class Chapter(models.Model):
+    book = models.CharField(max_length=200)
+    order = models.IntegerField()
+    title = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()
+    document = models.CharField(max_length=200)</code></p>
+<h3>Test</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/BACS350/blob/main/week9/BookBuilder/Documents/Test.md">Test</a></li>
+<li>Manual Tests - list of features to test</li>
+<li>Test Views - List, Detail, Add, Edit, Delete</li>
+<li>Test Data - Create, Read, Update, Delete</li>
+</ul>
+<h3>Build Chapter Views</h3>
+<ul>
+<li>Create views_chapter.py</li>
+<li>Copy code from views_book.py</li>
+</ul>
+<h3>Python Dictionary</h3>
+<ul>
+<li>Associative array with key/value pairs</li>
+<li>Lookup table</li>
+</ul>
+<p>```python
+d = dict(book='Iliad', title='Achilles', order='1', document='1.md')</p>
+<p>d = {'book': 'Iliad', 'title': 'Achilles', 'order': '1', 'document': '1.md'}
+```</p>
+<h3>Passing Keyword Arguments</h3>
+<ul>
+<li>Handy for passing keyword arguments</li>
+</ul>
+<p>```python
+def my_function(**kwargs):
+    title = kwargs['title']
+    title = kwargs.get('title', 'No title')</p>
+<p>my_function(**d)
+```</p>
+<h3>Test with Data</h3>
+<p>Define a dictionary to create new objects</p>
+<pre><code>class ChapterDataTest(TestCase):
+
+    def setUp(self):
+        self.chapter1 = dict(book='Iliad', title='Achilles', order='1', document='1.md')
+        self.chapter2 = dict(book='Iliad', title='Agamememnon', order='2', document='2.md')
+
+    def test_add_chapter(self):
+        Chapter.objects.create(**self.chapter1)
+        Chapter.objects.create(**self.chapter2)
+        self.assertEqual(len(Chapter.objects.all()), 2)
+</code></pre>
+<h3>Read Document</h3>
+<ul>
+<li>Read text from doc files "Documents/01.md"</li>
+<li>Convert to html and save in Chapter object</li>
+<li>Display with Chapter</li>
+<li>Use {% autoescape off %} {{ chapter.html }} {% endautoescape %}</li>
+</ul>
+<h3>Superhero News - Profile</h3>
+<ul>
+<li>Display the hero details on a page</li>
+<li>Show all fields from the Superhero records</li>
+</ul>
+<h3>Superhero News - Stories</h3>
+<ul>
+<li>Show a list of stories for the hero</li>
+<li>Write at least two stories for each hero</li>
+<li>Create a simple article that contains some markdown formatting</li>
+<li>Be creative and have fun</li>
+</ul>
+<h3>Superhero News - Technical Requirements</h3>
+<ul>
+<li>Composite Views</li>
+<li>Style with Bootstrap</li>
+<li>View Inheritance</li>
+<li>Dynamic Menu</li>
+<li>Responsive Design</li>
+<li>Data Fields - strengths, weakness, image</li>
+</ul>
+<h3>Project 9 - Instructions</h3>
+<ul>
+<li><a href="/course/bacs350/project/09">Project 9 - Instructions</a></li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

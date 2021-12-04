@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 24</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 24 - Document View</h1>
+<h2>LEARN</h2>
+<h3>Complete Your Projects</h3>
+<ul>
+<li>Project 1 - Setup development tools</li>
+<li>Project 2 - Build a simple app</li>
+<li>Project 3 - Application Hosting</li>
+<li>Project 4 - TemplateView</li>
+<li>Project 5 - Data Models</li>
+<li>Project 6 - Data Model Views</li>
+<li>Project 7 - User Authentication</li>
+<li>Project 8 - Bootstrap Styling</li>
+<li>Project 9 - Custom Views</li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Display Markdown in Django Views</li>
+<li>Book Builder - books &amp; chapters</li>
+</ul>
+<h3>Document Viewer</h3>
+<ul>
+<li>Read markdown text from file</li>
+<li>Convert from markdown to HTML</li>
+<li>Use Markdown Converter to produce HTML</li>
+<li>Display within a Django View</li>
+<li>Pass in doc name on URL</li>
+</ul>
+<h3>Markdown Text Sample</h3>
+<p>Simple language constructs to replace HTML</p>
+<p>```
+    # Headline
+    ## Subheadline</p>
+<pre><code>* Bullet 1
+* Bullet 2
+
+[Google](http://google.com)
+
+![](https://shrinking-world.com/static/images/unc/Bear.png)
+</code></pre>
+<p>```</p>
+<h3>Installing Markdown</h3>
+<p><code>bash
+$ pip install markdown</code></p>
+<h3>Convert Markdown</h3>
+<ul>
+<li>Import converter</li>
+<li>Take Markdown and make HTML</li>
+</ul>
+<p>```python
+from markdown import markdown</p>
+<p>markdown_text = '# Headline'
+html_text = markdown(markdown_text)
+```</p>
+<h3>Test for Markdown Formatter</h3>
+<p>doc/tests.py</p>
+<p>```python
+from django.test import TestCase
+from markdown import markdown</p>
+<p>class DocViewTest(TestCase):</p>
+<pre><code>def test_markdown(self):
+    markdown_text = '# Headline'
+    html_text = markdown(markdown_text)
+    self.assertEqual(html_text, '&lt;h1&gt;Headline&lt;/h1&gt;')
+</code></pre>
+<p>```</p>
+<h3>Document Template</h3>
+<ul>
+<li>Add variable to view</li>
+<li>Use autoescape in template</li>
+</ul>
+<p>templates/doc.html</p>
+<p>```html
+{% extends 'theme.html' %}</p>
+<p>{% block content %}
+    {% autoescape off %}
+        {{ doc }}
+    {% endautoescape %}
+{% endblock content %}
+```</p>
+<h3>Add Markdown to View</h3>
+<ul>
+<li>Read Markdown from file</li>
+<li>Convert Markdown to HTML</li>
+<li>Pass HTML to View</li>
+</ul>
+<p>doc/tests.py</p>
+<p>```python
+from django.test import TestCase
+from markdown import markdown</p>
+<p>class DocViewTest(TestCase):</p>
+<pre><code>def test_doc_view(self):
+    response = self.client.get('doc')
+    self.assertContains(response, 'Web Dev')
+</code></pre>
+<p>```</p>
+<p>doc/views.py</p>
+<p>```python
+class DocumentView(TemplateView):
+    template_name = 'doc.html'</p>
+<pre><code>def get_context_data(self, **kwargs):
+    markdown_text = open('README.md').read()
+    return dict(doc=markdown(markdown_text))
+</code></pre>
+<p>```</p>
+<p>doc/urls.py</p>
+<p><code>python
+    urlpatterns = [
+        path('doc', DocumentView.as_view()),
+    ]</code></p>
+<h2>BUILD</h2>
+<h3>Tasks to Do</h3>
+<ul>
+<li>Create a to do list</li>
+<li>Test, Fix, Extend, Improve</li>
+<li>Put the file in the project directory</li>
+</ul>
+<h2>To Do</h2>
+<ul>
+<li>Test</li>
+<li>Fix</li>
+<li>Extend</li>
+<li>Improve</li>
+</ul>
+<h3>To Do - Test</h3>
+<ul>
+<li>Setup django tests</li>
+<li>Book and Chapter data</li>
+<li>Book and Chapter views</li>
+<li>Book and Chapter urls</li>
+</ul>
+<h3>To Do - Fix</h3>
+<ul>
+<li>Security on edit operations</li>
+</ul>
+<h3>To Do - Extend</h3>
+<ul>
+<li>Start project and copy code</li>
+<li>Build Book data and views</li>
+<li>Build Chapter data and views</li>
+<li>Show Chapters with markdown</li>
+</ul>
+<h3>To Do - Improvements</h3>
+<ul>
+<li>Move urls into book/urls.py</li>
+<li>Setup and Teardown in Tests</li>
+<li>Design for Data (Book, Chapter)</li>
+<li>Refactor and simplify</li>
+</ul>
+<h3>Start a Project</h3>
+<pre><code>$ cd week9 &amp;&amp; mkdir BookBuilder
+$ django-admin startproject config .
+$ python manage.py migrate
+$ python manage.py runserver
+
+Browse http://127.0.0.1:8000
+</code></pre>
+<h3>Copy Old Project</h3>
+<ul>
+<li>Copy from week8/BookBuilder<ul>
+<li>book</li>
+<li>templates</li>
+<li>accounts</li>
+<li>config<ul>
+<li>urls.py</li>
+<li>settings.py</li>
+</ul>
+</li>
+<li>static</li>
+</ul>
+</li>
+</ul>
+<h3>Test</h3>
+<ul>
+<li>Use test-driven development</li>
+<li>Run tests</li>
+<li>Fix until everything works</li>
+</ul>
+<h3>Edit Files</h3>
+<ul>
+<li>book/models.py</li>
+<li>book/tests.py</li>
+<li>book/views.py</li>
+<li>book/urls.py</li>
+</ul>
+<h3>Add Chapters</h3>
+<ul>
+<li>Test</li>
+<li>Data</li>
+<li>Views</li>
+<li>Templates</li>
+</ul>
+<h3>Chapter Data Model</h3>
+<p>Create a representation for Chapters in the Book</p>
+<p><code>python
+class Chapter(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    order = models.IntegerField()
+    title = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()
+    document = models.CharField(max_length=200)</code></p>
+<h3>Superhero News - Profile</h3>
+<ul>
+<li>Display the hero details on a page</li>
+<li>Show all fields from the Superhero records</li>
+</ul>
+<h3>Superhero News - Stories</h3>
+<ul>
+<li>Show a list of stories for the hero</li>
+<li>Write at least two stories for each hero</li>
+<li>Create a simple article that contains some markdown formatting</li>
+<li>Be creative and have fun</li>
+</ul>
+<h3>Superhero News - Technical Requirements</h3>
+<ul>
+<li>Composite Views</li>
+<li>Style with Bootstrap</li>
+<li>View Inheritance</li>
+<li>Dynamic Menu</li>
+<li>Responsive Design</li>
+<li>Data Fields - strengths, weakness, image</li>
+</ul>
+<h3>Project 9 - Instructions</h3>
+<ul>
+<li><a href="/course/bacs350/project/09">Project 9 - Instructions</a></li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

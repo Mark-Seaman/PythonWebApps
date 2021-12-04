@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 08</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 200</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Pages with HTML/CSS</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 8 - Links &amp; Images</h1>
+<h2>LEARN</h2>
+<h3>Today's Agenda</h3>
+<ul>
+<li>Hyperlinks</li>
+<li>Images</li>
+<li>Project 3</li>
+</ul>
+<h3>Daily Reading</h3>
+<ul>
+<li>Read <a target="_blank" 
+href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2021/chapter/2/section/1">
+2.1 HTML document structure
+</a></li>
+<li>Follow <a target="_blank" href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+</ul>
+<h3>The New Literacy</h3>
+<ul>
+<li>Web-based communication is a new capability</li>
+<li>Businesses require skill in professional communication</li>
+<li>Technology skill is not enough</li>
+</ul>
+<h3>HTML Page Template</h3>
+<ul>
+<li>Create your own page template</li>
+<li>Use mine as a model <a href="https://mark-seaman.github.io/demo/week3/template.html">Sample Page Template</a></li>
+<li>View the source code in the browser (Ctrl-U in Firefox)</li>
+<li>As you learn new things update your template</li>
+</ul>
+<h3>HTML Validator</h3>
+<ul>
+<li>Validate your pages to check our HTML </li>
+<li><a href="https://validator.w3.org/">HTML Validator</a></li>
+<li>Point to your page and it will check it</li>
+<li>Bookmark this page in your Toolbar</li>
+</ul>
+<h3>Hyperlink</h3>
+<ul>
+<li>Anchor is used to add a hyperlink to a page</li>
+<li>Requires two parts<ul>
+<li>Link text</li>
+<li>Page URL</li>
+</ul>
+</li>
+<li>When clicked the web browser is reset to the new page</li>
+</ul>
+<p><code>&lt;a href="new_page.html"&gt;Link Text&lt;/a&gt;</code></p>
+<h3>a</h3>
+<ul>
+<li>"a" is for anchor</li>
+</ul>
+<p><code>&lt;a href="new_page.html"&gt;Link Text&lt;/a&gt;</code></p>
+<h3>Anchor href</h3>
+<ul>
+<li>The URL is set by the href attribute</li>
+</ul>
+<p><code>&lt;a href="new_page.html"&gt;Link Text&lt;/a&gt;</code></p>
+<h3>Anchor Inner Text (link text)</h3>
+<ul>
+<li>The Link Text is inside the a tag</li>
+<li>Study this example</li>
+</ul>
+<p><code>&lt;a href="new_page.html"&gt;Link Text&lt;/a&gt;</code></p>
+<h3>Anchor target</h3>
+<ul>
+<li>The target attribute can bring up a new tab</li>
+</ul>
+<p><code>&lt;a href="new_page.html" target="_new"&gt;Link Text&lt;/a&gt;</code></p>
+<h3>Image</h3>
+<ul>
+<li>Images can be embedded in a page</li>
+<li>When the page is loaded in the browser the images are all fetched from the server</li>
+</ul>
+<h3>img</h3>
+<ul>
+<li>Images are added with the "img" element</li>
+</ul>
+<p><code>&lt;img src="logo.png" alt="Logo"&gt;</code></p>
+<h3>Image src</h3>
+<ul>
+<li>src attribute tells where to get the image</li>
+</ul>
+<p><code>&lt;img src="logo.png" alt="Logo"&gt;
+&lt;img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"&gt;</code></p>
+<h3>Image alt</h3>
+<ul>
+<li>Alt text is displayed until the image is loaded.</li>
+<li>It is also used by search engines to identify images.</li>
+</ul>
+<p><code>&lt;img src="logo.png" alt="Logo"&gt;</code></p>
+<h3>Image width</h3>
+<ul>
+<li>Images can be display at a specific size</li>
+<li>This image takes 80% of the view width</li>
+</ul>
+<p><code>&lt;img src="logo.png" alt="Logo" width="80%"&gt;</code></p>
+<ul>
+<li>This image takes 500 pixels of the view width</li>
+</ul>
+<p><code>&lt;img src="logo.png" alt="Logo" width="500"&gt;</code></p>
+<hr />
+<h2>BUILD</h2>
+<h3>Add an image from the internet</h3>
+<ul>
+<li>Create a page with an image tag</li>
+<li>Copy and paste the URL to an image you find.</li>
+</ul>
+<p><code>&lt;img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"&gt;</code></p>
+<h3>Add a local image</h3>
+<ul>
+<li>Download an image to your local computer</li>
+<li>Hook up this image into your page</li>
+</ul>
+<p><code>&lt;img src="logo.png" alt="Logo"&gt;</code></p>
+<h3>Finish Project 3</h3>
+<ul>
+<li>Create a profile page "bacs200/profile.html".</li>
+<li>Include a selfie.</li>
+<li>Add the bear logo by finding it on the UNC website.</li>
+<li>Validate your page</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

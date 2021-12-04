@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 06</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 6 - Static Server</h1>
+<h2>LEARN</h2>
+<h3>Sensei Login</h3>
+<ul>
+<li>Reworked the user registrations to extend the capability</li>
+<li>I may have broken some user logins</li>
+<li>If you cannot login then email me</li>
+<li>Send your email and desired password</li>
+<li>I will configure and test your specific user</li>
+</ul>
+<h3>Class-based views</h3>
+<ul>
+<li>Defines all of the view logic as a Python object class</li>
+<li>Override any behavior you wish</li>
+<li>TemplateView shows an HTML template as a view</li>
+<li>Design patterns for custom Django views</li>
+</ul>
+<h3>TemplateView template</h3>
+<p>templates/hulk.html</p>
+<pre><code>&lt;h1&gt;Hulk Profile&lt;/h1&gt;
+
+&lt;img src="hulk.jpg" alt="Hulk"&gt;
+</code></pre>
+<h3>TemplateView views.py</h3>
+<p>views.py</p>
+<pre><code>from django.views.generic import TemplateView
+
+class HulkView(TemplateView):
+    template_name = 'hulk.html'
+</code></pre>
+<h3>TemplateView urls.py</h3>
+<p>urls.py</p>
+<pre><code>from django.urls import path
+from django.views.generic import HulkView, WidowView
+
+urlpatterns = [
+    path('hulk', HulkView.as_view()),
+]
+</code></pre>
+<h2>BUILD</h2>
+<h3>Templates with Images</h3>
+<p>templates/hulk.html</p>
+<pre><code>&lt;h1&gt;Hulk Profile&lt;/h1&gt;
+&lt;img src="hulk.jpg" alt="Hulk"&gt;
+</code></pre>
+<p>templates/black_widow.html</p>
+<pre><code>&lt;h1&gt;Black Widow&lt;/h1&gt;
+&lt;img src="black_widow.jpg" alt="Hulk"&gt;
+</code></pre>
+<p>urls.py</p>
+<pre><code>from django.urls import path
+from django.views.generic import HulkView, WidowView
+
+urlpatterns = [
+    path('hulk', HulkView.as_view()),
+    path('black_widow', WidowView.as_view()),
+]
+</code></pre>
+<p>pages/views.py</p>
+<pre><code>from django.views.generic import TemplateView
+
+class HulkView(TemplateView):
+    template_name = 'hulk.html'
+
+class WidowView(TemplateView):
+    template_name = "black_widow.html"
+</code></pre>
+<p>templates/</p>
+<pre><code>hulk.jpg
+black_widow.jpg
+</code></pre>
+<h3>Pages may Contain Images</h3>
+<ul>
+<li>Django serves pages expected to be processed</li>
+<li>Static content is passed directly through without processing</li>
+<li>Django contains a static server that can be enabled</li>
+</ul>
+<h3>Add Custom Django Views</h3>
+<p>static/images/</p>
+<pre><code>hulk.jpg
+black_widow.jpg
+</code></pre>
+<p>templates/hulk.html</p>
+<pre><code>&lt;h1&gt;Hulk Profile&lt;/h1&gt;
+&lt;img src="/static/images/hulk.jpg" alt="Hulk"&gt;
+</code></pre>
+<p>templates/black_widow.html</p>
+<pre><code>&lt;h1&gt;Black Widow&lt;/h1&gt;
+&lt;img src="/static/images/black_widow.jpg" alt="Hulk"&gt;
+</code></pre>
+<h3>settings.py</h3>
+<ul>
+<li>STATIC_URL = '/static/'</li>
+<li>STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]</li>
+</ul>
+<h3>Images, CSS, Javascript</h3>
+<ul>
+<li>&lt; img src='/static/img/treetops.200.jpg' &gt;</li>
+<li>&lt; link rel='stylesheet' href='/static/unc.css' &gt;</li>
+<li>&lt; script href='/static/wow.js' &gt;</li>
+</ul>
+<h3>Add Data to Django Views</h3>
+<p>templates/hero.html</p>
+<pre><code>&lt;h1&gt;Hero: {{ hero }}&lt;/h1&gt;
+&lt;img src="/static/images/{{ hero }}.jpg" alt="{{ hero }}"&gt;
+</code></pre>
+<h3>Data as dictionary</h3>
+<p>Define what goes in the variable slots</p>
+<pre><code>{
+    'hero': 'hulk', 
+}
+
+{
+    'hero': 'black_widow', 
+}
+</code></pre>
+<h3>Hero View</h3>
+<p>pages/views.py</p>
+<pre><code> class HulkView(TemplateView):
+    template_name = 'hero.html'
+
+    def get_context_data(self, **kwargs):
+        return { 'hero': 'hulk' }
+
+
+ class WidowView(TemplateView):
+    template_name = "hero.html"
+
+    def get_context_data(self, **kwargs):
+        return { 'hero': 'black_widow' }
+</code></pre>
+<h3>Demo Code in Github</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/BACS350/tree/main/week2/Superhero">Mark-Seaman/BACS350</a></li>
+<li>Look at my code after you create your own</li>
+<li>You learn by doing - practice makes perfect</li>
+</ul>
+<h3>Exercise</h3>
+<ul>
+<li>Start with my code</li>
+<li>Build a new view template, "profile.html"</li>
+<li>Create a URL route, "profile" that shows the view</li>
+<li>Add a home link to the page template</li>
+<li>Define the context for all pages to take you home</li>
+<li>Create template with HTML that validates </li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

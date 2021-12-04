@@ -1,6 +1,8 @@
 from django.template.loader import render_to_string
-from os import listdir
-from os.path import exists
+from os import listdir, mkdir
+from os.path import dirname, exists
+from json import loads
+from markdown import markdown
 
 # from course.lecture import course_lectures
 # from course.slides import build_slides
@@ -10,12 +12,17 @@ from os.path import exists
 # from views.mybook import page_settings
 
 
-# def course_json(course, filename="page_settings.json"):
-#     json = doc_path(f'course/{course}/{filename}')
-#     assert (exists(json))
-#     settings = read_json(json)
-#     assert (settings)
-#     return settings
+def course_json(course, filename="page_settings.json"):
+    def read_json(filename):
+        if exists(filename):
+            return loads(open(filename).read())
+        return {}
+
+    json = f'Documents/course/{course}/{filename}'
+    assert (exists(json))
+    settings = read_json(json)
+    assert (settings)
+    return settings
 
 
 # def create_doc_pages(markdown_path, html_path, course):
@@ -43,8 +50,10 @@ from os.path import exists
 
 # def create_lesson_pages(markdown_path, html_path, course):
 #     directory = 'lesson'
-#     def make_title(t): return f"Lesson #{int(t[-2:])}"
-#     create_pages(markdown_path, html_path, directory, make_title, course)
+#     print('\ncreate_pages', markdown_path, html_path, directory, course)
+#     print()
+#     # def make_title(t): return f"Lesson #{int(t[-2:])}"
+#     # create_pages(markdown_path, html_path, directory, make_title, course)
 
 
 # def create_lecture_pages(course):
@@ -68,26 +77,45 @@ from os.path import exists
 #     create_pages(markdown_path, html_path, directory, make_title, course)
 
 
-# def create_pages(markdown_path, html_path, directory, make_title, course):
-#     md_path = f'{markdown_path}/{directory}'
-#     assert (exists(md_path))
+def create_pages(markdown_path, html_path, directory, course):
+    md_path = f'{markdown_path}/{directory}'
+    assert (exists(md_path))
 
-#     html_path = f'{html_path}/{directory}'
-#     assert (exists(html_path))
+    html_path = f'{html_path}/{directory}'
+    if not exists(html_path):
+        mkdir(html_path)
+    assert (exists(html_path))
 
-#     settings = course_json(course)
-#     for p in listdir(md_path):
-#         x = p.replace('.md', '')
-#         title = make_title(x)
-#         save_page(f'{md_path}/{p}', f'{html_path}/{x}.html', title, settings)
+    print('\ncreate_pages', markdown_path, html_path, directory, course)
+    print()
+
+    settings = course_json(course)
+    print(settings)
+    print()
+
+    for p in listdir(md_path):
+        x = p.replace('.md', '')
+        title = f'Lesson {x}'
+        save_page(f'{md_path}/{p}', f'{html_path}/{x}.html', title, settings)
 
 
 def create_static_site(course):
-    markdown_path = f'static/pages/{course}/markdown'
-    website_path = f'static/pages/{course}'
+    markdown_path = f'Documents/course/{course}'
+    website_path = f'Documents/Pages/course/{course}'
     print(f'Build course {course}')
+
+    # Make directories
+    print('    ', markdown_path)
+    print('    ', website_path)
+    if not exists(f'Documents/Pages/course'):
+        mkdir(f'Documents/Pages/course')
+    if not exists(f'Documents/Pages/course/{course}'):
+        mkdir(f'Documents/Pages/course/{course}')
+    if not exists(website_path):
+        mkdir(website_path)
+
     # create_index_page(course)
-    # create_lesson_pages(markdown_path, website_path, course)
+    create_pages(markdown_path, website_path, 'lesson', course)
     # create_doc_pages(markdown_path, website_path, course)
     # create_project_pages(markdown_path, website_path, course)
     # build_slides(markdown_path, website_path, course)
@@ -95,8 +123,20 @@ def create_static_site(course):
     # return count_files(website_path)
 
 
-# def save_page(md, html, page_title, settings):
-#     title = page_title
-#     text = file_to_html(md, '../images')
-#     settings.update(dict(page=md, text=text, page_title=title))
-#     write_file(html, render_to_string('static_theme.html', settings))
+def save_page(md, html, page_title, settings):
+    # def file_to_html(path, image_path=None):
+    #     if exists(path):
+    #         # return text_to_html(fix_images(read_markdown(path), image_path))
+    #     else:
+    #         return 'No file found, ' + path
+
+    def write_html_file(path, html):
+        if not exists(dirname(path)):
+            mkdir(dirname(path))
+        open(path, 'w').write(html)
+
+    title = page_title
+    text = markdown(open(md).read())
+    settings.update(dict(page=md, text=text, page_title=title))
+    print('write_html_file', md, html)
+    write_html_file(html, render_to_string('static_theme.html', settings))

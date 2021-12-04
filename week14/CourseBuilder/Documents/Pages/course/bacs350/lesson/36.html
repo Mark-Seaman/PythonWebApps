@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 36</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 36 - Data Versioning</h1>
+<h2>LEARN</h2>
+<h3>Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>MWF  1:30-2:30 by Zoom</li>
+<li>Zoom:  https://unco.zoom.us/j/99180652183</li>
+<li>Email: mark.seaman@unco.edu      </li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Data Design Graph</li>
+<li>Exporting Data</li>
+<li>Data Versioning Design Pattern</li>
+</ul>
+<h3>Views Design Patterns</h3>
+<ul>
+<li>Simple Views<ul>
+<li>Theme View</li>
+<li>Home View</li>
+<li>Card View</li>
+<li>Document View</li>
+</ul>
+</li>
+<li>Complex Views<ul>
+<li>Tabs View</li>
+<li>Accordion View</li>
+<li>Carousel View</li>
+<li>Super View</li>
+</ul>
+</li>
+</ul>
+<h3>Catalog of Design Patterns</h3>
+<ul>
+<li><a href="/course/bacs350/docs/DesignPatterns">Design Patterns</a></li>
+<li>Use this catalog of patterns as you work on projects</li>
+</ul>
+<h3>Data Design Graph</h3>
+<ul>
+<li>Object relationships as an outline</li>
+<li>Draw a picture of your objects (if more than four)</li>
+</ul>
+<h3>Book Builder Data Design</h3>
+<p><code>User
+Author
+    user*
+    photo*
+    name
+Book
+    author*
+    title
+    doc_path
+Chapter
+    book*
+    order
+    title
+    markdown
+Note
+    author*
+    chapter*
+    title
+    text
+Image
+    folder
+    image
+    title</code></p>
+<h3>Book Data Relationships</h3>
+<p>If you have more that four data models draw a simple diagram</p>
+<p><img alt="" src="img/Book_Data.png" /></p>
+<p>Use https://www.gliffy.com/</p>
+<h3>Superhero Data Relationships</h3>
+<p><img alt="" src="img/Superhero.png" /></p>
+<p>Use https://www.gliffy.com/</p>
+<h3>Data Versioning Design Pattern</h3>
+<ul>
+<li>Why use this pattern</li>
+<li>When to use code cloning</li>
+<li>How to steps</li>
+<li>What to focus on</li>
+</ul>
+<h3>Why - Data Versioning</h3>
+<ul>
+<li>Extract key information from database</li>
+<li>Use Git to track changes</li>
+<li>Review textual change periodically</li>
+<li>Restore objects with Import</li>
+<li>Automatic export nightly</li>
+</ul>
+<h3>When - Data Versioning</h3>
+<ul>
+<li>Big picture can easily be captured in a table</li>
+<li>Import and export can be safely used</li>
+</ul>
+<h3>How - Data Versioning</h3>
+<ul>
+<li>Export Design Pattern</li>
+<li>Commit data changes</li>
+<li>Object Record Creation</li>
+<li>Import Design Pattern</li>
+<li>Testability</li>
+</ul>
+<h3>What - Data Versioning</h3>
+<ul>
+<li>Customizations</li>
+<li>Limitations</li>
+</ul>
+<h3>Export Design Pattern</h3>
+<ul>
+<li>Decide on key table to export</li>
+<li>Create a CSV file and other files</li>
+</ul>
+<p>```python
+class Chapter(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, editable=False)
+    order = models.IntegerField()
+    title = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()
+    document = models.CharField(max_length=200)</p>
+<pre><code>def export_record(self):
+    return [self.order, self.title, self.document]
+</code></pre>
+<p>```</p>
+<h3>Commit data changes</h3>
+<ul>
+<li>Create a periodic task</li>
+<li>Export data daily</li>
+<li>Commit to git</li>
+<li>Review changes being made</li>
+</ul>
+<h3>Object Record Creation</h3>
+<ul>
+<li>Some fields create identity</li>
+<li>Other fields are set automatically</li>
+<li>Build a create function to create or update objects</li>
+</ul>
+<p>```python
+class Chapter(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, editable=False)
+    order = models.IntegerField()
+    title = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()
+    document = models.CharField(max_length=200)</p>
+<pre><code>@staticmethod
+def create(book, order, title, document):
+    c = Chapter.objects.get_or_create(book=book, order=order)[0]
+    c.title = title
+    c.document = document
+    c.save()
+    return c
+</code></pre>
+<p>```</p>
+<h3>Import Design Pattern</h3>
+<ul>
+<li>Open a CSV file and read the rows and columns</li>
+<li>Call create for each object record</li>
+</ul>
+<p>```python
+class Chapter(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, editable=False)
+    order = models.IntegerField()
+    title = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()
+    document = models.CharField(max_length=200)</p>
+<pre><code>@staticmethod
+def import_record(book, values):
+    Chapter.create(book, values[0], values[1], values[2])
+</code></pre>
+<p>```</p>
+<h3>Testability</h3>
+<ul>
+<li>Create a test to import live data</li>
+<li>Verify the records created</li>
+</ul>
+<p>```python
+class BookDataTest(TestCase):</p>
+<pre><code>def test_import_books(self):
+    import_all_books()
+    # print(Author.objects.all())
+    # print(Book.objects.all())
+    # print(Chapter.objects.all())
+    self.assertEqual(len(Author.objects.all()), 3)
+    self.assertEqual(len(Book.objects.all()), 2)
+    self.assertEqual(len(Chapter.objects.all()), 70)
+</code></pre>
+<p>```</p>
+<h3>Create a Django Command</h3>
+<ul>
+<li>Build a custom command to run the cloner</li>
+</ul>
+<p>coder/management/commands/initdb.py</p>
+<p>```python
+from django.core.management.base import BaseCommand</p>
+<p>class Command(BaseCommand):</p>
+<pre><code>def handle(self, *args, **options):
+    print("IMPORT BOOKS")
+    create_test_user()
+    import_all_books()
+</code></pre>
+<p>def create_test_user():
+    args = dict(username='seaman', email='me@here.com', password='secret')
+    user = get_user_model().objects.filter(username='seaman')
+    if user:
+        user = user[0]
+    else:
+        user = get_user_model().objects.create_user(**args)
+    return user, args</p>
+<p>def import_all_books():
+    author = create_author('Mark Seaman')
+    import_book("The Leverage Principle", author, 'Documents/Leverage', "Software Engineering Skills")
+    description = 'Mark shares his insights and irony about the absurdity of life.'
+    import_book("From the Edge of Reality", author, 'Documents/Poems', "A Seaman's Poems", description)
+```</p>
+<p>Invoke the command script</p>
+<p><code>bash
+$ python manage.py initdb</code></p>
+<h2>BUILD</h2>
+<h3>Practice</h3>
+<ul>
+<li>Clone my repo and study the code in 'week13/BookBuilder'</li>
+<li>Read the <a href="/course/bacs350/docs/DesignPatterns">Design Patterns</a></li>
+<li>Build the code and experiment with it</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

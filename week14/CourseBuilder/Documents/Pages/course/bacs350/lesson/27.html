@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 27</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 27 - Database Join</h1>
+<h2>LEARN</h2>
+<h3>Complete Your Projects</h3>
+<ul>
+<li>Project 1 - Setup development tools</li>
+<li>Project 2 - Build a simple app</li>
+<li>Project 3 - Application Hosting</li>
+<li>Project 4 - TemplateView</li>
+<li>Project 5 - Data Models</li>
+<li>Project 6 - Data Model Views</li>
+<li>Project 7 - User Authentication</li>
+<li>Project 8 - Bootstrap Styling</li>
+<li>Project 9 - Custom Views</li>
+<li>Project 10 - Relational Data</li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Mentoring</li>
+<li>Relational Data</li>
+<li>Foreign Key</li>
+</ul>
+<h3>Real world Engineering</h3>
+<ul>
+<li>Skills are needed beyond programming</li>
+<li>Mentoring</li>
+<li>Design reviews</li>
+<li>Each one teach one</li>
+<li>Introverts and extroverts</li>
+</ul>
+<h3>Introducing a new mentoring program</h3>
+<ul>
+<li>Best in the band, get a new band</li>
+<li>Best learning is teaching</li>
+<li>Gives you a chance to teach someone else</li>
+<li>Invitation</li>
+</ul>
+<h3>Benefits</h3>
+<ul>
+<li>Accelerate your learning</li>
+<li>Help someone else to succeed</li>
+<li>Line on the resume</li>
+<li>I will act as a reference</li>
+<li>Boost of one letter grade</li>
+</ul>
+<h3>Requirements</h3>
+<ul>
+<li>Current on assignments</li>
+<li>Meet with someone 1 hour weekly</li>
+<li>Review code and advise</li>
+<li>Teach misunderstandings</li>
+</ul>
+<h3>Some students need help</h3>
+<ul>
+<li>If you invest the time you will succeed</li>
+<li>Mentoring is an extra resource</li>
+<li>Dedicated time and place to review work</li>
+<li>Have the wisdom and humility to use the resources</li>
+</ul>
+<h3>Relational Data</h3>
+<ul>
+<li>Data table point to each other</li>
+<li>Objects live in the tables</li>
+<li>Reduce the duplicate information</li>
+<li>Databases are joined by a query</li>
+</ul>
+<h3>Foreign Key</h3>
+<ul>
+<li>Points to a record in another table</li>
+<li>Saves to ID of the record</li>
+<li>Guarantees that data is consistent</li>
+<li>Data duplication is removed</li>
+</ul>
+<h3>Relational Example</h3>
+<ul>
+<li>Chapters belong to a Book</li>
+<li>Chapter Data Record<ul>
+<li>book  (points to a book ID)</li>
+<li>order</li>
+<li>title</li>
+</ul>
+</li>
+</ul>
+<h3>Chapter Data Model</h3>
+<p>Create a representation for Chapters in the Book</p>
+<p>```python
+class Chapter(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    order = models.IntegerField()
+    title = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()
+    document = models.CharField(max_length=200)</p>
+<pre><code># Bad
+book = models.CharField(max_length=200)
+</code></pre>
+<p>```</p>
+<h3>Superhero News</h3>
+<ul>
+<li>
+<p>Superhero Record</p>
+<ul>
+<li>name</li>
+<li>identity</li>
+<li>description</li>
+<li>strength</li>
+<li>weakness</li>
+<li>image</li>
+</ul>
+</li>
+<li>
+<p>Article Record</p>
+<ul>
+<li>hero   (ID of Hero)</li>
+<li>order</li>
+<li>title</li>
+<li>markdown</li>
+<li>html</li>
+</ul>
+</li>
+</ul>
+<p><code>python
+class Article(models.Model):
+    hero = models.ForeignKey(Hero, on_delete=models.CASCADE)
+    order = models.IntegerField()
+    title = models.CharField(max_length=200)
+    markdown = models.TextField()
+    html = models.TextField()</code></p>
+<h3>Custom Queries in List View</h3>
+<ul>
+<li>Find only matching objects</li>
+<li>Pass reference object by ID on URL</li>
+<li>Use get_queryset to filter objects</li>
+</ul>
+<h3>Django for Beginners - Chapter 15</h3>
+<ul>
+<li>Comments on Articles</li>
+<li>Articles app</li>
+<li>URL, Templates, Views</li>
+<li>ForeignKey - Comment, Article</li>
+</ul>
+<h2>BUILD</h2>
+<h3>Book Builder Demo</h3>
+<ul>
+<li>Add Author Data Type</li>
+<li>Chapter point to Book</li>
+<li>Books point to Authors</li>
+<li>Author &lt;-- Book &lt;-- Chapter</li>
+<li>Views support proper queries</li>
+<li>Book builder style</li>
+<li>Tests for Data/Views (Author, Book, Chapter)</li>
+</ul>
+<h3>Limitation of Week 9</h3>
+<ul>
+<li>App support Books and Chapters</li>
+<li>But they are not integrated</li>
+<li>Massive duplication of data</li>
+<li>Chapters do not actually belong to a book</li>
+</ul>
+<h3>Work Needed</h3>
+<ul>
+<li>Show Chapters in Book Details page</li>
+<li>Rework URLs to display chapters</li>
+<li>Rework URLs to edit chapters</li>
+</ul>
+<h3>Chapters in Book</h3>
+<p>List the Chapters in the Book</p>
+<p>book/views.py</p>
+<p>```python</p>
+<h1>urls.py</h1>
+<h1>path('book/<int:pk>',           BookDetailView.as_view(),  name='book_detail'),</h1>
+<p>class BookDetailView(DetailView):
+    template_name = 'book_detail.html'
+    model = Book</p>
+<pre><code>def get_context_data(self, **kwargs):
+    book = Book.objects.get(pk=self.kwargs['pk'])
+    return dict(object=book, chapters=Chapter.objects.filter(book=book.title))
+</code></pre>
+<p>```</p>
+<h3>Chapters in Book</h3>
+<p>Show the Chapters in the Book in detail view</p>
+<p>templates/book_detail.html</p>
+<p>```html</p>
+<table class="table table-hover">
+    {% for chapter in chapters %}
+    <tr>
+        <td>{{ chapter.book }}</td>
+        <td><a href="/chapter/{{ chapter.pk }}">Chapter {{ chapter.order }} - {{ chapter.title }}</a></td>
+        <td><a href="/chapter/{{ chapter.pk }}/">Edit</a></td>
+        <td><a href="/chapter/{{ chapter.pk }}/delete">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<p>```</p>
+<h3>Project 10 - Superhero News</h3>
+<ul>
+<li>Views<ul>
+<li>Query for Articles about each Hero in HeroDetailView</li>
+<li>Add the article list to hero detail template</li>
+</ul>
+</li>
+<li>Data<ul>
+<li>Add hero as ForeignKey in Article</li>
+<li>Migrate</li>
+</ul>
+</li>
+<li>Tests<ul>
+<li>Hero Data</li>
+<li>Hero Views</li>
+<li>Article Data</li>
+<li>Article Views</li>
+</ul>
+</li>
+</ul>
+<h3>Project 10 - Views</h3>
+<ul>
+<li>Superhero Selector Page</li>
+<li>Profile Tab</li>
+<li>News Tab</li>
+<li>Article Views</li>
+<li>Hero Views</li>
+</ul>
+<h3>Project 10 - Data</h3>
+<ul>
+<li>Investigator Data Type</li>
+<li>Investigator &lt;-- Hero &lt;-- Article</li>
+<li>Views support proper queries</li>
+<li>Hero News  style</li>
+</ul>
+<h3>Project 10 - Tests</h3>
+<ul>
+<li>Data/Views </li>
+<li>Investigator, Hero, Article</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

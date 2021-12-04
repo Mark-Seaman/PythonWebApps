@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 14</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 14 - Manipulating Data</h1>
+<h2>LEARN</h2>
+<h3>Week 5 - Data</h3>
+<ul>
+<li>Lesson 12 - Data CRUD Operations</li>
+<li>Lesson 13 - View Inheritance</li>
+<li>Lesson 14 - Manipulating Data</li>
+<li>Project 5 - Admin Views and View Inheritance</li>
+<li>Django for Beginners - Chapter 5 - Blog App</li>
+</ul>
+<h3>Project 4</h3>
+<ul>
+<li>Project 4 requirements do not require a database </li>
+<li>Key Requirements<ul>
+<li>List of hero with links</li>
+<li>Details pages for all heros</li>
+<li>Include a photo that is stored on your server</li>
+</ul>
+</li>
+</ul>
+<h3>Project 5</h3>
+<ul>
+<li>Key Requirements<ul>
+<li>Admin views to create database for heroes</li>
+<li>List of hero with links from database</li>
+<li>Details pages for all heros from database</li>
+<li>Include a photo that is stored on your server</li>
+<li>View Inheritance (hero_theme.html)</li>
+</ul>
+</li>
+</ul>
+<h3>Data Models</h3>
+<ul>
+<li>ORM lets us write Data Models as Python Classes</li>
+<li>Database is automatically updated </li>
+<li>Migration updates the tables</li>
+</ul>
+<h3>Data Migrations</h3>
+<p>Create the scripts to update the database</p>
+<p>Apply the migrations</p>
+<pre><code>python manage.py makemigrations hero
+
+python manage.py migrate
+</code></pre>
+<h3>CRUD</h3>
+<ul>
+<li>CREATE - make a new record</li>
+<li>READ - get one or more records</li>
+<li>UPDATE - modify an existing record</li>
+<li>DELETE - remove a record</li>
+</ul>
+<h3>Django Shell</h3>
+<p>A console window will let you execute Python code directly</p>
+<p>Do all the CRUD operations</p>
+<pre><code>python manage.py shell
+</code></pre>
+<h3>Data Model</h3>
+<ul>
+<li>Superhero (name, identity)</li>
+</ul>
+<p>hero/models.py</p>
+<pre><code>class Superhero(models.Model):
+    name = models.CharField(max_length=20)
+    identity = models.CharField(max_length=20)
+</code></pre>
+<h3>CREATE</h3>
+<p>hero/hero.py</p>
+<pre><code>from .models import Superhero
+
+def add_hero(hero_name, hero_id):
+    return Superhero.objects.create(name=hero_name, identity=hero_id)
+</code></pre>
+<h3>READ - List</h3>
+<p>hero/hero.py</p>
+<pre><code>def list_heroes():
+    return Superhero.objects.all()
+</code></pre>
+<h3>READ - Get</h3>
+<p>hero/hero.py</p>
+<pre><code>def get_hero(pk):
+    return Superhero.objects.get(pk=pk)
+
+def get_identity(id):
+    return Superhero.objects.get(identity=id)
+
+def get_hero_name(supername):
+    return Superhero.objects.get(name=supername)
+</code></pre>
+<h3>UPDATE</h3>
+<p>hero/hero.py</p>
+<pre><code>def set_hero_id(pk, id):
+    w = get_hero(pk)
+    w.identity=id
+    w.save()
+
+def set_hero_name(pk, name):
+    w = get_hero(pk)
+    w.name=name
+    w.save()
+</code></pre>
+<h3>DELETE</h3>
+<p>hero/hero.py</p>
+<pre><code>def delete_hero(pk):
+    Superhero.objects.get(pk=pk).delete()
+</code></pre>
+<h2>BUILD</h2>
+<h3>Test CRUD</h3>
+<p>Use Django Tests to test the CRUD operations</p>
+<p>hero/tests.py</p>
+<pre><code>from django.test import TestCase
+
+from .models import Superhero
+from .hero import list_heroes
+
+class CrudTests(TestCase):
+
+    def test_num_heroes(self):
+        num_heroes = len(list_heroes())
+        self.assertEqual(num_heroes, 0)
+</code></pre>
+<h3>Test Each Operation</h3>
+<p>Test every function you write</p>
+<pre><code>def test_hero_model(self):
+    pass
+
+def test_create(self):
+    pass
+
+def test_read(self):
+    pass
+
+def test_update(self):
+    pass
+
+def test_delete(self):
+    pass
+</code></pre>
+<h3>Use the Query Functions</h3>
+<ul>
+<li>Tests the functions</li>
+<li>Provides place to put business logic</li>
+<li>Enable tests in small steps</li>
+</ul>
+<h3>You practice</h3>
+<ul>
+<li>Create access functions in hero/hero.py</li>
+<li>Build tests in hero/tests.py</li>
+<li>Debug tests and functions one at a time</li>
+<li>Create five tests (model, create, read, update, delete)</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

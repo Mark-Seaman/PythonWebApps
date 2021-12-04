@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 12</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 12 - Data CRUD Operations</h1>
+<h2>LEARN</h2>
+<h3>Week 5 - Data</h3>
+<ul>
+<li>Lesson 12 - Data CRUD Operations</li>
+<li>Lesson 13 - View Inheritance</li>
+<li>Lesson 14 - Manipulating Data</li>
+<li>Project 5 - Admin Views</li>
+<li>Django for Beginners - Chapter 5 - Blog App</li>
+</ul>
+<h3>Visit the Django website</h3>
+<ul>
+<li><a href="https://www.djangoproject.com/">Django Website</a></li>
+<li><a href="https://www.djangoproject.com/start">Django Start</a></li>
+<li>Select the "Object-relational Mapper" expansion link</li>
+</ul>
+<h3>Applications = Data + Views</h3>
+<ul>
+<li>Static Websites are views without data</li>
+<li>Data is saved state on the server</li>
+</ul>
+<h3>ORM - Object Relational Mapper</h3>
+<ul>
+<li>Create Python Classes</li>
+<li>Automatically create Database Tables</li>
+</ul>
+<h3>Database</h3>
+<ul>
+<li>Rows and Columns</li>
+<li>Items and Attributes</li>
+</ul>
+<h3>Two Views of Data</h3>
+<ul>
+<li>Objects in Memory</li>
+<li>Database Rows</li>
+</ul>
+<h3>Superhero Data Model</h3>
+<ul>
+<li>Superhero<ul>
+<li>Name</li>
+<li>Description</li>
+<li>Image</li>
+</ul>
+</li>
+</ul>
+<h3>Data Migration</h3>
+<ul>
+<li>Examine Python Data Models</li>
+<li>Create scripts to migrate the database tables</li>
+</ul>
+<h3>CRUD Operations</h3>
+<ul>
+<li>CREATE - make a new record</li>
+<li>READ - get one or more records (List, Detail)</li>
+<li>UPDATE - modify an existing record</li>
+<li>DELETE - remove a record</li>
+</ul>
+<h3>Operations on Every Model</h3>
+<ul>
+<li>Create Superhero</li>
+<li>List Superhero</li>
+<li>Details Superhero</li>
+<li>Update Superhero</li>
+<li>Delete Superhero</li>
+</ul>
+<h3>Change in Demos</h3>
+<ul>
+<li>Weeks 1-4 - monkey see; monkey do</li>
+<li>Weeks 5-14 - learn and debug</li>
+</ul>
+<h3>Book Builder App</h3>
+<ul>
+<li>Simple enough to teach principles</li>
+<li>Complex enough to demonstrate key ideas</li>
+<li>Every week we will build features</li>
+<li>Projects 1-14 will build Superhero News Service</li>
+</ul>
+<h3>Django Admin View</h3>
+<ul>
+<li>Build a UI to manipulate data</li>
+<li>Free and easy</li>
+<li>Create new table in five minutes</li>
+</ul>
+<h2>BUILD</h2>
+<h3>Short-cuts</h3>
+<ul>
+<li>Sensei</li>
+<li>Github repo</li>
+<li>Web app</li>
+<li>Python Anywhere Web config</li>
+<li>Python Anywhere Console</li>
+</ul>
+<h3>Development Workflow</h3>
+<ul>
+<li>Pull </li>
+<li>Change</li>
+<li>Test</li>
+<li>Push</li>
+<li>Deploy</li>
+</ul>
+<h3>Start Book Builder project</h3>
+<pre><code>$ cd week5/BookBuilder
+$ django-admin startproject config .
+$ python manage.py startapp book
+</code></pre>
+<h3>Settings</h3>
+<p>config/settings.py</p>
+<pre><code># Enable the templates for the 'templates' directory
+
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [BASE_DIR / 'templates'],
+        ...
+    },
+]
+
+
+# Enable the static media server (Images, CSS, Javascript)
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+
+# Place to collect static files
+STATIC_ROOT = BASE_DIR / "static_assets"
+
+
+# Enable Python Anywhere
+
+ALLOWED_HOSTS = ['markseaman.pythonanywhere.com', '127.0.0.1', 'localhost']
+
+
+# Enable data for Hero app
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'book',
+]
+</code></pre>
+<h3>Add Data Model</h3>
+<pre><code>class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
+
+$ python manage.py makemigrations
+$ python manage.py migrate
+</code></pre>
+<h3>Enable Admin Views on Book</h3>
+<p>book/admin.py</p>
+<pre><code>from django.contrib import admin
+from .models import Book
+
+admin.site.register(Book)
+</code></pre>
+<h3>Test Admin Book</h3>
+<pre><code>$ python manage.py createsuperuser
+$ python manage.py runserver
+$ browse to 127.0.0.1:8000/admin/
+$ git add . &amp;&amp; git commit -m "Book Data Model"
+</code></pre>
+<h3>Python CRUD</h3>
+<p>Terminal Window</p>
+<pre><code>$ python manage.py shell
+</code></pre>
+<p>Use the Book Model</p>
+<pre><code>from book.models import Book
+</code></pre>
+<p>List Books</p>
+<pre><code>Book.objects.all()
+
+Book.objects.filter(author='Mark Seaman')
+</code></pre>
+<p>Get specific book</p>
+<pre><code>b = Book.objects.get(title="A Seaman's Journey")
+b.author
+b.name
+b.pk
+</code></pre>
+<p>Create book record</p>
+<pre><code>Book.objects.create(title="A Seaman's Journey", author="Mark Seaman")
+</code></pre>
+<p>Update book record</p>
+<pre><code>b = Book.objects.get(title="A Seaman's Journey")
+b.title = "A Seaman's Life"
+b.save()
+</code></pre>
+<p>Delete a record</p>
+<pre><code>Book.objects.get(title="A Seaman's Journey").delete()
+</code></pre>
+<h3>Practice</h3>
+<ul>
+<li>Start a new project "week5/Superhero"</li>
+<li>Implement the Hero model and admin views</li>
+<li>Run the Django shell</li>
+<li>Experiment with creating, listing, modifying objects</li>
+</ul>
+<h3>CRUD Code</h3>
+<ul>
+<li>CREATE - Superhero.objects.create()</li>
+<li>READ - Superhero.objects.get()</li>
+<li>UPDATE - hero.save()</li>
+<li>DELETE - hero.delete()</li>
+</ul>
+<h3>Data Model</h3>
+<ul>
+<li>Superhero (name, description='None', image='None')</li>
+</ul>
+<p>hero/models.py</p>
+<pre><code>class Superhero(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.CharField(max_length=200)
+</code></pre>
+<h3>CREATE</h3>
+<pre><code>Superhero.objects.create(name='Black Widow', description='Natalia Romanova', image='None')
+</code></pre>
+<h3>READ</h3>
+<pre><code>w = Superhero.objects.get(name='Black Widow')
+print(w.description)
+
+for s in Superhero.objects.all():
+    print(w.description, w.name)
+</code></pre>
+<h3>UPDATE</h3>
+<pre><code>w = Superhero.objects.get(name='Black Widow')
+w.description='Natasha Romanoff'
+w.save()
+</code></pre>
+<h3>DELETE</h3>
+<pre><code>Superhero.objects.get(name='Black Widow').delete()
+</code></pre>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
