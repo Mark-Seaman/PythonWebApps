@@ -1,9 +1,0 @@
-1,Check for Github Server,server,index.html,Home Page,Page must contain 'Home Page' text,"Failed to find 'Home Page' text"
-1,Check for Github Pages repo,github,blob/main/index.html,github.io,Github repo must have an index.html file,Failed to find index.html file
-2,Check for BACS200 folder,server,bacs200/index.html,BACS 200 Class Content,Created a 'bacs200/index.html' page,Could not find title 'BACS 200 Class Content'
-2,Check for 'inspire.html' page,server,bacs200/inspire.html,<body>,Created a 'inspire.html' page,Could not find title 'Inspire Me'
-3,Check for 'amuse.html' page,server,bacs200/amuse.html,<body>,Created a page 'amuse.html' with a title of "Amuse Me",Could not find title 'Amuse Me'
-4,Check for 'educate.html' page,server,bacs200/educate.html,<body>,Created a page 'educate.html' with a title of "Educate Me",Could not find title 'Educate Me'
-5,Check for 'test.html' page,server,bacs200/test.html,Test,Created a page 'test.html' with a title of "Test Page",Could not find title 'Test Page'
-6,Check for 'superhero.html' page,server,bacs200/superhero.html,Superhero Gallery,Created a page 'superhero.html' with a title of "Superhero Gallery",Could not find title 'Superhero Gallery'
-6,Check for Github Pages repo,github,blob/main/bacs200/index.html,github.io,Github repo must have an index.html file in the bacs200 folder,Failed to find index.html file
