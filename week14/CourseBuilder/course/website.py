@@ -94,7 +94,7 @@ def save_page(md, html, page_title, doc_type, settings):
         return render_to_string('static_theme.html', settings)
 
     content = open(md).read()
-    title = content.split('/n')[0][2:]
+    title = content.split('\n')[0][2:]
     text = markdown(content)
     settings.update(dict(page=md, text=text, page_title=title, doc_type=doc_type))
     # print('write_html_file', md, html)
