@@ -21,7 +21,9 @@ def course_json(course, filename="page_settings.json"):
 def create_index_page(md_path, html_path, doc_type, course):
     def link(page):
         lesson = page.replace(".md", "")
-        return f'* [{doc_type} {lesson}]({lesson}.html)\n'
+        content = open(f'{md_path}/{page}').read()
+        title = content.split('\n')[0][2:]
+        return f'* [{title}]({lesson}.html)\n'
 
     settings = course_json(course)
     title = f'{course.upper()} {doc_type} Index'
@@ -80,12 +82,6 @@ def create_static_site(course):
     create_pages(markdown_path, website_path, 'project', 'Project',  course)
     create_pages(markdown_path, website_path, 'docs',    'Document', course)
 
-    # create_doc_pages(markdown_path, website_path, course)
-    # create_project_pages(markdown_path, website_path, course)
-    # build_slides(markdown_path, website_path, course)
-    # create_lecture_pages(course)
-    # return count_files(website_path)
-
 
 def save_page(md, html, page_title, doc_type, settings):
 
@@ -97,8 +93,9 @@ def save_page(md, html, page_title, doc_type, settings):
     def render_page(settings):
         return render_to_string('static_theme.html', settings)
 
-    title = page_title
-    text = markdown(open(md).read())
+    content = open(md).read()
+    title = content.split('/n')[0][2:]
+    text = markdown(content)
     settings.update(dict(page=md, text=text, page_title=title, doc_type=doc_type))
     # print('write_html_file', md, html)
     write_html_file(html, render_page(settings))
