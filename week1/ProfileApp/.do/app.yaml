@@ -42,14 +42,3 @@ static_sites:
   output_dir: staticfiles
   routes:
   - path: /static
-databases:
-# Create a new dev DB:
-- name: db
-  engine: PG
-  version: "12"
-# Or bring an existing DB:
-# - name: db
-#   production: true
-#   cluster_name: mydb
-#   engine: PG
-#   version: "12"
