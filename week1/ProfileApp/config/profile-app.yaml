@@ -27,7 +27,7 @@ services:
   - path: /
   run_command: |-
     python manage.py migrate
-    gunicorn --worker-tmp-dir /dev/shm config.wsgi
+    gunicorn --worker-tmp-dir /dev/shm week1/ProfileApp/config.wsgi
   source_dir: /week1/ProfileApp
 static_sites:
 - environment_slug: html
