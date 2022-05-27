@@ -40,4 +40,3 @@ static_sites:
   routes:
   - path: /static
   source_dir: week1/ProfileApp/static
-
