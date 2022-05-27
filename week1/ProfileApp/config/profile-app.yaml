@@ -26,8 +26,9 @@ services:
   routes:
   - path: /
   run_command: |-
-    python manage.py migrate
-    gunicorn --worker-tmp-dir /dev/shm week1/ProfileApp/config.wsgi
+    python manage.py migrate --no-input
+    cd week1/ProfileApp
+    gunicorn --worker-tmp-dir /dev/shm config.wsgi
   source_dir: /week1/ProfileApp
 static_sites:
 - environment_slug: html
@@ -38,4 +39,5 @@ static_sites:
   name: static
   routes:
   - path: /static
-  source_dir: static
+  source_dir: week1/ProfileApp/static
+
