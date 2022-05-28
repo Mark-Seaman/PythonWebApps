@@ -1,7 +1,7 @@
 #!/bin/bash
 # Linux Shell Contexts
 
-export p=/Users/seaman/Github/BACS350/week1/ProfileApp
+export p=/Users/seaman/Github/BACS350/week3/ProfileApp
 cd $p
 
 figlet BACS 350
