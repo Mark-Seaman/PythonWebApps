@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Detail</title>
+</head>
+
+<body>
+
+    <a href="/">Return to Photo Gallery</a>
+
+    <h1>Photo Detail</h1>
+
+    <p>
+        <img src="{{ photo.file }}" alt="Chapter {{ photo.id }}">
+    </p>
+    <p>
+        CAPTION:
+        {% if photo.caption %}
+        {{ photo.caption }}
+        {% else %}
+        No caption
+        {% endif%}
+
+    </p>
+    <p>
+        FILE PATH: {{ photo.file }}
+    </p>
+
+
+</body>
+
+</html>

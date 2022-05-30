@@ -10,12 +10,14 @@
 
 <body>
     <h1>Photo Gallery</h1>
-    <p>
-        {% for photo in photos %}
-        <img src="/static/images/chapter-{{ photo }}.jpg" alt="Chapter {{ photo }}">
-        {% endfor %}
 
-    </p>
+    {% for photo in photos %}
+    <a href="{{ photo.id }}">
+        <img src="{{ photo.file }}" alt="Chapter {{ photo.id }}" width="200">
+    </a>
+
+    {% endfor %}
+
 </body>
 
 </html>
