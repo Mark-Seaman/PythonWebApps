@@ -26,7 +26,7 @@ SECRET_KEY = '!ziw5@k3v+jfux%8p1)$9q*!z+ke455nra%v5s)j=prxe7)=*t'
 DEBUG = True
 
 # Enable Python Anywhere
-ALLOWED_HOSTS = ['markseaman.pythonanywhere.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
