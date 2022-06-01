@@ -27,9 +27,9 @@ services:
   - path: /
   run_command: |
     python manage.py migrate --no-input
-    cd week3/Gallery
+    cd week4/Gallery
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: week3/Gallery
+  source_dir: week4/Gallery
 static_sites:
 - environment_slug: html
   github:
@@ -39,4 +39,4 @@ static_sites:
   name: bacs350-photos-static
   routes:
   - path: /static
-  source_dir: week3/Gallery/static
+  source_dir: week4/Gallery/static
