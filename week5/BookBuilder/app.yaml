@@ -27,7 +27,7 @@ services:
   - path: /
   run_command: |
     python manage.py migrate --no-input
-    # cd week5/BookBuilder
+    python manage.py createsuperuser --no-input --email 'me@here.us' --username seaman --password seaman
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
   source_dir: week5/BookBuilder
 static_sites:
