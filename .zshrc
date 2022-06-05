@@ -1,7 +1,7 @@
 #!/bin/bash
 # Linux Shell Contexts
 
-export p=/Users/seaman/Github/BACS350/week4/Gallery
+export p=/Users/seaman/Github/BACS350/week6/Photogram
 cd $p
 
 figlet BACS 350
@@ -13,3 +13,8 @@ git status
 ls -al
 
 py
+
+
+export h=~/Hammer
+export w=$h/workshop
+export t=$h/templates
