@@ -8,6 +8,10 @@ class AboutView(TemplateView):
         return {
             'title': 'My About Page',
             'body': 'Once upon a time ...',
+            'links': [
+                ('/', 'Index Page'),
+                ('home', 'Home Page'),
+            ]
         }
 
 

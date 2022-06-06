@@ -11,7 +11,7 @@ envs:
 - key: DISABLE_COLLECTSTATIC
   scope: RUN_AND_BUILD_TIME
   value: "1"
-name: profile-app
+name: demo-app
 region: nyc
 services:
 - environment_slug: python
@@ -28,7 +28,7 @@ services:
   run_command: |-
     python manage.py migrate --no-input
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: week2/ProfileApp
+  source_dir: week3/Pages
 static_sites:
 - environment_slug: html
   github:
@@ -38,4 +38,4 @@ static_sites:
   name: bacs350-demo-static
   routes:
   - path: /static
-  source_dir: week2/ProfileApp/static
+  source_dir: week3/Pages/static
