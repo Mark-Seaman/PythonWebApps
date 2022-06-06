@@ -1,11 +1,15 @@
 
 from django.urls import path
 
-from .views import PhotoDeleteView, PhotoDetailView, PhotoListView, PhotoCreateView, \
+from .views import ImageCreateView, ImageDeleteView, ImageListView, PhotoDeleteView, PhotoDetailView, PhotoListView, PhotoCreateView, \
     PhotoUpdateView
+from django.contrib import admin
 
 urlpatterns = [
+    # Admin
+    path('admin/', admin.site.urls),
 
+    # Photogram
     path('',                   PhotoListView.as_view(),    name='photo_list'),
     path('<int:pk>',           PhotoDetailView.as_view(),  name='photo_detail'),
     path('add',                PhotoCreateView.as_view(),  name='photo_add'),
