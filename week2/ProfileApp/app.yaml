@@ -22,21 +22,20 @@ services:
   http_port: 8080
   instance_count: 1
   instance_size_slug: basic-xxs
-  name: bacs350-profile
+  name: bacs350-demo
   routes:
   - path: /
   run_command: |
     python manage.py migrate --no-input
-    cd week3/ProfileApp
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: week3/ProfileApp
+  source_dir: week2/ProfileApp
 static_sites:
 - environment_slug: html
   github:
     branch: main
     deploy_on_push: true
     repo: Mark-Seaman/BACS350
-  name: bacs350-profile-static
+  name: bacs350-demo-static
   routes:
   - path: /static
-  source_dir: week3/ProfileApp/static
+  source_dir: week2/ProfileApp/static
