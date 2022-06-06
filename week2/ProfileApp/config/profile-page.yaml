@@ -1,0 +1,12 @@
+name: profile-page
+region: nyc
+static_sites:
+- environment_slug: html
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: Mark-Seaman/BACS350
+  name: profile-page
+  routes:
+  - path: /
+  source_dir: week1/ProfilePage
