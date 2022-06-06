@@ -27,7 +27,6 @@ services:
   - path: /
   run_command: |
     python manage.py migrate --no-input
-    cd week4/Gallery
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
   source_dir: week4/Gallery
 static_sites:
