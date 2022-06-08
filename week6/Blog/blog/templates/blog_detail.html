@@ -1,0 +1,39 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+<div class="container m-5">
+
+    <h1 class="text-primary">Blog Details</h1>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg">
+
+                <table class="table">
+                    <tr>
+                        <td>Title</td>
+                        <td><b><a href="/blog/{{ object.pk }}/">{{ object.title }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td><b><a href="/author/{{ object.author.pk }}">{{ object.author.name }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><b>{{ object.description }}</b></td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+    <a href="/blog/" class="btn btn-success m-5">Blog List</a>
+    <a href="/blog/{{ object.pk }}/" class="btn btn-success m-5">Edit Blog</a>
+    <a href="/blog/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Blog</a>
+</div>
+
+{% endblock content %}

@@ -6,9 +6,9 @@ export p2=$GITHUB/BACS350/week2/ProfileApp
 export p3=$GITHUB/BACS350/week3/Pages
 export p4=$GITHUB/BACS350/week4/Gallery
 export p5=$GITHUB/BACS350/week5/NotePad
-export p6=$GITHUB/BACS350/week6/BookBuilder
+export p6=$GITHUB/BACS350/week6/BlogBuilder
 export p7=$GITHUB/BACS350/week7/Photogram
-cd $p5
+cd $p6
 
 figlet BACS 350
 
