@@ -130,6 +130,14 @@ templates/notes.html
 
 ## Settings
 
+Configure the settings 
+
+* ALLOWED_HOSTS
+* INSTALLED_APPS
+* TEMPLATES
+* STATICFILES_DIRS
+
+
 config/settings.py
 
     # Handle all URL requests made to web server
