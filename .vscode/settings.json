@@ -1,4 +1,6 @@
 {
+    "python.defaultInterpreterPath": 
+    "c:/Users/mark.seaman/Documents/BACS350/venv/Scripts/python.exe",
     "git.ignoreLimitWarning": true,
     "python.testing.promptToConfigure": false,
     "python.testing.pytestEnabled": false,
