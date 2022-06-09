@@ -1,0 +1,49 @@
+envs:
+- key: DEBUG
+  scope: RUN_AND_BUILD_TIME
+  value: "True"
+- key: DISABLE_COLLECTSTATIC
+  scope: RUN_AND_BUILD_TIME
+  value: "1"
+- key: DJANGO_ALLOWED_HOST
+  scope: RUN_AND_BUILD_TIME
+  value: .ondigitalocean.app
+- key: DEVELOPMENT_MODE
+  scope: RUN_AND_BUILD_TIME
+  value: "True"
+- key: DJANGO_SUPERUSER_USERNAME
+  scope: RUN_AND_BUILD_TIME
+  value: seaman
+- key: DJANGO_SUPERUSER_PASSWORD
+  scope: RUN_AND_BUILD_TIME
+  type: SECRET
+  value: EV[1:ucisUj/NUMdTmPvKpBVKPDFyZD2IFX3Z:QlHsGQPQdufHcWtqY9oMclJXiJZTIw==]
+name: bacs350-demo
+region: nyc
+services:
+- environment_slug: python
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: Mark-Seaman/BACS350
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: bacs350-demo-app
+  routes:
+  - path: /
+  run_command: |
+    python manage.py migrate --no-input
+    python manage.py createsuperuser --no-input --email 'me@here.us'
+    gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  source_dir: week6/Blog
+static_sites:
+- environment_slug: html
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: Mark-Seaman/BACS350
+  name: bacs350-demo-static
+  routes:
+  - path: /static
+  source_dir: week6/Blog/static

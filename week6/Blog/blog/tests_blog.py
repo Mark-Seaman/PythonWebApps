@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from .models import Blog
 from .models import Blog
-from workshop.coder import create_test_user
+from .tests import create_test_user
 
 
 class BlogDataTest(TestCase):

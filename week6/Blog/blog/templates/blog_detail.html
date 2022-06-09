@@ -27,6 +27,16 @@
                 </table>
 
             </div>
+            <div class="col-lg">
+                <h2>Articles</h2>
+                <ul>
+                    {% for a in articles %}
+                    <li>
+                        <a href="/article/{{ a.pk }}">{{ a.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
 
         </div>
     </div>

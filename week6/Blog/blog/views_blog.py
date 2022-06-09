@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Blog
+from .models import Article, Blog
 
 
 class BlogView(RedirectView):
@@ -19,10 +19,10 @@ class BlogDetailView(DetailView):
     template_name = 'blog_detail.html'
     model = Blog
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     kwargs.update(dict(dependent=Dependent.obects.filter(blog=kwargs.get('object'))))
-    #     return kwargs
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs.update(dict(articles=Article.objects.filter(blog=kwargs.get('object'))))
+        return kwargs
 
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
