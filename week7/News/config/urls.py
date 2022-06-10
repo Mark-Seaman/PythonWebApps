@@ -22,7 +22,7 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
-    # Blog
-    path('', include('app.urls')),
+    # News
+    path('', include('news.urls_article')),
 
 ]
