@@ -1,0 +1,39 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+<div class="container m-5">
+
+    <h1 class="text-primary">Document Details</h1>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg">
+
+                <table class="table">
+                    <tr>
+                        <td>Title</td>
+                        <td><b><a href="/doc/{{ object.pk }}/">{{ object.title }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td><b><a href="/author/{{ object.author.pk }}">{{ object.author.name }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><b>{{ object.description }}</b></td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+    <a href="/doc/" class="btn btn-success m-5">Document List</a>
+    <a href="/doc/{{ object.pk }}/" class="btn btn-success m-5">Edit Document</a>
+    <a href="/doc/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Document</a>
+</div>
+
+{% endblock content %}

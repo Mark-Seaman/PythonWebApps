@@ -27,4 +27,10 @@ export h=~/Hammer
 export w=$h/workshop
 export t=$h/templates
 
+export DJANGO_SUPERUSER_USERNAME='seaman'
+export DJANGO_SUPERUSER_PASSWORD='seaman'
+export DJANGO_SUPERUSER_EMAIL='seaman'
+
+alias superuser='pm createsuperuser --no-input  --email "me@here.us"'
+
 l 

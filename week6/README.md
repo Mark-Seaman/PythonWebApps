@@ -1,16 +1,18 @@
-# Web Apps Demo Code  - Chapter 6
+# Web Apps Demo Code  - Chapter 7
 
-This demo code illustrates the concepts from "Building Web Apps - Chapter 6".
+This demo code illustrates the concepts from "Building Web Apps - Chapter 7".
 
 * [Course Website](https://shrinking-world.com/course/bacs350)
-* [Chapter 6](https://shrinking-world.com/course/bacs350/chapter/6)
-* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week6)
+* [Chapter 7](https://shrinking-world.com/course/bacs350/chapter/7)
+* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week7)
 
-## Blog Builder
+## Book Builder
 
 This code shows the structure of a Django application that uses a database.  Multiple data types are 
-defined along with the views required to edit the data records.  This app has been left intentionally
-simple to make it easy to understand all of the code.
+defined along with the views required to edit all of the data records.  This app has unique user accounts
+for authors.  Each author is able to create books interactively with no access to the underlying server.
+
+Readers are able to access the books but can't modify the contents.
 
 
 ## Running the App
@@ -18,7 +20,7 @@ simple to make it easy to understand all of the code.
 To run the code do the following steps.
 
 * Start Visual Studio
-* Open "week6/Blog"
+* Open "week7/BookBuilder"
 * Run menu, Start Debugging
 * Browse to http://127.0.0.1:8000/
 
@@ -29,9 +31,9 @@ Visit all views for testing.
 
 Build the project & start a new Django app
 
-    $ cd week6/Blog
+    $ cd week7/BookBuilder
     $ django-admin startproject config .
-    $ python manage.py startapp blog
+    $ python manage.py startapp book
 
 Modify config/settings.py
    
