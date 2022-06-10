@@ -1,10 +1,10 @@
-# Web Apps Demo Code  - Chapter 7
+# Web Apps Demo Code  - Chapter 6
 
 This demo code illustrates the concepts from "Building Web Apps - Chapter 7".
 
 * [Course Website](https://shrinking-world.com/course/bacs350)
-* [Chapter 7](https://shrinking-world.com/course/bacs350/chapter/7)
-* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week7)
+* [Chapter 6](https://shrinking-world.com/course/bacs350/chapter/6)
+* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week6)
 
 ## Book Builder
 

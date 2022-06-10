@@ -8,8 +8,8 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/week7/BookBuilder/manage.py",
-            "cwd": "${workspaceFolder}/week7/BookBuilder",
+            "program": "${workspaceFolder}/week7/News/manage.py",
+            "cwd": "${workspaceFolder}/week7/News",
             "args": [
                 "runserver"
             ],
