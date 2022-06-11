@@ -18,9 +18,9 @@
 
         {% for author in object_list %}
         <tr>
-            <td><a href="/author/{{ author.pk }}">{{ author.title }}</a></td>
-            <td><a href="/author/{{ author.pk }}">{{ author.description }}</a></td>
-            <td><a href="/author/{{ author.author.pk }}">{{ author.author.name }}</a></td>
+            <td><a href="/author/{{ author.pk }}">{{ author.name }}</a></td>
+            <td><a href="/author/{{ author.pk }}">{{ author.bio }}</a></td>
+            <td><a href="/author/{{ author.author.pk }}">{{ author.user.username }}</a></td>
             <td><a href="/author/{{ author.pk }}/">Edit</a></td>
             <td><a href="/author/{{ author.pk }}/delete">Delete</a></td>
         </tr>

@@ -8,8 +8,15 @@ class Author(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bio = models.TextField()
 
+    @property
+    def name(self):
+        return self.user.first_name + ' ' + self.user.last_name
+
     def __str__(self):
         return f'{self.user.username}'
+
+    def get_absolute_url(self):
+        return reverse_lazy('author_list')
 
 
 class Article (models.Model):
