@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.ondigitalocean.app']
 # Application definition
 
 INSTALLED_APPS = [
+    # System apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'accounts',
+    # Third-party
     'crispy_forms',
+
+    # My apps
+    'accounts',
     'news',
 ]
 
@@ -106,6 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# AUTH_USER_MODEL = 'accounts.UserAccount'
 
 
 # Internationalization

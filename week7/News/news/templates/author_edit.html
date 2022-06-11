@@ -11,8 +11,33 @@
     <form action="" method="post">
         {% csrf_token %}
 
-        <table>
-            {{ form.as_table }}
+        <table class="table">
+            <tr>
+                <td><b>Author Name:</b></td>
+                <td>
+                    <b><a href="/accounts/{{ object.user.pk }}/">
+                            {{ object.user.first_name }} {{ object.user.last_name }}
+                        </a></b>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Author Email:</b></td>
+                <td>
+                    <b><a href="/accounts/{{ object.user.pk }}/">
+                            {{ object.user.email }}
+                        </a></b>
+                </td>
+            </tr>
+            <tr>
+                <td><b>User ID:</b></td>
+                <td>
+                    <b><a href="/accounts/{{ object.user.pk }}/">
+                            {{ object.user.username }}</a></b>
+                </td>
+            </tr>
+
+            {{ form }}
+
         </table>
 
         <button class="btn btn-primary mt-5" type="submit">Save Record</button>

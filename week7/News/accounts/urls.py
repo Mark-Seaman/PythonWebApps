@@ -4,6 +4,7 @@ from django.urls import path
 
 from accounts.views import AccountDeleteView, AccountDetailView, AccountListView, AccountCreateView, AccountUpdateView, SignUpView
 
+
 urlpatterns = [
 
     # Account Views

@@ -3,11 +3,7 @@
 
 <form action="" method="post">{% csrf_token %}
 
-    <div class="container-fluid">
-        <div class="col">
-            {{ form|crispy }}
-        </div>
-    </div>
+    {{ form|crispy }}
 
     <button class="btn btn-success mt-5" type="submit">Save Record</button>
 

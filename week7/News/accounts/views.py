@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 
+# from .models import UserAccount
+
 
 class SignUpView(CreateView):
     form_class = UserCreationForm

@@ -13,31 +13,25 @@
 
                 <table class="table">
                     <tr>
-                        <td>Author Name</td>
+                        <td><b>Author Name:</b></td>
                         <td>
-                            <b><a href="/admin/auth/user/{{ object.user.pk }}/change/">
-                                    {{ object.user.first_name }} {{ object.user.last_name }}
-                                </a></b>
+                            {{ object.user.first_name }} {{ object.user.last_name }}
                         </td>
                     </tr>
                     <tr>
-                        <td>Author Email</td>
+                        <td><b>Author Email:</b></td>
                         <td>
-                            <b><a href="/admin/auth/user/{{ object.user.pk }}/change/">
-                                    {{ object.user.email }}
-                                </a></b>
+                            {{ object.user.email }}
                         </td>
                     </tr>
                     <tr>
-                        <td>User ID</td>
+                        <td><b>User ID:</b></td>
                         <td>
-                            <b><a href="/admin/auth/user/{{ object.user.pk }}/change/">
-                                    {{ object.user.username }}</a></b>
-                        </td>
+                            {{ object.user.username }}</a>
                     </tr>
                     <tr>
-                        <td>Biography</td>
-                        <td><b>{{ object.bio }}</b></td>
+                        <td><b>Biography</b> </td>
+                        <td>{{ object.bio }}</td>
                     </tr>
                 </table>
 

@@ -38,7 +38,7 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "author_edit.html"
     model = Author
-    fields = '__all__'
+    fields = ['bio']
 
 
 class AuthorDeleteView(LoginRequiredMixin, DeleteView):
