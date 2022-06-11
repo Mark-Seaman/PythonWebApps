@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from .models import Article
-from workshop.coder import create_test_user
+from .test_util import create_test_user
 
 
 class ArticleDataTest(TestCase):

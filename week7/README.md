@@ -8,14 +8,16 @@ This demo code illustrates the concepts from "Building Web Apps - Chapter 7".
 
 ## News
 
-This code shows the structure of a Django application that uses a database.  Multiple data types are 
+This code shows the structure of a Django application that has user accounts.  Multiple data types are 
 defined along with the views required to edit the data records.  This app has been left intentionally
 simple to make it easy to understand all of the code.
 
 
 Multiple data types are 
 defined along with the views required to edit the data records.  This app has unique user accounts
-for authors.  Each author is able to log in in order to create new articles or modify existing ones.
+for authors.  Every data object is tied to a specific author.
+
+Each author is able to log in in order to create new articles or modify existing ones.
 
 New users can register directly on the website to get a new user login.  The Author records in the
 database use the built-in data models and views for Users.

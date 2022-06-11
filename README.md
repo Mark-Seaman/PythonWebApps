@@ -52,17 +52,19 @@ UNC BACS350 - Student Code
     * Tabular Data
     * Composite Views
     * Partial Templates
+    * Data dictionaries
 
 * Chapter 10 - Photogram
+    * Image Upload
     * Accordion
     * Carousel
     * Tabs
-    * Image Upload
 
 * Chapter 11 - Lab Notebook
     * Complex data
     * Import Export
     * JSON fixtures
+    * Data management
 
 * Chapter 12 -
     * 
@@ -70,8 +72,17 @@ UNC BACS350 - Student Code
     * 
     * 
 
-* Chapter 13 -
-    * 
+* Chapter 13 - Engineering Journal
+    * Create Project
+    * Register User
+    * Guided engineering - project deliverables
+    * Update notes
+    * Client feedback
 
 * Chapter 14 - App Workshop
-    * 
+    * Create new application project
+    * Create new data types for project
+    * Data management
+    * Views & templates
+    * Test code
+

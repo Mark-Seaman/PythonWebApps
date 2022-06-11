@@ -24,5 +24,6 @@ urlpatterns = [
 
     # News
     path('', include('news.urls_article')),
+    path('author/', include('news.urls_author')),
 
 ]
