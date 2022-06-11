@@ -12,10 +12,15 @@
 
 <body>
 
+    {% block navbar %}
+    {% include '_navbar.html' %}
+    {% endblock navbar %}
+
     <header class="bg-primary text-light p-5 mb-5">
         <h1>Newsfeed</h1>
         <h2>Simple application with data</h2>
     </header>
+
 
     {% block content %}
     <h2>No Block Defined</h2>

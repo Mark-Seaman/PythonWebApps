@@ -22,9 +22,13 @@ urlpatterns = [
 
     # Admin
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='article/')),
+
+    # Accounts
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls')),
 
     # News
+    path('', RedirectView.as_view(url='article/')),
     path('article/', include('news.urls_article')),
     path('author/', include('news.urls_author')),
 
