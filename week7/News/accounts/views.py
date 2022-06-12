@@ -44,7 +44,7 @@ class AccountUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "account_edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
-    success_url = reverse_lazy('account_list')
+    success_url = reverse_lazy('author_list')
 
 
 # class AccountDeleteView(LoginRequiredMixin, DeleteView):

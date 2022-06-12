@@ -13,10 +13,10 @@ export p9=$GITHUB/BACS350/week9/ViewWorkshop
 export p10=$GITHUB/BACS350/week10/Photogram
 export p11=$GITHUB/BACS350/week11/HammerTest
 export p12=$GITHUB/BACS350/week12/CourseBuilder
-export p13=$GITHUB/BACS350/week13/Sass
+export p13=$GITHUB/BACS350/week13/ProjectPlan
 export p14=$GITHUB/BACS350/week14/AppBuilder
 
-cd $p7
+cd $p13
 
 # Other projects
 # Lessons

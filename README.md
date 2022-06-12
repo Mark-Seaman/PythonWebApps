@@ -72,7 +72,7 @@ UNC BACS350 - Student Code
     * 
     * 
 
-* Chapter 13 - Engineering Journal
+* Chapter 13 - Project Planner
     * Create Project
     * Register User
     * Guided engineering - project deliverables

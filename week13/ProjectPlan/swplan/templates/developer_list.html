@@ -1,0 +1,37 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid m-5">
+
+    <h1 class="text-primary text-center">List of Developers</h1>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Developer</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for developer in object_list %}
+        <tr>
+            <td><a href="/developer/{{ developer.pk }}">{{ developer.title }}</a></td>
+            <td><a href="/developer/{{ developer.pk }}">{{ developer.description }}</a></td>
+            <td><a href="/author/{{ developer.author.pk }}">{{ developer.author.name }}</a></td>
+            <td><a href="/developer/{{ developer.pk }}/">Edit</a></td>
+            <td><a href="/developer/{{ developer.pk }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <p>
+        <a href="/developer/add" class="btn btn-success m-5">Add New Developer</a>
+    </p>
+
+</div>
+
+{% endblock content %}

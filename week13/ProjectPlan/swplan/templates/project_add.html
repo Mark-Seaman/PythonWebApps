@@ -1,0 +1,20 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container m-5">
+
+    <h1 class="text-primary">Add New Project</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+
+        <button class="btn btn-primary mt-5" type="submit">Save Record</button>
+    </form>
+
+</div>
+
+{% endblock content %}
