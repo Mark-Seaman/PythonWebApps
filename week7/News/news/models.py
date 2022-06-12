@@ -1,17 +1,11 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse_lazy
-# from django.conf import settings
-
-# from accounts.models import UserAccount
-
-# User = settings.AUTH_USER_MODEL
 
 
 class Author(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, editable=False)
     bio = models.TextField()
 
     @property
@@ -27,7 +21,7 @@ class Author(models.Model):
 
 class Article (models.Model):
 
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
     title = models.CharField(max_length=100)
     body = models.TextField()
 

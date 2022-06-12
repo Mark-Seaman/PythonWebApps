@@ -31,7 +31,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        form.instance.author_id = 1
+        form.instance.user = self.request.user
         return super().form_valid(form)
 
 

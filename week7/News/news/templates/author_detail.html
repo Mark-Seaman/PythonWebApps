@@ -43,6 +43,36 @@
     <a href="/author/" class="btn btn-success m-5">Author List</a>
     <a href="/author/{{ object.pk }}/" class="btn btn-success m-5">Edit Author</a>
     <a href="/author/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Author</a>
+
+    <div class="card m-5 p-5">
+
+        <h2 class="text-primary">List of Articles</h2>
+
+        <table class="table table-hover">
+            <tr>
+                <th>Article</th>
+                <th>Author</th>
+                <th>Edit</th>
+            </tr>
+
+            {% for article in articles %}
+            <tr>
+                <td><a href="/article/{{ article.pk }}">{{ article.title }}</a></td>
+                <td><a href="/author/{{ article.author.pk }}">{{ article.author.user.username }}</a></td>
+                <td>
+                    <a href="/article/{{ article.pk }}/">Edit</a> /
+                    <a href="/article/{{ article.pk }}/delete">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/article/add" class="btn btn-success m-5">Add New Article</a>
+        </p>
+
+    </div>
 </div>
 
 {% endblock content %}
