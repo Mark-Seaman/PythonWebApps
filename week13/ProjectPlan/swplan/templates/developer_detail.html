@@ -4,12 +4,12 @@
 
 <div class="container m-5">
 
-    <h1 class="text-primary">Developer Details</h1>
 
     <div class="container">
         <div class="row">
 
             <div class="col-lg">
+                <h2 class="text-primary text-center">Developer Details</h2>
 
                 <table class="table">
                     <tr>
@@ -28,11 +28,19 @@
 
             </div>
 
+            <div class="col-lg">
+
+                <h2 class="text-primary text-center">My Projects</h2>
+
+                {% include '_projects.html' %}
+            </div>
+
         </div>
     </div>
 
     <a href="/developer/" class="btn btn-success m-5">Developer List</a>
     <a href="/developer/{{ object.pk }}/" class="btn btn-success m-5">Edit Developer</a>
+    <a href="/project/add" class="btn btn-success m-5">Add New Project</a>
 </div>
 
 {% endblock content %}

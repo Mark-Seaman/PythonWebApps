@@ -29,3 +29,16 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('project_list')
+
+
+class Milestone(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, editable=False)
+    title = models.CharField(max_length=100)
+    notes = models.TextField()
+    order = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.title}'
+
+    def get_absolute_url(self):
+        return reverse_lazy('milestone_list')

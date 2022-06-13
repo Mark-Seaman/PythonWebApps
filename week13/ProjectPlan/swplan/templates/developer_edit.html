@@ -20,14 +20,15 @@
                 </div>
 
                 <div class="col">
-                    <p><a href="/developer/account/{{ object.user.pk }}/">
-                            {{ object.user.first_name }} {{ object.user.last_name }}
-                        </a></p>
-                    <p><a href="/developer/account/{{ object.user.pk }}/">
-                            {{ object.user.email }}
-                        </a></p>
-                    <p><a href="/developer/account/{{ object.user.pk }}/">
-                            {{ object.user.username }}</a></p>
+                    <p>{{ object.user.first_name }} {{ object.user.last_name }}</p>
+                    <p>{{ object.user.email }}</p>
+                    <p>{{ object.user.username }}</p>
+                </div>
+
+                <div class="col">
+                    <a href="/developer/account/{{ object.user.pk }}/" class="btn btn-success">
+                        Edit Account
+                    </a>
                 </div>
 
             </div>

@@ -8,22 +8,7 @@
 
     <h1 class="text-primary text-center">List of Projects</h1>
 
-    <table class="table table-hover">
-        <tr>
-            <th>Project</th>
-            <th>Description</th>
-            <th>Developer</th>
-        </tr>
-
-        {% for project in object_list %}
-        <tr>
-            <td><a href="/project/{{ project.pk }}">{{ project.title }}</a></td>
-            <td>{{ project.body }}</td>
-            <td><a href="/developer/{{ project.developer.pk }}">{{ project.developer.name }}</a></td>
-        </tr>
-        {% endfor %}
-
-    </table>
+    {% include '_projects.html' %}
 
     <p>
         <a href="/project/add" class="btn btn-success m-5">Add New Project</a>

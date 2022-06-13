@@ -13,6 +13,7 @@ class ProjectView(RedirectView):
 class ProjectListView(ListView):
     template_name = 'project_list.html'
     model = Project
+    context_object_name = 'projects'
 
 
 class ProjectDetailView(DetailView):
