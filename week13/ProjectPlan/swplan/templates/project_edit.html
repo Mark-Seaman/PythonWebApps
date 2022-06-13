@@ -1,20 +1,16 @@
 {% extends 'theme.html' %}
 
+{% load crispy_forms_tags %}
 
 
 {% block content %}
 
-    <div class="container m-5">
+<div class="container m-5">
 
-        <h1 class="text-primary">Edit Project</h1>
+    <h1 class="text-primary">Edit Project</h1>
 
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_table }}
+    {% include '_edit.html' %}
 
-            <button class="btn btn-primary mt-5" type="submit">Save Record</button>
-        </form>
-
-    </div>
+</div>
 
 {% endblock content %}

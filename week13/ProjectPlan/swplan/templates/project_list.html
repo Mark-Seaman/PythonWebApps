@@ -12,17 +12,14 @@
         <tr>
             <th>Project</th>
             <th>Description</th>
-            <th>Author</th>
-            <th>Edit</th>
+            <th>Developer</th>
         </tr>
 
         {% for project in object_list %}
         <tr>
             <td><a href="/project/{{ project.pk }}">{{ project.title }}</a></td>
-            <td><a href="/project/{{ project.pk }}">{{ project.description }}</a></td>
-            <td><a href="/author/{{ project.author.pk }}">{{ project.author.name }}</a></td>
-            <td><a href="/project/{{ project.pk }}/">Edit</a></td>
-            <td><a href="/project/{{ project.pk }}/delete">Delete</a></td>
+            <td>{{ project.body }}</td>
+            <td><a href="/developer/{{ project.developer.pk }}">{{ project.developer.name }}</a></td>
         </tr>
         {% endfor %}
 

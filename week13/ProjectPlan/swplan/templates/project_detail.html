@@ -14,15 +14,15 @@
                 <table class="table">
                     <tr>
                         <td>Title</td>
-                        <td><b><a href="/project/{{ object.pk }}/">{{ object.title }}</a></b></td>
+                        <td><a href="/project/{{ object.pk }}/">{{ object.title }}</a></td>
                     </tr>
                     <tr>
                         <td>Author</td>
-                        <td><b><a href="/author/{{ object.author.pk }}">{{ object.author.name }}</a></b></td>
+                        <td><a href="/developer/{{ object.developer.pk }}">{{ object.developer.name }}</a></td>
                     </tr>
                     <tr>
                         <td>Description</td>
-                        <td><b>{{ object.description }}</b></td>
+                        <td>{{ object.body }}</td>
                     </tr>
                 </table>
 

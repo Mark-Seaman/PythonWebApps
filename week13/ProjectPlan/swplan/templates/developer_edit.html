@@ -4,17 +4,46 @@
 
 {% block content %}
 
-    <div class="container m-5">
+<div class="container m-5 p-5">
 
-        <h1 class="text-primary">Edit Developer</h1>
+    <h1 class="text-primary">Edit Developer</h1>
+    <div class="card m-5">
+        <div class="card-header">
+            Account Info
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col" style="max-width: 10em">
+                    <p>Name</p>
+                    <p>Email</p>
+                    <p>User ID</p>
+                </div>
 
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_table }}
+                <div class="col">
+                    <p><a href="/developer/account/{{ object.user.pk }}/">
+                            {{ object.user.first_name }} {{ object.user.last_name }}
+                        </a></p>
+                    <p><a href="/developer/account/{{ object.user.pk }}/">
+                            {{ object.user.email }}
+                        </a></p>
+                    <p><a href="/developer/account/{{ object.user.pk }}/">
+                            {{ object.user.username }}</a></p>
+                </div>
 
-            <button class="btn btn-primary mt-5" type="submit">Save Record</button>
-        </form>
-
+            </div>
+        </div>
     </div>
+
+    <div class="card m-5">
+        <div class="card-header">
+            Developer Info
+        </div>
+        <div class="card-body">
+            {% include '_edit.html' %}
+        </div>
+    </div>
+
+
+</div>
 
 {% endblock content %}

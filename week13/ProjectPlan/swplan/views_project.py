@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Project
+from .models import Developer, Project
 
 
 class ProjectView(RedirectView):
@@ -31,7 +31,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        form.instance.author_id = 1
+        form.instance.developer = Developer.objects.get(user=self.request.user)
         return super().form_valid(form)
 
 

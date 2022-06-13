@@ -24,18 +24,27 @@ Readers are able to access the content but only authors are allowed to modify it
 
 * Create project application, "ProjectPlan" 
 * Create app for "swplan"
-
+* Data Models
+    * User
+    * Project
+    * Developer
+* Views
+    * Home
+    * User - Signup, Login
+    * Developer - List, Detail, Add, Edit, Delete
 
 
 ## To Do
 
 * Data Models
+    * User
     * Project
     * Developer
     * Task
     * Notes
 * Views
     * Home
+    * User - Signup, Login
     * Project - List, Detail, Add, Edit, Delete
     * Developer - List, Detail, Add, Edit, Delete
     * Task - List, Detail, Add, Edit, Delete
