@@ -12,21 +12,7 @@
 
                 <h2 class="text-primary text-center">Project Details</h2>
 
-
-                <table class="table">
-                    <tr>
-                        <td>Title</td>
-                        <td><a href="/project/{{ object.pk }}/">{{ object.title }}</a></td>
-                    </tr>
-                    <tr>
-                        <td>Developer</td>
-                        <td><a href="/developer/{{ object.developer.pk }}">{{ object.developer.name }}</a></td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>{{ object.body }}</td>
-                    </tr>
-                </table>
+                {% include '_project.html' %}
 
             </div>
             <div class="col-lg">
@@ -38,9 +24,8 @@
         </div>
     </div>
 
-    <a href="/project/" class="btn btn-success m-5">Project List</a>
+    <a href="/developer/{{ object.developer.pk }}" class="btn btn-success m-5">Developer</a>
     <a href="/project/{{ object.pk }}/" class="btn btn-success m-5">Edit Project</a>
-    <a href="/project/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Project</a>
     <a href="/milestone/{{ object.pk }}/add" class="btn btn-success m-5">Add Project Milestone</a>
 </div>
 

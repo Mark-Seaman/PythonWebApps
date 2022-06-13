@@ -15,6 +15,10 @@ class Developer(models.Model):
     def name(self):
         return self.user.first_name + ' ' + self.user.last_name
 
+    @property
+    def projects(self):
+        return Project.objects.filter(developer=self)
+
     def get_absolute_url(self):
         return reverse_lazy('developer_list')
 
@@ -26,6 +30,10 @@ class Project(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+    @property
+    def milestones(self):
+        return Milestone.objects.filter(project=self)
 
     def get_absolute_url(self):
         return reverse_lazy('project_detail', args=[str(self.id)])

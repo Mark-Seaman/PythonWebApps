@@ -1,0 +1,14 @@
+<table class="table">
+    <tr>
+        <td>Title</td>
+        <td><a href="/project/{{ object.pk }}/">{{ object.title }}</a></td>
+    </tr>
+    <tr>
+        <td>Developer</td>
+        <td><a href="/developer/{{ object.developer.pk }}">{{ object.developer.name }}</a></td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>{{ object.body }}</td>
+    </tr>
+</table>

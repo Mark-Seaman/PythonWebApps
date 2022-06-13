@@ -11,25 +11,15 @@
 
             <div class="col-lg">
 
-                <table class="table">
-                    <tr>
-                        <td>Title</td>
-                        <td><a href="/milestone/{{ object.pk }}/">{{ object.order }} - {{ object.title }}</a></td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>{{ object.notes }}</td>
-                    </tr>
-                </table>
+                {% include '_milestone.html' %}
 
             </div>
 
         </div>
     </div>
 
-    <a href="/project/{{ object.project.pk }}" class="btn btn-success m-5">Milestone List</a>
+    <a href="/project/{{ object.project.pk }}" class="btn btn-success m-5">Project</a>
     <a href="/milestone/{{ object.pk }}/" class="btn btn-success m-5">Edit Milestone</a>
-    <!-- <a href="/milestone/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Milestone</a> -->
 </div>
 
 {% endblock content %}

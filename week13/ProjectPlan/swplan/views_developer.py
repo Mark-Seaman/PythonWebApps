@@ -16,7 +16,8 @@ def check_developers():
 
 def list_projects(developer):
     check_developers()
-    return dict(projects=Project.objects.filter(developer=developer))
+    return dict(projects=developer.projects)
+    # return dict(projects=Project.objects.filter(developer=developer))
 
 
 class DeveloperSignUpView(CreateView):
