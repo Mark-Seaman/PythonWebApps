@@ -21,11 +21,11 @@ from django.views.generic import RedirectView
 urlpatterns = [
 
     # Admin
-    path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='blog/')),
+    # path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='project/')),
 
-    # Blog
-    # path('', include('blog.urls')),
+    # Project Plan
+    path('project/', include('swplan.urls_project')),
+    path('dev/', include('swplan.urls_developer')),
 
 ]
-
