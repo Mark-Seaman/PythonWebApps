@@ -1,0 +1,35 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+<div class="container m-5">
+
+    <h1 class="text-primary">Milestone Details</h1>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg">
+
+                <table class="table">
+                    <tr>
+                        <td>Title</td>
+                        <td><a href="/milestone/{{ object.pk }}/">{{ object.order }} - {{ object.title }}</a></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>{{ object.notes }}</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+    <a href="/project/{{ object.project.pk }}" class="btn btn-success m-5">Milestone List</a>
+    <a href="/milestone/{{ object.pk }}/" class="btn btn-success m-5">Edit Milestone</a>
+    <!-- <a href="/milestone/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Milestone</a> -->
+</div>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr>
+        <th>Milestone</th>
+        <th>Description</th>
+        <th>Edit</th>
+    </tr>
+
+    {% for milestone in milestones %}
+    <tr>
+        <td>{{ milestone.order }}</td>
+        <td><a href="/milestone/{{ milestone.pk }}">{{ milestone.title }}</a></td>
+        <td><a href="/milestone/{{ milestone.pk }}/">Edit</a></td>
+    </tr>
+    {% endfor %}
+
+</table>

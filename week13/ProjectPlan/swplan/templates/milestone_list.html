@@ -1,0 +1,20 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid m-5">
+
+    <h1 class="text-primary text-center">List of Milestones</h1>
+
+    {% include '_milestones.html' %}
+
+
+    <p>
+        <a href="/milestone/{{ milestone.project.pk }}/add" class="btn btn-success m-5">Add New Milestone</a>
+    </p>
+
+</div>
+
+{% endblock content %}

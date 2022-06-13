@@ -4,12 +4,14 @@
 
 <div class="container m-5">
 
-    <h1 class="text-primary">Project Details</h1>
 
     <div class="container">
         <div class="row">
 
             <div class="col-lg">
+
+                <h2 class="text-primary text-center">Project Details</h2>
+
 
                 <table class="table">
                     <tr>
@@ -17,7 +19,7 @@
                         <td><a href="/project/{{ object.pk }}/">{{ object.title }}</a></td>
                     </tr>
                     <tr>
-                        <td>Author</td>
+                        <td>Developer</td>
                         <td><a href="/developer/{{ object.developer.pk }}">{{ object.developer.name }}</a></td>
                     </tr>
                     <tr>
@@ -27,14 +29,19 @@
                 </table>
 
             </div>
+            <div class="col-lg">
 
+                <h2 class="text-primary text-center">Milestones</h2>
 
+                {% include '_milestones.html' %}
+            </div>
         </div>
     </div>
 
     <a href="/project/" class="btn btn-success m-5">Project List</a>
     <a href="/project/{{ object.pk }}/" class="btn btn-success m-5">Edit Project</a>
     <a href="/project/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Project</a>
+    <a href="/milestone/{{ object.pk }}/add" class="btn btn-success m-5">Add Project Milestone</a>
 </div>
 
 {% endblock content %}

@@ -28,7 +28,7 @@ class Project(models.Model):
         return f'{self.title}'
 
     def get_absolute_url(self):
-        return reverse_lazy('project_list')
+        return reverse_lazy('project_detail', args=[str(self.id)])
 
 
 class Milestone(models.Model):
@@ -41,4 +41,4 @@ class Milestone(models.Model):
         return f'{self.title}'
 
     def get_absolute_url(self):
-        return reverse_lazy('milestone_list')
+        return reverse_lazy('milestone_detail', args=[str(self.id)])

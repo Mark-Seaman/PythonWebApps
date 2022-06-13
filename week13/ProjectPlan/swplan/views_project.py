@@ -3,7 +3,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Developer, Project
+from .models import Developer, Milestone, Project
+
+
+def list_milestones(project):
+    return dict(milestones=Milestone.objects.filter(project=project))
 
 
 class ProjectView(RedirectView):
@@ -20,10 +24,10 @@ class ProjectDetailView(DetailView):
     template_name = 'project_detail.html'
     model = Project
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     kwargs.update(dict(dependent=Dependent.obects.filter(project=kwargs.get('object'))))
-    #     return kwargs
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs.update(list_milestones(kwargs.get('object')))
+        return kwargs
 
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):

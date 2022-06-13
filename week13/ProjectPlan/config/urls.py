@@ -26,8 +26,8 @@ urlpatterns = [
 
     # Project Plan
     path('accounts/', include('django.contrib.auth.urls')),
-    # path('accounts/', include('swplan.urls_developer')),
-    path('project/', include('swplan.urls_project')),
     path('developer/', include('swplan.urls_developer')),
+    path('milestone/', include('swplan.urls_milestone')),
+    path('project/', include('swplan.urls_project')),
 
 ]
