@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Owner</th>
+    </tr>
+
+    {% for task in tasks %}
+    <tr>
+        <td><a href="/task/{{ task.pk }}">{{ task.title }}</a></td>
+        <td>{{ task.body }}</td>
+        <td><a href="/developer/{{ task.owner.pk }}">{{ task.owner.pk }}</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
