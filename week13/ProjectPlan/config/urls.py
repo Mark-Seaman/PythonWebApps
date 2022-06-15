@@ -22,11 +22,12 @@ urlpatterns = [
 
     # Admin
     # path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='project/')),
+    path('', RedirectView.as_view(url='doc/Index')),
 
     # Project Plan
     path('accounts/', include('django.contrib.auth.urls')),
     path('developer/', include('swplan.urls_developer')),
+    path('doc/', include('swplan.urls_doc')),
     path('milestone/', include('swplan.urls_milestone')),
     path('project/', include('swplan.urls_project')),
 

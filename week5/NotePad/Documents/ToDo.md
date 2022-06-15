@@ -1,13 +1,6 @@
-# Web Apps Demo Code  - Chapter 13
+# Project Plan 
 
-This demo code illustrates the concepts from "Building Web Apps - Chapter 13".
-
-* [Course Website](https://shrinking-world.com/course/bacs350)
-* [Chapter 13](https://shrinking-world.com/course/bacs350/chapter/13)
-* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week13)
-
-
-## Project Plan
+## To Do List
 
 This code shows to create a Django application that uses a predefined content to create a dynamic journal.
 
