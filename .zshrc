@@ -16,7 +16,14 @@ export p12=$GITHUB/BACS350/week12/CourseBuilder
 export p13=$GITHUB/BACS350/week13/ProjectPlan
 export p14=$GITHUB/BACS350/week14/AppBuilder
 
-cd $p13
+alias p1='cd $p1 && l'
+alias p2='cd $p2 && l'
+alias p3='cd $p3 && l'
+alias p4='cd $p4 && l'
+alias p5='cd $p5 && l'
+alias p6='cd $p6 && l'
+alias p7='cd $p7 && l'
+
 
 # Other projects
 # Lessons

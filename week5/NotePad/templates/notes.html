@@ -2,22 +2,35 @@
 
 {% block content %}
 
-<div class="container row">
+<div class="container">
+    <div class="row">
 
-    {% for note in object_list %}
+        {% for note in object_list %}
 
-    <div class="card bg-light text-dark col m-5 p-5">
+        <div class="card col m-5 p-5  bg-light text-dark ">
 
-        <a href="{{ note.pk }}">
-            {{ note.title }} by {{ note.author }}
-        </a>
+            <p>
+                <a href="{{ note.pk }}">
+                    <b>{{ note.title }}</b>
+                </a>
+            </p>
+            <p>
+                {{ note.body }}
+            </p>
+
+        </div>
+
+        {% endfor %}
 
     </div>
 
-    {% endfor %}
-
+    <div class="bg-dark text-light">
+        <a href="/admin/" class="btn bg-success text-light m-5">Admin Views</a>
+        <a href="doc" class="btn bg-success text-light m-5">Documentation</a>
+    </div>
 </div>
 
-<a href="/admin/" class="text-light">Add New Note</a>
+
+
 
 {% endblock content %}
