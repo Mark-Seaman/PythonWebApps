@@ -6,6 +6,12 @@ This demo code illustrates the concepts from "Building Web Apps - Chapter 8".
 * [Chapter 8](https://shrinking-world.com/course/bacs350/chapter/8)
 * [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week8)
 
+The following Design Patterns are illustrated by this demo
+
+* [](https://shrinking-world.com/course/bacs350/skill/)
+* [](https://shrinking-world.com/course/bacs350/skill/)
+* [](https://shrinking-world.com/course/bacs350/skill/)
+
 
 ## Book Builder
 

@@ -4,6 +4,13 @@ This demo code illustrates the concepts from "Building Web Apps - Chapter 3".
 
 * [Course Website](https://shrinking-world.com/course/bacs350)
 * [Chapter 3](https://shrinking-world.com/course/bacs350/chapter/3)
+* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week3)
+
+The following Design Patterns are illustrated by this demo
+
+* [Skill 7 - Create a Django App](https://shrinking-world.com/course/bacs350/skill/7)
+* [Skill 8 - Create Template View](https://shrinking-world.com/course/bacs350/skill/8)
+* [Skill 9 - Add Variables to View](https://shrinking-world.com/course/bacs350/skill/9)
 
 
 ## Pages
@@ -17,6 +24,40 @@ others using variables to display custom data.
 * URL:  home,  View: HomeView, Template: templates/home.html
 * URL:  about, View: AboutView, Template: templates/about.html
 
+### Files
+
+These files are used to build the Django application.
+
+    ├── config
+    │   ├── app.yaml
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── hero
+    │   ├── models.py
+    │   ├── templates
+    │   │   ├── hero.html
+    │   │   └── heroes.html
+    │   ├── tests.py
+    │   ├── urls.py
+    │   └── views.py
+    ├── manage.py
+    ├── pages
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    ├── requirements.txt
+    ├── runtime.txt
+    ├── static
+    │   ├── images
+    │   │   ├── black_widow.jpg
+    │   │   ├── hulk.jpg
+    │   │   └── iron_man.jpg
+    │   └── index.html
+    └── templates
+        ├── about.html
+        ├── home.html
+        └── index.html
 
 
 ## Superheroes

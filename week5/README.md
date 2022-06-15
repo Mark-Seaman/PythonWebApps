@@ -4,12 +4,56 @@ This demo code illustrates the concepts from "Building Web Apps - Chapter 5".
 
 * [Course Website](https://shrinking-world.com/course/bacs350)
 * [Chapter 5](https://shrinking-world.com/course/bacs350/chapter/5)
+* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week4)
+
+The following Design Patterns are illustrated by this demo
+
+* [Skill 13 - Models & Database](https://shrinking-world.com/course/bacs350/skill/)
+* [Skill 14 - CRUD Operations](https://shrinking-world.com/course/bacs350/skill/)
+* [Skill 15 - Admin Views](https://shrinking-world.com/course/bacs350/skill/)
 
 
 ## NotePad
 
 This code shows the structure of a simple Django application that uses a database.  
 
+### Files
+
+These files are used to build the Django application.
+
+    ├── Documents
+    │   ├── DataCascade.md
+    │   ├── Document.md
+    │   ├── Index.md
+    │   ├── Note.md
+    │   └── ToDo.md
+    ├── config
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── db.sqlite3
+    ├── manage.py
+    ├── note
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── migrations
+    │   │   ├── 0001_initial.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    ├── static
+    │   ├── admin
+    │   │   ├── css
+    │   │   ├── fonts
+    │   │   ├── img
+    │   │   ├── js
+    └── templates
+        ├── document.html
+        ├── note.html
+        ├── notes.html
+        └── theme.html
 
 ## Running the App
 

@@ -6,6 +6,13 @@ This demo code illustrates the concepts from "Building Web Apps - Chapter 7".
 * [Chapter 7](https://shrinking-world.com/course/bacs350/chapter/7)
 * [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week7)
 
+The following Design Patterns are illustrated by this demo
+
+* [](https://shrinking-world.com/course/bacs350/skill/)
+* [](https://shrinking-world.com/course/bacs350/skill/)
+* [](https://shrinking-world.com/course/bacs350/skill/)
+
+
 ## News
 
 This code shows the structure of a Django application that has user accounts.  Multiple data types are 

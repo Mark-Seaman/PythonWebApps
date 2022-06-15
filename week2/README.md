@@ -4,6 +4,13 @@ This demo code illustrates the concepts from "Building Web Apps - Chapter 2".
 
 * [Course Website](https://shrinking-world.com/course/bacs350)
 * [Chapter 2](https://shrinking-world.com/course/bacs350/chapter/2)
+* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week2)
+
+The following Design Patterns are illustrated by this demo
+
+* [Skill 4 - Deploy a Static Web Server](https://shrinking-world.com/course/bacs350/skill/4)
+* [Skill 5 - Deploy to Development Server](https://shrinking-world.com/course/bacs350/skill/5)
+* [Skill 6 - Deploy to Production Server](https://shrinking-world.com/course/bacs350/skill/6)
 
 
 ## Profile App
@@ -28,6 +35,29 @@ To run the code do the following steps.
 If this does not look like the Profile Page then your tools are not configured
 properly.
 
+### Files
+
+These files are used to build the Django application.
+
+    ├── config
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── manage.py
+    ├── pages
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── templates
+    │   │   └── index.html
+    │   ├── tests.py
+    │   └── views.py
+    └── static
+        ├── Mark-Seaman.jpg
+        ├── index.html
+        └── style.css
 
 
 ### Build Project Code

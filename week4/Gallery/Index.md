@@ -4,14 +4,6 @@ This demo code illustrates the concepts from "Building Web Apps - Chapter 4".
 
 * [Course Website](https://shrinking-world.com/course/bacs350)
 * [Chapter 4](https://shrinking-world.com/course/bacs350/chapter/4)
-* [Github Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week4)
-
-The following Design Patterns are illustrated by this demo
-
-* [Skill 10 - View Inheritance](https://shrinking-world.com/course/bacs350/skill/)
-* [Skill 11 - Templates](https://shrinking-world.com/course/bacs350/skill/)
-* [Skill 12 - Complex Variables in Views](https://shrinking-world.com/course/bacs350/skill/)
-
 
 
 ## Gallery
