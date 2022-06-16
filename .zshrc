@@ -2,10 +2,10 @@
 # Linux Shell Contexts
 
 export p1=$GITHUB/BACS350/01/ProfileApp
-export p2=$GITHUB/BACS350/week2/ProfileApp
-export p3=$GITHUB/BACS350/week3/Pages
-export p4=$GITHUB/BACS350/week4/Gallery
-export p5=$GITHUB/BACS350/week5/NotePad
+export p2=$GITHUB/BACS350/02/ProfileApp
+export p3=$GITHUB/BACS350/03/Pages
+export p4=$GITHUB/BACS350/04/Gallery
+export p5=$GITHUB/BACS350/05/NotePad
 export p6=$GITHUB/BACS350/week6/Blog
 export p7=$GITHUB/BACS350/week7/News
 export p8=$GITHUB/BACS350/extra/BookBuilder12
