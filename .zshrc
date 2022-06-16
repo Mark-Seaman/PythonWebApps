@@ -1,7 +1,7 @@
 #!/bin/bash
 # Linux Shell Contexts
 
-export p1=$GITHUB/BACS350/week1/ProfileApp
+export p1=$GITHUB/BACS350/01/ProfileApp
 export p2=$GITHUB/BACS350/week2/ProfileApp
 export p3=$GITHUB/BACS350/week3/Pages
 export p4=$GITHUB/BACS350/week4/Gallery
@@ -23,6 +23,13 @@ alias p4='cd $p4 && l'
 alias p5='cd $p5 && l'
 alias p6='cd $p6 && l'
 alias p7='cd $p7 && l'
+alias p8='cd $p8 && l'
+alias p9='cd $p9 && l'
+alias p10='cd $p10 && l'
+alias p11='cd $p11 && l'
+alias p12='cd $p12 && l'
+alias p13='cd $p13 && l'
+alias p14='cd $p14 && l'
 
 
 # Other projects
