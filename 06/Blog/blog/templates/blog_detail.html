@@ -1,0 +1,31 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+    <div class="container m-5">
+
+        <h1 class="text-primary">Blog Details</h1>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg">
+
+                    {% include '_blog.html' %}
+
+                </div>
+                <div class="col-lg">
+
+                    <h2 class="text-primary text-center">Blog</h2>
+
+                    {% include '_blogs.html' %}
+                </div>
+
+            </div>
+        </div>
+
+        <a href="/owner/{{ object.owner.pk }}" class="btn btn-success m-5">Owner</a>
+        <a href="/blog/{{ object.pk }}/" class="btn btn-success m-5">Edit Blog</a>
+    </div>
+
+{% endblock content %}
