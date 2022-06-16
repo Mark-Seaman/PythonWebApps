@@ -11,7 +11,6 @@
     <table class="table table-hover">
         <tr>
             <th>Article</th>
-            <th>Description</th>
             <th>Author</th>
             <th>Edit</th>
         </tr>
@@ -19,8 +18,7 @@
         {% for article in object_list %}
         <tr>
             <td><a href="/article/{{ article.pk }}">{{ article.title }}</a></td>
-            <td><a href="/article/{{ article.pk }}">{{ article.description }}</a></td>
-            <td><a href="/author/{{ article.author.pk }}">{{ article.author.name }}</a></td>
+            <td><a href="/author/{{ article.author.pk }}">{{ article.author.user.username }}</a></td>
             <td><a href="/article/{{ article.pk }}/">Edit</a></td>
             <td><a href="/article/{{ article.pk }}/delete">Delete</a></td>
         </tr>

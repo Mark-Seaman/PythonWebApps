@@ -1,0 +1,21 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-primary">Account Details</h1>
+
+    <div class="card bg-light p-5">
+
+        <p>Name:</p>
+        <p><b>{{ object.first_name }} {{ object.last_name }}</b></p>
+        <p>User Name:</p>
+        <p><b>{{ object.username }}</b></p>
+        <p>Email: </p>
+        <p><b>{{ object.email }}</b></p>
+
+    </div>
+
+    <a href="{% url 'account_list' %}" class="btn btn-success m-5">Account List</a>
+
+</div>
+{% endblock content %}

@@ -11,25 +11,25 @@
     <table class="table table-hover">
         <tr>
             <th>Author</th>
-            <th>Description</th>
-            <th>Author</th>
+            <th>Biography</th>
             <th>Edit</th>
         </tr>
 
         {% for author in object_list %}
         <tr>
-            <td><a href="/author/{{ author.pk }}">{{ author.title }}</a></td>
-            <td><a href="/author/{{ author.pk }}">{{ author.description }}</a></td>
-            <td><a href="/author/{{ author.author.pk }}">{{ author.author.name }}</a></td>
-            <td><a href="/author/{{ author.pk }}/">Edit</a></td>
-            <td><a href="/author/{{ author.pk }}/delete">Delete</a></td>
+            <td><a href="/author/{{ author.pk }}">{{ author.name }}</a></td>
+            <td>{{ author.bio }}</td>
+            <td>
+                <a href="/author/{{ author.pk }}/">Edit</a> /
+                <a href="/author/{{ author.pk }}/delete">Delete</a>
+            </td>
         </tr>
         {% endfor %}
 
     </table>
 
     <p>
-        <a href="/author/add" class="btn btn-success m-5">Add New Author</a>
+        <a href="/accounts/signup" class="btn btn-success m-5">Add New Author</a>
     </p>
 
 </div>

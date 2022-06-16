@@ -13,18 +13,15 @@ class ArticleView(RedirectView):
 class ArticleListView(ListView):
     template_name = 'article_list.html'
     model = Article
-    context_object_name = 'articles'
 
 
 class ArticleDetailView(DetailView):
     template_name = 'article_detail.html'
     model = Article
-    context_object_name = 'article'
 
     # def get_context_data(self, **kwargs):
     #     kwargs = super().get_context_data(**kwargs)
-    #     article = kwargs.get('article')
-    #     kwargs.update(dict(dependent=article.dependents))
+    #     kwargs.update(dict(dependent=Dependent.obects.filter(article=kwargs.get('object'))))
     #     return kwargs
 
 
@@ -34,7 +31,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        # form.instance.owner = Owner.objects.get(user=self.request.user)
+        form.instance.user = self.request.user
         return super().form_valid(form)
 
 

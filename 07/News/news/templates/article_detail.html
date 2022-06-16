@@ -1,31 +1,42 @@
 {% extends 'theme.html' %}
 
+
 {% block content %}
 
-    <div class="container m-5">
+<div class="container m-5">
 
-        <h1 class="text-primary">Article Details</h1>
+    <h1 class="text-primary">Article Details</h1>
 
-        <div class="container">
-            <div class="row">
+    <div class="container">
+        <div class="row">
 
-                <div class="col-lg">
+            <div class="col-lg">
 
-                    {% include '_article.html' %}
-
-                </div>
-                <div class="col-lg">
-
-                    <h2 class="text-primary text-center">Article</h2>
-
-                    {% include '_articles.html' %}
-                </div>
+                <table class="table">
+                    <tr>
+                        <td>Title</td>
+                        <td><b><a href="/article/{{ object.pk }}/">{{ object.title }}</a></b></td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td>
+                            <b><a href="/author/{{ object.author.pk }}">{{ object.author.user.username }}</a></b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><b>{{ object.body }}</b></td>
+                    </tr>
+                </table>
 
             </div>
-        </div>
 
-        <a href="/owner/{{ object.owner.pk }}" class="btn btn-success m-5">Owner</a>
-        <a href="/article/{{ object.pk }}/" class="btn btn-success m-5">Edit Article</a>
+        </div>
     </div>
+
+    <a href="/article/" class="btn btn-success m-5">Article List</a>
+    <a href="/article/{{ object.pk }}/" class="btn btn-success m-5">Edit Article</a>
+    <a href="/article/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Article</a>
+</div>
 
 {% endblock content %}
