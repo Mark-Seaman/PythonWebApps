@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/03/Pages",
+            "cwd": "${workspaceFolder}/04/Gallery",
             "args": [
                 "runserver"
             ],
