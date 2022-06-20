@@ -16,7 +16,8 @@ class Author(models.Model):
         return f'{self.user.username}'
 
     def get_absolute_url(self):
-        return reverse_lazy('author_list')
+        # return reverse_lazy('author_list')
+        return reverse_lazy('author_detail', args=[str(self.id)])
 
 
 class Article (models.Model):
@@ -29,4 +30,5 @@ class Article (models.Model):
         return f'{self.title}'
 
     def get_absolute_url(self):
-        return reverse_lazy('article_list')
+        # return reverse_lazy('article_list')
+        return reverse_lazy('article_detail', args=[str(self.id)])

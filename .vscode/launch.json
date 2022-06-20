@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/08/BookBuilder",
+            "cwd": "${workspaceFolder}/07/News",
             "args": [
                 "runserver"
             ],

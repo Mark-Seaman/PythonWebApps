@@ -16,6 +16,8 @@ class Author(models.Model):
     def __str__(self):
         return f'{self.pk} - {self.name}'
 
+    def get_absolute_url(self):
+        return reverse_lazy('author_detail', args=[str(self.id)])
 
 # --------------------
 # Book
@@ -23,6 +25,7 @@ class Author(models.Model):
 # title - title of the book
 # author - name of author
 # description - summary of the book
+
 
 class Book(models.Model):
     title = models.CharField(max_length=200)

@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
 from .models import Article
+from .views_author import get_author
 
 
 class ArticleView(RedirectView):
@@ -19,11 +20,6 @@ class ArticleDetailView(DetailView):
     template_name = 'article_detail.html'
     model = Article
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     kwargs.update(dict(dependent=Dependent.obects.filter(article=kwargs.get('object'))))
-    #     return kwargs
-
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     template_name = "article_add.html"
@@ -31,7 +27,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.author = get_author(self.request.user)
         return super().form_valid(form)
 
 
