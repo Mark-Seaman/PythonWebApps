@@ -3,29 +3,26 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Book
+from .models import Book, Chapter
+from .book import get_author
 
 
 class BookView(RedirectView):
-    url = reverse_lazy('book_list')
+    url = '/book/'
 
 
 class BookListView(ListView):
     template_name = 'book_list.html'
     model = Book
-    context_object_name = 'books'
 
 
 class BookDetailView(DetailView):
     template_name = 'book_detail.html'
     model = Book
-    context_object_name = 'book'
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     book = kwargs.get('book')
-    #     kwargs.update(dict(dependent=book.dependents))
-    #     return kwargs
+    def get_context_data(self, **kwargs):
+        book = Book.objects.get(pk=self.kwargs['pk'])
+        return dict(object=book, chapters=Chapter.objects.filter(book=book))
 
 
 class BookCreateView(LoginRequiredMixin, CreateView):
@@ -34,7 +31,7 @@ class BookCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        # form.instance.owner = Owner.objects.get(user=self.request.user)
+        form.instance.author_id = 1
         return super().form_valid(form)
 
 
