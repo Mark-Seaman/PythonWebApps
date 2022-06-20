@@ -6,8 +6,8 @@ from django.views.generic import RedirectView
 from django.urls.conf import include, include
 from django.urls import path
 
-from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorCreateView, AuthorUpdateView
-from .views_book import BookView, BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
+from .views_author import AuthorAddView, AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorCreateView, AuthorUpdateView, UserUpdateView
+from .views_book import BookDeleteView, BookDetailView, BookListView, BookCreateView, BookUpdateView
 from .views_chapter import ChapterDeleteView, ChapterDetailView, ChapterListView, ChapterCreateView, ChapterUpdateView
 from .views_image import ImageDeleteView, ImageListView, ImageCreateView
 from .views_note import NoteDeleteView, NoteDetailView, NoteListView, NoteCreateView, NoteUpdateView
@@ -15,7 +15,14 @@ from .views_note import NoteDeleteView, NoteDetailView, NoteListView, NoteCreate
 
 urlpatterns = [
 
-    path('',                            BookView.as_view(),        name='home'),
+    # Accounts
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/<int:pk>/', UserUpdateView.as_view(),  name='account_edit'),
+    path('accounts/signup/', AuthorAddView.as_view(), name='signup'),
+
+    # News
+    path('', RedirectView.as_view(url='author/home')),
+    # path('',                            BookView.as_view(),        name='home'),
 
     # Author
     path('author/',                     AuthorListView.as_view(),    name='author_list'),

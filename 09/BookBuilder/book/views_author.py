@@ -10,21 +10,28 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Author, Book, Chapter
 
 
-class SignUpView(CreateView):
+def get_author(user):
+    return Author.objects.get_or_create(user=user)[0]
+
+
+class AuthorHomeView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.is_anonymous:
+            return '/book/'
+        return f'/author/{get_author(self.request.user).pk}'
+
+
+class AuthorAddView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
-    # def form_valid(self, form):
-    #     Author.objects.create(user=form.instance)
-    #     return super().form_valid(form)
 
-
-class AccountUpdateView(LoginRequiredMixin, UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "account_edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
-    success_url = reverse_lazy('author_list')
+    success_url = reverse_lazy('author_home')
 
 
 class AuthorView(RedirectView):
