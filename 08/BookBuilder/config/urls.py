@@ -1,31 +1,23 @@
-"""config URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
 
+from book.views_author import AccountUpdateView, SignUpView
 
 urlpatterns = [
 
     # Admin
-    path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='blog/')),
+    # path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='book/')),
+
+    # Accounts
+    path('accounts/', include('django.contrib.auth.urls')),    # Login
+    # path('accounts/', include('accounts.urls')),
+    path('account/<int:pk>/',  AccountUpdateView.as_view(),  name='account_edit'),
+    path('signup/', SignUpView.as_view(), name='signup'),    # Sign Up
 
     # Blog
-    # path('', include('blog.urls')),
+    path('author/', include('book.urls_author')),
+    path('book/', include('book.urls_book')),
+    path('chapter/', include('book.urls_chapter')),
 
 ]
-
