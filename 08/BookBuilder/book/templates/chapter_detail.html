@@ -1,0 +1,31 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+    <div class="container m-5">
+
+        <h1 class="text-primary">Chapter Details</h1>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg">
+
+                    {% include '_chapter.html' %}
+
+                </div>
+                <div class="col-lg">
+
+                    <h2 class="text-primary text-center">Chapter</h2>
+
+                    {% include '_chapters.html' %}
+                </div>
+
+            </div>
+        </div>
+
+        <a href="/owner/{{ object.owner.pk }}" class="btn btn-success m-5">Owner</a>
+        <a href="/chapter/{{ object.pk }}/" class="btn btn-success m-5">Edit Chapter</a>
+    </div>
+
+{% endblock content %}

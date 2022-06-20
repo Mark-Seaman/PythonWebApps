@@ -1,15 +1,23 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 from book.models import Author, Book, Chapter
 from book.book import import_all_books
-from coder.coder import create_test_user
+
+
+def user_args():
+    return dict(username='TESTER', email='test@test.us', password='secret')
+
+
+def test_user():
+    return get_user_model().objects.create_user(**user_args())
 
 
 class BookDataTest(TestCase):
 
     def setUp(self):
-        self.user, self.user_args = create_test_user()
+        self.user = test_user()
         self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.author2 = Author.objects.create(user=self.user, name='Homer')
         self.book1 = dict(title='Tale of 2 Cities', author=self.author1, description='None', doc_path='Documents')
@@ -64,11 +72,13 @@ class BookFixtureTest(TestCase):
 class BookViewsTest(TestCase):
 
     def login(self):
-        response = self.client.login(username=self.user.username,  password=self.user_args['password'])
+        username = self.user.username
+        password = user_args()['password']
+        response = self.client.login(username=username, password=password)
         self.assertEqual(response, True)
 
     def setUp(self):
-        self.user, self.user_args = create_test_user()
+        self.user = test_user()
         self.author1 = Author.objects.create(user=self.user, name='Chuck Dickens')
         self.author2 = Author.objects.create(user=self.user, name='Homer')
         self.book1 = dict(title='Iliad',   author=self.author1, description='description', doc_path='Documents')
