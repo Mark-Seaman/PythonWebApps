@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr>
+        <th>Message</th>
+        <th>Description</th>
+        <th>Owner</th>
+    </tr>
+
+    {% for Message in Messages %}
+    <tr>
+        <td><a href="/Message/{{ Message.pk }}">{{ Message.title }}</a></td>
+        <td>{{ Message.body }}</td>
+        <td><a href="/developer/{{ Message.owner.pk }}">{{ Message.owner.pk }}</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
