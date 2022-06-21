@@ -1,31 +1,31 @@
 {% extends 'theme.html' %}
 
+
+{% block title %}
+Person Details
+{% endblock title %}
+
+
+
 {% block content %}
 
-    <div class="container m-5">
+<div class="row">
 
-        <h1 class="text-primary">Person Details</h1>
+    <div class="col-lg">
 
-        <div class="container">
-            <div class="row">
+        {% include '_person.html' %}
 
-                <div class="col-lg">
-
-                    {% include '_person.html' %}
-
-                </div>
-                <div class="col-lg">
-
-                    <h2 class="text-primary text-center">Person</h2>
-
-                    {% include '_persons.html' %}
-                </div>
-
-            </div>
-        </div>
-
-        <a href="/owner/{{ object.owner.pk }}" class="btn btn-success m-5">Owner</a>
-        <a href="/person/{{ object.pk }}/" class="btn btn-success m-5">Edit Person</a>
     </div>
+    <div class="col-lg">
+
+        <h2 class="text-primary text-center">Person</h2>
+
+        {% include '_persons.html' %}
+    </div>
+
+</div>
+
+<a href="/accounts/{{ object.user.pk }}" class="btn btn-success m-5">User Detail</a>
+<a href="/person/{{ object.pk }}/" class="btn btn-success m-5">Edit Person</a>
 
 {% endblock content %}

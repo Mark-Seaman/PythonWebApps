@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
-from .models import Message
+from .models import Message, Person
 
 
 class MessageView(RedirectView):
@@ -34,7 +34,7 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        # form.instance.owner = Owner.objects.get(user=self.request.user)
+        form.instance.author = Person.get_me(self.request.user)
         return super().form_valid(form)
 
 

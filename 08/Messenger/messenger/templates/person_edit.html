@@ -1,15 +1,12 @@
 {% extends 'theme.html' %}
 
+{% block title %}
+Edit Person Details
+{% endblock title %}
 
 
 {% block content %}
 
-    <div class="container m-5">
-
-        <h1 class="text-primary">Edit Person</h1>
-
-         {% include '_edit.html' %}
-
-    </div>
+{% include '_edit.html' %}
 
 {% endblock content %}

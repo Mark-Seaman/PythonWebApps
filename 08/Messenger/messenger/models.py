@@ -17,6 +17,10 @@ class Person(models.Model):
     def messages(self):
         return Message.objects.filter(parent=self)
 
+    @staticmethod
+    def get_me(user):
+        return Person.objects.get_or_create(user=user)[0]
+
 
 class Message(models.Model):
     author = models.ForeignKey(Person, on_delete=models.CASCADE, editable=False)

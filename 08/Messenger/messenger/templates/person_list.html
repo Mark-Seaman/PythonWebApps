@@ -1,37 +1,34 @@
 {% extends 'theme.html' %}
 
 
+{% block title %}
+List of Persons
+{% endblock title %}
 
 {% block content %}
 
-<div class="container-fluid m-5">
+<table class="table table-hover">
+    <tr>
+        <th>Person</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Edit</th>
+    </tr>
 
-    <h1 class="text-primary text-center">List of Persons</h1>
+    {% for person in object_list %}
+    <tr>
+        <td><a href="/person/{{ person.pk }}">{{ person.title }}</a></td>
+        <td><a href="/person/{{ person.pk }}">{{ person.description }}</a></td>
+        <td><a href="/author/{{ person.author.pk }}">{{ person.author.name }}</a></td>
+        <td><a href="/person/{{ person.pk }}/">Edit</a></td>
+        <td><a href="/person/{{ person.pk }}/delete">Delete</a></td>
+    </tr>
+    {% endfor %}
 
-    <table class="table table-hover">
-        <tr>
-            <th>Person</th>
-            <th>Description</th>
-            <th>Author</th>
-            <th>Edit</th>
-        </tr>
+</table>
 
-        {% for person in object_list %}
-        <tr>
-            <td><a href="/person/{{ person.pk }}">{{ person.title }}</a></td>
-            <td><a href="/person/{{ person.pk }}">{{ person.description }}</a></td>
-            <td><a href="/author/{{ person.author.pk }}">{{ person.author.name }}</a></td>
-            <td><a href="/person/{{ person.pk }}/">Edit</a></td>
-            <td><a href="/person/{{ person.pk }}/delete">Delete</a></td>
-        </tr>
-        {% endfor %}
-
-    </table>
-
-    <p>
-        <a href="/person/add" class="btn btn-success m-5">Add New Person</a>
-    </p>
-
-</div>
+<p>
+    <a href="/person/add" class="btn btn-success m-5">Add New Person</a>
+</p>
 
 {% endblock content %}

@@ -1,13 +1,34 @@
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
 from .models import Person
 
 
-class PersonView(RedirectView):
-    url = reverse_lazy('person_list')
+def get_person(user):
+    return Person.objects.get_or_create(user=user)[0]
+
+
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "account_edit.html"
+    model = User
+    fields = ['first_name', 'last_name', 'username', 'email']
+    success_url = reverse_lazy('person_home')
+
+
+class UserAddView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
+
+
+class PersonHomeView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.is_anonymous:
+            return '/message/'
+        return f'/person/{get_person(self.request.user).pk}'
 
 
 class PersonListView(ListView):
@@ -21,11 +42,10 @@ class PersonDetailView(DetailView):
     model = Person
     context_object_name = 'person'
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     person = kwargs.get('person')
-    #     kwargs.update(dict(dependent=person.dependents))
-    #     return kwargs
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        # kwargs.update(dict(messages=kwargs.get('object').messages))
+        return kwargs
 
 
 class PersonCreateView(LoginRequiredMixin, CreateView):
