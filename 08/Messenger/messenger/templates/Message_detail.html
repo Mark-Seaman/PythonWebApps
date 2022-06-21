@@ -11,21 +11,21 @@
 
                 <div class="col-lg">
 
-                    {% include '_Message.html' %}
+                    {% include '_message.html' %}
 
                 </div>
                 <div class="col-lg">
 
                     <h2 class="text-primary text-center">Message</h2>
 
-                    {% include '_Messages.html' %}
+                    {% include '_messages.html' %}
                 </div>
 
             </div>
         </div>
 
         <a href="/owner/{{ object.owner.pk }}" class="btn btn-success m-5">Owner</a>
-        <a href="/Message/{{ object.pk }}/" class="btn btn-success m-5">Edit Message</a>
+        <a href="/message/{{ object.pk }}/" class="btn btn-success m-5">Edit Message</a>
     </div>
 
 {% endblock content %}

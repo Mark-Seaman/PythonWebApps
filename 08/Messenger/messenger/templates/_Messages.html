@@ -5,11 +5,11 @@
         <th>Owner</th>
     </tr>
 
-    {% for Message in Messages %}
+    {% for message in messages %}
     <tr>
-        <td><a href="/Message/{{ Message.pk }}">{{ Message.title }}</a></td>
-        <td>{{ Message.body }}</td>
-        <td><a href="/developer/{{ Message.owner.pk }}">{{ Message.owner.pk }}</a></td>
+        <td><a href="/message/{{ message.pk }}">{{ message.title }}</a></td>
+        <td>{{ message.body }}</td>
+        <td><a href="/developer/{{ message.owner.pk }}">{{ message.owner.pk }}</a></td>
     </tr>
     {% endfor %}
 

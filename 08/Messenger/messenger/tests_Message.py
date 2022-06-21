@@ -9,28 +9,28 @@ class MessageDataTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-        self.Message1 = dict(title='Doc Title 1', body='Doc Body 1')
-        self.Message2 = dict(title='Doc Title 2', body='Doc Body 2')
+        self.message1 = dict(title='Doc Title 1', body='Doc Body 1')
+        self.message2 = dict(title='Doc Title 2', body='Doc Body 2')
 
     def test_add_test(self):
         self.assertEqual(len(Message.objects.all()), 0)
-        Message.objects.create(**self.Message1)
+        Message.objects.create(**self.message1)
         x = Message.objects.get(pk=1)
-        self.assertEqual(x.title, self.Message1['title'])
+        self.assertEqual(x.title, self.message1['title'])
         self.assertEqual(len(Message.objects.all()), 1)
 
     def test_test_edit(self):
-        Message.objects.create(**self.Message1)
+        Message.objects.create(**self.message1)
         x = Message.objects.get(pk=1)
-        x.title = self.Message2['title']
-        x.body = self.Message2['body']
+        x.title = self.message2['title']
+        x.body = self.message2['body']
         x.save()
-        self.assertEqual(x.title, self.Message2['title'])
-        self.assertEqual(x.body, self.Message2['body'])
+        self.assertEqual(x.title, self.message2['title'])
+        self.assertEqual(x.body, self.message2['body'])
         self.assertEqual(len(Message.objects.all()), 1)
 
     def test_test_delete(self):
-        Message.objects.create(**self.Message1)
+        Message.objects.create(**self.message1)
         b = Message.objects.get(pk=1)
         b.delete()
         self.assertEqual(len(Message.objects.all()), 0)
@@ -44,67 +44,67 @@ class MessageViewsTest(TestCase):
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-        self.Message1 = dict(title='Doc Title 1', body='Doc Body 1')
-        self.Message2 = dict(title='Doc Title 2', body='Doc Body 2')
+        self.message1 = dict(title='Doc Title 1', body='Doc Body 1')
+        self.message2 = dict(title='Doc Title 2', body='Doc Body 2')
 
     # def test_home(self):
     #     response = self.client.get('/')
     #     self.assertEqual(response.status_code, 302)
-    #     self.assertEqual(response.url, reverse('Message_list'))
+    #     self.assertEqual(response.url, reverse('message_list'))
 
-    def test_Message_list_view(self):
-        self.assertEqual(reverse('Message_list'), '/Message/')
-        Message.objects.create(**self.Message1)
-        Message.objects.create(**self.Message2)
-        response = self.client.get('/Message/')
+    def test_message_list_view(self):
+        self.assertEqual(reverse('message_list'), '/message/')
+        Message.objects.create(**self.message1)
+        Message.objects.create(**self.message2)
+        response = self.client.get('/message/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'Message_list.html')
+        self.assertTemplateUsed(response, 'message_list.html')
         self.assertTemplateUsed(response, 'theme.html')
         self.assertContains(response, '<tr>', count=3)
 
-    def test_Message_detail_view(self):
-        Message.objects.create(**self.Message1)
-        self.assertEqual(reverse('Message_detail', args='1'), '/Message/1')
-        self.assertEqual(reverse('Message_detail', args='2'), '/Message/2')
-        response = self.client.get(reverse('Message_detail', args='1'))
+    def test_message_detail_view(self):
+        Message.objects.create(**self.message1)
+        self.assertEqual(reverse('message_detail', args='1'), '/message/1')
+        self.assertEqual(reverse('message_detail', args='2'), '/message/2')
+        response = self.client.get(reverse('message_detail', args='1'))
         self.assertContains(response, 'body')
 
-    def test_Message_add_view(self):
+    def test_message_add_view(self):
 
         # Add without Login
-        response = self.client.post(reverse('Message_add'), self.Message1)
-        response = self.client.post(reverse('Message_add'), self.Message2)
+        response = self.client.post(reverse('message_add'), self.message1)
+        response = self.client.post(reverse('message_add'), self.message2)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/accounts/login/?next=/Message/add')
+        self.assertEqual(response.url, '/accounts/login/?next=/message/add')
 
         # Login to add
         self.login()
-        response = self.client.post(reverse('Message_add'), self.Message1)
-        response = self.client.post(reverse('Message_add'), self.Message2)
+        response = self.client.post(reverse('message_add'), self.message1)
+        response = self.client.post(reverse('message_add'), self.message2)
         self.assertEqual(response.status_code, 302)
         response = self.client.get(response.url)
         self.assertEqual(len(Message.objects.all()), 2)
 
-    def test_Message_edit_view(self):
+    def test_message_edit_view(self):
 
         # Edit without Login
-        response = Message.objects.create(**self.Message1)
-        response = self.client.post(reverse('Message_edit', args='1'), self.Message2)
+        response = Message.objects.create(**self.message1)
+        response = self.client.post(reverse('message_edit', args='1'), self.message2)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/accounts/login/?next=/Message/1/')
+        self.assertEqual(response.url, '/accounts/login/?next=/message/1/')
 
         # Login to edit
         self.login()
-        response = self.client.post('/Message/1/', self.Message2)
+        response = self.client.post('/message/1/', self.message2)
         self.assertEqual(response.status_code, 302)
         response = self.client.get(response.url)
-        Message = Message.objects.get(pk=1)
-        self.assertEqual(Message.title, self.Message2['title'])
-        self.assertEqual(Message.body, self.Message2['body'])
+        message = Message.objects.get(pk=1)
+        self.assertEqual(message.title, self.message2['title'])
+        self.assertEqual(message.body, self.message2['body'])
 
-    def test_Message_delete_view(self):
+    def test_message_delete_view(self):
         self.login()
-        Message.objects.create(**self.Message1)
-        self.assertEqual(reverse('Message_delete', args='1'), '/Message/1/delete')
-        response = self.client.post('/Message/1/delete')
+        Message.objects.create(**self.message1)
+        self.assertEqual(reverse('message_delete', args='1'), '/message/1/delete')
+        response = self.client.post('/message/1/delete')
         self.assertEqual(len(Message.objects.all()), 0)

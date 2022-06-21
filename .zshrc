@@ -8,13 +8,13 @@ export p4=$GITHUB/BACS350/04/Gallery
 export p5=$GITHUB/BACS350/05/Notes
 export p6=$GITHUB/BACS350/06/Blog
 export p7=$GITHUB/BACS350/07/News
-export p8=$GITHUB/BACS350/08/BookBuilder
+export p8=$GITHUB/BACS350/08/Messenger
 export p9=$GITHUB/BACS350/09/ViewWorkshop
 export p10=$GITHUB/BACS350/10/Photogram
-export p11=$GITHUB/BACS350/11/HammerTest
+export p11=$GITHUB/BACS350/11/BookBuilder
 export p12=$GITHUB/BACS350/12/CourseBuilder
-export p13=$GITHUB/BACS350/13/ProjectPlan
-export p14=$GITHUB/BACS350/14/AppBuilder
+export p13=$GITHUB/BACS350/13/AppBuilder
+export p14=$GITHUB/BACS350/14/ProjectPlan
 
 alias p1='cd $p1 && l'
 alias p2='cd $p2 && l'
@@ -30,15 +30,6 @@ alias p11='cd $p11 && l'
 alias p12='cd $p12 && l'
 alias p13='cd $p13 && l'
 alias p14='cd $p14 && l'
-
-
-# Other projects
-# Lessons
-# View Workshop
-# Hammer Test
-# App Builder
-# Course Builder
-# Page Probe
 
 figlet BACS 350
 

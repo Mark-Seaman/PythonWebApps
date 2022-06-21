@@ -16,20 +16,20 @@
             <th>Edit</th>
         </tr>
 
-        {% for Message in object_list %}
+        {% for message in object_list %}
         <tr>
-            <td><a href="/Message/{{ Message.pk }}">{{ Message.title }}</a></td>
-            <td><a href="/Message/{{ Message.pk }}">{{ Message.description }}</a></td>
-            <td><a href="/author/{{ Message.author.pk }}">{{ Message.author.name }}</a></td>
-            <td><a href="/Message/{{ Message.pk }}/">Edit</a></td>
-            <td><a href="/Message/{{ Message.pk }}/delete">Delete</a></td>
+            <td><a href="/message/{{ message.pk }}">{{ message.title }}</a></td>
+            <td><a href="/message/{{ message.pk }}">{{ message.description }}</a></td>
+            <td><a href="/author/{{ message.author.pk }}">{{ message.author.name }}</a></td>
+            <td><a href="/message/{{ message.pk }}/">Edit</a></td>
+            <td><a href="/message/{{ message.pk }}/delete">Delete</a></td>
         </tr>
         {% endfor %}
 
     </table>
 
     <p>
-        <a href="/Message/add" class="btn btn-success m-5">Add New Message</a>
+        <a href="/message/add" class="btn btn-success m-5">Add New Message</a>
     </p>
 
 </div>
