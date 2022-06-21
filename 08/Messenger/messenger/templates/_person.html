@@ -1,10 +1,23 @@
-<table class="table">
-    <tr>
-        <td>Title</td>
-        <td><a href="/person/{{ object.pk }}/">{{ object.order }} - {{ object.title }}</a></td>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>{{ object.notes }}</td>
-    </tr>
-</table>
+<div class="card col-lg">
+
+    <div class="card-header person">
+        Author Profile
+    </div>
+    <div class="card-body">
+
+
+        <table class="table">
+            <tr>
+                <td>Name</td>
+                <td><a href="/person/{{ object.pk }}/">{{ object.name }}</a></td>
+            </tr>
+            <tr>
+                <td>Bio</td>
+                <td>{{ object.bio }}</td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</div>

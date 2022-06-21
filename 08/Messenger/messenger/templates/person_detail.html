@@ -11,21 +11,13 @@ Person Details
 
 <div class="row">
 
-    <div class="col-lg">
+    {% include '_person.html' %}
 
-        {% include '_person.html' %}
+    {% include '_messages.html' %}
 
-    </div>
-    <div class="col-lg">
 
-        <h2 class="text-primary text-center">Person</h2>
 
-        {% include '_persons.html' %}
-    </div>
 
 </div>
-
-<a href="/accounts/{{ object.user.pk }}" class="btn btn-success m-5">User Detail</a>
-<a href="/person/{{ object.pk }}/" class="btn btn-success m-5">Edit Person</a>
 
 {% endblock content %}

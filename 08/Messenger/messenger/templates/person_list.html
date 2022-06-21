@@ -9,20 +9,17 @@ List of Persons
 
 <table class="table table-hover">
     <tr>
-        <th>Person</th>
-        <th>Description</th>
         <th>Author</th>
         <th>Edit</th>
     </tr>
 
     {% for person in object_list %}
+
     <tr>
-        <td><a href="/person/{{ person.pk }}">{{ person.title }}</a></td>
-        <td><a href="/person/{{ person.pk }}">{{ person.description }}</a></td>
-        <td><a href="/author/{{ person.author.pk }}">{{ person.author.name }}</a></td>
+        <td><a href="/person/{{ person.pk }}">{{ person.name }}</a></td>
         <td><a href="/person/{{ person.pk }}/">Edit</a></td>
-        <td><a href="/person/{{ person.pk }}/delete">Delete</a></td>
     </tr>
+
     {% endfor %}
 
 </table>

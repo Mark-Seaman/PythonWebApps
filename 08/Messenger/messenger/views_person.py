@@ -44,18 +44,8 @@ class PersonDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
-        # kwargs.update(dict(messages=kwargs.get('object').messages))
+        kwargs.update(dict(messages=kwargs.get('object').messages))
         return kwargs
-
-
-class PersonCreateView(LoginRequiredMixin, CreateView):
-    template_name = "person_add.html"
-    model = Person
-    fields = '__all__'
-
-    def form_valid(self, form):
-        # form.instance.owner = Owner.objects.get(user=self.request.user)
-        return super().form_valid(form)
 
 
 class PersonUpdateView(LoginRequiredMixin, UpdateView):

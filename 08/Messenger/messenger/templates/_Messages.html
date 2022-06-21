@@ -1,16 +1,26 @@
-<table class="table table-hover">
-    <tr>
-        <th>Message</th>
-        <th>Description</th>
-        <th>Owner</th>
-    </tr>
+<div class="card col-lg">
+    <div class="card-header message">
+        Messages
+    </div>
+    <div class="card-body">
 
-    {% for message in messages %}
-    <tr>
-        <td><a href="/message/{{ message.pk }}">{{ message.title }}</a></td>
-        <td>{{ message.body }}</td>
-        <td><a href="/developer/{{ message.owner.pk }}">{{ message.owner.pk }}</a></td>
-    </tr>
-    {% endfor %}
+        <table class="table table-hover">
+            <tr>
+                <th>Message</th>
+                <th>Text</th>
+                <th>Author</th>
+            </tr>
 
-</table>
+            {% for message in object.messages %}
+            <tr>
+                <td><a href="/message/{{ message.pk }}">{{ message.title }}</a></td>
+                <td>{{ message.text }}</td>
+                <td><a href="/person/{{ message.author.pk }}">{{ message.author.name }}</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <a class="btn message" href="/message/add">Add Message</a>
+    </div>
+</div>

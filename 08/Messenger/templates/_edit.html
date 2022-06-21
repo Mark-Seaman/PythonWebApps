@@ -5,6 +5,7 @@
 
     {{ form|crispy }}
 
-    <button class="btn btn-success mt-5" type="submit">Save Record</button>
+    <button class="btn btn-success m-5" type="submit">Save Record</button>
+    <a class="btn btn-success m-5" href="/message/{{ object.pk }}/delete">Delete Record</a>
 
 </form>

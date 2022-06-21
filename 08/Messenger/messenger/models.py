@@ -15,7 +15,11 @@ class Person(models.Model):
 
     @property
     def messages(self):
-        return Message.objects.filter(parent=self)
+        return Message.objects.filter(author=self)
+
+    @property
+    def name(self):
+        return self.user.first_name + ' ' + self.user.last_name
 
     @staticmethod
     def get_me(user):
@@ -26,6 +30,10 @@ class Message(models.Model):
     author = models.ForeignKey(Person, on_delete=models.CASCADE, editable=False)
     title = models.CharField(max_length=100)
     text = models.TextField()
+
+    @property
+    def messages(self):
+        return Message.objects.filter(author=self.author)
 
     def __str__(self):
         return f'{self.title}'

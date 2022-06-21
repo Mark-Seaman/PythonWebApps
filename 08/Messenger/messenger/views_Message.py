@@ -21,12 +21,6 @@ class MessageDetailView(DetailView):
     model = Message
     context_object_name = 'message'
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     message = kwargs.get('message')
-    #     kwargs.update(dict(dependent=message.dependents))
-    #     return kwargs
-
 
 class MessageCreateView(LoginRequiredMixin, CreateView):
     template_name = "message_add.html"
@@ -47,4 +41,4 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
 class MessageDeleteView(LoginRequiredMixin, DeleteView):
     model = Message
     template_name = 'message_delete.html'
-    success_url = reverse_lazy('message_list')
+    success_url = reverse_lazy('home')

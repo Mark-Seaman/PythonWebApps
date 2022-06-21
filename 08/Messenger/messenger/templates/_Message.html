@@ -1,10 +1,20 @@
-<table class="table">
-    <tr>
-        <td>Title</td>
-        <td><a href="/message/{{ object.pk }}/">{{ object.order }} - {{ object.title }}</a></td>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>{{ object.notes }}</td>
-    </tr>
-</table>
+<div class="card col-lg">
+
+    <div class="card-header message">
+        Next Message
+    </div>
+    <div class="card-body">
+
+        <table class="table">
+            <tr>
+                <td>Title</td>
+                <td><a href="/message/{{ object.pk }}/">{{ object.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Text</td>
+                <td>{{ object.text }}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
