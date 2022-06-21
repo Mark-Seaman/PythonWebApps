@@ -4,6 +4,9 @@
             Author Profile
         </div>
         <div class="card-body">
+
+            {% load crispy_forms_tags %}
+
             <form action="" method="post">
                 {% csrf_token %}
 
@@ -15,9 +18,10 @@
                         </td>
                     </tr>
 
-                    {{ form }}
+                    {{ form|crispy }}
 
                 </table>
+
 
                 <button class="btn btn-primary mt-5" type="submit">Save Record</button>
             </form>
