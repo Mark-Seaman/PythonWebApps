@@ -1,0 +1,23 @@
+<div class="card col-lg">
+
+    <div class="card-header person">
+        Author
+    </div>
+    <div class="card-body">
+
+
+        <table class="table">
+            <tr>
+                <td>Title</td>
+                <td><a href="/author/{{ object.pk }}/">{{ object.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Body</td>
+                <td>{{ object.body }}</td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</div>
