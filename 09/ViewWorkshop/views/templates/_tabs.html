@@ -1,0 +1,53 @@
+{% if tabs %}
+
+<div class="m-3">
+    <div class="container">
+
+        <ul class="nav nav-tabs" role="tablist">
+
+            {% for t in tabs %}
+            <li class="nav-item">
+                <a class="nav-link {{ t.active }}" id="{{ t.name }}-tab" data-bs-toggle="tab" href="#{{ t.name }}">
+                    {{ t.header }}
+                </a>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+        <div class="tab-content">
+
+            {% for t in tabs %}
+
+            <div class="tab-pane bg-light text-dark p-5 {{ t.active }} {{ t.show }} fade" id="{{ t.name }}">
+
+                <h2>{{ t.header }}</h2>
+
+                {% autoescape off %}
+                {{ t.body }}
+                {% endautoescape %}
+
+                {% for table in t.tables %}
+                {% include '_table.html' %}
+                {% endfor %}
+
+                <div class="container">
+                    <div class="row">
+
+                        {% for card in t.cards %}
+                        {% include '_card.html' %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endif %}

@@ -1,0 +1,45 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}View Workshop Home{% endblock title %}
+
+
+{% block content%}
+
+<div class="container m-5">
+
+    <h1 class="text-primary">Home Page</h1>
+
+    <p>This is a demo of a simple TemplateView.</p>
+    <p>Pages in View Workshop</p>
+    <ul>
+        <li>Core Views
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="theme.html">Theme</a></li>
+                <li><a href="doc/">Document</a></li>
+                <li><a href="card">Card View</a></li>
+                <li><a href="table">Table View</a></li>
+            </ul>
+        </li>
+
+        <li>Container Views
+            <ul>
+                <li><a href="tabs">Tabs View</a></li>
+                <li><a href="accordion">Accordion View</a></li>
+                <li><a href="carousel">Carousel View</a></li>
+                <li><a href="super">Super View</a></li>
+            </ul>
+        </li>
+    </ul>
+    <p>This page features:</p>
+    <ul>
+        <li>The default URL ("/") loads this page.</li>
+        <li>The page inherits the appearance of "theme.html".</li>
+        <li>Template View loads the template "home.html".</li>
+        <li>Named URL of "home" points to this page.</li>
+    </ul>
+
+</div>
+
+{% endblock content%}
