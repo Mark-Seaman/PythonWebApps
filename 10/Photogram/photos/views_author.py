@@ -10,6 +10,14 @@ class AuthorView(RedirectView):
     url = reverse_lazy('author_list')
 
 
+class AuthorHomeView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.is_anonymous:
+            return '/author/'
+        author = Author.get_me(self.request.user)
+        return f'/author/{author.pk}'
+
+
 class AuthorListView(ListView):
     template_name = 'author_list.html'
     model = Author
@@ -48,4 +56,3 @@ class AuthorDeleteView(LoginRequiredMixin, DeleteView):
     model = Author
     template_name = 'author_delete.html'
     success_url = reverse_lazy('author_list')
-

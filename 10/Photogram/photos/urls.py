@@ -1,10 +1,13 @@
 
 from django.urls import path
 
-from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorCreateView, AuthorUpdateView
+from .views_author import AuthorDeleteView, AuthorDetailView, AuthorHomeView, AuthorListView, AuthorCreateView, AuthorUpdateView
 
 
 urlpatterns = [
+
+    # Default
+    path('',                              AuthorHomeView.as_view(), name='author_home'),
 
     # Author
     path('author/',                       AuthorListView.as_view(),    name='author_list'),

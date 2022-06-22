@@ -5,7 +5,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
 
     # Photogram
-    path('', RedirectView.as_view(url='author/')),
     path('', include('photos.urls')),
+    path('', include('accounts.urls')),
 
 ]

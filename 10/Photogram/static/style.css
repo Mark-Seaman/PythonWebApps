@@ -1,0 +1,26 @@
+.card {
+    box-shadow: 2px 2px 5px black;
+    margin: 1em;
+    padding: 0;
+    background-color: #ddd;
+}
+
+.card-header {
+    color: white;
+    font-size: large;
+    margin: 0;
+}
+
+.person {
+    background-color: rgb(13, 110, 253);
+    color: white;
+}
+
+.message {
+    background-color: rgb(25, 135, 84);
+    color: white;
+}
+
+.textarea {
+    max-width: 100%;
+}
