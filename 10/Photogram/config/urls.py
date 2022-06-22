@@ -6,6 +6,6 @@ urlpatterns = [
 
     # Photogram
     path('', RedirectView.as_view(url='author/')),
-    path('', include('author.urls')),
+    path('', include('photos.urls')),
 
 ]
