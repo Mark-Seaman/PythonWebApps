@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load crispy_forms_tags %}
 
 
@@ -10,3 +11,15 @@
 
 </form>
 
+=======
+<form action="" method="post">
+
+    {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <button class="btn btn-success mt-5" type="submit">Save Record</button>
+</form>
+>>>>>>> ba095

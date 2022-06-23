@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +37,40 @@
 
         </div>
     </div>
+=======
+    <title>
+
+        {% block title %}
+        {% if site_title %}
+        {{ site_title }}
+        {% else %}
+        NO TITLE GIVEN
+        {% endif %}
+        {% endblock title %}
+
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% block css %}
+    {% if css %}
+    <link href="{{ css }}" rel="stylesheet">
+    {% endif %}
+    {% endblock css %}
+
+
+</head>
+
+<body>
+
+    {% block content %}
+    <h1>No Page Content</h1>
+    {% endblock content %}
+
+>>>>>>> ba095
 </body>
 
 </html>
