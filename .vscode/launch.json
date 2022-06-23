@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Django Test",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/10/Photogram",
+            "args": [
+                "test"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
             "name": "Python: Django",
             "type": "python",
             "request": "launch",

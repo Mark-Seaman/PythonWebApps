@@ -6,10 +6,6 @@ from django.views.generic import CreateView, DeleteView, DetailView, ListView, R
 from .models import Author
 
 
-class AuthorView(RedirectView):
-    url = reverse_lazy('author_list')
-
-
 class AuthorHomeView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         if self.request.user.is_anonymous:
@@ -36,14 +32,15 @@ class AuthorDetailView(DetailView):
     #     return kwargs
 
 
-class AuthorCreateView(LoginRequiredMixin, CreateView):
-    template_name = "author_add.html"
-    model = Author
-    fields = '__all__'
+# class AuthorCreateView(LoginRequiredMixin, CreateView):
+#     template_name = "author_add.html"
+#     model = Author
+#     fields = '__all__'
 
-    # def form_valid(self, form):
-    #     form.instance.author = Person.get_me(self.request.user)
-    #     return super().form_valid(form)
+#     def form_valid(self, form):
+#         me = Author.get_me(self.request.user)
+#         form.instance.user = me.user
+#         return super().form_valid(form)
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):

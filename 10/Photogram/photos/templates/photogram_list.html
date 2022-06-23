@@ -1,0 +1,36 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+    List of Photograms
+{% endblock title %}
+
+
+{% block content %}
+
+    <table class="table table-hover">
+        <tr>
+            <th>Photogram</th>
+            <th>Author</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for photogram in object_list %}
+
+            <tr>
+                <td><a href="/photogram/{{ photogram.pk }}">{{ photogram.title }}</a></td>
+                <td><a href="/author/{{ photogram.author.pk }}">{{ photogram.author.name }}</a></td>
+                <td><a href="/photogram/{{ photogram.pk }}/">Edit</a></td>
+                {# <td><a href="/photogram/{{ photogram.pk }}/delete">Delete</a></td> #}
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <p>
+        <a href="/photogram/add" class="btn btn-success m-5">Add New Photogram</a>
+    </p>
+
+{% endblock content %}
+
