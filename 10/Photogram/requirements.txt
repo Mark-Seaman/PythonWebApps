@@ -1,5 +1,4 @@
 asgiref
-<<<<<<< HEAD
 django
 dj-database-url
 django-crispy-forms
@@ -11,12 +10,3 @@ requests
 pillow
 sqlparse
 whitenoise
-=======
-Django
-gunicorn
-psycopg2-binary
-pytz
-sqlparse
-whitenoise
-dj-database-url
->>>>>>> ba095

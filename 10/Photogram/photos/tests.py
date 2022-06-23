@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.test import TestCase
@@ -125,8 +124,3 @@ class AuthorViewsTest(TestCase):
         self.assertEqual(reverse('author_delete', args='1'), '/author/1/delete')
         response = self.client.post('/author/1/delete')
         self.assertEqual(len(Author.objects.all()), 0)
-=======
-from django.test import TestCase
-
-# Create your tests here.
->>>>>>> ba095

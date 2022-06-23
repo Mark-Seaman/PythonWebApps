@@ -20,11 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
 SECRET_KEY = 'django-insecure-9tpnvsz5y5vy%45zq&m=5)df8yf3@8%-a(jcyt2&em)hj1y7f9'
-=======
-SECRET_KEY = 'django-insecure-_ud+c&%&gc79^)tmk^lu@a0850mamk1^2%o@7%p!o^+0_o--_s'
->>>>>>> ba095
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
 
     # Third-party
     'crispy_forms',
@@ -49,9 +44,6 @@ INSTALLED_APPS = [
     # My apps
     'photos',
     'accounts',
-=======
-    'photos',
->>>>>>> ba095
 ]
 
 MIDDLEWARE = [
@@ -64,24 +56,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-<<<<<<< HEAD
 ROOT_URLCONF = 'config.urls'
 
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
-=======
-ROOT_URLCONF = 'photos.urls'
->>>>>>> ba095
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
         'DIRS': [BASE_DIR/'templates'],
-=======
-        'DIRS': [BASE_DIR / 'templates'],
->>>>>>> ba095
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,14 +129,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-<<<<<<< HEAD
-=======
-# Upload location
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / "media"
-
-
->>>>>>> ba095
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
