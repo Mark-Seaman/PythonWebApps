@@ -32,15 +32,14 @@ class AuthorDetailView(DetailView):
     #     return kwargs
 
 
-# class AuthorCreateView(LoginRequiredMixin, CreateView):
-#     template_name = "author_add.html"
-#     model = Author
-#     fields = '__all__'
+class AuthorCreateView(LoginRequiredMixin, CreateView):
+    template_name = "author_add.html"
+    model = Author
+    fields = '__all__'
 
-#     def form_valid(self, form):
-#         me = Author.get_me(self.request.user)
-#         form.instance.user = me.user
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
