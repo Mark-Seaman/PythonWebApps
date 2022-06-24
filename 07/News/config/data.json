@@ -393,7 +393,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$320000$KAsW78omoJ2GovfOa8vlTS$ImAXePqRL3cj0K4Sa0PE/I4sxFq2CLN8ReVbvYSOmJI=",
-        "last_login": "2022-06-16T20:44:14.252Z",
+        "last_login": "2022-06-20T22:58:32.318Z",
         "is_superuser": true,
         "username": "seaman",
         "first_name": "Mark",
@@ -438,6 +438,96 @@
         "is_staff": false,
         "is_active": true,
         "date_joined": "2022-06-12T13:25:59.634Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$KjeOygdfwFNt03s0z2pBSV$8P7XbmMBaAltNnSGZuzRj+xxGEYh9mbE+mE3yDVPmGM=",
+        "last_login": "2022-06-20T22:13:36.881Z",
+        "is_superuser": false,
+        "username": "MarkSeaman",
+        "first_name": "Mark",
+        "last_name": "Tester",
+        "email": "a@a.us",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-20T22:13:31.083Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$C6DikWjrLYPHC7tJsi0sPc$yhxAfLraUqUMRqB/8g+emcqAR67ag7if1tPPj9RygBA=",
+        "last_login": "2022-06-20T22:26:31.751Z",
+        "is_superuser": false,
+        "username": "ab",
+        "first_name": "Abe",
+        "last_name": "Bezo",
+        "email": "a@a.us",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-20T22:26:19.839Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$Tq7ERVCwGGaibxogkrYYCY$bEKWFyQxpGCeVRNbky7DcmmAEGe3/CRnoWR1dwbk1dc=",
+        "last_login": "2022-06-20T23:15:01.134Z",
+        "is_superuser": false,
+        "username": "abc",
+        "first_name": "abe",
+        "last_name": "ce",
+        "email": "a@x.us",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-20T23:14:48.427Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$26gTNS5YlNa1RblNfXZp3t$yATXoTzZM+k5vt4Dv11z4pshGfICwhfjosaaZ8yyTfk=",
+        "last_login": "2022-06-24T13:31:41.174Z",
+        "is_superuser": false,
+        "username": "natasha",
+        "first_name": "Natasha",
+        "last_name": "Romanov",
+        "email": "nat@a.us",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-24T13:31:15.635Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$gtxtfcJBd0alTWrvO9j0kM$zXdeQD/0cuTw4/E+MsSjMZ+qPFK318SyKIUmkdGD1nQ=",
+        "last_login": "2022-06-24T16:10:12.060Z",
+        "is_superuser": false,
+        "username": "marvel",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-24T15:36:01.920Z",
         "groups": [],
         "user_permissions": []
     }
@@ -539,6 +629,22 @@
     }
 },
 {
+    "model": "sessions.session",
+    "pk": "fr9c9rprh8lccoe4hofqnbdsvpapej6d",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAURP-FtSG8KuDSfb-BcLkXqRpISrsy_ruSdKG7yZwz82Ih7lsJe6c1LMguTLLTbwcxPagOgPdYb42nVrd1AT4UftDO54b0vB7u30GJvYy1zaTIWQSYfCKUNmMWSaZvsl5lfxZCkfGQJ6G1NFobj2C9djYpcIq9PwViN-U:1o2IuV:YGj11ZaVXS9A1pYHogfbw7e2ydxjkxATK2Odg1oj3mE",
+        "expire_date": "2022-07-01T20:49:43.156Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ysbtl59fabkvfmjkjvilwwb5h94six5a",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2pDACAMu3XsGMsAgVQNJaVeNd9cmXej2v_f-JgKtSw3r4DlMWVyEFaffLVJ6cttBflC7d5l6W-Ypyl2RBx3y1jO_rof7d1Bp1G8NzqHz2liDoBMXb6xG4szWEpWcE2IhBQnwrD0QoHI2ehUNeGRHWrw_0dY3bA:1o3Qbl:k3_tkyNIIBYcXCcCmNH7Aza9-zOdEub3NQYUTD5-Irk",
+        "expire_date": "2022-07-04T23:15:01.138Z"
+    }
+},
+{
     "model": "news.author",
     "pk": 1,
     "fields": {
@@ -560,6 +666,30 @@
     "fields": {
         "user": 3,
         "bio": "Bruce is the Hulk"
+    }
+},
+{
+    "model": "news.author",
+    "pk": 6,
+    "fields": {
+        "user": 6,
+        "bio": ""
+    }
+},
+{
+    "model": "news.author",
+    "pk": 7,
+    "fields": {
+        "user": 7,
+        "bio": ""
+    }
+},
+{
+    "model": "news.author",
+    "pk": 8,
+    "fields": {
+        "user": 8,
+        "bio": ""
     }
 },
 {
