@@ -1,23 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.views.generic import DeleteView, DetailView, ListView, UpdateView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
 
 from .models import Article, Author
-
-from django.views.generic import CreateView, RedirectView, UpdateView
-from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.urls import reverse_lazy
-from django.contrib.auth.forms import UserCreationForm
-
-
-# def check_authors():
-#     for user in User.objects.all():
-#         if not Author.objects.filter(user=user):
-#             Author.objects.create(user=user)
 
 
 def list_articles(author):
@@ -65,16 +52,6 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
     success_url = reverse_lazy('author_home')
-
-
-# class AuthorCreateView(LoginRequiredMixin, CreateView):
-#     template_name = "author_add.html"
-#     model = Author
-#     fields = '__all__'
-
-#     def form_valid(self, form):
-#         form.instance.author_id = 1
-#         return super().form_valid(form)
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):

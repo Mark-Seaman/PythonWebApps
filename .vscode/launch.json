@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/10/Photogram",
+            "cwd": "${workspaceFolder}/07/News",
             "args": [
                 "test"
             ],
@@ -21,7 +21,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/10/Photogram",
+            "cwd": "${workspaceFolder}/07/News",
             "args": [
                 "runserver"
             ],
