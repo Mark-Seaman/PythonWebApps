@@ -34,7 +34,6 @@ services:
   - path: /
   run_command: |
     python manage.py migrate --no-input
-    # python manage.py createsuperuser --no-input --email 'me@here.us'
     python manage.py loaddata config/data.json
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
   source_dir: 07/News

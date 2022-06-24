@@ -44,11 +44,11 @@ class AuthorDetailView(DetailView):
 class AuthorAddView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
+    template_name = 'registration/account_add.html'
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "account_edit.html"
+    template_name = "registration/account_edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
     success_url = reverse_lazy('author_home')
