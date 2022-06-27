@@ -27,11 +27,17 @@ class Author(models.Model):
         return Author.objects.get_or_create(user=user)[0]
 
 
+def get_upload(instance, filename):
+    # if instance.folder:
+    #     return f'images/{instance.folder}/{filename}'
+    return f'images/{filename}'
+
+
 class Photo (models.Model):
 
     author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
     title = models.CharField(max_length=100)
-    image = models.CharField(max_length=100)
+    image = models.ImageField(null=True, blank=True, upload_to=get_upload)
 
     def __str__(self):
         return f'{self.title}'
