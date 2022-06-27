@@ -30,14 +30,14 @@ class AuthorDetailView(DetailView):
     #     return kwargs
 
 
-class AuthorCreateView(LoginRequiredMixin, CreateView):
-    template_name = "author/add.html"
-    model = Author
-    fields = '__all__'
+# class AuthorCreateView(LoginRequiredMixin, CreateView):
+#     template_name = "author/add.html"
+#     model = Author
+#     fields = '__all__'
 
-    # def form_valid(self, form):
-    #     form.instance.author = Person.get_me(self.request.user)
-    #     return super().form_valid(form)
+#     # def form_valid(self, form):
+#     #     form.instance.author = Person.get_me(self.request.user)
+#     #     return super().form_valid(form)
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
@@ -65,11 +65,11 @@ class AuthorHomeView(RedirectView):
 class AuthorAddView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'registration/account_add.html'
+    template_name = 'registration/add.html'
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "registration/account_edit.html"
+    template_name = "registration/edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
     success_url = reverse_lazy('author_home')
