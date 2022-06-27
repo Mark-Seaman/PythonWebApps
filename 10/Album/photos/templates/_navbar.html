@@ -2,14 +2,14 @@
 
     <div class="container">
 
-        <a class="navbar-brand text-light" href="/">Messenger</a>
+        <a class="navbar-brand text-light" href="/">Photo Album</a>
 
         <ul class="navbar-nav text-light ml-auto">
             <li class="nav-item">
                 <a class="nav-link text-light" href="{% url 'author_list' %}">Authors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'author_home' %}">Objects</a>
+                <a class="nav-link text-light" href="{% url 'user_home' %}">Photos</a>
             </li>
 
             {% if user.is_authenticated %}

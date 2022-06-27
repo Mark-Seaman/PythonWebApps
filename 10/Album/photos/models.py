@@ -40,7 +40,7 @@ class Photo (models.Model):
     image = models.ImageField(null=True, blank=True, upload_to=get_upload)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.pk} - {self.title}'
 
     def get_absolute_url(self):
         return reverse_lazy('photo_detail', args=[str(self.id)])

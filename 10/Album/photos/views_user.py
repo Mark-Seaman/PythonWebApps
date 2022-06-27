@@ -14,7 +14,13 @@ class UserHomeView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         if self.request.user.is_anonymous:
             return '/author/'
-        return f'/author/{Author.get_me(self.request.user).pk}'
+        author = Author.get_me(self.request.user)
+        if author.name == ' ':
+            author.user.first_name = 'Unknown'
+            author.user.last_name = 'User'
+            author.user.email = 'me@here.com'
+            author.user.save()
+        return f'/author/{author.pk}'
 
 
 class UserAddView(CreateView):
@@ -27,4 +33,4 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "registration/edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
-    success_url = reverse_lazy('author_home')
+    success_url = reverse_lazy('user_home')
