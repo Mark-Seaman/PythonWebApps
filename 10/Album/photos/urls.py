@@ -7,7 +7,7 @@ from django.views.generic import RedirectView
 
 from .views_user import UserAddView, UserHomeView, UserUpdateView
 from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorUpdateView
-from .views_photo import PhotoDeleteView, PhotoDetailView, PhotoListView, PhotoCreateView, PhotoUpdateView
+from .views_photo import PhotoCarouselView, PhotoDeleteView, PhotoDetailView, PhotoListView, PhotoCreateView, PhotoUpdateView
 
 
 urlpatterns = [
@@ -28,6 +28,7 @@ urlpatterns = [
     path('author/<int:pk>/delete',      AuthorDeleteView.as_view(),  name='author_delete'),
 
     # Photo
+    path('photo/carousel',              PhotoCarouselView.as_view()),
     path('photo/',                      PhotoListView.as_view(),    name='photo_list'),
     path('photo/<int:pk>',              PhotoDetailView.as_view(),  name='photo_detail'),
     path('photo/add',                   PhotoCreateView.as_view(),  name='photo_add'),
