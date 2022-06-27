@@ -1,7 +1,7 @@
 <div class="card col-lg">
 
     <div class="card-header message">
-        Messages
+        Authors in Photo Album
     </div>
     <div class="card-body">
         <table class="table table-hover">
@@ -13,8 +13,9 @@
 
             {% for author in authors %}
             <tr>
-                <td><a href="/author/{{ author.pk }}">{{ author.title }}</a></td>
-                <td>{{ author.body }}</td>
+                <td><a href="/author/{{ author.pk }}">{{ author.name }}</a></td>
+                <td>{{ author.bio }}</td>
+                <td><a href="/author/{{ author.pk }}/">Edit</a></td>
                 <!--   <td><a href="/owner/{{ author.owner.pk }}">{{ author.owner.name }}</a></td> -->
             </tr>
             {% endfor %}

@@ -8,15 +8,17 @@
 
         <table class="table">
             <tr>
-                <td>Title</td>
-                <td><a href="/author/{{ object.pk }}/">{{ object.title }}</a></td>
+                <td>Name</td>
+                <td><a href="/author/{{ object.pk }}/">{{ object.name }}</a></td>
             </tr>
             <tr>
-                <td>Body</td>
-                <td>{{ object.body }}</td>
+                <td>Biography</td>
+                <td>{{ object.bio }}</td>
             </tr>
         </table>
-
+        <p>
+            <a href="/author/{{ object.pk }}/" class="btn btn-success m-5">Edit Author</a>
+        </p>
 
     </div>
 
