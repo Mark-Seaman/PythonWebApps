@@ -11,7 +11,18 @@ Add New Photo
 
     <h1 class="text-primary">Add New Message</h1>
 
-    {% include '_edit.html' %}
+    {% load crispy_forms_tags %}
+
+    <form action="" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {{ form|crispy}}
+
+        <button class="btn btn-success m-5" type="submit">Save Image</button>
+        <a class="btn btn-success m-5" href="/photo/{{ object.pk }}/delete">Delete Image</a>
+
+    </form>
+
 
 </div>
 

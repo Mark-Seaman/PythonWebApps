@@ -23,11 +23,11 @@ class AuthorDetailView(DetailView):
     model = Author
     context_object_name = 'author'
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     author = kwargs.get('author')
-    #     kwargs.update(dict(dependent=author.dependents))
-    #     return kwargs
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        author = kwargs.get('author')
+        kwargs.update(dict(photos=author.photos))
+        return kwargs
 
 
 # class AuthorCreateView(LoginRequiredMixin, CreateView):
