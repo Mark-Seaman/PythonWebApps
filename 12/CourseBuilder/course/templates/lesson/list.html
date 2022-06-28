@@ -1,0 +1,20 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+    List of Lessons
+{% endblock title %}
+
+
+{% block content %}
+
+    <h1>My Lessons</h1>
+
+    <div class="row">
+
+        {% include 'lesson/_lessons.html' %}
+
+    </div>
+
+{% endblock content %}
+

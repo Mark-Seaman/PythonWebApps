@@ -8,15 +8,13 @@
             <tr>
                 <th>ClassName</th>
                 <th>Description</th>
-{#                <th>Owner</th>#}
             </tr>
 
             {% for object_instance in object_instances %}
-                <tr>
-                    <td><a href="/object_instance/{{ object_instance.pk }}">{{ object_instance.title }}</a></td>
-                    <td>{{ object_instance.body }}</td>
-{#                    <td><a href="/owner/{{ object_instance.owner.pk }}">{{ object_instance.owner.name }}</a></td>#}
-                </tr>
+            <tr>
+                <td><a href="/object_instance/{{ object_instance.pk }}">{{ object_instance.title }}</a></td>
+                <td>{{ object_instance.body }}</td>
+            </tr>
             {% endfor %}
 
         </table>
@@ -27,5 +25,3 @@
     </div>
 
 </div>
-
-

@@ -14,18 +14,15 @@ def generate_website():
     project_name = 'CourseBuilder'
     project_app = 'course'
     project_path = create_new_project(project_path, project_name)
-    create_new_app(project_path, project_app)
-    # generate_data_type(project_path, project_app, 'Chapter', "chapter")
-    # generate_data_type(project_path, project_app, 'Skill', "Skill")
-    # generate_data_type(project_path, project_app, 'Project', "project")
-    # generate_data_type(project_path, project_app, 'Demo', "demo")
+    # create_new_app(project_path, project_app)
+    generate_data_type(project_path, project_app, 'Lesson', "lesson")
     system(f'tree {project_path}')
 
 
 def clone_code(project, object_name, class_name, module_name):
 
     def prototypes_list():
-        prototypes = Path('workshop/prototype').rglob('*')
+        prototypes = Path('prototype').rglob('*')
         prototypes = [p for p in prototypes if not ('project' in str(p))]
         prototypes = [p for p in prototypes if p.is_file()]
         return prototypes
@@ -34,7 +31,7 @@ def clone_code(project, object_name, class_name, module_name):
         f1 = f'{f1}'
         f2 = f1.replace('object_instance', object_name)
         if not 'xxx' in f2:
-            base = 'workshop/prototype'
+            base = 'prototype'
             f2 = f2.replace(base, module_name)
             f2 = f'{project}/{f2}'
             convert_file(f1, f2, module_name, object_name, class_name)
@@ -45,7 +42,7 @@ def clone_code(project, object_name, class_name, module_name):
 
             object1 = 'object_instance'
             class1 = 'ClassName'
-            module1 = 'workshop/prototype'
+            module1 = 'prototype'
 
             text = open(f1).read()
             text = text.replace(object1, object2)
