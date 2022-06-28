@@ -80,7 +80,7 @@ def create_new_project(project_path, project_name):
         return project_path
 
     def clone_project_files(path):
-        prototypes = Path('workshop/prototype/project').glob('*')
+        prototypes = Path('prototype/project').glob('*')
         for p in prototypes:
             if not ('config' in str(p)):
                 path_name = path / p.name
@@ -89,7 +89,7 @@ def create_new_project(project_path, project_name):
                 if p.is_file() and not path_name.exists():
                     copyfile(p, path_name)
 
-        prototypes = Path('workshop/prototype/project/config').glob('*')
+        prototypes = Path('prototype/project/config').glob('*')
         for p in prototypes:
             path_name = path / 'config' / p.name
             if p.is_file() and not path_name.exists():
