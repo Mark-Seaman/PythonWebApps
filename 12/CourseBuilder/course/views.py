@@ -26,16 +26,20 @@ def get_document(lesson):
     return markdown(doc)
 
 
-class LessonListView(ListView):
-    template_name = 'lesson/list.html'
-    model = Lesson
-    context_object_name = 'lessons'
+def update_lessons():
+    for i, doc in enumerate(sorted(Path('Documents/').iterdir())):
+        get_lesson(i, doc)
 
-    def get_context_data(self, **kwargs):
-        for i, doc in enumerate(sorted(Path('Documents/').iterdir())):
-            get_lesson(i, doc)
-        kwargs = super().get_context_data(**kwargs)
-        return kwargs
+
+# class LessonListView(ListView):
+#     template_name = 'lesson/list.html'
+#     model = Lesson
+#     context_object_name = 'lessons'
+
+#     def get_context_data(self, **kwargs):
+#         update_lessons()
+#         kwargs = super().get_context_data(**kwargs)
+#         return kwargs
 
 
 class LessonDetailView(DetailView):
@@ -44,6 +48,7 @@ class LessonDetailView(DetailView):
     context_object_name = 'lesson'
 
     def get_context_data(self, **kwargs):
+        update_lessons()
         kwargs = super().get_context_data(**kwargs)
         lesson = kwargs.get('lesson')
         kwargs['body'] = get_document(lesson)
