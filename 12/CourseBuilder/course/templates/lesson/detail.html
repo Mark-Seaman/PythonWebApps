@@ -1,22 +1,30 @@
 {% extends 'theme.html' %}
 
 
-{% block title %}
-Lesson Details
-{% endblock title %}
-
-
 {% block content %}
-
-<h1>Lesson Details</h1>
 
 <div class="row">
 
-    {% include 'lesson/_lesson.html' %}
+    <div class="card col-lg-3 m-0">
 
-    <!-- {% include 'lesson/_lessons.html' %} -->
+        <div class="card-header lesson">
+            Course Lessons
+        </div>
+        <div class="card-body">
 
+            {% for lesson in lessons %}
+            <p><a href="/lesson/{{ lesson.pk }}">{{ lesson.title }}</a></p>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg m-5">
+        {% autoescape off %}
+        {{ body }}
+        {% endautoescape %}
+    </div>
 </div>
 
 {% endblock content %}
-

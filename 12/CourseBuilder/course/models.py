@@ -15,7 +15,7 @@ class Lesson(models.Model):
 
     @staticmethod
     def lessons(course):
-        return Lesson.objects.all())
+        return Lesson.objects.all()
 
     def __str__(self):
         return f'{self.pk} - {self.title}'
