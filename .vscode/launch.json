@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/10/Album",
+            "cwd": "${workspaceFolder}/13/CodeBuilder",
             "args": [
                 "test"
             ],
@@ -21,7 +21,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/10/Album",
+            "cwd": "${workspaceFolder}/13/CodeBuilder",
             "args": [
                 "runserver"
             ],
