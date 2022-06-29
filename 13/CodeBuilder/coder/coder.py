@@ -6,16 +6,27 @@ from django.shortcuts import render
 
 def build_code():
     print('build_code()')
-    generate_website()
+    generate_software_planner()
 
 
-def generate_website():
+def generate_course_builder():
     project_path = Path('/Users/seaman/Github/BACS350/12')
     project_name = 'CourseBuilder'
     project_app = 'course'
     project_path = create_new_project(project_path, project_name)
     # create_new_app(project_path, project_app)
     generate_data_type(project_path, project_app, 'Lesson', "lesson")
+    system(f'tree {project_path}')
+
+
+def generate_software_planner():
+    project_path = Path('/Users/seaman/Github/BACS350/14')
+    project_name = 'SoftwarePlanner'
+    project_app = 'plan'
+    project_path = create_new_project(project_path, project_name)
+    # create_new_app(project_path, project_app)
+    # generate_data_type(project_path, project_app, 'Milestone', "milestone")
+    # generate_data_type(project_path, project_app, 'Task', "task")
     system(f'tree {project_path}')
 
 

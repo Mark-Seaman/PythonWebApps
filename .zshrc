@@ -14,7 +14,7 @@ export p10=$GITHUB/BACS350/10/Album
 export p11=$GITHUB/BACS350/11/BookBuilder
 export p12=$GITHUB/BACS350/12/CourseBuilder
 export p13=$GITHUB/BACS350/13/CodeBuilder
-export p14=$GITHUB/BACS350/14/ProjectPlan
+export p14=$GITHUB/BACS350/14/SoftwarePlanner
 
 alias p1='cd $p1 && l'
 alias p2='cd $p2 && l'

@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from coder.views import build_code
+from coder.coder import build_code
 
 
 class Command(BaseCommand):
