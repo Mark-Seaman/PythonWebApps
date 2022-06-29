@@ -26,7 +26,7 @@ def generate_software_planner():
     project_path = create_new_project(project_path, project_name)
     # create_new_app(project_path, project_app)
     # generate_data_type(project_path, project_app, 'Milestone', "milestone")
-    # generate_data_type(project_path, project_app, 'Task', "task")
+    generate_data_type(project_path, project_app, 'Task', "task")
     system(f'tree {project_path}')
 
 

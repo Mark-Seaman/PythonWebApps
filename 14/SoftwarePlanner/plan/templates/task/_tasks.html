@@ -1,0 +1,22 @@
+<div class="card col-lg">
+
+    <div class="card-header secondary">
+        Task List
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+
+            {% for task in tasks %}
+            <tr>
+                <td><a href="/task/{{ task.pk }}">{{ task.title }}</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/task/{{ milestone.pk }}/add" class="btn btn-success m-5">Add New Task</a>
+        </p>
+    </div>
+
+</div>

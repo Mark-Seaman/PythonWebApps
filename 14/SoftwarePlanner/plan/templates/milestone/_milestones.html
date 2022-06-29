@@ -1,0 +1,27 @@
+<div class="card col-lg">
+
+    <div class="card-header primary">
+        Messages
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Milestone</th>
+                <th>Description</th>
+            </tr>
+
+            {% for milestone in milestones %}
+            <tr>
+                <td><a href="/milestone/{{ milestone.pk }}">{{ milestone.title }}</a></td>
+                <td>{{ milestone.body }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/milestone/add" class="btn btn-primary m-5">Add New Milestone</a>
+        </p>
+    </div>
+
+</div>
