@@ -1,20 +1,20 @@
 #!/bin/bash
 # Linux Shell Contexts
-
-export p1=$GITHUB/BACS350/01/ProfileApp
-export p2=$GITHUB/BACS350/02/ProfileApp
-export p3=$GITHUB/BACS350/03/Pages
-export p4=$GITHUB/BACS350/04/Gallery
-export p5=$GITHUB/BACS350/05/Notes
-export p6=$GITHUB/BACS350/06/Blog
-export p7=$GITHUB/BACS350/07/News
-export p8=$GITHUB/BACS350/08/Messenger
-export p9=$GITHUB/BACS350/09/ViewWorkshop
-export p10=$GITHUB/BACS350/10/Photogram
-export p11=$GITHUB/BACS350/11/BookBuilder
-export p12=$GITHUB/BACS350/12/CourseBuilder
-export p13=$GITHUB/BACS350/13/AppBuilder
-export p14=$GITHUB/BACS350/14/ProjectPlan
+export b3=$HOME/Github/BACS350
+export p1=$b3/01/ProfileApp
+export p2=$b3/02/ProfileApp
+export p3=$b3/03/Pages
+export p4=$b3/04/Gallery
+export p5=$b3/05/Notes
+export p6=$b3/06/Blog
+export p7=$b3/07/News
+export p8=$b3/08/Messenger
+export p9=$b3/09/ViewWorkshop
+export p10=$b3/10/Photos
+export p11=$b3/11/BookBuilder
+export p12=$b3/12/CourseBuilder
+export p13=$b3/13/AppBuilder
+export p14=$b3/14/ProjectPlan
 
 alias p1='cd $p1 && l'
 alias p2='cd $p2 && l'

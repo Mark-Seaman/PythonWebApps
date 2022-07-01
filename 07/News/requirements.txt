@@ -1,7 +1,6 @@
 asgiref
 Django
 gunicorn
-psycopg2-binary
 pytz
 sqlparse
 whitenoise
