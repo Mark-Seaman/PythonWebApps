@@ -46,4 +46,4 @@ export DJANGO_SUPERUSER_EMAIL='seaman'
 figlet BACS 350
 
 cd ~/Github/BACS350
-code .
+# code .
