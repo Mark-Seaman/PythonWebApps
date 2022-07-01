@@ -1,0 +1,20 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+Person Details
+{% endblock title %}
+
+
+
+{% block content %}
+
+<div class="row">
+
+    {% include 'person/_person.html' %}
+
+    {% include 'message/_messages.html' %}
+
+</div>
+
+{% endblock content %}

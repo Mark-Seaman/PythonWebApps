@@ -1,0 +1,21 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+Author Details
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>Author Details</h1>
+
+<div class="row">
+
+    {% include 'author/_author.html' %}
+
+    {% include 'photo/_photos.html' %}
+
+</div>
+
+{% endblock content %}

@@ -34,9 +34,8 @@ services:
   - path: /
   run_command: |
     python manage.py migrate --no-input
-    python manage.py createsuperuser --no-input --email 'me@here.us'
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: week5/NotePad
+  source_dir: 09/ViewWorkshop
 static_sites:
 - environment_slug: html
   github:
@@ -46,4 +45,4 @@ static_sites:
   name: bacs350-demo-static
   routes:
   - path: /static
-  source_dir: week5/NotePad/static
+  source_dir: 09/ViewWorkshop/static

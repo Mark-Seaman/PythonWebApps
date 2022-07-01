@@ -1,0 +1,23 @@
+<div class="card col-lg">
+
+    <div class="card-header secondary">
+        Task
+    </div>
+    <div class="card-body">
+
+
+        <table class="table">
+            <tr>
+                <td>Title</td>
+                <td><a href="/task/{{ object.pk }}/">{{ object.order }} - {{ object.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Note</td>
+                <td>{{ object.notes }}</td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</div>

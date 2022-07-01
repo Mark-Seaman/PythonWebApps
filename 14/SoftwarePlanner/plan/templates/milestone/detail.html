@@ -1,0 +1,21 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+Milestone Details
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>Milestone Details</h1>
+
+<div class="row">
+
+    {% include 'milestone/_milestone.html' %}
+
+    {% include 'task/_tasks.html' %}
+
+</div>
+
+{% endblock content %}

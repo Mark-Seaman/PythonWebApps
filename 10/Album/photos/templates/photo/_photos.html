@@ -1,0 +1,27 @@
+<div class="card col-lg">
+
+    <div class="card-header message">
+        Photos
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Photo</th>
+                <th>Description</th>
+            </tr>
+
+            {% for photo in photos %}
+            <tr>
+                <td><a href="/photo/{{ photo.pk }}">{{ photo.title }}</a></td>
+                <td>{{ photo.body }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/photo/add" class="btn btn-success m-5">Add New Photo</a>
+        </p>
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+Task Details
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>Task Details</h1>
+
+<div class="row">
+
+    {% include 'task/_task.html' %}
+
+    {% include 'task/_tasks.html' %}
+
+</div>
+
+{% endblock content %}

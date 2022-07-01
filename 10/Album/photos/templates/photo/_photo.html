@@ -1,0 +1,24 @@
+<div class="card col-lg">
+
+    <div class="card-header message">
+        Photo
+    </div>
+    <div class="card-body">
+
+
+        <table class="table">
+            <tr>
+                <td>Name</td>
+                <td><a href="/photo/{{ object.pk }}/">{{ object.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Path</td>
+                <td>{{ object.image }}</td>
+            </tr>
+        </table>
+
+        <img src="/media/{{ object.image }}" alt="{{ object.image }}">
+
+    </div>
+
+</div>

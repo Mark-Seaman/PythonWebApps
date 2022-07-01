@@ -1,5 +1,6 @@
 #!/bin/bash
 # Linux Shell Contexts
+
 export b3=$HOME/Github/BACS350
 export p1=$b3/01/ProfileApp
 export p2=$b3/02/ProfileApp
@@ -31,10 +32,8 @@ alias p12='cd $p12 && l'
 alias p13='cd $p13 && l'
 alias p14='cd $p14 && l'
 
-figlet BACS 350
-
-# alias e="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 alias e="code"
+alias superuser='pm createsuperuser --no-input  --email "me@here.us"'
 
 export h=~/Hammer
 export w=$h/workshop
@@ -44,6 +43,7 @@ export DJANGO_SUPERUSER_USERNAME='seaman'
 export DJANGO_SUPERUSER_PASSWORD='seaman'
 export DJANGO_SUPERUSER_EMAIL='seaman'
 
-alias superuser='pm createsuperuser --no-input  --email "me@here.us"'
+figlet BACS 350
 
-l 
+cd ~/Github/BACS350
+code .

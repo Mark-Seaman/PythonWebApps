@@ -1,0 +1,27 @@
+<div class="card col-lg">
+
+    <div class="card-header message">
+        ClassName
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>ClassName</th>
+                <th>Description</th>
+            </tr>
+
+            {% for object_instance in object_instances %}
+            <tr>
+                <td><a href="/object_instance/{{ object_instance.pk }}">{{ object_instance.title }}</a></td>
+                <td>{{ object_instance.body }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/object_instance/add" class="btn btn-success m-5">Add New ClassName</a>
+        </p>
+    </div>
+
+</div>
