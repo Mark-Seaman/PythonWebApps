@@ -20,7 +20,7 @@ def generate_course_builder():
 
 
 def generate_software_planner():
-    project_path = Path('/Users/seaman/Github/BACS350/14')
+    project_path = Path('/Users/seaman/Github/UNC-CS-350')
     project_name = 'SoftwarePlanner'
     project_app = 'plan'
     project_path = create_new_project(project_path, project_name)
