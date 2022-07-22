@@ -21,14 +21,14 @@ class ClassNameDataTest(TestCase):
         self.object_instance1 = dict(user=self.user)
     #     ClassName.objects.create(**self.object_instance1)
 
-    # def test_add_test(self):
+    # def test_add(self):
     #     self.assertEqual(len(ClassName.objects.all()), 0)
     #     ClassName.objects.create(**self.object_instance1)
     #     x = ClassName.objects.get(pk=1)
     #     self.assertEqual(x.title, self.object_instance1['title'])
     #     self.assertEqual(len(ClassName.objects.all()), 1)
     #
-    # def test_test_edit(self):
+    # def test_edit(self):
     #     ClassName.objects.create(**self.object_instance1)
     #     x = ClassName.objects.get(pk=1)
     #     x.title = self.object_instance2['title']
@@ -38,7 +38,7 @@ class ClassNameDataTest(TestCase):
     #     self.assertEqual(x.body, self.object_instance2['body'])
     #     self.assertEqual(len(ClassName.objects.all()), 1)
     #
-    # def test_test_delete(self):
+    # def test_delete(self):
     #     ClassName.objects.create(**self.object_instance1)
     #     b = ClassName.objects.get(pk=1)
     #     b.delete()

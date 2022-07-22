@@ -14,7 +14,7 @@ export p9=$b3/09/ViewWorkshop
 export p10=$b3/10/Photos
 export p11=$b3/11/BookBuilder
 export p12=$b3/12/CourseBuilder
-export p13=$b3/13/AppBuilder
+export p13=$b3/13/CodeBuilder
 export p14=$b3/14/ProjectPlan
 
 alias p1='cd $p1 && l'
