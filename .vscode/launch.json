@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/14/SoftwarePlanner",
+            "cwd": "${workspaceFolder}/10/Album",
             "args": [
                 "test"
             ],
@@ -21,9 +21,10 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/14/SoftwarePlanner",
+            "cwd": "${workspaceFolder}/10/Album",
             "args": [
-                "runserver"
+                "runserver",
+                "8001"
             ],
             "django": true,
             "justMyCode": true
