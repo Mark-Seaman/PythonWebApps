@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Photo
+from .models import Author, Photo
 
 
 def user_args():
@@ -17,49 +17,52 @@ class PhotoDataTest(TestCase):
 
     def setUp(self):
         self.user = test_user()
-        self.person = dict(user=self.user, bio='single tester')
-        self.photo1 = dict(user=self.user)
-    #     Photo.objects.create(**self.photo1)
+        self.author = Author.objects.create(user=self.user, bio='single tester')
+        self.photo1 = dict(author=self.author, title='title 1', image="photo1.png")
+        self.photo2 = dict(author=self.author, title='title 2', image="photo2.png")
+        # Photo.objects.create(**self.photo1)
 
-    # def test_add_test(self):
-    #     self.assertEqual(len(Photo.objects.all()), 0)
-    #     Photo.objects.create(**self.photo1)
-    #     x = Photo.objects.get(pk=1)
-    #     self.assertEqual(x.title, self.photo1['title'])
-    #     self.assertEqual(len(Photo.objects.all()), 1)
-    #
-    # def test_test_edit(self):
-    #     Photo.objects.create(**self.photo1)
-    #     x = Photo.objects.get(pk=1)
-    #     x.title = self.photo2['title']
-    #     x.body = self.photo2['body']
-    #     x.save()
-    #     self.assertEqual(x.title, self.photo2['title'])
-    #     self.assertEqual(x.body, self.photo2['body'])
-    #     self.assertEqual(len(Photo.objects.all()), 1)
-    #
-    # def test_test_delete(self):
-    #     Photo.objects.create(**self.photo1)
-    #     b = Photo.objects.get(pk=1)
-    #     b.delete()
-    #     self.assertEqual(len(Photo.objects.all()), 0)
+    def test_add_test(self):
+        self.assertEqual(len(Photo.objects.all()), 0)
+        Photo.objects.create(**self.photo1)
+        x = Photo.objects.get(pk=1)
+        self.assertEqual(x.title, self.photo1['title'])
+        self.assertEqual(len(Photo.objects.all()), 1)
+
+    def test_test_edit(self):
+        Photo.objects.create(**self.photo1)
+        x = Photo.objects.get(pk=1)
+        x.title = self.photo2['title']
+        x.image = self.photo2['image']
+        x.save()
+        self.assertEqual(x.title, self.photo2['title'])
+        self.assertEqual(x.image, self.photo2['image'])
+        self.assertEqual(len(Photo.objects.all()), 1)
+
+    def test_test_delete(self):
+        Photo.objects.create(**self.photo1)
+        b = Photo.objects.get(pk=1)
+        b.delete()
+        self.assertEqual(len(Photo.objects.all()), 0)
 
 
 class PhotoViewsTest(TestCase):
 
     def login(self):
-        response = self.client.login(username=self.user.username,  password=self.user_args['password'])
+        username = self.user.username
+        password = user_args()['password']
+        response = self.client.login(username=username, password=password)
         self.assertEqual(response, True)
 
     def setUp(self):
-        self.user, self.user_args = create_test_user()
+        self.user = test_user()
         self.photo1 = dict(title='Doc Title 1', body='Doc Body 1')
         self.photo2 = dict(title='Doc Title 2', body='Doc Body 2')
 
-    # def test_home(self):
-    #     response = self.client.get('/')
-    #     self.assertEqual(response.status_code, 302)
-    #     self.assertEqual(response.url, reverse('photo_list'))
+    def test_home(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, reverse('photo_list'))
 
     # def test_photo_list_view(self):
     #     self.assertEqual(reverse('photo_list'), '/photo/')
