@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from os import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9tpnvsz5y5vy%45zq&m=5)df8yf3@8%-a(jcyt2&em)hj1y7f9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = environ.get("DEBUG") == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.ondigitalocean.app']
 
@@ -89,6 +90,32 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+POSTGRES_DB = environ.get("POSTGRES_DB")  # database name
+POSTGRES_PASSWORD = environ.get("POSTGRES_PASSWORD")  # database user password
+POSTGRES_USER = environ.get("POSTGRES_USER")  # database username
+POSTGRES_HOST = environ.get("POSTGRES_HOST")  # database host
+POSTGRES_PORT = environ.get("POSTGRES_PORT")  # database port
+
+POSTGRES_READY = (
+    POSTGRES_DB is not None
+    and POSTGRES_PASSWORD is not None
+    and POSTGRES_USER is not None
+    and POSTGRES_HOST is not None
+    and POSTGRES_PORT is not None
+)
+
+if POSTGRES_READY:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": POSTGRES_DB,
+            "USER": POSTGRES_USER,
+            "PASSWORD": POSTGRES_PASSWORD,
+            "HOST": POSTGRES_HOST,
+            "PORT": POSTGRES_PORT,
+        }
+    }
 
 
 # Password validation
