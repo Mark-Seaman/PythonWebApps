@@ -33,4 +33,4 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "registration/edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
-    success_url = reverse_lazy('user_home')
+    success_url = reverse_lazy('author_home')

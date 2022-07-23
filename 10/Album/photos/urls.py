@@ -16,9 +16,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 
     # User
-    path('',                            RedirectView.as_view(url='user/home')),
-    path('user/home',                   UserHomeView.as_view(),     name='user_home'),
-    path('user/add',                    UserAddView.as_view(),      name='user_add'),
+    path('',                            RedirectView.as_view(url='author/home')),
+    path('author/home',                 UserHomeView.as_view(),     name='author_home'),
+    path('author/add',                  UserAddView.as_view(),      name='author_add'),
     path('user/<int:pk>/',              UserUpdateView.as_view(),   name='user_edit'),
 
     # Author
