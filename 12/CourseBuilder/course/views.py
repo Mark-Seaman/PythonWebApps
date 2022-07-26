@@ -15,7 +15,7 @@ def get_document(lesson):
 
 
 class LessonDetailView(DetailView):
-    template_name = 'lesson/detail.html'
+    template_name = 'page.html'
     model = Lesson
     context_object_name = 'lesson'
 
@@ -24,4 +24,5 @@ class LessonDetailView(DetailView):
         lesson = kwargs.get('lesson')
         kwargs['body'] = get_document(lesson)
         kwargs['lessons'] = Lesson.objects.all()
+        kwargs['css'] = '/static/style.css'
         return kwargs

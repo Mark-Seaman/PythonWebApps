@@ -9,8 +9,8 @@ from .views import get_document
 def create_website():
 
     def render_page(page):
-        template = 'lesson/detail.html'
-        data = dict(lesson=page.pk, lessons=Lesson.objects.all(), body=get_document(page))
+        template = 'page.html'
+        data = dict(lesson=page.pk, lessons=Lesson.objects.all(), body=get_document(page), css='style.css', static=True)
         return render_to_string(template, data)
 
     print('create the website')

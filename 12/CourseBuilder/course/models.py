@@ -11,7 +11,11 @@ class Lesson(models.Model):
 
     @property
     def url(self):
-        return f'/lesson/{self.pk}'
+        return f'/{self.pk}'
+
+    @property
+    def static_url(self):
+        return f'{self.pk:02}.html'
 
     @staticmethod
     def lessons(course):

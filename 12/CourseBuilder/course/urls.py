@@ -8,6 +8,6 @@ urlpatterns = [
 
     # Lesson
     path('', RedirectView.as_view(url='lesson/1')),
-    path('lesson/<int:pk>', LessonDetailView.as_view(),  name='lesson_detail'),
+    path('<int:pk>', LessonDetailView.as_view(),  name='lesson_detail'),
 
 ]
