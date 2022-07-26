@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Course Builder Project</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class=" bg-dark text-light">
+
+    <header class="bg-primary p-5 m-5">
+        <h1>Course Builder Project</h1>
+        <h2>Simple lesson display</h2>
+    </header>
+
+    <div class="container m-5">
+        <div class="card bg-light text-dark p-5">
+
+            
+
+<div class="row">
+
+    <div class="card col-lg-3 m-0">
+
+        <div class="card-header lesson">
+            Course Lessons
+        </div>
+        <div class="card-body">
+
+            
+            <p><a href="/lesson/1">1 - Development Tools</a></p>
+            
+            <p><a href="/lesson/2">2 - Application Hosting</a></p>
+            
+            <p><a href="/lesson/3">3 - Basic Application</a></p>
+            
+            <p><a href="/lesson/4">4 - Views</a></p>
+            
+            <p><a href="/lesson/5">5 - Data</a></p>
+            
+            <p><a href="/lesson/6">6 - Data views</a></p>
+            
+            <p><a href="/lesson/7">7 - Users</a></p>
+            
+            <p><a href="/lesson/8">8 - Testing</a></p>
+            
+            <p><a href="/lesson/9">9 - Complex Views</a></p>
+            
+            <p><a href="/lesson/10">10 - Components Views</a></p>
+            
+            <p><a href="/lesson/11">11 - Files and Documents</a></p>
+            
+            <p><a href="/lesson/12">12 - Import &amp; Export</a></p>
+            
+            <p><a href="/lesson/13">13 - Automation </a></p>
+            
+            <p><a href="/lesson/14">14 - Software Engineering</a></p>
+            
+
+        </div>
+
+    </div>
+
+    <div class="col-lg m-5">
+        
+        <h1>Chapter 2 - Application Hosting</h1>
+<ul>
+<li>Skill 4 - Deploy a Static Web Server</li>
+<li>Skill 5 - Development Server</li>
+<li>Skill 6 - Production Server</li>
+<li><a href="../project/2">Project 2 - Application Deployment</a></li>
+</ul>
+<p><img alt="Chapter 2" src="img/chapter-2.jpg" /></p>
+<h3>Web Hosting Technology</h3>
+<p>Running a web application on the internet requires many layers of software and
+hardware.  All of these layers must be properly integrated and working properly
+before the application server can answer a single request.</p>
+<p>In 1995 the internet was in its infancy and engineers were required to spend a
+lot of time worrying about how to get their application hosted before they could
+write any business logic.</p>
+<ul>
+<li>Hardware</li>
+<li>Operating System</li>
+<li>Operational Scripts for server maintenance</li>
+<li>Computer languages and runtime environments</li>
+<li>Frameworks and libraries</li>
+<li>Database services</li>
+<li>Static Web services (NGINX)</li>
+<li>Application Servers (Apache, Gunicorn)</li>
+<li>Application Business Logic</li>
+</ul>
+<h3>Virtual Machines</h3>
+<p>Application developers used to host their own hardware and software in their own
+data centers.  This meant having all of the physical computers in a data center
+and maintaining all of the networking hardware.  This often proved to be a 
+much larger problem than the development of the software.</p>
+<p>The first breakthrough occurred by the creating of the Virtual Machine concept and
+the Linux operating system.  This allowed for engineers to have much larger
+machines which were all running Virtual Machines (VMs) functioning as stand alone
+computers.  Linux was free to use and provided an operating system environment
+to run the software on the VMs.</p>
+<p>This concept of virtualization emerged in the mid-1990s and drove the DotCom Boom
+(1995-2000).  By 2000 Amazon Web Services (AWS) had established itself as the
+king of Virtual Machine hosting. Now engineers could forgo building computer
+systems in favor of using AWS to provide the computer server hardware and 
+software.</p>
+<p>Soon there were many other players competing to provide similar services.<br />
+Compared to the complexity and cost of hosting your own hardware this was
+considered cheap.  Eventually this became the standard way that everyone 
+embraced.</p>
+<h3>Hosting Web Pages</h3>
+<p>The problem of hosting static web servers is much easier that the general problem
+of hosting dynamic web servers.  Static web servers do not perform any business
+logic on the HTTP requests coming in.  They are simply a lookup service that
+returns an HTTP response that corresponds with each HTTP request.</p>
+<p>Very cheap services (less than $5/month) propagated and allowed many businesses 
+to have simple websites advertising their companies and products and provide
+static information.</p>
+<p>Another market provided users with application accounts for specific software.
+It is said that WordPress software is running on two-thirds of the active servers
+on the internet.  Customers would buy an account at WordPress and have a blog
+running in a few minutes without ever having to deal with any hosting issues.</p>
+<p>This all is great is either you are working with static web pages or you have
+access to a vendor for a common application.  Leasing existing software running
+on existing servers is always your first option for controlling complexity and
+cost.</p>
+<h3>Extending Static Pages</h3>
+<p>But what if you need more?  These solution fail to let developers host custom
+applications.</p>
+<p>A static web page can reference other computer systems which can give a static
+page dynamic capability.  This is done through JavaScript logic that is embedded
+in the pages.  This code is sent to the client web browser and executed by the
+web browser (not on the server).</p>
+<p>By 2000 many new applications were running with heavy JavaScript payloads that
+provided dynamic capability while running on a static web server.
+THis led to the reality that we have today characterized by:</p>
+<ul>
+<li>Server-side logic referred to as Back-end Development (Python, C#, Java, JavaScript)</li>
+<li>Client-side logic referred to as Front-end Development (JavaScript)</li>
+<li>Full-stack Developers work on both sides </li>
+</ul>
+<p>To build a fully custom app, we can choose between a balance of Server-side
+of Client-side development.  Powerful frameworks have emerged on both sides to 
+make development easier.</p>
+<ul>
+<li>Server Frameworks<ul>
+<li>Node JS (written in JavaScript)</li>
+<li>.Net Framework (Written in C#)</li>
+<li>Rails (written in Ruby)</li>
+<li>Laravel (written in PHP)</li>
+<li>Django (written in Python)</li>
+</ul>
+</li>
+<li>Client Frameworks<ul>
+<li>Vue.js (written in JavaScript)</li>
+<li>React (written in JavaScript)</li>
+<li>Angular (written in JavaScript)</li>
+</ul>
+</li>
+</ul>
+<p>All of these frameworks are powerful and capable of producing good results but
+they all have steep learning curves.  Pick one and become an expert.  If you 
+invest in several, you will spread yourself too thin and never achieve the 
+competency that make you competitive in the workplace.</p>
+<h3>Hosting Provider</h3>
+<p>A major reason that developers choose to minimize back-end development is that
+it requires the Application Hosting provider to support certain capabilities.
+Depending on the provider, this is can be a big deal.</p>
+<p>This picture has seen radical improvements in the last few years.  We now have
+excellent solutions that are easy to setup and require no ongoing maintenance.</p>
+<p>Ten years ago hosting a web application server running Django
+would require you to spend many hours setting up and maintaining all aspects
+of your platform infrastructure.   Consider the following scenario:</p>
+<ul>
+<li>AWS account services </li>
+<li>Virtual Machine setup</li>
+<li>Domain registration and DNS routing</li>
+<li>Linux (Ubuntu 2022.04 LTS)</li>
+<li>Python (version 3.10.4)</li>
+<li>Django (version 4.0.4)</li>
+<li>SSL certificate and renewal</li>
+</ul>
+<p>Not only is there a lot to do to keep the system running but there is a lot 
+to learn.  Developers spent hundreds of hours trying to get the server 
+infrastructure running.  It was hard to get going and hard to keep it going
+properly.  DevOps emerged as a full-time job between development and operations.</p>
+<h3>Docker</h3>
+<p>Before you could go live you needed to have dedicated expertise in DevOps.<br />
+This was extremely costly and took much of the fun out of software development.</p>
+<p>Docker introduced the notion of a Container in 2015 that would simplify how
+we installed and maintained application components.
+Similar to a Virtual Machine, Docker Containers can capture an entire ecosystem
+that can be loaded into memory or stored as needed.</p>
+<p>Many web hosting company soon adopted Docker containers as a way of getting system
+components up and running quickly.  But the task remained to maintain the 
+service infrastructure.</p>
+<h3>Digital Ocean</h3>
+<p>Digital Ocean emerged as a early leader for hosting Django applications.<br />
+They greatly simplified how developers would get the code running.</p>
+<p>Working at AWS or Google App Engine involved building all of the components 
+starting with the Virtual Machine,  Operating System, Python, Django, Postgres, 
+DNS routing, SSL registration and renewal.  There were many services that were
+offered (often with additional fees).  The ultimate cost of operations was
+sometimes staggering.</p>
+<p>Configuring web hosting at Digital Ocean involved create a Droplet (based
+on Docker Container).  This Droplet contained all the platform infrastructure that
+was required to run a Django application. </p>
+<p>Now it was finally possible to create a Platform as a Service (PaaS) environment
+to host a Django application in hours not days.  The engineer is still in full
+control of all of the details of each layer of the infrastructure and can tweet
+anything in the stack.</p>
+<ul>
+<li>Operating System</li>
+<li>Python 3.10</li>
+<li>Django </li>
+<li>MySQL database</li>
+<li>Droplets</li>
+<li>Docker containers</li>
+</ul>
+<h3>App Platform</h3>
+<p>In 2019 Digital Ocean introduced another giant leap forward. App Platform is
+built on top of the Droplet technology and understands the type of application
+that you are trying to deploy.  It does all of the application setup for you
+automatically and provides ongoing management of all your infrastructure.</p>
+<p>It supports all of the major types of apps with new ones introduced regularly.</p>
+<ul>
+<li>Node JS </li>
+<li>.Net Framework </li>
+<li>Rails </li>
+<li>Laravel </li>
+<li>Django</li>
+<li>Vue.js</li>
+<li>React</li>
+<li>Angular</li>
+</ul>
+<p>App Platform provides a GUI to build your server platform. You interactively 
+select your choices and it builds up and deploys what you need to run your app.
+Now application deployment can be done in minutes not hours.</p>
+<p>Automatic maintenance of platform includes: Operating System, Python, Package
+Libraries, and Database. You can even point domains at the app and get an SSL
+certificate automatically registered.</p>
+<p>Each time you commit changes to your Github account the application environment
+is completely rebuilt on the server from scratch.  If it fails then the last
+good version is redeployed so your app keeps running after you push bad code.</p>
+<h3>App Platform Costs</h3>
+<p>At the time of this writing you can register for a new account at Digital 
+Ocean and get $100 credit. Service costs are extremely low and there are not
+add on fees.  Other hosting providers seem to have a lot of hidden costs.</p>
+<ul>
+<li>Static Server - Free</li>
+<li>Django App - $5/month  </li>
+<li>Database - $7/month</li>
+</ul>
+<p>The rest of this book will assume that you are using App Platform at Digital
+Ocean.  Of course you are free to use any web hosting service that you choose.
+The textbook will provide simple instructions for getting your server up and
+running.</p>
+<h3>Static Web Server</h3>
+<p>Our first task will be to build static web server at Digital Ocean.  Skill #3
+will walk through the steps that you need to perform to get your static server
+running.</p>
+<p>A static server will receive HTTP requests and lookup the appropriate file to
+return as and HTTP response.  No interesting business logic is performed by
+the server.  Static servers may support many types of files.</p>
+<ul>
+<li>HTML files</li>
+<li>JavaScript files (which run on client)</li>
+<li>Images</li>
+<li>Video</li>
+</ul>
+<h3>Single Page Apps</h3>
+<p>Many of these files may contain code that will execute inside the client web
+browser.  All modern web browsers contain a JavaScript engine for executing the
+front-end code.  By using a JavaScript Front-end Framework (such as Angular,
+Vue, or React) complex applications can be created.</p>
+<p>These apps can be deployed as static websites.  And Digital Ocean provides free
+static websites for  deployment.  This may be of interest for certain types of 
+applications.</p>
+<h3>Static Site Generators</h3>
+<p>Sometimes sophisticated processing is required to create a set of web assets that
+can become static when served.   A static site generator can be be used to 
+perform the initial business logic including access to data and invoking other
+computers.  All of this work is built into a website or collection of assets
+that can be delivered to the clients through a static web server.</p>
+<p>If you are interested in this topic consider learning about Gatsby, Hugo, and
+Jekyll.  Building a static site using one of these apps can greatly speed up
+the delivery of content.  And Digital Ocean provides free static websites for 
+deployment.</p>
+<h3>CDN</h3>
+<p>A static web server is essentially a lookup service.  When an HTTP request is 
+received a suitable HTTP response is created and returned.  A given request will
+always be answered with the same response.  This makes it possible to cache the
+responses in either the server or the client.  Instead of looking up the file
+a known response is automatically found in the cache and used.</p>
+<p>A Content Delivery Network (CDN) is used by Digital Ocean to implement the
+static web server.  This has built in caching to speed up the responses and
+reduce the computation that is required.  The CDN is extremely fast at answering
+the requests.</p>
+<h2>Deployment Using App Platform</h2>
+<p>Before any of our work goes public we must set up the server infrastructure
+at our service provider.  We will be using Digital Ocean for this book since
+it is easy to get up and running quickly, while giving us the ability to scale
+later.</p>
+<p>We will be doing the deployment in three separate phases so that you can learn
+each skill before worrying about the next.</p>
+<ul>
+<li>Deploy a Static Web Server - Skill 4</li>
+<li>Deploy a Development Application Server - Skill 5</li>
+<li>Deploy a Production Application Web Server - Skill 6</li>
+</ul>
+<h3>Deploy a Static Web Server - (details in Skill 4)</h3>
+<p>The first step in deployment is to build a static website that is live on the
+internet.  This web server will answer HTTP requests and produce HTTP responses.
+It will provide a direct mapping from request to response but will not execute
+any custom business logic or handle data.</p>
+<p>Static servers will handle files of many types: Images, Videos, CSS, HTML,
+JavaScript.  Our Django Application will use a static web server to handling 
+all of the static asset in a secure way.</p>
+<h3>Deploy a Development Application Server - Skill 5</h3>
+<p>Once you have mastered how to create a static web server you are ready to take
+it to the next level.  The process for creating an application server at Digital
+Ocean is similar but adds several new configuration steps.</p>
+<p>During development we are far more concerned with getting our application running
+properly than we are about security.  That changes as our code goes into production.
+When real users are depending on a service we must make sure that the server
+is secure and robust.  This is not hard to do but absolutely essential.</p>
+<p>Using App Platform we can quickly create a new server in a few minutes.  If 
+needed we can destroy the server and recreate it at any time, based on the
+configuration data from the existing server.  This acts as a recipe that can 
+be used to create new applications as needed.</p>
+<p>This guide (Skill 5) will walk you through the process step-by-step and show
+you specific settings that are needed.  Follow the guide until you feel 
+confident to go "off road" by yourself.  There is nothing sacred about these
+details but they have been chosen with care to give you a "quick win".</p>
+<h3>Django Execution Environment</h3>
+<p>Before you can deploy an application to the internet you must first get it 
+running properly on your local computer.  We need to make our development 
+environment as similar as possible to the production environment.
+In practice, this comes down to four issues:</p>
+<ul>
+<li>Python version that runs our code</li>
+<li>Django and other Python package versions</li>
+<li>Database connection</li>
+<li>Environment variables</li>
+</ul>
+<p>Each of these issues could be different between development and production.
+This allows bugs to leak into our production environment unnoticed.  Our goal
+will be to minimize the differences so that testing on the development environment
+applies directly to production.</p>
+<h3>Django App Hosting</h3>
+<p>Next, we must learn to deploy an application that is already running successfully
+on our local computer.</p>
+<p>Configuring a top-level Django application at App Platform requires several
+activities.</p>
+<ul>
+<li>App Platform application</li>
+<li>Django App Server</li>
+<li>Static Asset Server</li>
+<li>Database Server</li>
+</ul>
+<p>We will look at each of these one at a time to ensure that the application
+is fully configured and operational.</p>
+<h3>App Platform application</h3>
+<p>App Platform provides all the infrastructure that is needed to run an
+application. Creating a new top-level application can be done in a few minutes. 
+There are a number of configuration options that are all specified when we
+create the application.</p>
+<p>The Digital Ocean website is used to create a new app and get the options set
+properly.  Details for creating a new app are provided by Skill #7.  Here is a
+summary of the overall process to guide you.</p>
+<h3>Django App Source Code</h3>
+<p>When creating a new app the first thing that needs to be defined is the location
+of the source code. This is the top-level of the Django application that is
+being deployed.  The directory specified contains the "manage.py" file.</p>
+<p>We will set up the App Platform Service to watch a specific Git repo for changes.
+When this code changes a new build will be performed.  When successful a new
+deployment will be done and the web application server will be restarted.</p>
+<p>If anything fails then the previous build is redeployed to guarantee that there
+is no down time.  You want a bad build to fail so that it is not deployed.<br />
+You will get a notification of the failure and will be able to troubleshoot the
+problem.</p>
+<p>Resources</p>
+<ul>
+<li>Git Repo:  <your-name>/BACS350.git</li>
+<li>Branch: main</li>
+<li>Source Directory: week3/Superhero</li>
+<li>Autodeploy</li>
+</ul>
+<h3>Static Asset Server</h3>
+<p>Create Resource</p>
+<ul>
+<li>Git Repo:  <your-name>/BACS350.git</li>
+<li>Branch: main</li>
+<li>Source Directory: week3/Superhero/static</li>
+<li>HTTP Request Routes: /static</li>
+<li>Output Directory: leave blank</li>
+</ul>
+<h3>Settings: Environment Variables</h3>
+<p>App Platform uses environment variables to control the build, deployment, and
+even the runtime behavior of the application.  These values can be set at either
+the application or component level.  We will set several App-level Environment 
+Variables that will be accessed by each component.</p>
+<p>Add the following key/value pairs</p>
+<pre><code>DEBUG = 1
+DISABLE_COLLECTSTATIC = 1
+</code></pre>
+<p>DEBUG changes the behavior of the hosted application so that it can be easily
+debugged.  The main thing that you will notice is the yellow debug screen that
+appears when the applications gets an error.  Turn on debugging during 
+development and turn it off later.</p>
+<p>DISABLE_COLLECTSTATIC is used to tell the build process not to collect all of 
+the static data for hosting on the static server.  Later we will change this
+behavior but it is OK for now.</p>
+<h3>Deploy a Production Application Web Server - Skill 6</h3>
+<p>Moving from development into production forces a new mindset.  This is reflected
+in the way that the servers are configured.  App Platform provides an easy 
+transition to more advanced security.</p>
+<p>All of the code has already been written an lie within the Django Framework.
+The specific features needed can be enabled to handle the new way of doing things.</p>
+<p>These new requirements are enabled by variables located in the Django
+"settings.py" file.  We will use Shell variables in App Platform to let us config
+options as desired.</p>
+<p>The settings file will read these Shell variables to enable features within the 
+Django code. This process allows us to control the Django  application without having to change
+the Python source code.  Setting the Environment Variables is done through the
+App Platform settings.</p>
+<h3>Environment Variables</h3>
+<p>App Platform uses environment variables to control the build, deployment, and
+even the runtime behavior of the application.  These values can be set at either
+the application or component level.  We will set several App-level Environment 
+Variables that will be accessed by each component.</p>
+<p>Add the following key/value pairs</p>
+<pre><code>DEBUG = 1
+DISABLE_COLLECTSTATIC = 1
+DJANGO_ALLOWED_HOST = .ondigitalocean.app
+DEVELOPMENT_MODE = 1
+</code></pre>
+<p>Changing a few lines in config/settings.py lets us read and use the values set
+in the Environment Variables.</p>
+<p><strong>config/settings.py</strong></p>
+<pre><code>from os import getenv
+
+DEBUG = True
+
+ALLOWED_HOSTS = getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1")
+</code></pre>
+<h3>Database Server</h3>
+<p>App Platform will connect our application to our database.  Later we will 
+configure a database for our production server, but it is not needed at this 
+time.   </p>
+<p>For now we will have Django configure a development database automatically when
+the code is deployed.  This will work well for testing out our code but every
+new deployment will create a brand new database.  This will cause all the data
+to be lost and will need to be fixed.</p>
+<p>We will use an environment variable to determine whether we want to use a
+real database or the automatic database for testing.</p>
+<pre><code>DEVELOPMENT_MODE = "True"
+</code></pre>
+<p>In settings.py we will check this variable to see which database to use.  In
+Chapter 5 we will begin working with real data so we will need to create a real
+database that persists through deployment of the application.  At that time we
+will revisit how we connect to the database.</p>
+<h3>App Spec</h3>
+<h3>Django Application</h3>
+<ul>
+<li>Python code (URL routes, Views, Database, Business Logic)</li>
+<li>Maps each request to a response</li>
+<li>Executes Python code</li>
+</ul>
+<h3>Database Setup</h3>
+<h3>Database</h3>
+<ul>
+<li>Minimal cost $12/month for database</li>
+<li>Use development database (until week 4)</li>
+<li>Data will be destroyed during deployment</li>
+</ul>
+<h3>Deploy a Development Application Server - (details in Skill 5)</h3>
+<h3>Deploy a Production Application Web Server - (details in Skill 6)</h3>
+<h3>Ready to Deploy</h3>
+<p>Deploying an application at Digital Ocean is quite easy. You can specific a
+Github repo with a branch and a path.  Configuring the App Platform is done
+by looking at the source code that you specified.  To deploy a static site you 
+need a file at the root.</p>
+<pre><code>index.html
+</code></pre>
+<p>Deploying a Django app requires that you have</p>
+<pre><code>requirements.txt
+runtime.txt
+</code></pre>
+<p>runtime.txt declares the version of Python.</p>
+<pre><code>python-3.10.4
+</code></pre>
+<p>requirements.txt declares the Python packages to install.</p>
+<pre><code>asgiref
+Django
+gunicorn
+pytz
+sqlparse
+whitenoise
+dj-database-url
+</code></pre>
+<h3>Commit to Deploy</h3>
+<p>After you create your application, App Platform continues to watch your Github
+repo, branch, and path.  When the new code changes are committed to this 
+code a build process is automatically started.</p>
+<h3>Build Process</h3>
+<p>A build command that you configure controls the behavior of this build process.
+Both the static server and the dynamic application server let you run scripts
+to organize and prepare the content to be ready to be served.</p>
+<p>For a Django app the default command knows how to compile all the code for the
+deployment.  You don't need to change anything here.</p>
+<h3>Run Command</h3>
+<p>After a successful build the server is started up.  For a static website this
+means moving the content to a CDN.  You do not perform any action in order to
+make publish the content onto the internet.  </p>
+<p>For a Django app it is important that you migrate the database, collect the
+static data, and startup the Gunicorn web server.  You need to specify where 
+the web server will find the Python application code.  Check out Skill #5 for 
+details.</p>
+        
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

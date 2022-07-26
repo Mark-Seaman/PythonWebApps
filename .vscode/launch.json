@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/10/Album",
+            "cwd": "${workspaceFolder}/12/CourseBuilder",
             "args": [
                 "test"
             ],
@@ -21,7 +21,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/10/Album",
+            "cwd": "${workspaceFolder}/12/CourseBuilder",
             "args": [
                 "runserver",
                 "8001"
