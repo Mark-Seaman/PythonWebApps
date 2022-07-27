@@ -4,7 +4,7 @@
 export b3=$HOME/Github/BACS350
 export p1=$b3/01/ProfileApp
 export p2=$b3/02/ProfileApp
-export p3=$b3/03/Pages
+export p3=$b3/03/Superhero
 export p4=$b3/04/Gallery
 export p5=$b3/05/Notes
 export p6=$b3/06/Blog
