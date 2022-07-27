@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -124,7 +124,126 @@
 
     <div class="col-lg m-5">
         
-        <h1>Chapter 13 - Automation</h1>
+        <h1>Chapter 13 - DevOps</h1>
+<p>Chapter 13 - Devops</p>
+<ul>
+<li>Skill 37 - Code Generator</li>
+<li>Skill 38 - Continuous Integration</li>
+<li>Skill 39 - DevOps</li>
+<li>Demo - App Coder</li>
+<li>Project 13 - Superhero Info Center</li>
+</ul>
+<p><img alt="Chapter 13" src="img/chapter-13.jpg" /></p>
+<hr />
+<h2>Overview</h2>
+<p>Modern software is typically deployed on servers in the cloud.   This requires
+careful planning and execution of the deployment.  This operations focus is quite 
+unique from the mindset to develop the software that is deployed.</p>
+<p>Traditionally Development and Operations were two separate parts of the organization
+and managed somewhat independently.  Modern organizations recognize the need to combine
+these distinct mindsets into a single integrated approach.</p>
+<p>DevOps is the strategic merger of the Development team with the Operations team.  This
+combined focus has all of the key elements of each process coupled so that delays 
+can be eliminated and communication can be enhanced.</p>
+<h2>Design Patterns</h2>
+<p>There are several design patterns that will help us to be more efficient in DevOps.</p>
+<ul>
+<li>Code Generator</li>
+<li>Continuous Integration</li>
+<li>DevOps Practices</li>
+</ul>
+<h2>Concepts</h2>
+<h3>Combine Development and Operations</h3>
+<p>Development has a lifecycle that moves from Requirements to Coding to Testing before
+the software is released.  Operations moves the code from Deployment to Scaling to
+Monitoring after the release.  The key idea of DevOps is to streamline the integration
+of these two lifecycles by adding key connections between them.</p>
+<p>Special attention is given to the way that the software development team helps with
+the initial deployment.  This falls in two main areas.  The development occurs on computers
+that are as close as possible to the production environment.  This eliminates
+the mystery bugs that surface only in production.  </p>
+<p>Everything is kept under version control and highly automated. This includes
+the machine configuration and all of the testing.  In the past these tasks were 
+done by hand and highly unreliable.  DevOps requires us to automated the entire
+process so that code can be fully deployed from a single command.  This ensures
+that it is done the same way every time.</p>
+<h3>Just Enough Process</h3>
+<p>Building a large project requires a lot of planning and good DevOps process.
+This process should be built on proven techniques and tools that support the
+required tasks.</p>
+<p>Advanced tools are available for every unique aspect of a software project.
+On small projects engineers are likely to neglect DevOps and concentrate only
+on the Development part of the overall process.  This is a mistake that may 
+cost you in productivity and quality.</p>
+<p>While a small project does not require the powerful tools and more formal 
+process of a large one, it can still benefit from the DevOps mindset.  The
+goal is to figure out the appropriate level of process for your project.
+The kind of process and tools that you use should match the size of your project.
+If your project is expected to cost more than 1,000 hours of engineering then
+you should invest in learning the top-self tools.</p>
+<p>But what about the small project? I recommend that you still think through the
+idea DevOps.  Apply the ideas in this chapter and reap the benefits in productivity
+and quality.</p>
+<h3>Software Reuse</h3>
+<p>Use the lowest cost approach to create the application that is needed to 
+meet the business goals.  Try to avoid writing software by finding and using
+software that already exists.   Cultivate the mindset of software reuse in
+all of its forms.</p>
+<p>Consider these layers of reuse.</p>
+<ul>
+<li>Buy a product that exists</li>
+<li>Buy a component that solve certain core problems</li>
+<li>Use a general-purpose framework </li>
+<li>Build your own framework by refactoring your code</li>
+<li>Recycle pieces of apps you wrote</li>
+<li>Write custom software from scratch</li>
+</ul>
+<h3>Refactoring</h3>
+<p>All design have limitations.  When code is first designed there is often little known about the 
+actual problem that must be solved.  Designers make choices that seem right at the time but inevitably
+lead to constraints in the features and structure of the system.</p>
+<p>As code is modified it undergoes decay.  Each time the code is edited, its quality is decreased.  As the
+design needs change the existing design become increasingly inappropriate.  Large systems often decay
+to a point where they need to be replace entirely to meet the business goals.</p>
+<p>Over time the design limits the new features that can be added.  At the start of a project very little
+is known about the problems to be solved.  But as the project goes on knowledge is gained that makes
+appropriate design trade-offs clear.</p>
+<p>Many companies resist changing the design once it is in place.  This locks them into trade-offs that 
+may be entirely inappropriate.  The world is constantly changing.  It is critical to have a flexible
+design that can adapt to the new realities.</p>
+<p>Refactoring allows design to change after the code has been written.  All design must change over time
+and refactoring is the technique that allows you to update the design after the initial decisions are 
+Code decays; refactoring saves.</p>
+<p>The design of your code should be a simple as possible.  Junior engineers often overbuild everything.
+They anticipate what might be needed.  Do not anticipate - wait for the need.  Refactoring lets you
+morph a simple design to the next level rather than build it ahead of time.
+Engineer the system on demand, not prematurely.</p>
+<h3>Application Frameworks</h3>
+<p>Most of the problem that need to be solved are common problems.  As these problems surface code
+is created to meet the needs.  It is important to standardize the best solution found and apply
+this solution every time the problem recurs.  Great engineers solve problems once and reuse
+the solution as needed.</p>
+<p>Each time the standard solution is applied, improvements are made to generalize it or add new
+functionality.  Over time a truly excellent solution can be developed that lets you solve the
+problem with very little thought.</p>
+<p>This is the idea behind an application framework.  Django was developed by writing around ten 
+applications and then refactoring all of the common parts into a library of reusable code.  Over
+the years Django has been improved by the contributions of thousands of applications.  The
+best thinking of a large army of application developers is reflected in the Django framework.</p>
+<p>This is the most powerful type of software reuse imaginable.  In a few minutes you can build a
+robust application that benefits from 1,000 years of engineering.</p>
+<h3>Rules to Live By</h3>
+<p>We hold these truths to be self-evident.  Good dev ops requires that
+you do not violate these basic practices.</p>
+<ul>
+<li>Let business needs drive development</li>
+<li>Automate all testing</li>
+<li>Develop with production configuration</li>
+<li>Communicate frequently</li>
+<li>Everything is under version control</li>
+<li>Build the world from scratch</li>
+<li>Fix problems immediately</li>
+</ul>
         
     </div>
 </div>

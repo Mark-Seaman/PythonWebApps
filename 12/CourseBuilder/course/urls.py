@@ -7,7 +7,7 @@ from .views import LessonDetailView
 urlpatterns = [
 
     # Lesson
-    path('', RedirectView.as_view(url='lesson/1')),
+    path('', RedirectView.as_view(url='1')),
     path('<int:pk>', LessonDetailView.as_view(),  name='lesson_detail'),
 
 ]

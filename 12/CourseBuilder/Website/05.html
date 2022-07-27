@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -130,7 +130,8 @@
 <li>Skill 13 - Models &amp; Database</li>
 <li>Skill 14 - CRUD Operations</li>
 <li>Skill 15 - Admin Views</li>
-<li><a href="../project/5">Project 5 - Database - Superhero Refactored</a></li>
+<li>Demo - Add a Database</li>
+<li>Project - Superhero Database</li>
 </ul>
 <p><img alt="Chapter 5" src="img/chapter-5.jpg" /></p>
 <h3>Applications = Data + Views + Tests</h3>
@@ -194,28 +195,6 @@ use the database migration tool to create SQL tables that match the classes.</p>
 with a single command.</p>
 <pre><code>$ python manage.py migrate
 </code></pre>
-<h3>Example of Data Models</h3>
-<p>We need a simple example to learn about working with data.  Suppose we want 
-to build an application that deals with books.  This will certainly need to 
-be represented by data within the app.  Each book will have a title and author.
-As time goes by we will add many other attributes as well.  But our goal is
-to always start simple.</p>
-<p>Book Data Model</p>
-<pre><code>Book
-    Title
-    Author
-</code></pre>
-<p>Python code</p>
-<pre><code>from django.db import models
-
-class Book(models.Model):
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=200)
-</code></pre>
-<p>The Python code implements a class that inherits from "django.db.models" and
-sets the constraints on the attributes of Book.  This class is used to create
-a database table called "book__book", which has two fields "title" and "author".
-Both of these fields are strings that are limited to 200 characters in length.</p>
 <h3>Update the Database</h3>
 <p>When you change your models you will need to update the database tables to
 reflect the changes.  Use "makemigrations" to capture the changes needed and
@@ -240,7 +219,7 @@ if it is needed for your data.</p>
 <li>DELETE - remove a record (Delete)</li>
 </ul>
 <h3>Operations on Every Model</h3>
-<p>Consider our book application.  We may need to perform all of these operaitions
+<p>Consider our book application.  We may need to perform all of these operations
 for the Book data type.</p>
 <ul>
 <li>Create Book</li>
@@ -249,39 +228,11 @@ for the Book data type.</p>
 <li>Update Book</li>
 <li>Delete Book</li>
 </ul>
-<p>Use the Book Model</p>
-<pre><code>from book.models import Book
-</code></pre>
-<p>Create book record</p>
-<pre><code>Book.objects.create(title="A Seaman's Journey", author="Mark Seaman")
-</code></pre>
-<p>List Books</p>
-<pre><code>Book.objects.all()
-
-Book.objects.filter(author='Mark Seaman')
-</code></pre>
-<p>Get specific book</p>
-<pre><code>b = Book.objects.get(title="A Seaman's Journey")
-b.author
-b.name
-b.pk
-</code></pre>
-<p>Update book record</p>
-<pre><code>b = Book.objects.get(title="A Seaman's Journey")
-b.title = "A Seaman's Life"
-b.save()
-</code></pre>
-<p>Delete a record</p>
-<pre><code>Book.objects.get(title="A Seaman's Journey").delete()
-</code></pre>
 <h3>Visit the Django website</h3>
 <p>The Django website is a great source of information about how Django works.
-Visit the page at 
-<a href="https://www.djangoproject.com/start">https://www.djangoproject.com/start</a>
+Visit the page at  https://www.djangoproject.com/start
 and read about the "Object-relational Mapper".  This is the best source of
 info that is constantly updated and improved.</p>
-<hr />
-<h3><a href="../project/4">Project 4 - Superhero Profiles</a></h3>
         
     </div>
 </div>

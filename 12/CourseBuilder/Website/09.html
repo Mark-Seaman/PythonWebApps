@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -126,56 +126,83 @@
         
         <h1>Chapter 9 - Complex Views</h1>
 <ul>
-<li>Skill 25 - Card Layout</li>
-<li>Skill 26 - Tabular Data</li>
-<li>Skill 27 - Import/Export</li>
-<li><a href="../project/9">Project 9 - Tables - Superhero Stats</a></li>
+<li>Skill 25 - Theme Template</li>
+<li>Skill 26 - Simple Views</li>
+<li>Skill 27 - Complex Views</li>
+<li>Demo - Views Workshop</li>
+<li>Project 9 - Superhero Stats</li>
 </ul>
 <p><img alt="Chapter 9" src="img/chapter-9.jpg" /></p>
 <hr />
-<h2>HTML Views</h2>
-<h2>Document Views</h2>
-<h2>1. Workshop</h2>
+<h2>Building Views</h2>
+<p>In chapter 4 we introduced the basics of constructing view:  including
+create templates, URL routes, and view classes to work with data.  Since then
+we have been practicing these skills.  Now we are ready to add the abilty to
+build much more complex views.</p>
+<p>Create views that follow these common design patterns to minimize the effort
+required to build the code.  Each pattern can be applied in a few minutes to
+produce a predictable result.  It is is worth practicing with these patterns
+until you can complete the work without really thinking about it.  Better yet
+build yourself an application that contains these pattern and replicate the
+code directly as needed.</p>
+<p>Each of these design patterns can be used to easily address specific situations
+that commonly occur.  The simple view patterns are at the core of most pages
+you need to build.  Occasionally the complex view patterns solve unique 
+problems quickly and minimize the thinking required.</p>
+<h2>Page Theme View</h2>
+<p>The efficiently build the views for an application we will employ a series of
+tricks.  The first idea is to build a template that will be used for all of the
+pages on our website.  This puts most of code that determines the look-and-feel
+of our app into a single place.</p>
+<p>This base template will be used on every page by extending the template and 
+customizing the content for each unique page.  The base template will be 
+responsible for the overall page layout and common items, such as navbar, header,
+and footer.</p>
+<p>A theme page offers the complete implementation of style and content structure
+for an entire website.   Major changes can be made to the look-and-feel of the
+whole application by modifying this one file.</p>
+<p>Consider using partial templates to make the code more readable. This theme 
+has separate templates for:</p>
 <ul>
-<li>The workshop view inherits from the "theme.html" template</li>
-<li>It adds a menu of choices to every page</li>
-<li>Links go to demo pages</li>
+<li>navbar</li>
+<li>header</li>
+<li>footer</li>
 </ul>
-<h3>2. Container</h3>
+<h2>Defining the Content Block</h2>
+<p>Each page on the site will start by extending the base theme template and
+defining a content block</p>
+<pre><code> {% extends 'theme.html' %}
+
+ {% block content %}
+    &lt;h1&gt;No block defined&lt;/h1&gt;
+ {% endblock content %}
+</code></pre>
+<p>The content block for a could range from simple pure HTML, to HTML with some
+simple variable logic, to a very complex layout with a large amount of data
+provided.</p>
+<h3>Simple Views</h3>
+<p>Simple views provide one level of abstraction.  They wrap some HTML code in
+a wrapper that adds some attributes to the page.  These simple views could be
+added directly using a small amount of HTML code.  The benefit of using a
+design pattern is that the resulting code is more readable and duplication 
+is eliminated.</p>
 <ul>
-<li>Add container to give better layout to any view</li>
-<li>Wrap the main content in a container</li>
+<li>Page View</li>
+<li>Card View</li>
+<li>Document View</li>
+<li>Table View</li>
+<li>Html Static Pages</li>
 </ul>
-<h2>3. Grid Layout</h2>
+<h3>Complex Views</h3>
+<p>Complex views are built by putting together many simple view constructs. 
+When complete these pages may contain over 1000 lines of HTML code.  It is 
+very important to create pages using these design patterns. Complex pages that
+are built from raw HTML and JavaScript are all but unreadable.</p>
 <ul>
-<li>Add "row" and "col"</li>
-<li>A row will fit items horizontally</li>
-<li>Start with equal width</li>
-<li>templates/workshop.html</li>
-</ul>
-<h3>4. Responsive Columns</h3>
-<ul>
-<li>Use class "col-lg-4, col-lg-8"</li>
-<li>Color the first column</li>
-<li>Test the response to resizing the view</li>
-</ul>
-<h1>5. Card Layout</h1>
-<ul>
-<li>Use class "col-lg-6" for half width</li>
-<li>Test the response to resizing the view</li>
-<li>Unequal sizes that also stack vertically</li>
-</ul>
-<h2>6. Multiple Card Layout</h2>
-<ul>
-<li>Use class "col-lg-6" for half width</li>
-<li>Iterate over all cards</li>
-<li>templates/workshop.html</li>
-</ul>
-<h3>7. Columns of Cards</h3>
-<ul>
-<li>Pass in a list of columns</li>
-<li>Each column is a list of cards</li>
-<li>templates/workshop.html</li>
+<li>Tabs View</li>
+<li>Accordion View</li>
+<li>Carousel View</li>
+<li>Super View</li>
 </ul>
         
     </div>

@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -129,7 +129,8 @@
 <li>Skill 19 - User Registration</li>
 <li>Skill 20 - User Login</li>
 <li>Skill 21 - User Status</li>
-<li><a href="../project/7">Project 7 - Investigator - Superhero Tracker</a></li>
+<li>Demo - User Accounts</li>
+<li>Project - Superhero News</li>
 </ul>
 <p><img alt="Chapter 7" src="img/chapter-7.jpg" /></p>
 <hr />
@@ -186,6 +187,23 @@ Running migrations:
 </code></pre>
 <p>You can immediately begin creating users and ensuring that all users must have
 permissions to access the system.</p>
+<h2>Author Objects</h2>
+<p>Django provides all of the code needed to get a user ID and credentials that
+will let users login.  Now we will extend this basic user ID to add other 
+information that is specific to our application.  The typical web application
+has user accounts that correspond to the user IDs for login. There is usually
+a profile for each user.</p>
+<p>For this discussion, we will create a data model for an Author.  This record
+will be created when a new User is registered.  The only information that is
+required to register a new Django user is the "username" and "password". This
+information is captured by the Django code inside the UserCreationForm.</p>
+<p>When the user first logs in they are shown the settings of their profile which
+contain other info that we wish to collect.  This allows us to draw a clear
+separation between the secure info stored in the User record and the application
+specific information stored in the Author record.</p>
+<p>Each time an author is logged in we are able to see the User and Author
+information that matches.  This data is used to make decisions about what
+each user can do in the application.</p>
 <h2>User Authorization</h2>
 <p>Authentication guarantees the identity of each user.  Authorization determines
 what permissions the user is allowed to have.  Authentication is a prerequisite

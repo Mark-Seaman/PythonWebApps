@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -127,13 +127,112 @@
         <h1>Chapter 6 - Data views</h1>
 <ul>
 <li>Skill 16 - Crud views</li>
-<li>Skill 17 - Database Migration</li>
-<li>Skill 18 - Database Deployment</li>
-<li>Demo - Blog Builder - Data views, Blog Model, Article Model</li>
-<li><a href="../project/6">Project 6 - Data Views -  Superhero Records</a></li>
+<li>Skill 17 - Development Database</li>
+<li>Skill 18 - Production Database</li>
+<li>Demo - Blog Builder</li>
+<li>Project - Superhero Records</li>
 </ul>
 <p><img alt="Chapter 6" src="img/chapter-6.jpg" /></p>
 <hr />
+<h3>CRUD views</h3>
+<p>Django provides an easy way to implement a full set of views to work on a
+specific data type.  In the last chapter we looked at how all of the operations
+on our database records involve the four basic CRUD operations.  In this
+chapter we will see how to create views that support each operation.</p>
+<p>When building views for data types start by defining the data model.  Select
+which key data attributes are needed on the data model to implement the desired
+business rules.  Simplify the design by calculating the attributes that can
+be computed, so that you only store the independent variables in the database.</p>
+<h3>Data CRUD Views Design Pattern</h3>
+<p>Now you can build views for the following data model without writing very much code.
+Each record type needs to be created, read, updated, and deleted.  This means
+that we will need to consider five different views for each data model in
+our application.  We may not need to implement all of the fews depending on
+the functionality of our app.</p>
+<p>Implementing a view requires inheriting from the appropriate Django view class
+and providing the unique details that are specific to your needs.  At a minimum
+this involves specifying the data model and the HTML template to use.
+You can also add other variable content to be passed into the view.  We will
+start by assuming the most basic implementation.</p>
+<ul>
+<li>CreateView</li>
+<li>ListView</li>
+<li>DetailView</li>
+<li>UpdateView</li>
+<li>DeleteView</li>
+</ul>
+<h3>Database Migration</h3>
+<p>In the last chapter we created the initial database tables by using the migrate
+command in Django.  This applied the code within the migrations scripts to
+the actual SQL database.</p>
+<p>This same command will be used to make changes to the database to match the 
+new data models within our code.  Each time we make changes to the data models
+we must make new migrations scripts.  This compares the current tables with the
+current data models and builds the Python scripts to change the database.</p>
+<pre><code>$ python manage.py makemigrations
+</code></pre>
+<p>After creating new migrations they must be applied.</p>
+<pre><code>$ python manage.py migrate
+</code></pre>
+<p>This makes any necessary changes to the database tables. Because there may be
+data already present in the database the migration scripts are needed to make
+the appropriate changes that are required.  The migration tools make this 
+process robust and reliable.</p>
+<h3>Make Migrations</h3>
+<p>When you run the <strong>makemigrations</strong> command script, code is created that is
+used to update the tables in the database.  These scripts modify both the 
+content and structure of the tables.  These migration scripts are now a part
+of your project history and should be placed under version control.</p>
+<p>For our blog demo we have the following files.</p>
+<pre><code>blog/migrations
+├── 0001_initial.py
+├── 0002_blog_author_article.py
+</code></pre>
+<p>Later these files will be moved to a different server and applied to the new
+database with the <strong>migrate</strong> command.  This is how the multiple databases are
+kept in sync as the code is being modified on different machines by  different
+authors.   The migration scripts are written so that they can be merge together
+and  modify the tables in a consistent way.</p>
+<h3>Production Database</h3>
+<p>Before release you should setup a commercial database such as Postgres to 
+manage your database.  All service providers have a mechanism to manage
+databases for your application.  These typically cost extra money and require
+a certain amount of setup.</p>
+<p>In this chapter we will look at the details of how to work with a production
+database and bring data into tables to populate the database content.
+We will also look at the details of creating a database at Digital Ocean.
+All service providers will provide similar methods but the details will very.
+This might be instructive if you are using another providers, but is a recipe
+that will get you fully up and running at Digital Ocean.</p>
+<h3>Data Fixtures</h3>
+<p>Django also provides a mechanism to export objects from the database.  These
+objects can be a subset of all the records in the database.  The <strong>dumpdata</strong>
+command can be used to collect database content as a JSON file.</p>
+<p>The Django command, <strong>loaddata</strong> can be used to bring data saved as JSON into
+the active database.  This is very helpful to let you export and import data
+to and from the running application.</p>
+<p>Keep in mind that as the app is running the data records are changing constantly.
+This means that the JSON that you save will contain conflicting objects if you
+allow the database to be modified.  For the import to be successful there must
+not be any conflicting IDs on the data objects.</p>
+<p>Data fixtures are quite useful for setting up specific test scenarios.  Each
+time you want to run a test you can force a certain state in the database and
+then execute the test using the known state.</p>
+<h3>Save Data From Database</h3>
+<p>Export the data</p>
+<pre><code>$ python manage.py dumpdata
+</code></pre>
+<p>Send data to file</p>
+<pre><code>$ python manage.py dumpdata &gt; data.json
+</code></pre>
+<p>Apply formatted for readability</p>
+<pre><code>$ python manage.py dumpdata --indent 4 &gt; data.json
+</code></pre>
+<h3>Load Data Into Database</h3>
+<pre><code>$ python manage.py loaddata data.json
+
+Installed 46 object(s) from 1 fixture(s)
+</code></pre>
         
     </div>
 </div>

@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -129,7 +129,8 @@
 <li>Skill 22 - Data Tests</li>
 <li>Skill 23 - View Tests</li>
 <li>Skill 24 - Page Tests</li>
-<li><a href="../project/8">Project 8 - Automated Tests - Superhero Test Suite</a></li>
+<li>Demo - Automated Tests</li>
+<li>Project - Superhero Test Suite</li>
 </ul>
 <p><img alt="Chapter 8" src="img/chapter-8.jpg" /></p>
 <hr />
@@ -146,6 +147,19 @@ for disaster.</p>
 <li>Unit testing of Data</li>
 <li>Unit testing of Views</li>
 </ul>
+<h3>Test-Driven Development</h3>
+<p>Test-Driven Development is the most efficient way to code because it prevents
+debugging and leaves you with a battery of tests that are executed for years
+to come.</p>
+<p>During TDD you pick a single small feature to build and test.  All focus is 
+tied to the one feature until it is fully complete and tested.  You commit
+code after each iteration so it is impossible to break the system.</p>
+<p>For each feature, you will create a small test that fails.  Ideally this test
+will be two lines of code.  Your initial test must fail to demonstrate that
+the test itself is detecting the missing feature.</p>
+<p>Writing good tests is essential if you want to do test-driven development.
+We will cover this is more detail in Chapter 12 as we discuss the development
+process.</p>
 <h2>Interactive system testing</h2>
 <p>Create a map of the features in your code.  Keep it short but write it down.
 Use this check list when performing interactive testing on your project.</p>
@@ -360,51 +374,6 @@ be a URL to any server.</p>
 different servers to ensure that the servers are live on the internet.<br />
 Maintaining this test involves nothing more that maintaining a list of URLs,
 yet produces great benefit for me.</p>
-<h2>Test-Driven Development</h2>
-<p>During development setup a consistent workflow that balances different activities.</p>
-<p>Create a To Do List that identifies work to be done.  This should show what 
-items you expect to work on in the next day.  Every day you should work on 
-different aspects of the development.  Many junior developers concentrate 
-solely on the Feature of the app and neglect others.</p>
-<p>Go for a balanced approach</p>
-<ul>
-<li>Test</li>
-<li>Fix</li>
-<li>Features</li>
-<li>Improve</li>
-</ul>
-<h3>TDD Process steps</h3>
-<p>Test-Driven Development is the most efficient way to code because it prevents
-debugging and leaves you with a battery of tests that are executed for years
-to come.</p>
-<p>During TDD you pick a single small feature to build and test.  All focus is 
-tied to the one feature until it is fully complete and tested.  You commit
-code after each iteration so it is impossible to break the system.</p>
-<p>For each feature, you will create a small test that fails.  Ideally this test
-will be two lines of code.  Your initial test must fail to demonstrate that
-the test itself is detecting the missing feature.</p>
-<pre><code>do_something()
-check_something()
-</code></pre>
-<p>The next step is to write the minimum code that will get the test to pass.
-Ideally this will be a couple lines of code.  When the feature works you now
-have the feature and a test to ensure that is continues working.  Commit the 
-code and go on to the next feature.</p>
-<p>Development Loop</p>
-<ul>
-<li>Select one feature<ul>
-<li>Setup an automatic test that fails</li>
-<li>Write code to fix test</li>
-<li>Commit changes</li>
-</ul>
-</li>
-</ul>
-<p>There are two ways that you can measure TDD effectiveness.  First, measure the
-number of loops (features) that you can code in an hour.  With practice you
-should be able to do about 60 loops in an hour.  </p>
-<p>Another measure of TDD is comparing the lines of test code with the lines of
-product code.  If you are doing true TDD the test code will be the same size
-as the product code.</p>
 <h2>Unit testing of Data</h2>
 <h3>CRUD Design Pattern</h3>
 <ul>

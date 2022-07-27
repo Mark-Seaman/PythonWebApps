@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -124,15 +124,62 @@
 
     <div class="col-lg m-5">
         
-        <h1>Chapter 10 - Components Views</h1>
+        <h1>Chapter 10 - Images</h1>
 <ul>
-<li>Skill 28 - Accordion</li>
-<li>Skill 29 - Carousel</li>
-<li>Skill 30 - Tabs</li>
-<li><a href="../project/10">Project 10 - Tables - Superhero Stats</a></li>
+<li>Skill 28 - Photo upload</li>
+<li>Skill 29 - Media hosting on server</li>
+<li>Skill 30 - Image carousel</li>
+<li>Demo - Photo Album</li>
+<li>Project - Superhero Photos</li>
 </ul>
 <p><img alt="Chapter 10" src="img/chapter-10.jpg" /></p>
 <hr />
+<h2>Working With Images</h2>
+<p>All modern web app will probably need to deal with images in some way.
+This chapter will teach you how to build an app that lets users upload
+images in a secure way.</p>
+<p>When an image is uploaded it must be stored on the server in a way that
+it can be added to the user content being created.  It is also likely that
+you will want to use some third-party code to present the images in a compelling
+way.</p>
+<h2>Overview</h2>
+<p>Django comes equipped with logic to upload images to a server with just a few
+lines of code.  We will see how to enable this capability by defining a data
+model that contains an ImageField along with a function to get the location
+of the saved file.</p>
+<p>Next we will look at how these files are stored on the remote server and how
+they are served as needed from the server.  This involves creating a special 
+kind of static server that can take the images that are uploaded.
+We will also look at the security implications of uploading data to your server.</p>
+<p>The last part of this chapter will explore how to incorporate images into
+sophisticated pages using components from Bootstrap.  We will show you how to
+use a Bootstrap Carousel to display your images on a page with flare.</p>
+<h2>Design Patterns</h2>
+<ul>
+<li>Data Views</li>
+<li>Photo upload</li>
+<li>Media hosting</li>
+<li>Image carousel</li>
+</ul>
+<h2>Photo Album Demo Code</h2>
+<p>We will step through all of the code that you will need to create a running
+application that will let users define their own photo albums.  This app 
+will show all the critical part of the code that you will need to create
+within your application to support  image uploads.</p>
+<p>The application has been intentionally simplified to focus your attention
+on the critical details.  In particular the security model for a robust
+application would need to guarantee that users be limited to access their
+own data.  But if you have been following the locic so far, you should 
+be able to restrict the access to the data models and views to match the
+business rules you intend.</p>
+<h2>Superhero Images Project</h2>
+<p>To complete this chapter you will use the demo code to build an application
+that lets users create albums for each of the superheros in your
+app.  A registered user will be able to add heros to the database and 
+then define a photo album for the hero.</p>
+<p>All users including "Annonymous Users" will be able to view the data records
+and albums, but only the authors of the data records will be able to create 
+or modify the photo albums.</p>
         
     </div>
 </div>

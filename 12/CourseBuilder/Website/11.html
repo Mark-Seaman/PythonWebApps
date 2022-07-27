@@ -89,7 +89,7 @@
             
 
             
-            <p><a href="10.html">10 - Components Views</a></p>
+            <p><a href="10.html">10 - Images</a></p>
             
 
             
@@ -101,13 +101,13 @@
             
 
             
-            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            <p><a href="12.html">12 - Development Process</a></p>
             
 
             
 
             
-            <p><a href="13.html">13 - Automation </a></p>
+            <p><a href="13.html">13 - DevOps </a></p>
             
 
             
@@ -125,6 +125,146 @@
     <div class="col-lg m-5">
         
         <h1>Chapter 11 - Files and Documents</h1>
+<ul>
+<li>Skill 31 - Reading and Writing Tables</li>
+<li>Skill 32 - Markdown Documents</li>
+<li>Skill 33 - Save and Restore Objects</li>
+<li>Demo - Book Builder</li>
+<li>Project 11 - Document - Superhero Docs</li>
+</ul>
+<p><img alt="Chapter 11" src="img/chapter-11.jpg" /></p>
+<hr />
+<h2>Overview</h2>
+<p>Many applications need to deal with files and documents.  Often the records in
+the database are created by importing files from another system.  In this
+chapter we will learn how to deal with different types of files.  </p>
+<p>The code we have dealt with so far, allows users to create and modify the
+records in the database interactively.  But often it is useful to gather data
+from files to update the database. </p>
+<p>Exporting data from the database into files
+is a great way to get data out of our system.
+All of these uses require understanding how to create files from records and
+records from files.</p>
+<h2>Design Patterns</h2>
+<p>There are many different file formats that are used in modern application but
+three formats are so common that we will explore them in detail.</p>
+<ul>
+<li>CSV (Comma Separated Values) - hold spreadsheet data as a table</li>
+<li>Markdown - document to convert to HTML</li>
+<li>JSON (Java Script Object Notation) - serial format for object interchange</li>
+</ul>
+<h2>Working with Text Files</h2>
+<p>Our apps will typically have a database that is updated dynamically during 
+the normal operation.  This data is trapped inside our system unless we do 
+something special to export it into a document file.  Most apps will benefit
+from exporting data from the database into files.</p>
+<p>We could write a proprietary binary format for our files, but there is a huge
+advantage to using a text-based format.  Version control system work extremely
+well with text files.  Changes from multiple edits can be detected and merged
+together.  The data compression for storage of all file versions is very
+efficient.  And humans can easily read the text to ensure that everything is
+good.</p>
+<p>Git uses a standard difference detector that requires some sort of a text file
+with frequent line endings to do a great job on the detection and tracking
+of changes within our files.  There is little reason to consider exporting
+data in a non-text format.</p>
+<h2>Document File Formats</h2>
+<p>Choose a data file format that meets the specific needs of your application.
+Always consider the possibility of exporting data to a file and then importing
+that data back into the system from the same file.  This type of "round trip"
+is often useful for some aspect of your app.</p>
+<p>There are three types of formats that merit consideration as you select a
+document format.  We will look at some detail at each of these formats in
+this chapter.</p>
+<ul>
+<li>Spreadsheet Tables - If you have square data tables then consider using a
+CSV file</li>
+<li>Markdown Document - If your data content is formatted text that will be
+displayed as HTML then your documents should be written in Markdown.</li>
+<li>JSON Data Objects - If you want to export records from one or more database
+tables directly then JSON files are the correct choice.</li>
+</ul>
+<h2>Exporting Data</h2>
+<p>It is often very useful to export data from your system into a file.  This
+file could be used by your app to save a copy of a data snapshot of a small
+portion of the data or of the complete system.  There are many options that
+are available.</p>
+<p>You can also produce files that are given to user of your system.  These files
+are Documents that can leave the system and be read back in at a later time.
+They can also be entered into another system to reconstruct the data that
+was present at the time of the export.</p>
+<p>A Document is nothing more that a file that contains user data.  It can be
+written out and read back in.  This idea of a "round trip" or "Export/Import"
+is fundamental to being a Document.</p>
+<p>Export Records to Document</p>
+<ul>
+<li>Write CSV - Rows, Columns (Records, Fields)</li>
+<li>Write Markdown</li>
+<li>Write JSON </li>
+</ul>
+<p>Import Document to Records</p>
+<ul>
+<li>Read CSV - Rows, Columns (Records, Fields)</li>
+<li>Read Markdown</li>
+<li>Read JSON</li>
+</ul>
+<h2>Spreadsheets</h2>
+<p>Any time we are dealing with a rectangular table (with rows and columns) we
+can store this as a CSV file.  The Comma-Separated Values data file format is
+the generic way to store spreadsheet data.  All of the spreadsheet applications
+have proprietary formats that store many other things, but the standard way
+to save the data is in a simple text file.</p>
+<p>Conceptually every database table can be stored in a CSV file.  Each record (row)
+produces a line of text in the file.  Each field (column) in the record can
+be represented delimited by commas.</p>
+<p>CSV file format is easy to read and write and version control systems can easily
+merge multiple edits together.  Consider the following example of chapters in 
+this book.</p>
+<pre><code>1,Development Tools,4466
+2,Application Hosting,6032
+3,Basic Application,3640
+4,Views,3814
+</code></pre>
+<p>The columns represent the chapter number, then the chapter title, and
+the number of words in this chapter.  It is easy for a human to verify that
+this content looks reasonable.  In fact, this file can be opened directly with
+any spreadsheet app.</p>
+<h2>Markdown Documents</h2>
+<p>Writing in HTML can be awful tedious.  Getting the tags to match can be 
+problematic.  If you are going to write a lot of content then consider developing
+the text in Markdown.</p>
+<p>Markdown is a very simple language that is converted directly to HTML.<br />
+It is far for readable than HTML and much more efficient to write.  I use only
+a few basic constructs to give some basic formatting.</p>
+<pre><code>Types        Markdown     HTML
+
+headings    #               h1   
+            ##              h2
+            ###             h3 
+bold        **bold**        b
+list        *               ul, li
+link        [Link](url)     a
+image       ![text](src)    img
+</code></pre>
+<p>You can go a long way with just these few basic constructs.  When you need
+to, you can add HTML text directly.</p>
+<p>If your documents look like HTML pages then consider using Markdown as the
+Document format that you read and write.</p>
+<h2>Save and Restore Objects</h2>
+<p>There are several situations where it is useful to save raw data objects into 
+a file.  If you want to destroy and rebuild the database you can export all
+the objects, recreate the database then bring back the objects as they were.
+This is very useful if you are trying to move data from one system to another.</p>
+<p>The key limitation of this practice involved the "primary keys".  When the
+objects are exported, the primary key represents the identity of each record.
+When you import data into the system there can be no conflicting objects.
+The same object can be imported more than once, but other objects must not
+share the key.</p>
+<p>In practice, this limits you to importing data objects into a fresh system to
+set the database to a particular state.  It can be very useful during testing.</p>
+<p>Do not export objects on a running system and expect to read them back in 
+successfully because the app will continue to create new objects that will
+be in conflict with the saved ones.</p>
         
     </div>
 </div>
