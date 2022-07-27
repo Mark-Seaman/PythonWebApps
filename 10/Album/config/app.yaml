@@ -1,7 +1,7 @@
 envs:
 - key: DEBUG
   scope: RUN_AND_BUILD_TIME
-  value: "True"
+  value: "False"
 - key: DISABLE_COLLECTSTATIC
   scope: RUN_AND_BUILD_TIME
   value: "1"
@@ -36,7 +36,7 @@ services:
     python manage.py migrate --no-input
     python manage.py createsuperuser --no-input --email 'me@here.us'
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: week5/NotePad
+  source_dir: 10/Album
 static_sites:
 - environment_slug: html
   github:
@@ -46,4 +46,4 @@ static_sites:
   name: bacs350-demo-static
   routes:
   - path: /static
-  source_dir: week5/NotePad/static
+  source_dir: 10/Album/static

@@ -56,17 +56,17 @@ class PersonViewsTest(TestCase):
         self.person = dict(user=self.user, bio='single tester')
         self.person2 = dict(user=self.user, bio='new tester')
 
-    # def test_home(self):
-    #     response = self.client.get('/')
-    #     self.assertEqual(response.status_code, 302)
-    #     self.assertEqual(response.url, reverse('person_list'))
+    def test_person_home(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/message/')
 
     def test_person_list_view(self):
         self.assertEqual(reverse('person_list'), '/person/')
         Person.objects.create(**self.person)
         response = self.client.get('/person/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'person_list.html')
+        self.assertTemplateUsed(response, 'person/list.html')
         self.assertTemplateUsed(response, 'theme.html')
         self.assertContains(response, '<tr>', count=2)
 
@@ -76,20 +76,13 @@ class PersonViewsTest(TestCase):
         response = self.client.get(reverse('person_detail', args='1'))
         self.assertContains(response, 'body')
 
-    # def test_person_add_view(self):
-
-    #     # Add without Login
-    #     response = self.client.post(reverse('person_add'), self.person)
-    #     self.assertEqual(response.status_code, 302)
-    #     self.assertEqual(response.url, '/accounts/login/?next=/person/add')
-
-#         # Login to add
-#         self.login()
-#         response = self.client.post(reverse('person_add'), self.person1)
-#         response = self.client.post(reverse('person_add'), self.person2)
-#         self.assertEqual(response.status_code, 302)
-#         response = self.client.get(response.url)
-#         self.assertEqual(len(Person.objects.all()), 2)
+    def test_person_add_view(self):
+        # Login to create Person
+        self.login()
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/person/1')
+        self.assertEqual(len(Person.objects.all()), 1)
 
     def test_person_edit_view(self):
 

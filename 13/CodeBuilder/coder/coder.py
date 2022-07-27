@@ -1,3 +1,4 @@
+from asyncio import tasks
 from shutil import copyfile, copytree
 from pathlib import Path
 from os import system
@@ -6,7 +7,20 @@ from django.shortcuts import render
 
 def build_code():
     print('build_code()')
-    generate_software_planner()
+    # generate_software_planner()
+    # generate_course_builder()
+    generate_messenger()
+
+
+def generate_messenger():
+    project_path = Path('/Users/seaman/Github/BACS350/08')
+    project_name = 'Messenger'
+    project_app = 'messenger'
+    project_path = create_new_project(project_path, project_name)
+    # create_new_app(project_path, project_app)
+    generate_data_type(project_path, project_app, 'Person', "person")
+    generate_data_type(project_path, project_app, 'Message', "message")
+    system(f'tree {project_path}')
 
 
 def generate_course_builder():

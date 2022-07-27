@@ -1,0 +1,388 @@
+{
+    "milestones": {
+        "0": "Project Plan Complete",
+        "1": "Technology Proven",
+        "2": "Core Features Implemented",
+        "3": "Functionality Complete",
+        "4": "Test Complete",
+        "5": "Release",
+        "6": "First Upgrade"
+    },
+    "special-lessons": {
+        "0": "Special 1",
+        "1": "Special 2",
+        "2": "Special 3",
+        "3": "Special 4",
+        "4": "Special 5",
+        "5": "Special 6",
+        "6": "Special 7"
+    },
+    "tasks": {
+        "0/0": {
+            "role": 0,
+            "role_name": "Project Manager - Requirements",
+            "deliverable": "Project Charter",
+            "details": [
+                "Business proposition",
+                "Project scope & budget",
+                "Client communication",
+                "Sprint Planning meetings"
+            ],
+            "milestone": 0,
+            "milestone_name": "Milestone #1 - Project Plan Complete"
+        },
+        "1/0": {
+            "role": 0,
+            "role_name": "Project Manager - Requirements",
+            "deliverable": "Setup communications",
+            "details": [
+                "Configure communication tools",
+                "Initial product backlog",
+                "Team communication",
+                "Plan daily meetings"
+            ],
+            "milestone": 1,
+            "milestone_name": "Milestone #2 - Technology Proven"
+        },
+        "2/0": {
+            "role": 0,
+            "role_name": "Project Manager - Requirements",
+            "deliverable": "Functional requirements",
+            "details": [
+                "Issues for missing requirements",
+                "Product Backlog",
+                "Plan User Stories",
+                "Customer review"
+            ],
+            "milestone": 2,
+            "milestone_name": "Milestone #3 - Core Features Implemented"
+        },
+        "3/0": {
+            "role": 0,
+            "role_name": "Project Manager - Requirements",
+            "deliverable": "Team coordinator",
+            "details": [
+                "Task Kanban",
+                "Prioritize feature requests",
+                "Sprint planning"
+            ],
+            "milestone": 3,
+            "milestone_name": "Milestone #4 - Functionality Complete"
+        },
+        "4/0": {
+            "role": 0,
+            "role_name": "Project Manager - Requirements",
+            "deliverable": "Project progress",
+            "details": [
+                "Burn down graph",
+                "Prioritize Features",
+                "Product backlog"
+            ],
+            "milestone": 4,
+            "milestone_name": "Milestone #5 - Test Complete"
+        },
+        "5/0": {
+            "role": 0,
+            "role_name": "Project Manager - Requirements",
+            "deliverable": "Issues Review",
+            "details": [
+                "Acceptance criteria",
+                "Release checkpoint"
+            ],
+            "milestone": 5,
+            "milestone_name": "Milestone #6 - Release"
+        },
+        "6/0": {
+            "role": 0,
+            "role_name": "Project Manager - Requirements",
+            "deliverable": "First maintenance roll",
+            "details": [
+                "Downtime management",
+                "Maintenace plan",
+                "Upgrade strategy"
+            ],
+            "milestone": 6,
+            "milestone_name": "Milestone #7 - First Upgrade"
+        },
+        "0/1": {
+            "role": 1,
+            "role_name": "Designer - Design",
+            "deliverable": "Technology selection",
+            "details": [
+                "Select Development Tools",
+                "Setup Guide for Tools",
+                "Create \"Hello World\"",
+                "Decide on App deployment"
+            ],
+            "milestone": 0,
+            "milestone_name": "Milestone #1 - Project Plan Complete"
+        },
+        "1/1": {
+            "role": 1,
+            "role_name": "Designer - Design",
+            "deliverable": "Software Architecture",
+            "details": [
+                "Apps = Data + Views",
+                "Data models",
+                "Views and wireframes",
+                "Block diagram"
+            ],
+            "milestone": 1,
+            "milestone_name": "Milestone #2 - Technology Proven"
+        },
+        "2/1": {
+            "role": 1,
+            "role_name": "Designer - Design",
+            "deliverable": "Component Design - API",
+            "details": [
+                "Prototype - development spike of core functionality",
+                "Implement data models",
+                "Implement views",
+                "Implement URL routes"
+            ],
+            "milestone": 2,
+            "milestone_name": "Milestone #3 - Core Features Implemented"
+        },
+        "3/1": {
+            "role": 1,
+            "role_name": "Designer - Design",
+            "deliverable": "Refactoring and code structure",
+            "details": [
+                "Create code analysis tools",
+                "Draw diagram of code structure",
+                "Refine key APIs"
+            ],
+            "milestone": 3,
+            "milestone_name": "Milestone #4 - Functionality Complete"
+        },
+        "4/1": {
+            "role": 1,
+            "role_name": "Designer - Design",
+            "deliverable": "Help with Code",
+            "details": [
+                "Implement all required features",
+                "Improve code structure",
+                "Ensure test quality"
+            ],
+            "milestone": 4,
+            "milestone_name": "Milestone #5 - Test Complete"
+        },
+        "5/1": {
+            "role": 1,
+            "role_name": "Designer - Design",
+            "deliverable": "Resolve open design issues",
+            "details": [
+                "Assist with defect fixing",
+                "Assist with completion of tests",
+                "Ensure test quality"
+            ],
+            "milestone": 5,
+            "milestone_name": "Milestone #6 - Release"
+        },
+        "6/1": {
+            "role": 1,
+            "role_name": "Designer - Design",
+            "deliverable": "Design future enhancements",
+            "details": [
+                "Create plan for product upgrade",
+                "Archive the finish design",
+                "Update design documents"
+            ],
+            "milestone": 6,
+            "milestone_name": "Milestone #7 - First Upgrade"
+        },
+        "0/2": {
+            "role": 2,
+            "role_name": "Programmer - Code",
+            "deliverable": "Version control",
+            "details": [
+                "Setup Github account",
+                "Setup Github Pages repository",
+                "Decide how to publish your project docs",
+                "User Guide for development workflow"
+            ],
+            "milestone": 0,
+            "milestone_name": "Milestone #1 - Project Plan Complete"
+        },
+        "1/2": {
+            "role": 2,
+            "role_name": "Programmer - Code",
+            "deliverable": "Test-driven development workflow",
+            "details": [
+                "Build simple app",
+                "Build simple test",
+                "Document workflow built around tests",
+                "Hosted application"
+            ],
+            "milestone": 1,
+            "milestone_name": "Milestone #2 - Technology Proven"
+        },
+        "2/2": {
+            "role": 2,
+            "role_name": "Programmer - Code",
+            "deliverable": "Incremental development (Sprints)",
+            "details": [
+                "Select features for sprint",
+                "Implement the features",
+                "Test the features",
+                "Fix all defects"
+            ],
+            "milestone": 2,
+            "milestone_name": "Milestone #3 - Core Features Implemented"
+        },
+        "3/2": {
+            "role": 2,
+            "role_name": "Programmer - Code",
+            "deliverable": "Write code - core features",
+            "details": [
+                "Implement User Stories",
+                "Test-driven workflow",
+                "Implementation Cycle - Test, Fix, Extend, Improve",
+                "Implement all core features"
+            ],
+            "milestone": 3,
+            "milestone_name": "Milestone #4 - Functionality Complete"
+        },
+        "4/2": {
+            "role": 2,
+            "role_name": "Programmer - Code",
+            "deliverable": "Write code - functional complete",
+            "details": [
+                "Implement all features",
+                "Test-driven workflow",
+                "Implementation Cycle - Test, Fix, Extend, Improve"
+            ],
+            "milestone": 4,
+            "milestone_name": "Milestone #5 - Test Complete"
+        },
+        "5/2": {
+            "role": 2,
+            "role_name": "Programmer - Code",
+            "deliverable": "Write code - debug",
+            "details": [
+                "Extend test cases",
+                "Work with burn-down graph",
+                "Implement regression test cases"
+            ],
+            "milestone": 5,
+            "milestone_name": "Milestone #6 - Release"
+        },
+        "6/2": {
+            "role": 2,
+            "role_name": "Programmer - Code",
+            "deliverable": "Write code - fix issues",
+            "details": [
+                "Close all remaining issues",
+                "Complete all missing tests",
+                "Release checklist"
+            ],
+            "milestone": 6,
+            "milestone_name": "Milestone #7 - First Upgrade"
+        },
+        "0/3": {
+            "role": 3,
+            "role_name": "QA Engineer - Test",
+            "deliverable": "Test Plan",
+            "details": [
+                "Outline of testing that will be used",
+                "Setup structure for testing",
+                "Log issues",
+                "Document how to log issues"
+            ],
+            "milestone": 0,
+            "milestone_name": "Milestone #1 - Project Plan Complete"
+        },
+        "1/3": {
+            "role": 3,
+            "role_name": "QA Engineer - Test",
+            "deliverable": "Test Infrastructure",
+            "details": [
+                "Unit test framework",
+                "System testing framework",
+                "Regression testing",
+                "One view test and one data test"
+            ],
+            "milestone": 1,
+            "milestone_name": "Milestone #2 - Technology Proven"
+        },
+        "2/3": {
+            "role": 3,
+            "role_name": "QA Engineer - Test",
+            "deliverable": "Automated testing",
+            "details": [
+                "Workflow for TDD",
+                "Unit testing",
+                "System testing",
+                "Code coverage of tests"
+            ],
+            "milestone": 2,
+            "milestone_name": "Milestone #3 - Core Features Implemented"
+        },
+        "3/3": {
+            "role": 3,
+            "role_name": "QA Engineer - Test",
+            "deliverable": "Continuous integration",
+            "details": [
+                "Build and test with every push",
+                "Implement Travis (CI tool)"
+            ],
+            "milestone": 3,
+            "milestone_name": "Milestone #4 - Functionality Complete"
+        },
+        "4/3": {
+            "role": 3,
+            "role_name": "QA Engineer - Test",
+            "deliverable": "Acceptance testing",
+            "details": [
+                "Work with Requirements specialist",
+                "Identify unmet customer needs",
+                "Develop client acceptance test"
+            ],
+            "milestone": 4,
+            "milestone_name": "Milestone #5 - Test Complete"
+        },
+        "5/3": {
+            "role": 3,
+            "role_name": "QA Engineer - Test",
+            "deliverable": "Issue tracking",
+            "details": [
+                "Issues management workflow",
+                "Track metrics for issue found, fixed, outstanding",
+                "Test resolved issue",
+                "Close issues that pass test"
+            ],
+            "milestone": 5,
+            "milestone_name": "Milestone #6 - Release"
+        },
+        "6/3": {
+            "role": 3,
+            "role_name": "QA Engineer - Test",
+            "deliverable": "Software Release",
+            "details": [
+                "Release criteria",
+                "Maintenance plan",
+                "Server management"
+            ],
+            "milestone": 6,
+            "milestone_name": "Milestone #7 - First Upgrade"
+        }
+    },
+    "roles": [
+        {
+            "role": "requirements",
+            "name": "Project Manager - Requirements"
+        },
+        {
+            "role": "design",
+            "name": "Designer - Design"
+        },
+        {
+            "role": "code",
+            "name": "Programmer - Code"
+        },
+        {
+            "role": "test",
+            "name": "QA Engineer - Test"
+        }
+    ]
+}

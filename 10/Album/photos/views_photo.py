@@ -26,13 +26,14 @@ class PhotoCarouselView(TemplateView):
 
 
 def carousel_data(photos):
-    return [
-        dict(image_url=f"/media/{photos[0].image}", label="One", active="active"),
-        dict(image_url=f"/media/{photos[1].image}", label="Two"),
-        dict(image_url=f"/media/{photos[2].image}", label="Three"),
-        dict(image_url="https://source.unsplash.com/random/1200x800?ocean", label="Ocean"),
-        dict(image_url="https://source.unsplash.com/random/1200x800?flower", label="Flower"),
-    ]
+
+    def photo_data(id, image):
+        x = dict(image_url=f"/media/{image}", id=str(id), label=f"{image} {id}")
+        if id == 0:
+            x.update(active="active", aria='aria-current="true"')
+        return x
+
+    return [photo_data(id, photo.image) for id, photo in enumerate(photos)]
 
 
 class PhotoDetailView(DetailView):

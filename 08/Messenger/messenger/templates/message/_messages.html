@@ -19,6 +19,14 @@
             </tr>
             {% endfor %}
 
+            {% for message in messages %}
+            <tr>
+                <td><a href="/message/{{ message.pk }}">{{ message.title }}</a></td>
+                <td>{{ message.text }}</td>
+                <td><a href="/person/{{ message.author.pk }}">{{ message.author.name }}</a></td>
+            </tr>
+            {% endfor %}
+
         </table>
 
         <a class="btn message" href="/message/add">Add Message</a>

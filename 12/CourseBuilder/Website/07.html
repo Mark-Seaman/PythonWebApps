@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Course Builder Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class=" bg-dark text-light">
+
+    <header class="bg-primary p-5 m-5">
+        <h1>Course Builder Project</h1>
+        <h2>Simple lesson display</h2>
+    </header>
+
+    <div class="container m-5">
+        <div class="card bg-light text-dark p-5">
+
+            
+
+<div class="row">
+
+    <div class="card col-lg-3 m-0">
+
+        <div class="card-header lesson">
+            Course Lessons
+        </div>
+        <div class="card-body">
+
+            
+
+            
+            <p><a href="01.html">1 - Development Tools</a></p>
+            
+
+            
+
+            
+            <p><a href="02.html">2 - Application Hosting</a></p>
+            
+
+            
+
+            
+            <p><a href="03.html">3 - Basic Application</a></p>
+            
+
+            
+
+            
+            <p><a href="04.html">4 - Views</a></p>
+            
+
+            
+
+            
+            <p><a href="05.html">5 - Data</a></p>
+            
+
+            
+
+            
+            <p><a href="06.html">6 - Data views</a></p>
+            
+
+            
+
+            
+            <p><a href="07.html">7 - Users</a></p>
+            
+
+            
+
+            
+            <p><a href="08.html">8 - Testing</a></p>
+            
+
+            
+
+            
+            <p><a href="09.html">9 - Complex Views</a></p>
+            
+
+            
+
+            
+            <p><a href="10.html">10 - Components Views</a></p>
+            
+
+            
+
+            
+            <p><a href="11.html">11 - Files and Documents</a></p>
+            
+
+            
+
+            
+            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            
+
+            
+
+            
+            <p><a href="13.html">13 - Automation </a></p>
+            
+
+            
+
+            
+            <p><a href="14.html">14 - Software Engineering</a></p>
+            
+
+            
+
+        </div>
+
+    </div>
+
+    <div class="col-lg m-5">
+        
+        <h1>Chapter 7 - Users</h1>
+<ul>
+<li>Skill 19 - User Registration</li>
+<li>Skill 20 - User Login</li>
+<li>Skill 21 - User Status</li>
+<li><a href="../project/7">Project 7 - Investigator - Superhero Tracker</a></li>
+</ul>
+<p><img alt="Chapter 7" src="img/chapter-7.jpg" /></p>
+<hr />
+<h2>User Authentication</h2>
+<p>In order to do certain operations in a secure way our application must be able
+to identify specific users within our app.  This is called "User Authentication"
+and Django provides extensive support for the process of authentication.</p>
+<p>All users will start by registering to use the application.  This will create
+specific login credentials for each user.  Our app will have a registration
+page that contains a form from collecting the user name and desired password.</p>
+<p>Built in logic validates the user name and password to ensure that they are
+both allowed by the rules of the system.</p>
+<h2>Password Encryption</h2>
+<p>It is critical to security that passwords are always encrypted.  This includes
+when the information is collected by the form, sent to the server, and stored
+on the remote server.</p>
+<p>Passwords are hashed and the hash key is stored in the database.  When the
+user reenters the password it is rehashed and compared to the stored value.
+This protects the password in its raw form.  It is impossible to calculate or
+lookup the actual password, but the system guarantees to verify that the user
+attempting to login has entered the matching password from registration.</p>
+<p>This requires some tricky code that you never want to write.  The primary goal 
+is to have a robust implementation that you can trust.  The cryptography built
+into Django has the highest level of security available.</p>
+<h2>User Object</h2>
+<p>Django provides a data model that is at the heart of the user authentication
+scheme.   When you create an new application, Django automatically produces 
+the code for user authentication.   When you do your first database migration
+it creates all the tables that are required.</p>
+<pre><code>$ python manage.py migrate
+
+No changes detected
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+</code></pre>
+<p>You can immediately begin creating users and ensuring that all users must have
+permissions to access the system.</p>
+<h2>User Authorization</h2>
+<p>Authentication guarantees the identity of each user.  Authorization determines
+what permissions the user is allowed to have.  Authentication is a prerequisite
+to restricting access. </p>
+<p>We can limit access to every page on our system.  Some users may be permitted
+to view or the modify a specific page.  The tools make it easy to limit access
+in any way that seems appropriate.</p>
+        
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

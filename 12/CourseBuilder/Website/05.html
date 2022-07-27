@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Course Builder Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class=" bg-dark text-light">
+
+    <header class="bg-primary p-5 m-5">
+        <h1>Course Builder Project</h1>
+        <h2>Simple lesson display</h2>
+    </header>
+
+    <div class="container m-5">
+        <div class="card bg-light text-dark p-5">
+
+            
+
+<div class="row">
+
+    <div class="card col-lg-3 m-0">
+
+        <div class="card-header lesson">
+            Course Lessons
+        </div>
+        <div class="card-body">
+
+            
+
+            
+            <p><a href="01.html">1 - Development Tools</a></p>
+            
+
+            
+
+            
+            <p><a href="02.html">2 - Application Hosting</a></p>
+            
+
+            
+
+            
+            <p><a href="03.html">3 - Basic Application</a></p>
+            
+
+            
+
+            
+            <p><a href="04.html">4 - Views</a></p>
+            
+
+            
+
+            
+            <p><a href="05.html">5 - Data</a></p>
+            
+
+            
+
+            
+            <p><a href="06.html">6 - Data views</a></p>
+            
+
+            
+
+            
+            <p><a href="07.html">7 - Users</a></p>
+            
+
+            
+
+            
+            <p><a href="08.html">8 - Testing</a></p>
+            
+
+            
+
+            
+            <p><a href="09.html">9 - Complex Views</a></p>
+            
+
+            
+
+            
+            <p><a href="10.html">10 - Components Views</a></p>
+            
+
+            
+
+            
+            <p><a href="11.html">11 - Files and Documents</a></p>
+            
+
+            
+
+            
+            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            
+
+            
+
+            
+            <p><a href="13.html">13 - Automation </a></p>
+            
+
+            
+
+            
+            <p><a href="14.html">14 - Software Engineering</a></p>
+            
+
+            
+
+        </div>
+
+    </div>
+
+    <div class="col-lg m-5">
+        
+        <h1>Chapter 5 - Data</h1>
+<h2>Overview</h2>
+<ul>
+<li>Skill 13 - Models &amp; Database</li>
+<li>Skill 14 - CRUD Operations</li>
+<li>Skill 15 - Admin Views</li>
+<li><a href="../project/5">Project 5 - Database - Superhero Refactored</a></li>
+</ul>
+<p><img alt="Chapter 5" src="img/chapter-5.jpg" /></p>
+<h3>Applications = Data + Views + Tests</h3>
+<p>Applications are built by designing and implementing a collection of data
+models and the views that interact with the data.  This requires you to first
+think through the data that exists within your system.  This data can be 
+captured at a very-high level and then turned into running code quite quickly.</p>
+<p>The views within the application present data in a user friendly way and let
+the users modify the data in accordance with the business rules of the 
+application.  These rules are embodied in logic that exists in the views code
+as well as the data code.</p>
+<p>Applications tend to be built in layers where there are separate concerns for
+each layer.  An often overlooked part of the application is the testing layer.
+Django provide a lot of infrastructure support for testing.  Your code will
+break as you make changes.  Automated testing will guarantee that you will 
+know immediately when something is not working correctly.</p>
+<p><img alt="" src="AppLayers.png" /></p>
+<p>Building a robust application requires building up all three of these areas
+at the same time.  The development should proceed by working on a single 
+feature at a time.  Don't move to the next feature until you have created the
+required data, views, and tests.</p>
+<p>Minimizing the work in progress minimizes the risk that something will be
+overlooked an need attention later.  Maintain the discipline to focus on a
+single task.</p>
+<p>Static websites can be thought of as views without data.  The design of a 
+static site is similar to the presentation layer for a dynamic application.</p>
+<h3>Database</h3>
+<p>A relational database is a collection of data tables that hold records of a
+particular type.  The records in one table may contain pointers to records in
+other tables within the database.</p>
+<p>Each table is organized in Rows and Columns.  Each row represents an Item or 
+Record of a particular type.  Each Column represents an Attribute of the Item 
+or Field of the record.</p>
+<p>Queries are performed on the database to access or modify the records.  These
+queries are written in the SQL programming language.  Django provides tools
+for letting programmers do SQL queries by interacting with Python objects and
+classes.</p>
+<p>Under the hood, actual SQL statements are executed but the coder does not need
+to worry about the formation of the query strings or the database connection.
+This makes programming the data layer far more productive than working with the
+SQL code would allow.</p>
+<h3>Object-relational Mapper (ORM)</h3>
+<p>Django lets you define the record structure as Python classes that inherit
+from a Model class.  These classes are used to create the initial database
+tables and also to maintain them to reflect changes over time. </p>
+<p>By using these classes you can perform all the necessary CRUD operations on
+the data without writing any SQL code.  Building the data layer of the 
+application involves designing the data structure, coding the data models, and
+then implementing the CRUD operations that match the business rules.</p>
+<p>There are two views of same data:  1. Data is records in the database, 2. Data
+is Instances of Objects in memory of a specific Model Class.  A Django developer
+can easily move back and forth between these two concepts.</p>
+<p>Define your data models entirely in Python. You get a rich, dynamic 
+database-access API for free — but you can still write SQL if needed.</p>
+<p>A Django data model is the single, definitive source of information about your 
+data. It contains the essential fields and behaviors of the data you’re storing. 
+Generally, each model maps to a single database table.</p>
+<p>Create Python Classes to define the structure of the data records and then
+use the database migration tool to create SQL tables that match the classes.</p>
+<p>Automatically create Database Tables from the models in your application 
+with a single command.</p>
+<pre><code>$ python manage.py migrate
+</code></pre>
+<h3>Example of Data Models</h3>
+<p>We need a simple example to learn about working with data.  Suppose we want 
+to build an application that deals with books.  This will certainly need to 
+be represented by data within the app.  Each book will have a title and author.
+As time goes by we will add many other attributes as well.  But our goal is
+to always start simple.</p>
+<p>Book Data Model</p>
+<pre><code>Book
+    Title
+    Author
+</code></pre>
+<p>Python code</p>
+<pre><code>from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
+</code></pre>
+<p>The Python code implements a class that inherits from "django.db.models" and
+sets the constraints on the attributes of Book.  This class is used to create
+a database table called "book__book", which has two fields "title" and "author".
+Both of these fields are strings that are limited to 200 characters in length.</p>
+<h3>Update the Database</h3>
+<p>When you change your models you will need to update the database tables to
+reflect the changes.  Use "makemigrations" to capture the changes needed and
+"migrate" to apply the changes to the tables.</p>
+<pre><code>$ python manage.py makemigrations
+$ python manage.py migrate
+</code></pre>
+<p>The ORM will scan each "app" in your project to find all the data models. Then
+each model will be compare to the table structure in the database. If changes
+are needed then a "migration" file will contain the SQL required to update
+the tables to match the models.</p>
+<p>These changes are applied by running "migrate" to automatically update
+the database tables.</p>
+<h3>CRUD Operations</h3>
+<p>There are four basic operations that are required on every record in the 
+database.  Some operations may not be needed, but it is good to think about
+if it is needed for your data.</p>
+<ul>
+<li>CREATE - make a new record (Add)</li>
+<li>READ - get one or more records (List, Detail)</li>
+<li>UPDATE - modify an existing record (Edit)</li>
+<li>DELETE - remove a record (Delete)</li>
+</ul>
+<h3>Operations on Every Model</h3>
+<p>Consider our book application.  We may need to perform all of these operaitions
+for the Book data type.</p>
+<ul>
+<li>Create Book</li>
+<li>List Books</li>
+<li>Details Book</li>
+<li>Update Book</li>
+<li>Delete Book</li>
+</ul>
+<p>Use the Book Model</p>
+<pre><code>from book.models import Book
+</code></pre>
+<p>Create book record</p>
+<pre><code>Book.objects.create(title="A Seaman's Journey", author="Mark Seaman")
+</code></pre>
+<p>List Books</p>
+<pre><code>Book.objects.all()
+
+Book.objects.filter(author='Mark Seaman')
+</code></pre>
+<p>Get specific book</p>
+<pre><code>b = Book.objects.get(title="A Seaman's Journey")
+b.author
+b.name
+b.pk
+</code></pre>
+<p>Update book record</p>
+<pre><code>b = Book.objects.get(title="A Seaman's Journey")
+b.title = "A Seaman's Life"
+b.save()
+</code></pre>
+<p>Delete a record</p>
+<pre><code>Book.objects.get(title="A Seaman's Journey").delete()
+</code></pre>
+<h3>Visit the Django website</h3>
+<p>The Django website is a great source of information about how Django works.
+Visit the page at 
+<a href="https://www.djangoproject.com/start">https://www.djangoproject.com/start</a>
+and read about the "Object-relational Mapper".  This is the best source of
+info that is constantly updated and improved.</p>
+<hr />
+<h3><a href="../project/4">Project 4 - Superhero Profiles</a></h3>
+        
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Course Builder Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class=" bg-dark text-light">
+
+    <header class="bg-primary p-5 m-5">
+        <h1>Course Builder Project</h1>
+        <h2>Simple lesson display</h2>
+    </header>
+
+    <div class="container m-5">
+        <div class="card bg-light text-dark p-5">
+
+            
+
+<div class="row">
+
+    <div class="card col-lg-3 m-0">
+
+        <div class="card-header lesson">
+            Course Lessons
+        </div>
+        <div class="card-body">
+
+            
+
+            
+            <p><a href="01.html">1 - Development Tools</a></p>
+            
+
+            
+
+            
+            <p><a href="02.html">2 - Application Hosting</a></p>
+            
+
+            
+
+            
+            <p><a href="03.html">3 - Basic Application</a></p>
+            
+
+            
+
+            
+            <p><a href="04.html">4 - Views</a></p>
+            
+
+            
+
+            
+            <p><a href="05.html">5 - Data</a></p>
+            
+
+            
+
+            
+            <p><a href="06.html">6 - Data views</a></p>
+            
+
+            
+
+            
+            <p><a href="07.html">7 - Users</a></p>
+            
+
+            
+
+            
+            <p><a href="08.html">8 - Testing</a></p>
+            
+
+            
+
+            
+            <p><a href="09.html">9 - Complex Views</a></p>
+            
+
+            
+
+            
+            <p><a href="10.html">10 - Components Views</a></p>
+            
+
+            
+
+            
+            <p><a href="11.html">11 - Files and Documents</a></p>
+            
+
+            
+
+            
+            <p><a href="12.html">12 - Import &amp; Export</a></p>
+            
+
+            
+
+            
+            <p><a href="13.html">13 - Automation </a></p>
+            
+
+            
+
+            
+            <p><a href="14.html">14 - Software Engineering</a></p>
+            
+
+            
+
+        </div>
+
+    </div>
+
+    <div class="col-lg m-5">
+        
+        <h1>Chapter 1 - Development Tools</h1>
+<ul>
+<li>Skill 1 - Install Python &amp; Django</li>
+<li>Skill 2 - Github &amp; VS Code</li>
+<li>Skill 3 - Create Django App</li>
+<li><a href="../project/1">Project 1 - Setup Development Tools</a></li>
+</ul>
+<p><img alt="Chapter 1" src="img/chapter-1.jpg" /></p>
+<h3>Web Servers and Clients</h3>
+<p>This book will show you how to build web applications which will run on a 
+phone, tablet, laptop or desktop computer.  This same app will accommodate
+the display size of the device being used.  This layout of all the views will
+change to match the device.  This is called responsive web design.</p>
+<p>Web apps are the primary way that people interact with servers today.
+The devices that users interact with (mobile, laptops, or desktops) are called
+clients, while the remote computers are called servers.  This Client/Server 
+architecture is fundamental to the internet.</p>
+<p>The internet is a gigantic network that allows servers to be accessed from 
+anywhere in the world. Commercial routers provide addressing to get to a 
+specific machine from a client devices.   A URL (Uniform Resource Locater) is
+an address to get to a specific machine page or resource on some machine
+on the internet.</p>
+<p>A web server is software that runs on a remote computer that responds to a
+request for a URL and generates a response which is sent back to the client.
+The client makes a request and the server sends a response.  The client software
+then displays the response to the user. A web browser is the software that
+displays the responses to the user and allows users to make web requests.</p>
+<p><img alt="" src="img/WebServer.png" /></p>
+<h3>Building Web Apps</h3>
+<p>Throughout this book you will learn how to build a web application.  There are
+two types of web servers on the internet.  Some server simply return files for
+the requests that are made.  These files might be HTML, JavaScript, Images, or
+other assets types, but they are always static.  We call these static web servers
+since that just respond with static information.</p>
+<p>Dynamic web servers on the other hand are far more interesting.  They receive
+web requests and may do complex calculations and store data in a database.<br />
+For each request the server must create an appropriate response and may need to
+invoke other computers in the process.</p>
+<p>Static web servers have a use but are quite limited in their capability.  Dynamic
+servers allow the programmer to perform any kind of work needed to create the
+appropriate response.  To build a web application requires a dynamic server
+which executes code to generate the response usually working with a database.</p>
+<p>The pages are generated by code written in a general
+programming language
+such as Python, JavaScript, C#, or Java.</p>
+<h3>Common Web App</h3>
+<p>I've been building web pages and applications since the beginning of the internet
+and have written over fifty complete applications.  I have had commercial 
+experience with all of the most common languages and frameworks for creating
+web apps.  </p>
+<p>Years ago, I noticed that most web apps have very common features
+to all of the other apps.</p>
+<ul>
+<li>Mobile device app</li>
+<li>Front-end (user experience)</li>
+<li>Business logic</li>
+<li>Database</li>
+</ul>
+<h3>Front-end/Back-end</h3>
+<p>Web development has gotten surprisingly sophisticated and complex.  When the
+browser software began to execute JavaScript code, a lot of software logic 
+migrated from the server to the client.  Web pages were no longer simple static
+assets that were displayed by the browser.  Now complex code logic was sent 
+from the server to be executed in the client browser.</p>
+<p>Eventually this took on the name of Front-end development.  Powerful JavaScript
+frameworks were increasingly used to create a dynamic user experience that
+runs on the client side of the internet.</p>
+<p>Back-end Development focuses on the code logic that runs on the server.  This
+usually revolves around the database and may include a web service API to
+communicate with other computers.  The back-end software is typically built
+using a framework that performs all of the common tasks.</p>
+<p>Full-stack development involves both the front end and the back end.  Sometimes 
+these are separated out into different responsibilities.  A full-stack developer
+must be able to operate across the full range of languages and frameworks.</p>
+<p>Modern web development is not based on a single tool but rather a stack of 
+interdependent tools.  The first decision to be made on a project is what tool
+stack to use.</p>
+<h3>Tool Stack</h3>
+<p>For our web development we will be using the following tools.  We will be doing 
+back-end development (server side code)</p>
+<ul>
+<li>VS Code - Development Environment</li>
+<li>Django - Web Development Framework</li>
+<li>Python - Programming Language</li>
+<li>MySQL - Database</li>
+</ul>
+<h3>Web Frameworks</h3>
+<p>There are many reasons to use a web framework. It gives us reusable code that
+quickly lets you build an app.  This code solves all the common problems.  We
+leverage tens-of-thousands of hours of effort.  This let's us write about 
+10% of the code needed for our application.</p>
+<p>Other Frameworks and Languages</p>
+<ul>
+<li>.Net - C#</li>
+<li>Rails - Ruby</li>
+<li>Laravel - PHP</li>
+<li>Django - Python</li>
+</ul>
+<h3>Development Tools</h3>
+<p>There is a wide variety of great tools available to work with Django applications.
+For this class I have selected the best tools which balance ease of learning
+with robust power.  This lets you get up and running but also to scale your
+efforts as needed.</p>
+<p>There are several tools in our development stack starting with low-level and 
+moving to higher levels.</p>
+<ul>
+<li>Linux kernel - with WSL on MS Windows OS</li>
+<li>Homebrew - application manager for installing tools</li>
+<li>pyenv - tool to manage Python Virtual Environments</li>
+<li>Django - web application framework</li>
+<li>Git - version control system</li>
+<li>Github - web service to manage Git repositories</li>
+<li>Microsoft Visual Studio Code -  integrated development environment</li>
+</ul>
+<p>Each of these tools must be install and set up in order to provide a powerful
+platform on which to build our application code.  There are many tools other 
+than these which could be used.  But these tools are proven to get you up and
+running with the least amount of work.</p>
+<p>We will take these tools in three chunks.</p>
+<ul>
+<li>VS Code</li>
+<li>Github Repo</li>
+<li>Python Environment</li>
+</ul>
+<h3>Python for our Project</h3>
+<p>All systems ship with some version of Python installed. People are tempted to
+use this version but it may lead to disaster.  The pre-installed Python is 
+intended to allow users on the system to execute automatic tools but not to 
+develop new application code.  Don't use the system version of Python.</p>
+<p>We will install a fresh version of Python that is the latest and greatest. 
+Then we will install on top of that version all of the needed libraries that
+we intend to use.  This version of Python will be totally isolated from all
+the other versions of Python and have its own lifecycle.</p>
+<h3>Virtual Environments</h3>
+<p>You may need many different Python environments for different Python packages.
+Each environment may use entirely different packages.<br />
+Python provides Virtual Environments to isolate projects from each other.
+Over time we may have many virtual environments on the computer but they will
+never interfere with each other.</p>
+<p>Activating a Virtual Environment means setting up a particular environment to
+use from all of the commands that we execute. Each work session starts by
+activating the environment.</p>
+<p>All work in Python should be done in a virtual environment. This lets you use different
+libraries for each project. We will be using a tool "pyenv" to setup and
+activate our virtual environment for us.  This will save us some extra work
+and prevent errors.</p>
+<h3>Development Workflow</h3>
+<p>During development you will be writing code in small increments for each feature.
+Every feature will be created, tested, fixed, and committed to version control
+before moving on to the next.
+Working in this way will ensure that your code is always getting better and
+never broken.</p>
+<ul>
+<li><strong>Edit</strong> - make a small (1-3 lines) change to your code</li>
+<li><strong>Test</strong> - run the server and browse to page</li>
+<li><strong>Commit</strong> - commit changes every hour</li>
+<li><strong>Repeat</strong> - work in small iteration, don't ignore bugs</li>
+</ul>
+<h3>Django Projects</h3>
+<p>Django is a web development framework that contributes all of the generic 
+code logic for your applications.  You will create a Django project that will
+be deployed on an application service (such as AWS, Google App Engine, or 
+Digital Ocean).  You will use the features in the Django Framework to quickly
+build your custom application.</p>
+<p>During development you will build reusable logic specific to your application.
+Django provides an easy way to reuse code in other projects by encapsulating
+them as modules called "Apps".  A Django project is built from one or more 
+apps.  The reuse of the "app" name is somewhat unfortunate and causes some 
+confusion for learning Django initially.  </p>
+<p>Just remember a Django Project (Application) is built from multiple Apps (Django
+component modules).  We will spend a lot of time working with this and it will
+become obvious very quickly.</p>
+<h3>Building an App</h3>
+<p>Each Django App is a reusable component module with its own data and views.
+To build an App we typically need to create several unique files that reference
+each other.</p>
+<ul>
+<li>URL Routes - which pages are handled</li>
+<li>Views - format the response for the request</li>
+<li>Templates - HTML content in the page</li>
+<li>Data Models (if using a database)</li>
+</ul>
+<p>We will look at all this in detail in later chapters.  For now just be aware
+that creating an App involves several unique pieces of code.</p>
+<h3>Setting Up Development Tools</h3>
+<p>Before we build an application using Django we need to setup an environment 
+that will support our code development.  There are several different tools that
+need to be configured.  These are presented as specific skills with step-by-step
+instructions. Go through these one at a time.  Do not go on to the next one
+until you are sure that you have it right.</p>
+<ul>
+<li>Visual Studio</li>
+<li>Github</li>
+<li>Python Environment</li>
+<li>Development Server</li>
+</ul>
+<h3>Visual Studio Code</h3>
+<p>There are many great development tools that are available for building 
+applications.  Feel free to use any tool that you are already comfortable with.
+For this book we will standardize on Microsoft Visual Studio Code.  Other
+popular tools include Sublime Text and PyCharm.</p>
+<p>VS Code is an Integrated Development Environment (IDE) that has at its heart
+a programmer's editor.   But it also provides many advanced tools that will 
+make your live easy.</p>
+<ul>
+<li>Color syntax highlighting to help you write code</li>
+<li>Code completion</li>
+<li>Static analysis</li>
+<li>Framework for running tests</li>
+<li>Framework to run server</li>
+<li>and much, much more</li>
+</ul>
+<p>Your first task will be to install VS code on your computer and get it configured
+properly.  Skill #1 will walk you through this setup.</p>
+<h3>Git</h3>
+<p>Git is the industry standard for version control systems. There are dozens of
+systems available but Git is the unchallenged leader.
+Linus Torvalds created Git while he was writing Linux.  Yes the same guy that
+gave us Linux also built Git.  He felt that other versioning systems lacked the
+features that would allow then to accommodate extremely large projects with
+thousands of developers.</p>
+<p>Git allow users to work individually or with thousands of developers.  Work is
+merged together to form new versions of the code.  Any version in history can 
+be achieved instantly and when changes were introduced are easy to see and review.</p>
+<p>Save every version of every file while you work.  Use good comments on every 
+commit. Put everything under version control</p>
+<h3>Github</h3>
+<p>Github is the best version control service available to manage Git code 
+repositories.  It is a web service that hosts thousands of users and millions of
+projects. By January 2020, Github had 40 million users, over 100 million
+repositories.</p>
+<p>You can work with the website directly to manage your code.
+More commonly Git repos are cloned onto your local computer and then changes
+are synched back to Github.</p>
+<p>You will setup a git repository stored at Github that will be used for all the
+code you write in this course.   All grading will be done by examining the
+code in this Git repo.</p>
+<p>In the commercial world all work is shared by using Git repositories hosted
+at a web service (such as Github or BitBucket). This is a good practice to
+get used to now.</p>
+<h3>Code Sharing</h3>
+<p>Programming projects typically start with existing code from someone else. By
+cloning a repo you can get a copy of the code to work with on your local 
+computer.  Your changes are mixed in with the other changes that occur on the
+repo that you cloned.  To get these changes you do a "git pull".</p>
+<p>To share the changes you make with others you do a "git push" command. This merges
+your recently committed changes back to the repo that you cloned from.  You 
+are only permitted to do this if you have permissions to the remote repository.</p>
+<p>If you are starting with someone else's code then you need to "Fork" the 
+repository.  This creates a new repository that you own.  You can push new
+changes to your repository without affecting the one that you forked from.
+New changes to the upstream repo can be pulled to keep your forked repo updated.</p>
+<p>I have created a repo at "https://github.com/Mark-Seaman/BACS350".  You will 
+fork this repo to create "https://github.com/<your-name>/BACS350".  You will
+clone this repo on your local computer and use "git pull" and "git push" to 
+sync your changes.</p>
+<p>Skill #2 gives you step-by-step instructions for how to setup your repositories
+at Github and on your local computer.</p>
+<h3>Python Environment</h3>
+<p>Every modern computer is shipping with Python built in.  This Python environment
+is not intended for you to build applications.  It is meant to execute simple
+scripts to do tasks for system administration.</p>
+<p>When you are doing application development you need to have complete control
+of the Python version that you are running as well as all of the packages that
+are needed for your application.  Don't use the Python version that ships with 
+your system.  This may lead to breaking your system.</p>
+<p>You will likely build many applications that will have very different packages
+that they depend on.  So configure an environment for each
+application.  Python defines an mechanism for isolating the applications from
+one another.</p>
+<h3>Virtual Environment</h3>
+<p>Set up a Virtual Environment for each major project that you create.  Select
+the Python version to use and install all of the require packages within this
+Virtual Environment.</p>
+<p>We start by creating a Virtual Environment and then activating it.  Once this
+is done we can install all the packages that we need.</p>
+<pre><code>$ python -m venv .venv
+
+$ source .venv/bin/activate      # On Mac
+$ source .venv/Scripts/activate  # On Windows
+</code></pre>
+<h3>Installing Python Packages</h3>
+<p>PIP is the Package Installer for Python.  It will be used to setup the virtual
+environment for development.  The only package we need to start out is Django.</p>
+<p>Activate the Virtual Environment before installing the packages. Install the
+Django libraries into the Virtual Environment.</p>
+<pre><code>$ pip install django
+</code></pre>
+<h3>Development Server</h3>
+<p>The Django Framework provides its own web server to let you run your code 
+to test it out during development.  This works great for trying out ideas on
+your local computer.  </p>
+<p>In Chapter 2 we will cover how to set up an App Server Hosting environment to
+make your application visible on the internet.  For now, we will focus on 
+running your app on your own computer using the Django Development server.
+Go to the directory with "manage.py" and execute ...</p>
+<pre><code>$ python manage.py runserver
+</code></pre>
+<p>This launches the development server so that you can view the web pages in your
+browser.  Skill #1 provides you with step-by-step instructions to set up your 
+Python environment to the point where you can run Django code.  Make sure you
+setup all the tools properly before you try to run the code.</p>
+<p>Test the application code in the repo at
+"https://github.com/<your-name>/BACS350/week1/ProfileApp" to verify your 
+Django setup. Keep 
+working on it until shows the profile page along with the image and stylesheet.<br />
+In the next chapter we'll see 
+how to take this app into the wilds of the internet.</p>
+        
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

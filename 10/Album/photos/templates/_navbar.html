@@ -9,16 +9,16 @@
                 <a class="nav-link text-light" href="{% url 'author_list' %}">Authors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'user_home' %}">Photos</a>
+                <a class="nav-link text-light" href="{% url 'author_home' %}">Photos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="/photo/carousel">Carousel</a>
             </li>
 
             {% if user.is_authenticated %}
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link  text-light " href="/admin/">Admin</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link  text-light " href="{% url 'logout' %}">Hello {{ user.username }}</a>
             </li>
@@ -33,7 +33,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'user_add' %}">Sign Up</a>
+                <a class="nav-link  text-light " href="{% url 'author_add' %}">Sign Up</a>
             </li>
 
             {% endif %}

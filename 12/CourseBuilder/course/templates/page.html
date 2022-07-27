@@ -1,0 +1,36 @@
+{% extends 'theme.html' %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="card col-lg-3 m-0">
+
+        <div class="card-header lesson">
+            Course Lessons
+        </div>
+        <div class="card-body">
+
+            {% for lesson in lessons %}
+
+            {% if static %}
+            <p><a href="{{ lesson.static_url }}">{{ lesson.title }}</a></p>
+            {% else %}
+            <p><a href="{{ lesson.url }}">{{ lesson.title }}</a></p>
+            {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg m-5">
+        {% autoescape off %}
+        {{ body }}
+        {% endautoescape %}
+    </div>
+</div>
+
+{% endblock content %}
