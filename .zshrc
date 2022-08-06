@@ -1,7 +1,7 @@
 #!/bin/bash
 # Linux Shell Contexts
 
-export b3=$HOME/Github/BACS350
+export b3=$HOME/Github/PythonWebApps
 export p1=$b3/01/ProfileApp
 export p2=$b3/02/ProfileApp
 export p3=$b3/03/Superhero
@@ -43,7 +43,7 @@ export DJANGO_SUPERUSER_USERNAME='seaman'
 export DJANGO_SUPERUSER_PASSWORD='seaman'
 export DJANGO_SUPERUSER_EMAIL='seaman'
 
-figlet BACS 350
+figlet Demo
 
-cd ~/Github/BACS350
+cd ~/Github/PythonWebApps
 # code .
