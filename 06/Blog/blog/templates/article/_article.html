@@ -1,23 +1,14 @@
 <div class="card col-lg">
 
-    <div class="card-header person">
-        Article
-    </div>
-    <div class="card-body">
-
-
-        <table class="table">
-            <tr>
-                <td>Title</td>
-                <td><a href="/article/{{ object.pk }}/">{{ object.title }}</a></td>
-            </tr>
-            <tr>
-                <td>Body</td>
-                <td>{{ object.body }}</td>
-            </tr>
-        </table>
-
-
-    </div>
+    <table class="table">
+        <tr>
+            <td>Title</td>
+            <td><a href="/article/{{ object.pk }}/">{{ object.title }}</a></td>
+        </tr>
+        <tr>
+            <td>Body</td>
+            <td>{{ object.body }}</td>
+        </tr>
+    </table>
 
 </div>
