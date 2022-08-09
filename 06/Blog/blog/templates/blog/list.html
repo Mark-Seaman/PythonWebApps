@@ -2,19 +2,16 @@
 
 
 {% block title %}
-    List of Blogs
+List of Blogs
 {% endblock title %}
 
 
 {% block content %}
 
-    <h1>My Blogs</h1>
+<div class="row">
 
-    <div class="row">
+    {% include 'blog/_blogs.html' %}
 
-        {% include 'blog/_blogs.html' %}
-
-    </div>
+</div>
 
 {% endblock content %}
-

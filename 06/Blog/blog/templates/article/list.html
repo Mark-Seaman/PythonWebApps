@@ -2,19 +2,16 @@
 
 
 {% block title %}
-    List of Articles
+List of Articles
 {% endblock title %}
 
 
 {% block content %}
 
-    <h1>My Articles</h1>
+<div class="row">
 
-    <div class="row">
+    {% include 'article/_articles.html' %}
 
-        {% include 'article/_articles.html' %}
-
-    </div>
+</div>
 
 {% endblock content %}
-

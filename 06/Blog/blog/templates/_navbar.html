@@ -2,38 +2,16 @@
 
     <div class="container">
 
-        <a class="navbar-brand text-light" href="/">Messenger</a>
+        <a class="navbar-brand text-light" href="/">Blog Builder</a>
 
         <ul class="navbar-nav text-light ml-auto">
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'person_list' %}">Authors</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'home' %}">Objects</a>
-            </li>
-
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="/admin/">Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'logout' %}">Hello {{ user.username }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'logout' %}">Log out</a>
-            </li>
-
-            {% else %}
 
             <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'login' %}">Log In</a>
+                <a class="nav-link text-light" href="{% url 'blog_list' %}">Blogs</a>
             </li>
-
             <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'signup' %}">Sign Up</a>
+                <a class="nav-link text-light" href="{% url 'article_list' %}">Articles</a>
             </li>
-
-            {% endif %}
 
         </ul>
 

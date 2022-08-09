@@ -1,27 +1,22 @@
 <div class="card col-lg">
 
-    <div class="card-header message">
-        Blog
-    </div>
-    <div class="card-body">
-        <table class="table table-hover">
-            <tr>
-                <th>Blog</th>
-                <th>Description</th>
-            </tr>
+    <table class="table table-hover">
+        <tr>
+            <th>Blog</th>
+            <th>Author</th>
+        </tr>
 
-            {% for blog in blogs %}
-            <tr>
-                <td><a href="/blog/{{ blog.pk }}">{{ blog.title }}</a></td>
-                <td>{{ blog.body }}</td>
-            </tr>
-            {% endfor %}
+        {% for blog in blogs %}
+        <tr>
+            <td><a href="/blog/{{ blog.pk }}">{{ blog.title }}</a></td>
+            <td>{{ blog.author }}</td>
+        </tr>
+        {% endfor %}
 
-        </table>
+    </table>
 
-        <p>
-            <a href="/blog/add" class="btn btn-success m-5">Add New Blog</a>
-        </p>
-    </div>
+    <p>
+        <a href="/blog/add" class="btn btn-success m-5">Add New Blog</a>
+    </p>
 
 </div>
