@@ -16,16 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from note.views import DocumentView, NoteDetailView, NoteListView
+from note.views import NoteDetailView, NoteListView
 
 urlpatterns = [
 
     # Admin
     path('admin/', admin.site.urls),
-
-    # Document
-    path('doc/', DocumentView.as_view(), name='document'),
-    path('doc/<str:doc>', DocumentView.as_view()),
 
     # Note
     path('', NoteListView.as_view()),

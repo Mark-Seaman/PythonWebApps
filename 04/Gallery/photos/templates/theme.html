@@ -12,15 +12,18 @@
 </head>
 
 <body class=" bg-dark text-light">
-    <h1 class="header">Photos by Mark</h1>
+    <div class="container">
 
-    {% block content %}
-    <h2>No Block Defined</h2>
-    {% endblock content %}
+        <h1 class="header">Photos by Mark</h1>
 
-    <div class="bg-dark text-light">
-        <a href="/" class="btn bg-success text-light m-5">Photo Gallery</a>
-        <a href="/doc" class="btn bg-success text-light m-5">Documentation</a>
+        {% block content %}
+        <h2>No Block Defined</h2>
+        {% endblock content %}
+
+        <div class="bg-dark text-light">
+            <a href="/" class="btn bg-success text-light m-5">Photo Gallery</a>
+        </div>
+
     </div>
 
 </body>
