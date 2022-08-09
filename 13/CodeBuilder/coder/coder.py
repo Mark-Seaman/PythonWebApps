@@ -9,11 +9,21 @@ def build_code():
     print('build_code()')
     # generate_software_planner()
     # generate_course_builder()
-    generate_messenger()
+    # generate_messenger()
+    generate_blog()
+
+
+def generate_blog():
+    project_path = Path('/Users/seaman/Github/PythonWebApps/08')
+    project_name = 'Blog'
+    project_app = 'blog'
+    project_path = create_new_project(project_path, project_name)
+    generate_data_type(project_path, project_app, 'Blog', "blog")
+    generate_data_type(project_path, project_app, 'Article', "article")
 
 
 def generate_messenger():
-    project_path = Path('/Users/seaman/Github/BACS350/08')
+    project_path = Path('/Users/seaman/Github/PythonWebApps/08')
     project_name = 'Messenger'
     project_app = 'messenger'
     project_path = create_new_project(project_path, project_name)
@@ -24,7 +34,7 @@ def generate_messenger():
 
 
 def generate_course_builder():
-    project_path = Path('/Users/seaman/Github/BACS350/12')
+    project_path = Path('/Users/seaman/Github/PythonWebApps/12')
     project_name = 'CourseBuilder'
     project_app = 'course'
     project_path = create_new_project(project_path, project_name)
@@ -34,7 +44,7 @@ def generate_course_builder():
 
 
 def generate_software_planner():
-    project_path = Path('/Users/seaman/Github/UNC-CS-350')
+    project_path = Path('/Users/seaman/Github/PythonWebApps/14')
     project_name = 'SoftwarePlanner'
     project_app = 'plan'
     project_path = create_new_project(project_path, project_name)
