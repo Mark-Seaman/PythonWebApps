@@ -42,13 +42,9 @@ class Book(models.Model):
     def get_absolute_url(self):
         return reverse_lazy('book_detail', args=[str(self.id)])
 
-    # @property
-    # def dependents(self):
-    #     return Dependents.objects.filter(parent=self)
-
-    # @property
-    # def name(self):
-    #     return self.user.first_name + ' ' + self.user.last_name
+    @property
+    def chapters(self):
+        return Chapter.objects.filter(book=self)
 
 
 class Chapter(models.Model):
@@ -61,7 +57,3 @@ class Chapter(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('chapter_detail', args=[str(self.id)])
-
-    # @property
-    # def dependents(self):
-    #     return Dependents.objects.filter(parent=self)

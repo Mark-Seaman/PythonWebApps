@@ -33,10 +33,9 @@ class ChapterCreateView(LoginRequiredMixin, CreateView):
     model = Chapter
     fields = '__all__'
 
-    # def form_valid(self, form):
-    #     form.instance.book = 1
-    #     form.instance.author = Person.get_me(self.request.user)
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.book_id = self.kwargs.get('book')
+        return super().form_valid(form)
 
 
 class ChapterUpdateView(LoginRequiredMixin, UpdateView):

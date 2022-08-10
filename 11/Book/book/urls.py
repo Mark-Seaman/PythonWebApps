@@ -27,10 +27,9 @@ urlpatterns = [
     path('book/<int:pk>/',              BookUpdateView.as_view(),   name='book_edit'),
     path('book/<int:pk>/delete',        BookDeleteView.as_view(),   name='book_delete'),
 
-    # Chapter
-    path('chapter/',                    ChapterListView.as_view(),    name='chapter_list'),
+    path('chapter/<int:book>/',         ChapterListView.as_view(),    name='chapter_list'),
     path('chapter/<int:pk>',            ChapterDetailView.as_view(),  name='chapter_detail'),
-    path('chapter/add',                 ChapterCreateView.as_view(),  name='chapter_add'),
+    path('chapter/<int:book>/add',      ChapterCreateView.as_view(),  name='chapter_add'),
     path('chapter/<int:pk>/',           ChapterUpdateView.as_view(),  name='chapter_edit'),
     path('chapter/<int:pk>/delete',     ChapterDeleteView.as_view(),  name='chapter_delete'),
 

@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/08/Messenger",
+            "cwd": "${workspaceFolder}/11/Book",
             "args": [
                 "test"
             ],
@@ -21,7 +21,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/08/Messenger",
+            "cwd": "${workspaceFolder}/11/Book",
             "args": [
                 "runserver",
                 "8001"
