@@ -1,7 +1,7 @@
-from messenger.views_accounts import UserUpdateView, UserAddView, UserHomeView
 from django.contrib import admin
 from django.urls import include, path
 
+from .views_accounts import UserUpdateView, UserAddView, UserHomeView
 from .views_message import MessageDeleteView, MessageDetailView, MessageListView, MessageCreateView, MessageUpdateView
 from .views_person import PersonDeleteView, PersonDetailView, PersonListView, PersonUpdateView
 
