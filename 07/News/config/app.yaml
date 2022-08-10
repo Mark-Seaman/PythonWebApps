@@ -18,18 +18,18 @@ envs:
   scope: RUN_AND_BUILD_TIME
   type: SECRET
   value: EV[1:ucisUj/NUMdTmPvKpBVKPDFyZD2IFX3Z:QlHsGQPQdufHcWtqY9oMclJXiJZTIw==]
-name: bacs350-demo
+name: webapps-demo
 region: nyc
 services:
 - environment_slug: python
   github:
     branch: main
     deploy_on_push: true
-    repo: Mark-Seaman/BACS350
+    repo: Mark-Seaman/PythonWebApps
   http_port: 8080
   instance_count: 1
   instance_size_slug: basic-xxs
-  name: bacs350-demo-app
+  name: webapps-demo-app
   routes:
   - path: /
   run_command: |
@@ -42,8 +42,8 @@ static_sites:
   github:
     branch: main
     deploy_on_push: true
-    repo: Mark-Seaman/BACS350
-  name: bacs350-demo-static
+    repo: Mark-Seaman/PythonWebApps
+  name: webapps-demo-static
   routes:
   - path: /static
   source_dir: 07/News/static

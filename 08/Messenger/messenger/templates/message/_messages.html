@@ -1,6 +1,6 @@
 <div class="card col-lg">
     <div class="card-header message">
-        Messages
+        Messages From Me
     </div>
     <div class="card-body">
 
@@ -8,22 +8,43 @@
             <tr>
                 <th>Message</th>
                 <th>Text</th>
-                <th>Author</th>
+                <th>From</th>
+                <th>To</th>
             </tr>
 
-            {% for message in object.messages %}
+            {% for message in messages_from %}
             <tr>
                 <td><a href="/message/{{ message.pk }}">{{ message.title }}</a></td>
                 <td>{{ message.text }}</td>
                 <td><a href="/person/{{ message.author.pk }}">{{ message.author.name }}</a></td>
+                <td>{{ message.recipient.name }}</td>
             </tr>
             {% endfor %}
 
-            {% for message in messages %}
+        </table>
+
+        <a class="btn message" href="/message/add">Add Message</a>
+    </div>
+
+    <div class="card-header message">
+        Messages To Me
+    </div>
+    <div class="card-body">
+
+        <table class="table table-hover">
+            <tr>
+                <th>Message</th>
+                <th>Text</th>
+                <th>From</th>
+                <th>To</th>
+            </tr>
+
+            {% for message in messages_to %}
             <tr>
                 <td><a href="/message/{{ message.pk }}">{{ message.title }}</a></td>
                 <td>{{ message.text }}</td>
                 <td><a href="/person/{{ message.author.pk }}">{{ message.author.name }}</a></td>
+                <td>{{ message.recipient.name }}</td>
             </tr>
             {% endfor %}
 

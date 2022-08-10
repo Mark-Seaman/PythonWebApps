@@ -1,0 +1,506 @@
+[
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 4,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 4,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 4,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 4,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 5,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 6,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add person",
+        "content_type": 7,
+        "codename": "add_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change person",
+        "content_type": 7,
+        "codename": "change_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete person",
+        "content_type": 7,
+        "codename": "delete_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view person",
+        "content_type": 7,
+        "codename": "view_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add message",
+        "content_type": 8,
+        "codename": "add_message"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change message",
+        "content_type": 8,
+        "codename": "change_message"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete message",
+        "content_type": 8,
+        "codename": "delete_message"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view message",
+        "content_type": 8,
+        "codename": "view_message"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$25E78zgbJtwzMuOLJw4Tdk$uyr44ovtPt+DxKa3j8swoOpWJTcB5jJZkKvkp/ocWG4=",
+        "last_login": "2022-08-10T17:59:30.437Z",
+        "is_superuser": false,
+        "username": "seaman",
+        "first_name": "Mark",
+        "last_name": "Seaman",
+        "email": "mark@a.us",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-06-21T14:58:38.595Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$P4LO9dS6RUwMGjDrBCE3jb$0IvGv15WMCCMoWhTAn/AYWutIkq5wTrSU3+Gw1s9fBw=",
+        "last_login": "2022-08-10T16:49:00.829Z",
+        "is_superuser": false,
+        "username": "Hulk",
+        "first_name": "Bruce",
+        "last_name": "Banner",
+        "email": "hulk@a.us",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-10T16:48:17.582Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "messenger",
+        "model": "person"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "messenger",
+        "model": "message"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "pjev0ogwx6wj59zo9w7po6h01rskql3l",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-xl5K-pzB2rUXHEC2lE-FuDtESgHtm5n3Egm3taZt4TlNRZyFFqffjTA_uO2g3LHdusy9rfNEclfkQRc59sLPy-H-HVRc6rcGsFQGg3BFiGaIUIAdKbSZXPDAUeXIymRN7CD4wQajCTU7bZXNPoj3B9zjN04:1oLpzO:b3L3u0k_Lf2qF1VNP5G_1hzAkYO3e8V2bx7NG7pTyY0",
+        "expire_date": "2022-08-24T17:59:30.440Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "rnvnn54sv2xasil8mvnqljompowdi1k2",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-xl5K-pzB2rUXHEC2lE-FuDtESgHtm5n3Egm3taZt4TlNRZyFFqffjTA_uO2g3LHdusy9rfNEclfkQRc59sLPy-H-HVRc6rcGsFQGg3BFiGaIUIAdKbSZXPDAUeXIymRN7CD4wQajCTU7bZXNPoj3B9zjN04:1o4oFs:-LsYnoEV1gMTkMLd5RIarZhYUXBUJCOiOX31iN1EfAg",
+        "expire_date": "2022-07-08T18:42:08.259Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "t5pfims5qzwms7kr88wbv4cf6lkz7p0j",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-xl5K-pzB2rUXHEC2lE-FuDtESgHtm5n3Egm3taZt4TlNRZyFFqffjTA_uO2g3LHdusy9rfNEclfkQRc59sLPy-H-HVRc6rcGsFQGg3BFiGaIUIAdKbSZXPDAUeXIymRN7CD4wQajCTU7bZXNPoj3B9zjN04:1o42nd:YIeyXKWSsgjKFUkythbQlR3NcXcae0B9LJyZvoRv2tU",
+        "expire_date": "2022-07-06T16:01:49.680Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "uihin5zk8cg04aum3pffmv2g55wb135m",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-xl5K-pzB2rUXHEC2lE-FuDtESgHtm5n3Egm3taZt4TlNRZyFFqffjTA_uO2g3LHdusy9rfNEclfkQRc59sLPy-H-HVRc6rcGsFQGg3BFiGaIUIAdKbSZXPDAUeXIymRN7CD4wQajCTU7bZXNPoj3B9zjN04:1o3hO1:PZjvjebpIrJaKBYBNkFoUEGHSbmiSoa0puc9fjr01YY",
+        "expire_date": "2022-07-05T17:09:57.530Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "uqmatj8p5bf1hz6vrtyhm5wl4yky9g8q",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-xl5K-pzB2rUXHEC2lE-FuDtESgHtm5n3Egm3taZt4TlNRZyFFqffjTA_uO2g3LHdusy9rfNEclfkQRc59sLPy-H-HVRc6rcGsFQGg3BFiGaIUIAdKbSZXPDAUeXIymRN7CD4wQajCTU7bZXNPoj3B9zjN04:1oEyoD:w-KHOSjNpiegko2FlJ1YbevtXUxftuIthI2BiQ1Uo9E",
+        "expire_date": "2022-08-05T19:59:37.565Z"
+    }
+},
+{
+    "model": "messenger.person",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "bio": "Author, Teacher, Software Developer, Entrepreneur"
+    }
+},
+{
+    "model": "messenger.person",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "bio": "Big guy"
+    }
+},
+{
+    "model": "messenger.message",
+    "pk": 1,
+    "fields": {
+        "author": 1,
+        "recipient": 1,
+        "title": "The Hulk",
+        "text": "Hulk sighting.  HERE!"
+    }
+},
+{
+    "model": "messenger.message",
+    "pk": 2,
+    "fields": {
+        "author": 1,
+        "recipient": 1,
+        "title": "Iron Man",
+        "text": "Tony Stark is Iron Man"
+    }
+},
+{
+    "model": "messenger.message",
+    "pk": 5,
+    "fields": {
+        "author": 1,
+        "recipient": 1,
+        "title": "Test message",
+        "text": "messaged"
+    }
+},
+{
+    "model": "messenger.message",
+    "pk": 6,
+    "fields": {
+        "author": 1,
+        "recipient": 2,
+        "title": "Hi Bruce",
+        "text": "How is it going?"
+    }
+},
+{
+    "model": "messenger.message",
+    "pk": 7,
+    "fields": {
+        "author": 2,
+        "recipient": 2,
+        "title": "Madness",
+        "text": "I get mad easily."
+    }
+},
+{
+    "model": "messenger.message",
+    "pk": 8,
+    "fields": {
+        "author": 2,
+        "recipient": 1,
+        "title": "Mean and Green",
+        "text": "I'm always angry!"
+    }
+}
+]

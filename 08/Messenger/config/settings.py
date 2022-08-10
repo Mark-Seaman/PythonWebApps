@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     # My apps
-    'accounts',
     'messenger',
 ]
 
@@ -56,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'config.urls'
+ROOT_URLCONF = 'messenger.urls'
 
 LOGIN_REDIRECT_URL = '/'
 

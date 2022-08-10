@@ -8,7 +8,7 @@ from .models import Person
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "account_edit.html"
+    template_name = "registration/edit.html"
     model = User
     fields = ['first_name', 'last_name', 'username', 'email']
     success_url = reverse_lazy('home')
@@ -17,7 +17,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 class UserAddView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
+    template_name = 'registration/add.html'
 
 
 class UserHomeView(RedirectView):

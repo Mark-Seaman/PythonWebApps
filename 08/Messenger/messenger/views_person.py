@@ -44,7 +44,8 @@ class PersonDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
-        kwargs.update(dict(messages=kwargs.get('person').messages))
+        person = kwargs.get('person')
+        kwargs.update(dict(messages_from=person.messages), messages_to=person.messages_received.all())
         return kwargs
 
 
