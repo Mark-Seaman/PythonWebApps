@@ -10,7 +10,18 @@ def build_code():
     # generate_software_planner()
     # generate_course_builder()
     # generate_messenger()
-    generate_blog()
+    # generate_blog()
+    generate_book()
+
+
+def generate_book():
+    project_path = Path('/Users/seaman/Github/PythonWebApps/11')
+    project_name = 'Book'
+    project_app = 'book'
+    project_path = create_new_project(project_path, project_name)
+    generate_data_type(project_path, project_app, 'Author', "author")
+    generate_data_type(project_path, project_app, 'Book', "book")
+    generate_data_type(project_path, project_app, 'Chapter', "chapter")
 
 
 def generate_blog():

@@ -4,37 +4,12 @@ from django.contrib.auth.models import User
 
 
 # --------------------
-# Image
-#
-# chapter - points to chapter object
-# image - URL of saved image
-# title - title text of chapter
-
-
-def get_upload(instance, filename):
-    return f'images/{instance.folder}/{filename}'
-
-
-class Image(models.Model):
-    folder = models.CharField(max_length=100, default='book')
-    image = models.ImageField(null=True, blank=True, upload_to=get_upload)
-    title = models.CharField(max_length=200)
-
-    def __str__(self):
-        return f'{self.title}'
-
-    def get_absolute_url(self):
-        return reverse_lazy('image_list')
-
-
-# --------------------
 # Author
 #
 # user - login credentials for author
 # name - name of author
 
 class Author(models.Model):
-    photo = models.ForeignKey(Image, on_delete=models.CASCADE, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
 
@@ -101,24 +76,3 @@ class Chapter(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('chapter_list')
-
-
-# --------------------
-# Note
-#
-# chapter - points to chapter object
-# author - creator of note
-# title - title text of chapter
-# text - markdown text
-
-class Note(models.Model):
-    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, editable=False)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
-
-    def __str__(self):
-        return f'{self.title} - {self.chapter.order} {self.chapter.book.title}'
-
-    def get_absolute_url(self):
-        return reverse_lazy('note_list')

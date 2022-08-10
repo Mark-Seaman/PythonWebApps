@@ -1,0 +1,20 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+    List of Books
+{% endblock title %}
+
+
+{% block content %}
+
+    <h1>My Books</h1>
+
+    <div class="row">
+
+        {% include 'book/_books.html' %}
+
+    </div>
+
+{% endblock content %}
+

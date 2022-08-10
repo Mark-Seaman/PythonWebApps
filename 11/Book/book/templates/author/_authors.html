@@ -1,7 +1,7 @@
 <div class="card col-lg">
 
-    <div class="card-header author">
-        Authors in Photo Album
+    <div class="card-header message">
+        Author
     </div>
     <div class="card-body">
         <table class="table table-hover">
@@ -12,13 +12,16 @@
 
             {% for author in authors %}
             <tr>
-                <td><a href="/author/{{ author.pk }}">{{ author.name }}</a></td>
-                <td>{{ author.bio }}</td>
-                <td><a href="/author/{{ author.pk }}/">Edit</a></td>
+                <td><a href="/author/{{ author.pk }}">{{ author.title }}</a></td>
+                <td>{{ author.body }}</td>
             </tr>
             {% endfor %}
 
         </table>
+
+        <p>
+            <a href="/author/add" class="btn btn-success m-5">Add New Author</a>
+        </p>
     </div>
 
 </div>

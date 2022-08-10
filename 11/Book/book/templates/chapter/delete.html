@@ -1,0 +1,22 @@
+{% extends 'theme.html' %}
+
+{% block title %}
+Delete Chapter
+{% endblock title %}
+
+
+{% block content %}
+
+    <div class="container m-5">
+
+    <h1 class="text-primary">Delete Chapter</h1>
+
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object.title }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+
+</div>
+
+{% endblock content %}
+
