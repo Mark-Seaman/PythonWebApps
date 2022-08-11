@@ -8,12 +8,16 @@
 
         <table class="table">
             <tr>
-                <td>Title</td>
-                <td><a href="/chapter/{{ object.pk }}/">{{ object.title }}</a></td>
+                <td>Book</td>
+                <td><a href="/book/{{ chapter.book.pk }}">{{ chapter.book.title }}</a></td>
             </tr>
             <tr>
-                <td>Body</td>
-                <td>{{ object.body }}</td>
+                <td>Chapter Title</td>
+                <td><a href="/chapter/{{ object.pk }}/">{{ chapter.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Text Content</td>
+                <td>{{ chapter.text }}</td>
             </tr>
         </table>
 

@@ -17,11 +17,11 @@ class BookDetailView(DetailView):
     model = Book
     context_object_name = 'book'
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     book = kwargs.get('book')
-    #     kwargs['dependents'] = book.dependents
-    #     return kwargs
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        book = kwargs.get('book')
+        kwargs['chapters'] = book.chapters
+        return kwargs
 
 
 class BookCreateView(LoginRequiredMixin, CreateView):

@@ -10,22 +10,19 @@ class ChapterView(RedirectView):
     url = reverse_lazy('chapter_list')
 
 
-class ChapterListView(ListView):
-    template_name = 'chapter/list.html'
-    model = Chapter
-    context_object_name = 'chapters'
+# class ChapterListView(ListView):
+#     template_name = 'chapter/list.html'
+#     model = Chapter
+#     context_object_name = 'chapters'
+
+#     def get_queryset(self):
+#         return super().get_queryset()
 
 
 class ChapterDetailView(DetailView):
     template_name = 'chapter/detail.html'
     model = Chapter
     context_object_name = 'chapter'
-
-    # def get_context_data(self, **kwargs):
-    #     kwargs = super().get_context_data(**kwargs)
-    #     chapter = kwargs.get('chapter')
-    #     kwargs['dependents'] = chapter.dependents
-    #     return kwargs
 
 
 class ChapterCreateView(LoginRequiredMixin, CreateView):
@@ -47,4 +44,8 @@ class ChapterUpdateView(LoginRequiredMixin, UpdateView):
 class ChapterDeleteView(LoginRequiredMixin, DeleteView):
     model = Chapter
     template_name = 'chapter/delete.html'
-    success_url = reverse_lazy('chapter_list')
+    # success_url = reverse_lazy('book_detail')
+
+    def get_success_url(self):
+        chapter = Chapter.objects.get(pk=self.kwargs.get('pk'))
+        return f'/book/{chapter.book.pk}'
