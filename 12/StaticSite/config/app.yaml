@@ -1,0 +1,12 @@
+name: webapps-demo
+region: nyc
+static_sites:
+- environment_slug: html
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: Mark-Seaman/PythonWebApps
+  name: webapps-demo-static
+  routes:
+  - path: /
+  source_dir: 12/StaticSite/Website
