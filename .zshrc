@@ -16,6 +16,7 @@ export p11=$b3/11/Book
 export p12=$b3/12/CourseBuilder
 export p13=$b3/13/CodeBuilder
 export p14=$b3/14/SoftwarePlanner
+export p15=$b3/15/Course
 
 alias p1='cd $p1 && l'
 alias p2='cd $p2 && l'
@@ -31,6 +32,7 @@ alias p11='cd $p11 && l'
 alias p12='cd $p12 && l'
 alias p13='cd $p13 && l'
 alias p14='cd $p14 && l'
+alias p15='cd $p15 && l'
 
 alias e="code"
 alias superuser='pm createsuperuser --no-input  --email "me@here.us"'

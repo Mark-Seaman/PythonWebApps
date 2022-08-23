@@ -8,10 +8,11 @@ from django.shortcuts import render
 def build_code():
     print('build_code()')
     # generate_software_planner()
-    # generate_course_builder()
+    # generate_static_site
+    generate_course()
     # generate_messenger()
     # generate_blog()
-    generate_book()
+    # generate_book()
 
 
 def generate_book():
@@ -44,9 +45,9 @@ def generate_messenger():
     system(f'tree {project_path}')
 
 
-def generate_course_builder():
+def generate_static_site():
     project_path = Path('/Users/seaman/Github/PythonWebApps/12')
-    project_name = 'CourseBuilder'
+    project_name = 'StaticSite'
     project_app = 'course'
     project_path = create_new_project(project_path, project_name)
     # create_new_app(project_path, project_app)
@@ -62,6 +63,15 @@ def generate_software_planner():
     # create_new_app(project_path, project_app)
     # generate_data_type(project_path, project_app, 'Milestone', "milestone")
     generate_data_type(project_path, project_app, 'Task', "task")
+    system(f'tree {project_path}')
+
+
+def generate_course():
+    project_path = Path('/Users/seaman/Github/PythonWebApps/15')
+    project_name = 'Course'
+    project_app = 'course'
+    project_path = create_new_project(project_path, project_name)
+    generate_data_type(project_path, project_app, 'Student', "student")
     system(f'tree {project_path}')
 
 

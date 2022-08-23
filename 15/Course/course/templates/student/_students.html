@@ -1,0 +1,27 @@
+<div class="card col-lg">
+
+    <div class="card-header message">
+        Student
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Student</th>
+                <th>Description</th>
+            </tr>
+
+            {% for student in students %}
+            <tr>
+                <td><a href="/student/{{ student.pk }}">{{ student.title }}</a></td>
+                <td>{{ student.body }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/student/add" class="btn btn-success m-5">Add New Student</a>
+        </p>
+    </div>
+
+</div>
