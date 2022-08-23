@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header  bg-primary text-light">
+        Account Settings
+    </div>
+    <div class="card-body">
+
+        <table class="table">
+            <tr>
+                <td>Student Name</td>
+                <td>
+                    <b><a href="/accounts/{{ object.user.pk }}/">
+                            {{ object.user.first_name }} {{ object.user.last_name }}
+                        </a></b>
+                </td>
+            </tr>
+            <tr>
+                <td>Student Email</td>
+                <td>
+                    <b><a href="/accounts/{{ object.user.pk }}/">
+                            {{ object.user.email }}
+                        </a></b>
+                </td>
+            </tr>
+            <tr>
+                <td>User ID</td>
+                <td>
+                    <b><a href="/accounts/{{ object.user.pk }}/">
+                            {{ object.user.username }}</a></b>
+                </td>
+            </tr>
+
+        </table>
+
+        <a class="btn btn-primary mt-5" href="/accounts/{{ object.user.pk }}/">
+            Edit Account Settings
+        </a>
+
+    </div>
+</div>

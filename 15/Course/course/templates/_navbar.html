@@ -6,16 +6,13 @@
 
         <ul class="navbar-nav text-light ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'person_list' %}">Authors</a>
+                <a class="nav-link text-light" href="{% url 'student_list' %}">Students</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'home' %}">Objects</a>
+                <a class="nav-link text-light" href="{% url 'student_view' %}">My View</a>
             </li>
 
             {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="/admin/">Admin</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link  text-light " href="{% url 'logout' %}">Hello {{ user.username }}</a>
             </li>
@@ -30,7 +27,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'signup' %}">Sign Up</a>
+                <a class="nav-link  text-light " href="{% url 'user_add' %}">Sign Up</a>
             </li>
 
             {% endif %}

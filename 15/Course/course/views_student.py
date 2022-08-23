@@ -1,4 +1,6 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
@@ -7,7 +9,10 @@ from .models import Student
 
 
 class StudentView(RedirectView):
-    url = reverse_lazy('student_list')
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.is_anonymous:
+            return reverse_lazy('student_list')
+        return f'/student/{Student.get_me(self.request.user).pk}'
 
 
 class StudentListView(ListView):
@@ -49,3 +54,16 @@ class StudentDeleteView(LoginRequiredMixin, DeleteView):
     model = Student
     template_name = 'student/delete.html'
     success_url = reverse_lazy('student_list')
+
+
+class UserAddView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/account_add.html'
+
+
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "registration/account_edit.html"
+    model = User
+    fields = ['first_name', 'last_name', 'username', 'email']
+    success_url = reverse_lazy('student_view')

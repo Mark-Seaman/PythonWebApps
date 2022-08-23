@@ -1,7 +1,7 @@
 {% extends 'theme.html' %}
 
 {% block title %}
-    Edit Student
+Edit Student Settings
 {% endblock title %}
 
 
@@ -9,9 +9,14 @@
 
 <div class="container m-5">
 
-    <h1 class="text-primary">Edit Student</h1>
-
-    {% include '_edit.html' %}
+    <div class="row">
+        <div class="col-lg">
+            {% include 'student/_student_edit.html' %}
+        </div>
+        <div class="col-lg">
+            {% include 'student/_account_edit.html' %}
+        </div>
+    </div>
 
 </div>
 

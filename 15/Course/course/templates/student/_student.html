@@ -1,23 +1,22 @@
 <div class="card col-lg">
 
-    <div class="card-header person">
-        Student
-    </div>
-    <div class="card-body">
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td><a href="/student/{{ object.pk }}/">{{ object.name }}</a></td>
+        </tr>
+        <tr>
+            <td>Github</td>
+            <td>{{ object.github }}</td>
+        </tr>
+        <tr>
+            <td>Server</td>
+            <td>{{ object.server }}</td>
+        </tr>
+    </table>
 
-
-        <table class="table">
-            <tr>
-                <td>Title</td>
-                <td><a href="/student/{{ object.pk }}/">{{ object.title }}</a></td>
-            </tr>
-            <tr>
-                <td>Body</td>
-                <td>{{ object.body }}</td>
-            </tr>
-        </table>
-
-
-    </div>
+    <p>
+        <a href="/student/{{ object.pk }}/" class="btn btn-success m-5">Edit Settings</a>
+    </p>
 
 </div>

@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-header bg-primary text-light">
+        Student Profile
+    </div>
+    <div class="card-body">
+
+        {% load crispy_forms_tags %}
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-primary mt-5" type="submit">Save Record</button>
+        </form>
+    </div>
+</div>
