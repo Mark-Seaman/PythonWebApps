@@ -58,8 +58,8 @@ class MessageViewsTest(TestCase):
         self.person = Person.objects.create(user=self.user, bio='single tester')
         self.message1 = dict(author=self.person, recipient=self.person,  title='Doc Title 1', text='Doc Text 1')
         self.message2 = dict(author=self.person, recipient=self.person, title='Doc Title 2', text='Doc Text 2')
-        self.m1 = dict(title='Doc Title 1', text='Doc Text 1')
-        self.m2 = dict(title='Doc Title 2', text='Doc Text 2')
+        self.m1 = dict(recipient=self.person, title='Doc Title 1', text='Doc Text 1')
+        self.m2 = dict(recipient=self.person, title='Doc Title 2', text='Doc Text 2')
 
     def test_message_list_view(self):
         self.assertEqual(reverse('message_list'), '/message/')
