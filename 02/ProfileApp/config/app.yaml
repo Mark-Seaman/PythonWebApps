@@ -16,7 +16,7 @@ services:
   name: pythonwebapps-02-profile-app
   routes:
   - path: /
-  run_command: python manage.py migrate --no-input gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
   source_dir: 02/ProfileApp
 static_sites:
 - environment_slug: html
