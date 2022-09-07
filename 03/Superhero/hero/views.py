@@ -50,11 +50,11 @@ class MegaMind(TemplateView):
 
 
 class SpiderMen(TemplateView):
-    template_name: 'hero.html'
+    template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
         return {
             'title': 'Spider-Men?',
-            'body': 'Why are you pointing at me',
+            'body': 'Whos Who?',
             'image': '/static/images/Spiderman.jpg'
         }
