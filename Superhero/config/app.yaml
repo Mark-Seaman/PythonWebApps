@@ -13,18 +13,18 @@ services:
   http_port: 8080
   instance_count: 1
   instance_size_slug: basic-xxs
-  name: pythonwebapps-02-profile-app
+  name: pythonwebapps-superhero
   routes:
   - path: /
   run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: 02/ProfileApp
+  source_dir: superhero
 static_sites:
 - environment_slug: html
   github:
     branch: main
     deploy_on_push: true
     repo: thejacobhardman/PythonWebApps
-  name: pythonwebapps-02-profile-app-sta
+  name: pythonwebapps-superhero
   routes:
   - path: /static
-  source_dir: 02/ProfileApp/static
+  source_dir: superhero/static
