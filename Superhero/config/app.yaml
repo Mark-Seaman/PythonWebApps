@@ -1,0 +1,30 @@
+envs:
+- key: DISABLE_COLLECTSTATIC
+  scope: RUN_AND_BUILD_TIME
+  value: "1"
+name: hammerhead-app
+region: nyc
+services:
+- environment_slug: python
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: thejacobhardman/PythonWebApps
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: pythonwebapps-02-profile-app
+  routes:
+  - path: /
+  run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  source_dir: 02/ProfileApp
+static_sites:
+- environment_slug: html
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: thejacobhardman/PythonWebApps
+  name: pythonwebapps-02-profile-app-sta
+  routes:
+  - path: /static
+  source_dir: 02/ProfileApp/static
