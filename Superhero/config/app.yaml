@@ -24,7 +24,7 @@ static_sites:
     branch: main
     deploy_on_push: true
     repo: thejacobhardman/PythonWebApps
-  name: pythonwebapps-superhero-app
+  name: pythonwebapps-superhero
   routes:
   - path: /static
   source_dir: superhero/static
