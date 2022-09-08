@@ -19,3 +19,13 @@ class IronManView(TemplateView):
             'id': 'Tony Stark',
             'image': 'static/images/iron_man.jpg'
         }
+
+class BlackWidowView(TemplateView):
+    template_name = 'hero.html'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Black Widow',
+            'id': 'Natasha Romanoff',
+            'image': 'static/images/black_widow.jpg'
+        }
