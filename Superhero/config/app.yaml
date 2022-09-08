@@ -17,7 +17,7 @@ services:
   routes:
   - path: /
   run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: PythonWebApps/Superhero
+  source_dir: Superhero
 static_sites:
 - environment_slug: html
   github:
@@ -27,4 +27,4 @@ static_sites:
   name: pythonwebapps-superhero
   routes:
   - path: /static
-  source_dir: PythonWebApps/Superhero/static
+  source_dir: Superhero/static
