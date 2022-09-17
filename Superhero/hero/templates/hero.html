@@ -1,5 +1,24 @@
-<link href="/static/style.css" rel="stylesheet">
+{% extends 'theme.html' %}
 
-<h1>{{ title }}</h1>
-<p>{{ id }}</p>
-<img src="{{ image }}", alt="{{ image }}", width="300"/>
+{% block content %}
+
+<h3>Hero Detail</h3>
+
+<p>
+    <img class="hero" src="/{{ hero.file }}" alt="{{ hero.id }}">
+</p>
+<p>
+    CAPTION:
+    {% if hero.caption %}
+    {{ hero.caption }}
+    {% else %}
+    No caption
+    {% endif%}
+
+</p>
+<p>
+    FILE PATH: {{ hero.file }}
+</p>
+
+
+{% endblock content %}
