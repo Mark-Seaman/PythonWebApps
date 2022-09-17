@@ -2,23 +2,20 @@
 
 {% block content %}
 
-<h3>Hero Detail</h3>
+<h3>{{ hero.caption }}</h3>
 
 <p>
     <img class="hero" src="/{{ hero.file }}" alt="{{ hero.id }}">
 </p>
-<p>
-    CAPTION:
-    {% if hero.caption %}
-    {{ hero.caption }}
-    {% else %}
-    No caption
-    {% endif%}
 
-</p>
 <p>
-    FILE PATH: {{ hero.file }}
+    STRENGTHS:
+    {{ hero.strengths}}
 </p>
 
+<p>
+    WEAKNESSES:
+    {{ hero.weaknesses}}
+</p>
 
 {% endblock content %}
