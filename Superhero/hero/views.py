@@ -1,21 +1,27 @@
 from pathlib import Path
 from django.views.generic import TemplateView
 
-class HomeView(TemplateView):
-    template_name = 'home.html'
+def hero_list():
+    def hero_details(i, f):
+        caption = f'Caption for Hero {i}' if i == 1 else None
+        return dict(id=i, file=f, caption=caption)
+
+    heroes = Path('static/images').iterdir()
+    heroes = [hero_details(i, f) for i, f in enumerate(heroes)]
+    return heroes
 
 class HeroView(TemplateView):
     template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
-        name = kwargs['name']
-        image = f'\static\images\{name}'
-        return {'photo': image}
+        i = kwargs['id']
+        heroes = hero_list()
+        p = heroes[i]
+        print(p)
+        return dict(hero=p)
 
 class HeroListView(TemplateView):
-    template_name = 'heros.html'
+    template_name = 'heroes.html'
 
     def get_context_data(self, **kwargs):
-        photos = Path('static/images').iterdir()
-        photos = [f for f in photos]
-        return dict(photos=photos)
+        return dict(heroes=hero_list())
