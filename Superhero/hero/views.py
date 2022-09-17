@@ -1,34 +1,21 @@
+from pathlib import Path
 from django.views.generic import TemplateView
 
 class HomeView(TemplateView):
     template_name = 'home.html'
 
-class HulkView(TemplateView):
+class HeroView(TemplateView):
     template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
-        return {
-            'title': 'Hulk',
-            'id': 'Bruce Banner',
-            'image': 'static/images/hulk.jpg'
-        }
+        name = kwargs['name']
+        image = f'\static\images\{name}'
+        return {'photo': image}
 
-class IronManView(TemplateView):
-    template_name = 'hero.html'
+class HeroListView(TemplateView):
+    template_name = 'heros.html'
 
     def get_context_data(self, **kwargs):
-        return {
-            'title': 'Iron Man',
-            'id': 'Tony Stark',
-            'image': 'static/images/iron_man.jpg'
-        }
-
-class BlackWidowView(TemplateView):
-    template_name = 'hero.html'
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Black Widow',
-            'id': 'Natasha Romanoff',
-            'image': 'static/images/black_widow.jpg'
-        }
+        photos = Path('static/images').iterdir()
+        photos = [f for f in photos]
+        return dict(photos=photos)
