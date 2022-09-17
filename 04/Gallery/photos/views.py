@@ -4,12 +4,21 @@ from django.views.generic import TemplateView
 
 def photo_list():
     def photo_details(i, f):
-        caption = f'Caption for Photo {i}' if i == 1 else None
+        caption = f'Bruce Wayne, Rich sad boy' if i == 0 else None
         return dict(id=i, file=f, caption=caption)
 
     photos = Path('static/images').iterdir()
     photos = [photo_details(i, f) for i, f in enumerate(photos)]
     return photos
+
+def photo_list():
+    def photo_details(i, f):
+        caption = f'Bruce Wayne, Rich sad boy' if i == 1 else None
+        return dict(id=i, file=f, caption=caption)
+
+    photos = Path('static/images').iterdir()
+    photos = [photo_details(i, f) for i, f in enumerate(photos)]
+    return photos    
 
 
 class PhotoListView(TemplateView):
