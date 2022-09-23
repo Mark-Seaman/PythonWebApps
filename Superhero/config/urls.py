@@ -1,9 +1,9 @@
-from django.views.generic import RedirectView
+from django.contrib import admin
 from django.urls import path
 from hero.views import HeroView, HeroListView
 
 urlpatterns =  [
-    path('', RedirectView.as_view(url='heroes/')),
-    path('heroes/', HeroListView.as_view()),
-    path('heroes/<int:id>', HeroView.as_view()),
+    path('admin/', admin.site.urls),
+    path('', HeroListView.as_view()),
+    path('<int:pk>', HeroView.as_view()),
 ]
