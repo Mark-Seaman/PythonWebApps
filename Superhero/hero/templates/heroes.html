@@ -2,12 +2,21 @@
 
 {% block content %}
 
-{% for hero in heroes %}
-
-<a href="/heroes/{{ hero.id }}">
-    <img class="hero" src="/{{ hero.file }}" alt="{{ hero.id }}" width="200">
-</a>
-
-{% endfor %}
+<div class="container">
+    <div class="row">
+        {% for hero in object_list %}
+        <div class="card col-4 m-5 p-5 bg-light text-dark">
+            <p>
+                <a href="{{ hero.pk }}">
+                    <b>{{ hero.name }}</b>
+                </a>
+            </p>
+            <p>
+                <img src="{{ hero.image }}" alt="{{ hero.name }}">
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}

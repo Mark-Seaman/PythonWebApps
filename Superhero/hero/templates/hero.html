@@ -2,20 +2,18 @@
 
 {% block content %}
 
-<h3>{{ hero.caption }}</h3>
-
-<p>
-    <img class="hero" src="/{{ hero.file }}" alt="{{ hero.id }}">
-</p>
-
-<p>
-    STRENGTHS:
-    {{ hero.strengths}}
-</p>
-
-<p>
-    WEAKNESSES:
-    {{ hero.weaknesses}}
-</p>
+<div class="container">
+    <div class="card bg-light text-darj m-5 p-5">
+        <h1>
+            {{ hero.name }}
+        </h1>
+        <p>
+            <img src="{{ hero.image }}" alt="{{ hero.name }}">
+        </p>
+        <p>
+            {{ hero.description }}
+        </p>
+    </div>
+</div>
 
 {% endblock content %}
