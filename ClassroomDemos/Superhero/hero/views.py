@@ -1,23 +1,33 @@
+from django.urls import reverse_lazy
 from django.views.generic import TemplateView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+
+from .models import Superhero
 
 
-class HulkView(TemplateView):
-    template_name = 'hero.html'
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Hulk',
-            'id': 'Bruce Banner',
-            'image': '/static/images/hulk.jpg'
-        }
+class HeroListView(ListView):
+    template_name = 'hero/list.html'
+    model = Superhero
 
 
-class IronManView(TemplateView):
-    template_name = 'hero.html'
+class HeroDetailView(DetailView):
+    template_name = 'hero/detail.html'
+    model = Superhero
 
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'IronMan',
-            'id': 'Tony Stark',
-            'image': '/static/images/iron_man.jpg'
-        }
+
+class HeroCreateView(CreateView):
+    template_name = "hero/add.html"
+    model = Superhero
+    fields = '__all__'
+
+
+class HeroUpdateView(UpdateView):
+    template_name = "hero/edit.html"
+    model = Superhero
+    fields = '__all__'
+
+
+class HeroDeleteView(DeleteView):
+    model = Superhero
+    template_name = 'hero/delete.html'
+    success_url = reverse_lazy('hero_list')
