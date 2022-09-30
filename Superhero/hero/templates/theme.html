@@ -12,21 +12,25 @@
 </head>
 
 <body class=" bg-dark text-light">
-    <div class="container">
 
-        <h1 class="header">Superhero Gallery</h1>
+    <header class="bg-primary p-5 mb-5">
+        <h1>Hero Database</h1>
+        <h2>Data Views Application</h2>
+    </header>
 
-        {% block content %}
-        <h2>No Block Defined</h2>
-        {% endblock content %}
+    <div class="container m-5">
+        <div class="card bg-light text-dark p-5">
 
-        <div class="bg-dark text-light">
-            <a href="/" class="btn bg-success text-light m-5">Home</a>
-            <a href="/admin/" class="btn bg-success text-light m-5">Admin Views</a>
+            <h1 class="text-primary text-center">
+                {% block title %}No Title{% endblock title %}
+            </h1>
+
+            {% block content %}
+            <h2>No Block Defined</h2>
+            {% endblock content %}
+
         </div>
-
     </div>
-
 </body>
 
 </html>
