@@ -1,18 +1,26 @@
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Hero
 
-class HeroListView(TemplateView):
-    template_name = 'heroes.html'
+class HeroListView(ListView):
+    template_name = "hero/list.html"
+    model = Hero
 
-    def get_context_data(self, **kwargs):
-        return {
-            'object_list' : Hero.objects.all()
-        }
+class HeroDetailView(DetailView):
+    template_name = "hero/detail.html"
+    model = Hero
 
-class HeroView(TemplateView):
-    template_name = 'hero.html'
+class HeroCreateView(CreateView):
+    template_name = "hero/add.html"
+    model = Hero
+    fields = "__all__"
 
-    def get_context_data(self, **kwargs):
-        return {
-            'hero': Hero.objects.get(pk=kwargs['pk'])
-        }
+class HeroUpdateView(UpdateView):
+    template_name = "hero/edit.html"
+    model = Hero
+    fields = "__all__"
+
+class HeroDeleteView(DeleteView):
+    template_name = "hero/delete.html"
+    model = Hero
+    success_url = reverse_lazy('hero_list')
