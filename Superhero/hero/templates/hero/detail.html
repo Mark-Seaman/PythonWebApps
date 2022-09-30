@@ -1,0 +1,58 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+Hero Details
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="card col-lg">
+
+        <div class="card-header person">
+            HERO
+        </div>
+        <div class="card-body">
+
+
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td><a href="/{{ object.pk }}/">{{ object.name }}</a></td>
+                </tr>
+                <tr>
+                    <td>Identity</td>
+                    <td>{{ object.identity }}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{ object.description }}</td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td><img src="{{ object.image }}" alt="Hero's Image"></td>
+                </tr>
+                <tr>
+                    <td>Strengths:</td>
+                    <td>{{ object.strengths }}</td>
+                </tr>
+                <tr>
+                    <td>Weaknesses:</td>
+                    <td>{{ object.weaknesses }}</td>
+                </tr>
+            </table>
+
+            <p>
+                <a href="/" class="btn btn-success m-5">Home</a>
+                <a href="/add" class="btn btn-success m-5">Add New Hero</a>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}
