@@ -5,14 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Django",
+            "name": "Runserver",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/08/Messenger/manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Django Test",
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/ClassroomDemos/Superhero",
+            "cwd": "${workspaceFolder}/08/Messenger",
             "args": [
-                "runserver",
-                "8001"
+                "test"
             ],
             "django": true,
             "justMyCode": true
