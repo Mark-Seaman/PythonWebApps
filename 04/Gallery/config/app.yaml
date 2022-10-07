@@ -1,35 +1,30 @@
 envs:
-- key: DEBUG
-  scope: RUN_AND_BUILD_TIME
-  value: "True"
 - key: DISABLE_COLLECTSTATIC
   scope: RUN_AND_BUILD_TIME
   value: "1"
-name: webapps-demo
+name: squid-app
 region: nyc
 services:
 - environment_slug: python
   github:
     branch: main
     deploy_on_push: true
-    repo: Mark-Seaman/PythonWebApps
+    repo: ElfazM/PythonWebApps
   http_port: 8080
   instance_count: 1
   instance_size_slug: basic-xxs
-  name: webapps-demo-django
+  name: myapp
   routes:
   - path: /
-  run_command: |
-    python manage.py migrate --no-input
-    gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: 04/Gallery
+  run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  source_dir: 04/Superhero
 static_sites:
 - environment_slug: html
   github:
     branch: main
     deploy_on_push: true
-    repo: Mark-Seaman/PythonWebApps
-  name: webapps-demo-static
+    repo: ElfazM/PythonWebApps
+  name: myapp-static
   routes:
   - path: /static
-  source_dir: 04/Gallery/static
+  source_dir: 04/Superhero/static

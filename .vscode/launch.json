@@ -5,10 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+<<<<<<< HEAD
+=======
+            "name": "Runserver",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/08/Messenger/manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+>>>>>>> 9211d5067e409854f082e7a641a93ff06a5dd7b4
             "name": "Django Test",
             "type": "python",
             "request": "launch",
             "program": "manage.py",
+<<<<<<< HEAD
             "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
             "args": [
                 "test"
@@ -34,9 +49,11 @@
             "request": "launch",
             "program": "manage.py",
             "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
+=======
+            "cwd": "${workspaceFolder}/08/Messenger",
+>>>>>>> 9211d5067e409854f082e7a641a93ff06a5dd7b4
             "args": [
-                "runserver",
-                "8001"
+                "test"
             ],
             "django": true,
             "justMyCode": true
