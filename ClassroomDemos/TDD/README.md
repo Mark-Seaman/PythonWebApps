@@ -24,10 +24,11 @@ Development planning (simple but robust)
 
     Build tests
         SimpleTestCase
-        BlogDataTest
+        BlogTest
         test_django
         test_page
 
+--->
     Blog data model
         Model
         Create
