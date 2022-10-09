@@ -1,4 +1,3 @@
-# from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
@@ -113,11 +112,9 @@ class ArticleViewsTest(TestCase):
         self.login()
         response = self.client.post(reverse("article_add"), self.article1)
         response = self.client.post("/article/1/", self.article2)
-
         self.assertEqual(response.status_code, 302)
         response = self.client.get(response.url)
         article = Article.objects.get(pk=1)
-
         self.assertEqual(article.title, self.article2["title"])
         self.assertEqual(article.body, self.article2["body"])
 
@@ -127,6 +124,12 @@ class ArticleViewsTest(TestCase):
         self.assertEqual(reverse("article_delete", args="1"), "/article/1/delete")
         response = self.client.post("/article/1/delete")
         self.assertEqual(len(Article.objects.all()), 0)
+
+
+class InsecureArticleViewsTest(TestCase):
+    def test_no_security(self):
+        "Only secure views are allowed."
+        pass
 
 
 # def test_article_add_view(self):
@@ -145,7 +148,6 @@ class ArticleViewsTest(TestCase):
 #     self.assertEqual(response.status_code, 302)
 #     response = self.client.get(response.url)
 #     article = Article.objects.get(pk=1)
-
 #     self.assertEqual(article.title, self.article2["title"])
 #     self.assertEqual(article.body, self.article2["body"])
 
