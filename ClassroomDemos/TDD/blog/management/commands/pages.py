@@ -1,8 +1,13 @@
 from django.core.management.base import BaseCommand
-from blog.page import get_web_page
+
+from requests import get
 
 
 class Command(BaseCommand):
+
     def handle(self, *args, **options):
-        get_web_page("https://shrinking-world.com")
-        get_web_page("http://google.com")
+
+        response = get('https://shrinking-world.com')
+        print(response)
+        msg = f'Shrinking World: {len(response.text)} characters'
+        print(msg)
