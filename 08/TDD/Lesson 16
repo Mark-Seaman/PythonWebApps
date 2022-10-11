@@ -1,0 +1,96 @@
+Lesson 16
+
+
+### Create a Blog Project
+
+    Create app structure
+    Create pages script
+    Build tests
+    Blog data model
+    Blog views
+    Blog pages
+
+
+### Create app structure
+
+    mkdir Blog
+    django-admin
+    startproject
+    debug server in VSCode
+    run Django tests in VSCode
+
+
+### Create pages script
+
+    import requests
+
+    get('http://google.com')
+
+    print(get('http://google.com'))
+    print(get('http://shrinking-world.com'))
+
+
+
+### Build management command script
+
+    $ mkdir management
+    $ cd management
+    $ touch __init__.py
+    $ mkdir commands
+    $ cd commands
+    $ touch __init__.py
+
+
+### Build management command script
+
+blog/management/commands/pages.py
+
+    from django.core.management.base import BaseCommand
+
+    class Command(BaseCommand):
+
+        def handle(self, *args, **options):
+            print('my command script')
+
+
+### Run management command script
+
+    $ python manage.py pages
+
+
+### Build tests
+
+    SimpleTestCase
+    BlogDataTest
+    test_django
+    test_page
+
+
+### Blog data 
+
+    Model
+    Create
+    Read
+    Update
+    Delete
+
+
+### Blog views
+
+    TestCase
+    BlogViewTest
+    Home
+    List
+    Detail
+    Add
+    Edit
+    Delete
+
+
+### Blog pages
+
+    requests
+    get
+    check response code
+    check title
+    match regular expression

@@ -5,14 +5,37 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Django",
+            "name": "Django Test",
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/ClassroomDemos/Superhero",
+            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
             "args": [
-                "runserver",
-                "8001"
+                "test"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Get Pages",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
+            "args": [
+                "pages"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Run server",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
+            "args": [
+                "runserver"
             ],
             "django": true,
             "justMyCode": true

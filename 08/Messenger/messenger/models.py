@@ -27,7 +27,8 @@ class Person(models.Model):
 
 
 class Message(models.Model):
-    author = models.ForeignKey(Person, on_delete=models.CASCADE, editable=False, related_name='messages_sent')
+    author = models.ForeignKey(Person, on_delete=models.CASCADE, editable=False,
+                               related_name='messages_sent')
     recipient = models.ForeignKey(Person, on_delete=models.CASCADE,
                                   related_name='messages_received', default='1')
     title = models.CharField(max_length=100)
