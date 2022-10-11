@@ -80,6 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': environ.get('DATABASE_ENGINE'),
         'NAME': environ.get('DATABASE_NAME'),
+        # for running on local server
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
