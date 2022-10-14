@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Django Test",
+            "name": "Django Test",
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/11/Book",
+            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
             "args": [
                 "test"
             ],
@@ -17,14 +17,25 @@
             "justMyCode": true
         },
         {
-            "name": "Python: Django",
+            "name": "Get Pages",
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/11/Book",
+            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
             "args": [
-                "runserver",
-                "8001"
+                "pages"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Run server",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
+            "args": [
+                "runserver"
             ],
             "django": true,
             "justMyCode": true

@@ -28,7 +28,8 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        form.instance.author = Person.get_me(self.request.user)
+        author = Person.objects.get_or_create(user=self.request.user)[0]
+        form.instance.author = author
         return super().form_valid(form)
 
 

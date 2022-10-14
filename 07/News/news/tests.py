@@ -86,7 +86,8 @@ class ArticleViewsTest(TestCase):
         # Login to add
         self.login()
         response = self.client.post(reverse('article_add'), self.article1)
-        response = self.client.post(reverse('article_add'), self.article2)
+        a = dict(author=self.author, title='Doc Title 2', body='Doc Body 2')
+        response = self.client.post(reverse('article_add'), a)
         self.assertEqual(response.status_code, 302)
         response = self.client.get(response.url)
         self.assertEqual(len(Article.objects.all()), 2)

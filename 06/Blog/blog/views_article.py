@@ -19,7 +19,7 @@ class ArticleDetailView(DetailView):
 class ArticleCreateView(CreateView):
     template_name = "article/add.html"
     model = Article
-    fields = '__all__'
+    fields = ['blog', 'title']
 
 
 class ArticleUpdateView(UpdateView):
