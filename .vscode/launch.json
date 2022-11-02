@@ -33,7 +33,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
+            "cwd": "${workspaceFolder}/09/ViewWorkshop",
             "args": [
                 "runserver"
             ],

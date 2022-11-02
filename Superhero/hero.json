@@ -1,0 +1,62 @@
+[
+{
+    "model": "hero.superhero",
+    "pk": 1,
+    "fields": {
+        "name": "She Hulk",
+        "identity": "Jennifer Walters",
+        "description": "Something better",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 2,
+    "fields": {
+        "name": "Thanos",
+        "identity": "Monster",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 5,
+    "fields": {
+        "name": "Iron Man",
+        "identity": "Tony Starks",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 6,
+    "fields": {
+        "name": "Thor",
+        "identity": "Jane Foster",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 7,
+    "fields": {
+        "name": "Dude",
+        "identity": "not me",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    }
+}
+]
