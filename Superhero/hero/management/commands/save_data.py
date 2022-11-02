@@ -1,6 +1,5 @@
 from json import loads
 from json import dump
-from pathlib import Path
 from django.core.management.base import BaseCommand
 
 from hero.models import Superhero
@@ -13,9 +12,10 @@ class Command(BaseCommand):
 
 
 def save_data():
+    # print(Superhero.objects.all().values())
 
-    for hero in Superhero.objects.all().values():
-        print(hero)
+    # for hero in Superhero.objects.all().values():
+    #     print(hero)
 
     data = [b for b in Superhero.objects.all().values()]
 
