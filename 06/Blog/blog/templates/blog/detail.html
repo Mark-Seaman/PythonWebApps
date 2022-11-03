@@ -10,10 +10,31 @@ Blog Details
 
 <div class="row">
 
-    {% include 'blog/_blog.html' %}
+    <div class="card col-lg">
 
-    <!-- {% include 'blog/_blogs.html' %} -->
+        <div class="card-header person">
+            Blog
+        </div>
+        <div class="card-body">
 
+
+            <table class="table">
+                <tr>
+                    <td>Title</td>
+                    <td><a href="/blog/{{ object.pk }}/">{{ object.title }}</a></td>
+                </tr>
+                <tr>
+                    <td>Body</td>
+                    <td>{{ object.body }}</td>
+                </tr>
+            </table>
+
+            <p>
+                <a href="/article/add" class="btn btn-success m-5">Add New Article</a>
+            </p>
+        </div>
+
+    </div>
 </div>
 
 {% endblock content %}

@@ -10,8 +10,28 @@ List of Articles
 
 <div class="row">
 
-    {% include 'article/_articles.html' %}
+    <div class="card col-lg">
 
+        <table class="table table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Text</th>
+            </tr>
+
+            {% for article in articles %}
+            <tr>
+                <td><a href="/article/{{ article.pk }}">{{ article.title }}</a></td>
+                <td>{{ article.body }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/article/add" class="btn btn-success m-5">Add New Article</a>
+        </p>
+
+    </div>
 </div>
 
 {% endblock content %}
