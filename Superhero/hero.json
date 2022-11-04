@@ -6,7 +6,7 @@
         "name": "She Hulk",
         "identity": "Jennifer Walters",
         "description": "Something better",
-        "image": "None",
+        "image": null,
         "strengths": "None",
         "weaknesses": "None"
     }
@@ -18,7 +18,7 @@
         "name": "Thanos",
         "identity": "Monster",
         "description": "None",
-        "image": "None",
+        "image": null,
         "strengths": "None",
         "weaknesses": "None"
     }
@@ -30,7 +30,7 @@
         "name": "Iron Man",
         "identity": "Tony Starks",
         "description": "None",
-        "image": "None",
+        "image": 3,
         "strengths": "None",
         "weaknesses": "None"
     }
@@ -42,7 +42,7 @@
         "name": "Thor",
         "identity": "Jane Foster",
         "description": "None",
-        "image": "None",
+        "image": null,
         "strengths": "None",
         "weaknesses": "None"
     }
@@ -54,9 +54,33 @@
         "name": "Dude",
         "identity": "not me",
         "description": "None",
-        "image": "None",
+        "image": null,
         "strengths": "None",
         "weaknesses": "None"
+    }
+},
+{
+    "model": "photos.photo",
+    "pk": 1,
+    "fields": {
+        "title": "Black Widow",
+        "image": "images/black_widow.jpg"
+    }
+},
+{
+    "model": "photos.photo",
+    "pk": 2,
+    "fields": {
+        "title": "Hulk",
+        "image": "images/hulk.jpg"
+    }
+},
+{
+    "model": "photos.photo",
+    "pk": 3,
+    "fields": {
+        "title": "Iron Man",
+        "image": "images/iron_man.jpg"
     }
 }
 ]
