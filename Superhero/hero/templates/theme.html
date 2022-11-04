@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body class=" bg-dark text-light">
+<body class="bg-dark text-light">
+
+    {% block navbar %}
+    {% include '_navbar.html' %}
+    {% endblock navbar %}
+
 
     <header class="bg-primary p-5 mb-5">
-        <h1>Hero Database</h1>
-        <h2>Data Views Application</h2>
-        <!-- <br>
-        <p>{% if user.is_authenticated %}
-        <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
-        {% else %}
-        <p>Welcome, new user. Please log in.</p>
-        {% endif %}</p> -->
+        <h1>Superhero Tracker</h1>
+        <h2>Super Demo Application</h2>
+
     </header>
 
     <div class="container m-5">

@@ -5,11 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run server",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/Superhero",
+            "args": [
+                "runserver",
+                "8002"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
             "name": "Django Test",
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
+            "cwd": "${workspaceFolder}/Superhero",
             "args": [
                 "test"
             ],
@@ -21,21 +34,9 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/ClassroomDemos/TDD",
+            "cwd": "${workspaceFolder}/Superhero",
             "args": [
                 "pages"
-            ],
-            "django": true,
-            "justMyCode": true
-        },
-        {
-            "name": "Run server",
-            "type": "python",
-            "request": "launch",
-            "program": "manage.py",
-            "cwd": "${workspaceFolder}/09/ViewWorkshop",
-            "args": [
-                "runserver"
             ],
             "django": true,
             "justMyCode": true
