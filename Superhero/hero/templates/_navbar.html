@@ -8,11 +8,16 @@
             <li class="nav-item">
                 <a class="nav-link text-light" href="{% url 'hero_list' %}">Heroes</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'article_list' %}">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'photo_list' %}">Photos</a>
+            </li>
+
 
             {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link  text-light " href="/admin/">Admin</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link  text-light " href="{% url 'logout' %}">Hello {{ user.username }}</a>
             </li>

@@ -11,6 +11,9 @@ urlpatterns = [
     # Hero
     path('', include('hero.urls')),
 
+    # Photo
+    path('', include('photos.urls')),
+
     # Login/Logout code
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/<int:pk>/', UserUpdateView.as_view(), name='account_edit'),
