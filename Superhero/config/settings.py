@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Third-party
     'crispy_forms',
     # My apps
+    'blog',
     'hero',
 ]
 
@@ -57,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'hero.urls'
+ROOT_URLCONF = 'config.urls'
 
 LOGIN_REDIRECT_URL = '/'
 
