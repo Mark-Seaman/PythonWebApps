@@ -1,0 +1,47 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+List of Photos
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>My Photos</h1>
+
+<div class="row">
+
+    <div class="card col-lg">
+
+        <div class="card-header message">
+            Photos
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr>
+                    <th>Photo</th>
+                    <th>URL</th>
+                    <th>Image</th>
+                </tr>
+
+                {% for photo in photos %}
+                <tr>
+                    <td><a href="/photo/{{ photo.pk }}">{{ photo.title }}</a></td>
+                    <td>{{ photo.image }}</td>
+                    <td><img src="/media/{{ photo.image }}" alt="{{ photo.image }}" width="200"></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+            <p>
+                <a href="/photo/add" class="btn btn-success m-5">Add New Photo</a>
+                <a href="/photo/carousel" class="btn btn-success m-5">Carousel</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "She Hulk",
+        "identity": "Jennifer Walters",
+        "description": "Something better",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    },
+    {
+        "id": 2,
+        "name": "Thanos",
+        "identity": "Monster",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    },
+    {
+        "id": 5,
+        "name": "Iron Man",
+        "identity": "Tony Starks",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    },
+    {
+        "id": 6,
+        "name": "Thor",
+        "identity": "Jane Foster",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    },
+    {
+        "id": 7,
+        "name": "Dude",
+        "identity": "not me",
+        "description": "None",
+        "image": "None",
+        "strengths": "None",
+        "weaknesses": "None"
+    }
+]

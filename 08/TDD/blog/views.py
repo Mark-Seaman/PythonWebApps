@@ -23,7 +23,7 @@ class ArticleDetailView(DetailView):
     context_object_name = "article"
 
 
-class ArticleCreateView(LoginRequiredMixin, CreateView):
+class ArticleCreateView(CreateView):
     template_name = "article/add.html"
     model = Article
     fields = "__all__"

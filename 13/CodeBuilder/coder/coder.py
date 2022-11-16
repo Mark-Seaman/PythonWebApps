@@ -9,10 +9,19 @@ def build_code():
     print('build_code()')
     # generate_software_planner()
     # generate_static_site
-    generate_course()
+    # generate_course()
     # generate_messenger()
     # generate_blog()
     # generate_book()
+    generate_hero()
+
+
+def generate_hero():
+    project_path = Path('/Users/seaman/Github/PythonWebApps/')
+    project_name = 'Superhero'
+    project_app = 'hero'
+    project_path = create_new_project(project_path, project_name)
+    generate_data_type(project_path, project_app, 'Superhero', "hero")
 
 
 def generate_book():

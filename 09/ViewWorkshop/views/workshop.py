@@ -20,7 +20,10 @@ def accordion_data():
 
 
 def document_card(document):
-    markdown_text = open(f'Documents/{document}.md').read()
+    d = f'Documents/{document}'
+    if not d.endswith('.md'):
+        d = d + '.md'
+    markdown_text = open(d).read()
     link = dict(href='Index', text='Doc Index')
     return dict(body=markdown(markdown_text), file=document, color='bg-primary text-light p-5', width='', link=link)
 
@@ -84,7 +87,7 @@ def tabs_data():
 
     def create_pane_2():
         data = card_data(title="Doc Files", body='This is a display of **files**')
-        data['cards'] = [document_card('Index')]
+        data['cards'] = [document_card('Index.md')]
         return data
 
     def create_pane_3():
