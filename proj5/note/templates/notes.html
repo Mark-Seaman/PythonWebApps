@@ -1,0 +1,36 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        {% for note in object_list %}
+
+        <div class="card col-4 m-5 p-5  bg-light text-dark ">
+
+            <p>
+                <a href="{{ note.pk }}">
+                    <b>{{ note.title }}</b>
+                </a>
+            </p>
+            <p>
+                {{ note.body }}
+                {{ note.image}}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="bg-dark text-light">
+        <a href="/admin/" class="btn bg-success text-light m-5">Admin Views</a>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

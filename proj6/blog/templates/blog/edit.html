@@ -1,0 +1,26 @@
+{% extends 'theme.html' %}
+
+{% block title %}
+Edit Blog
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="container m-5">
+
+    {% load crispy_forms_tags %}
+
+
+    <form action="" method="post">{% csrf_token %}
+
+        {{ form|crispy }}
+
+        <button class="btn btn-success m-5" type="submit">Save Record</button>
+        <a class="btn btn-success m-5" href="delete">Delete Record</a>
+
+    </form>
+
+</div>
+
+{% endblock content %}

@@ -36,3 +36,25 @@ class BlackWidow(TemplateView):
             'body': 'My name is Natasha Romanova',
             'image': '/static/images/black_widow.jpg'
         }
+
+
+class MegaMind(TemplateView):
+    template_name = 'hero.html'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Mega Mind',
+            'body': 'No maidens?',
+            'image': '/static/images/MegaMindTemplate.jpg'
+        }
+
+
+class SpiderMen(TemplateView):
+    template_name = 'hero.html'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Spider-Men?',
+            'body': 'Whos Who?',
+            'image': '/static/images/Spiderman.jpg'
+        }

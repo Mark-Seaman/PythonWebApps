@@ -1,0 +1,28 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card bg-light text-dark m-5 p-5">
+
+        <h1>
+            {{ note.title }}
+        </h1>
+        <p>
+            {{ note.author }}
+        </p>
+        <p>
+            {{ note.body }}
+        </p>
+
+    </div>
+
+    <div class="bg-dark text-light">
+        <a href="/admin/" class="btn bg-success text-light m-5">Admin Views</a>
+        <a href="/" class="btn bg-success text-light m-5">All Notes</a>
+    </div>
+</div>
+
+
+{% endblock content %}
