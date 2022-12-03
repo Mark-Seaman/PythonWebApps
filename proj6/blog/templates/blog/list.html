@@ -1,0 +1,37 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+List of Blogs
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="card col-lg">
+
+        <table class="table table-hover">
+            <tr>
+                <th>Blog</th>
+                <th>Author</th>
+            </tr>
+
+            {% for blog in blogs %}
+            <tr>
+                <td><a href="/blog/{{ blog.pk }}">{{ blog.title }}</a></td>
+                <td>{{ blog.author }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <p>
+            <a href="/blog/add" class="btn btn-success m-5">Add New Blog</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock content %}
