@@ -1,0 +1,27 @@
+{% extends 'theme.html' %}
+
+
+{% load crispy_forms_tags %}
+
+
+{% block navbar %}
+{% endblock navbar %}
+
+
+{% block content %}
+<div class="container m-5">
+
+    <div class="card p-5">
+        <h2 class="text-primary">Create Account</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form|crispy }}
+
+            <button type="submit" class="btn btn-primary m-5">Create Account</button>
+        </form>
+
+    </div>
+</div>
+{% endblock content %}
