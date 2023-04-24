@@ -13,7 +13,18 @@ def build_code():
     # generate_messenger()
     # generate_blog()
     # generate_book()
-    generate_hero()
+    # generate_hero()
+    generate_prometa()
+
+
+
+
+
+
+def generate_prometa():
+    print('/Users/seaman/Github/ProMETA')
+
+
 
 
 def generate_hero():
