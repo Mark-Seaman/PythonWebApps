@@ -30,6 +30,18 @@
             "justMyCode": true
         },
         {
+            "name": "Quick Test",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/13/CodeBuilder",
+            "args": [
+                "buildcode"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
             "name": "Get Pages",
             "type": "python",
             "request": "launch",

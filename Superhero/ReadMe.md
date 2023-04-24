@@ -154,7 +154,7 @@ the Web Apps course.
     - hero/templates
 
 
-## Project 14 - Building Apps
+## Project 14 - Project Plan
 
 - Features
     - Requirements
