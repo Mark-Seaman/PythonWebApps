@@ -17,14 +17,12 @@ def build_code():
     generate_prometa()
 
 
-
-
-
-
 def generate_prometa():
-    print('/Users/seaman/Github/ProMETA')
-
-
+    project_path = Path('/Users/seaman/Github')
+    project_name = 'ProMETA'
+    project_app = 'register'
+    project_path = create_new_project(project_path, project_name)
+    generate_data_type(project_path, project_app, 'PrometaUser', "user")
 
 
 def generate_hero():
