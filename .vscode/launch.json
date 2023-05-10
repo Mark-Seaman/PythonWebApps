@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/Superhero",
+            "cwd": "${workspaceFolder}/14/SoftwarePlanner",
             "args": [
                 "runserver",
                 "8002"
@@ -22,7 +22,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/Superhero",
+            "cwd": "${workspaceFolder}/14/SoftwarePlanner",
             "args": [
                 "test"
             ],
@@ -34,9 +34,9 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/13/CodeBuilder",
+            "cwd": "${workspaceFolder}/14/SoftwarePlanner",
             "args": [
-                "buildcode"
+                "plan"
             ],
             "django": true,
             "justMyCode": true
@@ -46,7 +46,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/Superhero",
+            "cwd": "${workspaceFolder}/14/SoftwarePlanner",
             "args": [
                 "pages"
             ],

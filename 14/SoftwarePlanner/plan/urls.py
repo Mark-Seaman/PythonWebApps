@@ -1,4 +1,5 @@
 
+from .views_plan import PlanView
 from django.urls import path
 from django.views.generic import RedirectView
 
@@ -7,6 +8,9 @@ from .views_task import TaskDeleteView, TaskDetailView, TaskListView, TaskCreate
 
 
 urlpatterns = [
+
+    # Plan
+    path('', PlanView.as_view(), name='plan'),
 
     # Task
     path('task/',                       TaskListView.as_view(),    name='task_list'),
