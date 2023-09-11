@@ -1,0 +1,26 @@
+body {}
+
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 2em;
+}
+
+h1 {
+    color: green;
+}
+
+h2 {
+    color: dodgerblue;
+    margin-top: 1em;
+}
+
+img {
+    border-radius: 50px;
+    box-shadow: 2px 2px 5px black;
+    margin: 3em;
+    max-width: 80%;
+}
