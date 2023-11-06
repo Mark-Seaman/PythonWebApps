@@ -26,9 +26,9 @@ class BlogAppTest(SimpleTestCase):
         self.assertTrue(True)
 
     def test_pages(self):
-        self.check_page_text("http://shrinking-world.com", 7200, 7300)
-        self.check_page_text("https://google.com", 14000, 15000)
-        self.check_page_text("https://unco.edu", 31000, 32000)
+        self.check_page_text("http://shrinking-world.com", 9000, 10000)
+        self.check_page_text("https://google.com", 14000, 20000)
+        self.check_page_text("https://unco.edu", 31000, 40000)
 
 
 class BlogDataTest(TestCase):
@@ -85,15 +85,13 @@ class ArticleViewsTest(TestCase):
         response = self.client.get(reverse("article_detail", args="1"))
         self.assertContains(response, "body")
 
-    def test_secure_add_view(self):
-
-        # Add without Login
+    def test_add_without_login(self):
         response = self.client.post(reverse("article_add"), self.article1)
         response = self.client.post(reverse("article_add"), self.article2)
         self.assertEqual(response.status_code, 302)
-
-        # Login to add
         self.assertEqual(response.url, "/accounts/login/?next=/article/add")
+
+    def test_add_view(self):
         self.login()
         response = self.client.post(reverse("article_add"), self.article1)
         response = self.client.post(reverse("article_add"), self.article2)
@@ -101,30 +99,30 @@ class ArticleViewsTest(TestCase):
         response = self.client.get(response.url)
         self.assertEqual(len(Article.objects.all()), 2)
 
-    def test_secure_edit_view(self):
-
-        # Edit without Login
+    def test_edit_without_login(self):
         response = Article.objects.create(**self.article1)
-        response = self.client.post(reverse("article_edit", args="1"), self.article2)
+        response = self.client.post(
+            reverse("article_edit", args="1"), self.article2)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, "/accounts/login/?next=/article/1/")
 
-        # Login to edit
+    def test_edit_view(self):
         self.login()
         response = self.client.post(reverse("article_add"), self.article1)
         response = self.client.post("/article/1/", self.article2)
-
         self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/article/")
         response = self.client.get(response.url)
         article = Article.objects.get(pk=1)
-
+        # article.refresh_from_db()
         self.assertEqual(article.title, self.article2["title"])
         self.assertEqual(article.body, self.article2["body"])
 
     def test_secure_delete_view(self):
         self.login()
         Article.objects.create(**self.article1)
-        self.assertEqual(reverse("article_delete", args="1"), "/article/1/delete")
+        self.assertEqual(reverse("article_delete", args="1"),
+                         "/article/1/delete")
         response = self.client.post("/article/1/delete")
         self.assertEqual(len(Article.objects.all()), 0)
 

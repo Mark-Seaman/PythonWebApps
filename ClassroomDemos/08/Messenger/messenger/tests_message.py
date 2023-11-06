@@ -17,9 +17,12 @@ class MessageDataTest(TestCase):
 
     def setUp(self):
         self.user = test_user()
-        self.person = Person.objects.create(user=self.user, bio='single tester')
-        self.message1 = dict(author=self.person, title='Doc Title 1', text='Doc Text 1')
-        self.message2 = dict(author=self.person, title='Doc Title 2', text='Doc Text 2')
+        self.person = Person.objects.create(
+            user=self.user, bio='single tester')
+        self.message1 = dict(author=self.person,
+                             title='Doc Title 1', text='Doc Text 1')
+        self.message2 = dict(author=self.person,
+                             title='Doc Title 2', text='Doc Text 2')
 
     def test_add(self):
         self.assertEqual(len(Message.objects.all()), 0)
@@ -55,9 +58,12 @@ class MessageViewsTest(TestCase):
 
     def setUp(self):
         self.user = test_user()
-        self.person = Person.objects.create(user=self.user, bio='single tester')
-        self.message1 = dict(author=self.person, recipient=self.person,  title='Doc Title 1', text='Doc Text 1')
-        self.message2 = dict(author=self.person, recipient=self.person, title='Doc Title 2', text='Doc Text 2')
+        self.person = Person.objects.create(
+            user=self.user, bio='single tester')
+        self.message1 = dict(author=self.person, recipient=self.person,
+                             title='Doc Title 1', text='Doc Text 1')
+        self.message2 = dict(author=self.person, recipient=self.person,
+                             title='Doc Title 2', text='Doc Text 2')
         # self.m1 = dict(recipient=self.person, title='Doc Title 1', text='Doc Text 1')
         # self.m2 = dict(recipient=self.person, title='Doc Title 2', text='Doc Text 2')
 
@@ -80,8 +86,10 @@ class MessageViewsTest(TestCase):
         self.assertContains(response, 'body')
 
     def test_message_add_view(self):
-        message1 = dict(author=self.person, recipient=self.person,  title='Doc Title 1', text='Doc Text 1')
-        message2 = dict(author=self.person, recipient=self.person,  title='Doc Title 2', text='Doc Text 2')
+        message1 = dict(author=self.person, recipient=self.person,
+                        title='Doc Title 1', text='Doc Text 1')
+        message2 = dict(author=self.person, recipient=self.person,
+                        title='Doc Title 2', text='Doc Text 2')
 
         # Add without Login
         response = self.client.post(reverse('message_add'), message1)
@@ -102,7 +110,8 @@ class MessageViewsTest(TestCase):
 
         # Edit without Login
         response = Message.objects.create(**self.message1)
-        response = self.client.post(reverse('message_edit', args='1'), self.message2)
+        response = self.client.post(
+            reverse('message_edit', args='1'), self.message2)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/accounts/login/?next=/message/1/')
 
@@ -110,7 +119,7 @@ class MessageViewsTest(TestCase):
         self.login()
         response = self.client.get('/')
         response = self.client.post('/message/1/', self.message2)
-        # self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         # response = self.client.get(response.url)
         # message = Message.objects.get(pk=1)
         # self.assertEqual(message.title, self.message2['title'])
@@ -119,6 +128,7 @@ class MessageViewsTest(TestCase):
     def test_message_delete_view(self):
         self.login()
         Message.objects.create(**self.message1)
-        self.assertEqual(reverse('message_delete', args='1'), '/message/1/delete')
+        self.assertEqual(reverse('message_delete', args='1'),
+                         '/message/1/delete')
         response = self.client.post('/message/1/delete')
         self.assertEqual(len(Message.objects.all()), 0)
