@@ -1,38 +1,60 @@
-envs:
-- key: DEBUG
-  scope: RUN_AND_BUILD_TIME
-  value: "True"
-- key: DISABLE_COLLECTSTATIC
-  scope: RUN_AND_BUILD_TIME
-  value: "1"
-- key: DJANGO_ALLOWED_HOST
-  scope: RUN_AND_BUILD_TIME
-  value: .ondigitalocean.app
-name: webapps-demo
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+databases:
+- engine: PG
+  name: db
+  num_nodes: 1
+  size: db-s-dev-database
+  version: "12"
+name: hammer-app
 region: nyc
 services:
 - environment_slug: python
+  envs:
+  - key: DISABLE_COLLECTSTATIC
+    scope: RUN_AND_BUILD_TIME
+    value: "1"
+  - key: DATABASE_URL
+    scope: RUN_TIME
+    value: ${db.DATABASE_URL}
+  - key: POSTGRES_DB
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.DATABASE}
+  - key: POSTGRES_HOST
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.HOSTNAME}
+  - key: POSTGRES_USER
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.USERNAME}
+  - key: POSTGRES_PASSWORD
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.PASSWORD}
+  - key: POSTGRES_PORT
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.PORT}
   github:
-    branch: main
+    branch: production
     deploy_on_push: true
     repo: Mark-Seaman/PythonWebApps
   http_port: 8080
   instance_count: 1
   instance_size_slug: basic-xxs
-  name: webapps-demo-app
+  name: hammer-app
   routes:
   - path: /
   run_command: |
     python manage.py migrate --no-input
+    python manage.py loaddata hero.json
     gunicorn --worker-tmp-dir /dev/shm config.wsgi
-  source_dir: 09/ViewWorkshop
+  source_dir: /09/ViewWorkshop
 static_sites:
 - environment_slug: html
   github:
-    branch: main
+    branch: production
     deploy_on_push: true
     repo: Mark-Seaman/PythonWebApps
-  name: webapps-demo-static
+  name: hammer-app-static
   routes:
   - path: /static
-  source_dir: 09/ViewWorkshop/static
+  source_dir: /09/ViewWorkshop/static
